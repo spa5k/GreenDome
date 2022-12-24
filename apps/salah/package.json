@@ -1,0 +1,31 @@
+{
+	"name": "@quran/salah",
+	"version": "0.0.0",
+	"description": "",
+	"main": "./src/App.tsx",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"lint": "eslint . --ext .ts,.tsx",
+		"serve": "vite preview"
+	},
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^5.47.0",
+		"@typescript-eslint/parser": "^5.47.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsx-a11y": "^6.6.1",
+		"eslint-plugin-simple-import-sort": "^8.0.0",
+		"solid-js": "^1.6.6"
+	},
+	"devDependencies": {
+		"@quran/tsconfig": "workspace:^0.0.0",
+		"autoprefixer": "^10.4.13",
+		"eslint": "^8.30.0",
+		"eslint-config-custom": "workspace:*",
+		"postcss": "^8.4.20",
+		"tailwindcss": "^3.2.4",
+		"typescript": "^4.9.4",
+		"vite": "^4.0.3",
+		"vite-plugin-solid": "^2.5.0"
+	}
+}

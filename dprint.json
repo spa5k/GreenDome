@@ -1,0 +1,35 @@
+{
+	"excludes": [
+		"**/node_modules",
+		"**/*-lock.json",
+		"**/.next",
+		"**/.turbo",
+		"**/dist",
+		"pnpm-lock.yaml",
+		"**/target"
+	],
+	"exec": {
+		"associations": "**/*.{rs}",
+		"rustfmt": "rustfmt --edition 2021",
+		"rustfmt.associations": "**/*.rs"
+	},
+	"includes": ["**/*.{ts,tsx,js,jsx,cjs,mjs,json,md,toml,rs}"],
+	"incremental": true,
+	"indentWidth": 2,
+	"json": {},
+	"lineWidth": 160,
+	"markdown": {},
+	"plugins": [
+		"https://plugins.dprint.dev/typescript-0.79.0.wasm",
+		"https://plugins.dprint.dev/json-0.17.0.wasm",
+		"https://plugins.dprint.dev/markdown-0.15.1.wasm",
+		"https://plugins.dprint.dev/toml-0.5.4.wasm",
+		"https://plugins.dprint.dev/exec-0.3.3.json@3030ede7ad262ae29bed411459558aeb95a01a4056ee91068f3b8f64d97388f2"
+	],
+	"toml": {},
+	"typescript": {
+		"quoteStyle": "preferSingle",
+		"semiColons": "always"
+	},
+	"useTabs": true
+}

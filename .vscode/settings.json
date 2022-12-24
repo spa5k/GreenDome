@@ -1,0 +1,9 @@
+{
+	"conventionalCommits.scopes": ["main"],
+	"editor.defaultFormatter": "dprint.dprint",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	}
+}
