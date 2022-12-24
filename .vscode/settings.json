@@ -1,5 +1,5 @@
 {
-	"conventionalCommits.scopes": ["main"],
+	"conventionalCommits.scopes": ["main", "docs"],
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {

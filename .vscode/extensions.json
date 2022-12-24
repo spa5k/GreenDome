@@ -1,3 +1,7 @@
 {
-	"recommendations": ["dbaeumer.vscode-eslint", "dprint.dprint"]
+	"recommendations": [
+		"dbaeumer.vscode-eslint",
+		"dprint.dprint",
+		"tauri-apps.tauri-vscode"
+	]
 }
