@@ -16,6 +16,7 @@
 		"salah": "pnpm --filter=./apps/salah",
 		"tarteel": "pnpm --filter=./apps/tarteel",
 		"tanzil:dev": "cargo tauri dev",
+		"scraper": "pnpm --filter=./packages/scraper",
 		"test": "turbo run test"
 	},
 	"devDependencies": {

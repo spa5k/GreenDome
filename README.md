@@ -12,6 +12,8 @@
 
 5. run `pnpm install`
 
+6. run `cargo install tauri-cli`
+
 ## 2. How to run
 
 ### Run apps separately.

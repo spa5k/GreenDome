@@ -5,6 +5,7 @@
 	"files": [
 		"base.json",
 		"nextjs.json",
-		"vite.json"
+		"vite.json",
+		"simple.json"
 	]
 }

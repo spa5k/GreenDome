@@ -1,0 +1,8 @@
+{
+	"extends": "@quran/tsconfig/simple.json",
+	"include": ["**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"],
+	"ts-node": {
+		"swc": true
+	}
+}
