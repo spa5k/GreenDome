@@ -1,5 +1,22 @@
 # Quran
 
+## INFO -
+
+### TS Based
+
+1. Mushaf - quran page display
+2. Salah - salah timings
+3. Tanzil	- main quran app interacting with tauri
+4. Tarteel - recitation of verses
+5. Scraper - related to getting data from various apis. Need better name
+6. eslint-config-custom - global eslint config
+7. tsconfig - global tsconfig
+
+## Rust Based
+
+1. Iqra - Tauri backend
+2. Sheikh - Related to managing database and data.
+
 ## 1. Instructions to prepare
 
 1. Install rust.
