@@ -8,14 +8,13 @@
 2. Salah - salah timings
 3. Tanzil	- main quran app interacting with tauri
 4. Tarteel - recitation of verses
-5. Scraper - related to getting data from various apis. Need better name
+5. Sheikh - related to getting data from various apis. Need better name
 6. eslint-config-custom - global eslint config
 7. tsconfig - global tsconfig
 
-## Rust Based
+### Rust Based
 
 1. Iqra - Tauri backend
-2. Sheikh - Related to managing database and data.
 
 ## 1. Instructions to prepare
 

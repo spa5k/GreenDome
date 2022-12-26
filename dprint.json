@@ -32,5 +32,5 @@
 		"semiColons": "always"
 	},
 	"useTabs": true,
-	"newLineKind": "crlf"
+	"newLineKind": "auto"
 }
