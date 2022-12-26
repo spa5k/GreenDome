@@ -27,6 +27,7 @@ tracing-appender = '0.2'
 tracing-bunyan-formatter = '0.3'
 tracing-log = '0.1'
 tracing-subscriber = { version = '0.3', features = ['env-filter', 'std'] }
+tauri = { version = "1.2.3", features = [] }
 
 [features]
 # by default Tauri runs in production mode
