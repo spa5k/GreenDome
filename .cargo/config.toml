@@ -1,2 +1,2 @@
 [alias]
-sheikh = "run -p sheikh --"
+iqra = "run -p iqra --"

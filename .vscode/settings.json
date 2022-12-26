@@ -5,5 +5,7 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true
-	}
+	},
+	"javascript.preferences.importModuleSpecifierEnding": "js",
+	"typescript.preferences.importModuleSpecifierEnding": "js"
 }
