@@ -1,11 +1,14 @@
 {
+	"[toml]": {
+		"editor.defaultFormatter": "dprint.dprint"
+	},
 	"conventionalCommits.scopes": ["main", "docs", "database"],
-	"editor.defaultFormatter": "dprint.dprint",
-	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true
 	},
+	"editor.defaultFormatter": "dprint.dprint",
+	"editor.formatOnSave": true,
 	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"typescript.preferences.importModuleSpecifierEnding": "js"
 }
