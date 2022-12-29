@@ -2,6 +2,9 @@
 	"[toml]": {
 		"editor.defaultFormatter": "dprint.dprint"
 	},
+	"[typescript]": {
+		"editor.defaultFormatter": "dprint.dprint"
+	},
 	"conventionalCommits.scopes": ["main", "docs", "database"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,

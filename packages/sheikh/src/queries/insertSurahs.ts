@@ -14,9 +14,7 @@ export const insertSurahs = async (surahs: Chapter[]) => {
 			ayahStart: ayahStart,
 			pageEnd,
 			pageStart,
-			nameTranslatedEn: surah.translatedName.name,
 			type: surah.revelationPlace,
-			name: surah.nameArabic,
 			bismillahPre: surah.bismillahPre ? 'true' : 'false',
 			id: surah.id,
 			nameArabic: surah.nameArabic,
@@ -24,6 +22,7 @@ export const insertSurahs = async (surahs: Chapter[]) => {
 			nameSimple: surah.nameSimple,
 			revelationOrder: surah.revelationOrder,
 		};
+		console.log(final);
 		await db.insertInto('surahs').values(final).execute();
 		ayahStart = ayahEnd;
 	}
