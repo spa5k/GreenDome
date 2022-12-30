@@ -1,7 +1,8 @@
 import { getSurahList } from '@quran/deen';
 import type { Component } from 'solid-js';
 
-await getSurahList();
+const data = await getSurahList();
+
 export const Tanzil: Component = () => {
 	return (
 		<div>
