@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use sqlx::{Column, FromRow, SqlitePool};
+use sqlx::{FromRow, SqlitePool};
 
 use crate::db::DbResult;
 
@@ -29,13 +29,10 @@ pub(crate) async fn get_surahs(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
     let mut surah_vector = SurahVector { surah: Vec::new() };
 
     for surah in rows {
-        println!("{:?}", surah);
         surah_vector.surah.push(Surahs {
             name_simple: surah.name_simple,
             id: surah.id,
         })
     }
-    // println!("ROWS - {:?}", rows);
-
     Ok(surah_vector.surah)
 }

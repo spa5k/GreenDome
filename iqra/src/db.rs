@@ -27,15 +27,11 @@ use sqlx::{
 pub type DbResult<T> = Result<T, Box<dyn std::error::Error>>;
 
 pub(crate) async fn create_sqlite_pool() -> DbResult<SqlitePool> {
-    let db_file_path = env::current_dir()
-        .unwrap()
-        .join("iqra")
-        .join("data")
-        .join("quran.db");
+    let db_file_path = env::current_dir().unwrap().join("data").join("quran.db");
 
     let connection_options = SqliteConnectOptions::from_str(db_file_path.to_str().unwrap())?
         .create_if_missing(true)
-        .journal_mode(SqliteJournalMode::Wal)
+        .journal_mode(SqliteJournalMode::Off)
         .synchronous(SqliteSynchronous::Normal);
 
     let sqlite_pool = SqlitePoolOptions::new()

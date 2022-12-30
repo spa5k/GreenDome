@@ -26,9 +26,9 @@ class GetSurahQuranApi extends Surah {
 const tauri = true;
 
 export const getSurahList = async () => {
-	await invoke('get_surah');
 	let data: any;
-	invoke('surah_list').then((message: any) => console.log(message));
+	const data1 = await invoke('get_surah');
+	console.log(data1);
 
 	if (tauri) {
 		const api = new GetSurahTauriApi();

@@ -21,9 +21,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     use tauri::async_runtime::block_on;
 
     dotenv().ok();
-    for (key, value) in env::vars() {
-        println!("{}: {}", key, value);
-    }
 
     LogTracer::init().expect("Unable to setup log tracer!");
     let app_name = concat!(env!("CARGO_PKG_NAME"), "-", env!("CARGO_PKG_VERSION")).to_string();

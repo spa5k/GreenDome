@@ -15,10 +15,11 @@
 		"sheikh": "pnpm --filter=./packages/sheikh",
 		"tanzil": "pnpm --filter=./tanzil",
 		"tanzil:dev": "cargo tauri dev",
-		"test": "turbo run test"
+		"test": "turbo run test",
+		"tauri": "tauri"
 	},
 	"devDependencies": {
-		"@tauri-apps/api": "^1.2.0",
+		"@tauri-apps/cli": "^1.2.2",
 		"dprint": "^0.34.1",
 		"husky": "^8.0.2",
 		"turbo": "^1.6.3"
