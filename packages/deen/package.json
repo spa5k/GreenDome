@@ -1,14 +1,13 @@
 {
-	"name": "@quran/sheikh",
-	"version": "1.0.0",
+	"name": "@quran/deen",
+	"version": "0.0.0",
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "ts-node-esm src/index.ts",
 		"lint": "eslint . --ext .ts,.tsx"
 	},
 	"dependencies": {
-		"better-sqlite3": "^8.0.1",
-		"kysely": "^0.23.3",
+		"@tauri-apps/api": "^1.2.0",
 		"ohmyfetch": "^0.4.21"
 	},
 	"devDependencies": {
@@ -23,7 +22,6 @@
 		"eslint-config-custom": "workspace:^0.0.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-simple-import-sort": "^8.0.0",
-		"kysely-codegen": "^0.8.0",
 		"regenerator-runtime": "^0.13.11",
 		"ts-node": "^10.9.1",
 		"tslib": "^2.4.1",

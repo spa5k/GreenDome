@@ -7,19 +7,19 @@
 	"author": "",
 	"scripts": {
 		"build": "turbo run build",
+		"deen": "pnpm --filter=./packages/deen",
 		"dev": "turbo run dev",
 		"format": "dprint fmt",
 		"lint": "turbo run lint",
-		"mushaf": "pnpm --filter=./apps/mushaf",
 		"prepare": "husky install",
-		"salah": "pnpm --filter=./apps/salah",
 		"sheikh": "pnpm --filter=./packages/sheikh",
-		"tanzil": "pnpm --filter=./apps/tanzil",
+		"tanzil": "pnpm --filter=./tanzil",
 		"tanzil:dev": "cargo tauri dev",
-		"tarteel": "pnpm --filter=./apps/tarteel",
-		"test": "turbo run test"
+		"test": "turbo run test",
+		"tauri": "tauri"
 	},
 	"devDependencies": {
+		"@tauri-apps/cli": "^1.2.2",
 		"dprint": "^0.34.1",
 		"husky": "^8.0.2",
 		"turbo": "^1.6.3"

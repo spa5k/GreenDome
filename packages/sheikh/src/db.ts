@@ -3,9 +3,11 @@ import { CamelCasePlugin, Kysely, SqliteDialect } from 'kysely';
 import { DB } from 'kysely-codegen';
 import path from 'path';
 
-const dbpath = path.resolve('src', 'data', 'quran.db');
-console.log(dbpath);
-const sqlite = new Database(dbpath);
+// lol
+const dbpath = path.resolve();
+const root = path.resolve(dbpath, '../', '../', './iqra', './data', 'quran.db');
+
+const sqlite = new Database(root);
 
 export const db = new Kysely<DB>({
 	dialect: new SqliteDialect({

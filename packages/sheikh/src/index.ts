@@ -1,9 +1,8 @@
-import { downloadSurahList } from './fetchers/chapters.js';
-import { insertSurahs } from './queries/insertSurahs.js';
+import { db } from './db.js';
 
 const main = async () => {
-	const data = await downloadSurahList();
-	insertSurahs(data.chapters);
-	// console.log(data);
+	// const data = await downloadSurahList();
+	// await insertSurahs(data.chapters);
+	await db;
 };
 await main();
