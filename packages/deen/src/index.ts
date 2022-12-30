@@ -1,4 +1,4 @@
-import { invoke } from '@tauri-apps/api';
+import { invoke } from '@tauri-apps/api/tauri';
 import { SurahList } from './types/SurahList.js';
 
 abstract class Surah {
@@ -26,6 +26,7 @@ class GetSurahQuranApi extends Surah {
 const tauri = true;
 
 export const getSurahList = async () => {
+	await invoke('get_surah');
 	let data: any;
 	invoke('surah_list').then((message: any) => console.log(message));
 

@@ -2,24 +2,24 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-use anyhow::{Ok, Result};
-use db::{setup_db, DbPool};
+use tauri::Manager;
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 use tracing_log::LogTracer;
 use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
 
-use crate::commands::get_surah_list::surah_list;
-
-use std::{env, sync::Mutex};
+use std::env;
 
 mod commands;
 mod db;
+mod queries;
+
 use dotenvy::dotenv;
 
-struct Note(Mutex<DbPool>);
+use crate::commands::get_surah_list::get_surah;
 
-#[tokio::main]
-async fn main() -> Result<()> {
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    use tauri::async_runtime::block_on;
+
     dotenv().ok();
     for (key, value) in env::vars() {
         println!("{}: {}", key, value);
@@ -34,12 +34,16 @@ async fn main() -> Result<()> {
         .with(JsonStorageLayer)
         .with(bunyan_formatting_layer);
 
-    let db_pool = setup_db().await?;
+    let sqlite_pool = block_on(db::create_sqlite_pool())?;
 
     tracing::subscriber::set_global_default(subscriber).unwrap();
+
     tauri::Builder::default()
-        .manage(Note(db_pool.into()))
-        .invoke_handler(tauri::generate_handler![surah_list])
+        .invoke_handler(tauri::generate_handler![get_surah])
+        .setup(|app| {
+            app.manage(sqlite_pool);
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
     Ok(())

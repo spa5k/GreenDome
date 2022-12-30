@@ -4,10 +4,12 @@ importers:
 
   .:
     specifiers:
+      '@tauri-apps/api': ^1.2.0
       dprint: ^0.34.1
       husky: ^8.0.2
       turbo: ^1.6.3
     devDependencies:
+      '@tauri-apps/api': 1.2.0
       dprint: 0.34.1
       husky: 8.0.2
       turbo: 1.6.3
@@ -923,7 +925,6 @@ packages:
   /@tauri-apps/api/1.2.0:
     resolution: {integrity: sha512-lsI54KI6HGf7VImuf/T9pnoejfgkNoXveP14pVV7XarrQ46rOejIVJLFqHI9sRReJMGdh2YuCoI3cc/yCWCsrw==}
     engines: {node: '>= 14.6.0', npm: '>= 6.6.0', yarn: '>= 1.19.1'}
-    dev: false
 
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
