@@ -1,7 +1,4 @@
 module.exports = {
-	rules: {
-		'no-console': 'error',
-	},
 	parser: '@typescript-eslint/parser',
 	plugins: [
 		'solid',

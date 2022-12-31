@@ -1,1 +1,1 @@
-pub mod get_surah_list;
+pub mod surah;

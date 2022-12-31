@@ -5,7 +5,7 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "dprint.dprint"
 	},
-	"conventionalCommits.scopes": ["main", "docs", "database"],
+	"conventionalCommits.scopes": ["main", "docs", "database", "tanzil", "deps"],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true
@@ -13,5 +13,6 @@
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.formatOnSave": true,
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"typescript.preferences.importModuleSpecifierEnding": "js"
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"typescript.preferences.importModuleSpecifier": "non-relative"
 }

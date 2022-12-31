@@ -13,4 +13,13 @@ module.exports = {
 			},
 		},
 	},
+	rules: {
+		'no-restricted-imports': [
+			'error',
+			{
+				patterns: ['@/features/*/*'],
+			},
+		],
+		'import/no-unresolved': 'off',
+	},
 };

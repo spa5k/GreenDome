@@ -15,7 +15,7 @@ mod queries;
 
 use dotenvy::dotenv;
 
-use crate::commands::get_surah_list::get_surah;
+use crate::commands::surah::{get_surah, get_surahs};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     use tauri::async_runtime::block_on;
@@ -33,10 +33,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let sqlite_pool = block_on(db::create_sqlite_pool())?;
 
+    let sqlite_pool = block_on(db::create_sqlite_pool())?;
+
     tracing::subscriber::set_global_default(subscriber).unwrap();
 
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_surah])
+        .invoke_handler(tauri::generate_handler![get_surahs, get_surah])
         .setup(|app| {
             app.manage(sqlite_pool);
             Ok(())

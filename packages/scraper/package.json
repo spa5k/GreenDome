@@ -1,10 +1,11 @@
 {
-	"name": "@quran/sheikh",
+	"name": "@quran/scraper",
 	"version": "1.0.0",
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "ts-node-esm src/index.ts",
-		"lint": "eslint . --ext .ts,.tsx"
+		"lint": "eslint . --ext .ts,.tsx",
+		"codegen": "npx kysely-codegen --camel-case"
 	},
 	"dependencies": {
 		"better-sqlite3": "^8.0.1",
@@ -19,7 +20,7 @@
 		"@types/node": "^18.11.18",
 		"@typescript-eslint/eslint-plugin": "^5.47.1",
 		"@typescript-eslint/parser": "^5.47.1",
-		"eslint": "^8.30.0",
+		"eslint": "^8.31.0",
 		"eslint-config-custom": "workspace:^0.0.0",
 		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-simple-import-sort": "^8.0.0",
