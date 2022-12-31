@@ -1,6 +1,5 @@
 import { SurahApi } from '@/features/index.js';
 import type { Component } from 'solid-js';
-
 const data = new SurahApi();
 console.log(await data.getSurahs());
 console.log(await data.getSurah(1));

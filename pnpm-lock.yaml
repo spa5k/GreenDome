@@ -14,6 +14,45 @@ importers:
       husky: 8.0.2
       turbo: 1.6.3
 
+  packages/deen:
+    specifiers:
+      '@quran/tsconfig': workspace:^0.0.0
+      '@swc/core': ^1.3.24
+      '@swc/helpers': ^0.4.14
+      '@tauri-apps/api': ^1.2.0
+      '@types/better-sqlite3': ^7.6.3
+      '@types/node': ^18.11.18
+      '@typescript-eslint/eslint-plugin': ^5.47.1
+      '@typescript-eslint/parser': ^5.47.1
+      eslint: ^8.31.0
+      eslint-config-custom: workspace:^0.0.0
+      eslint-plugin-import: ^2.26.0
+      eslint-plugin-simple-import-sort: ^8.0.0
+      ohmyfetch: ^0.4.21
+      regenerator-runtime: ^0.13.11
+      ts-node: ^10.9.1
+      tslib: ^2.4.1
+      typescript: ^4.9.4
+    dependencies:
+      '@tauri-apps/api': 1.2.0
+      ohmyfetch: 0.4.21
+    devDependencies:
+      '@quran/tsconfig': link:../tsconfig
+      '@swc/core': 1.3.24
+      '@swc/helpers': 0.4.14
+      '@types/better-sqlite3': 7.6.3
+      '@types/node': 18.11.18
+      '@typescript-eslint/eslint-plugin': 5.47.1_axni7f4fgvh6tlufnh6hwgsifq
+      '@typescript-eslint/parser': 5.47.1_iukboom6ndih5an6iafl45j2fe
+      eslint: 8.31.0
+      eslint-config-custom: link:../eslint-config-custom
+      eslint-plugin-import: 2.26.0_ejk3zt536nc2nr7uicalblhboi
+      eslint-plugin-simple-import-sort: 8.0.0_eslint@8.31.0
+      regenerator-runtime: 0.13.11
+      ts-node: 10.9.1_wiov2xnxutssp33bmsvup4kx3q
+      tslib: 2.4.1
+      typescript: 4.9.4
+
   packages/eslint-config-custom:
     specifiers:
       '@typescript-eslint/parser': ^5.47.1
