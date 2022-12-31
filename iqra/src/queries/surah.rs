@@ -43,3 +43,21 @@ pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
     }
     Ok(surah_vector.surah)
 }
+
+pub(crate) async fn get_one_surah(pool: &SqlitePool, number: i32) -> DbResult<Surahs> {
+    const SQL1: &str = "SELECT * FROM surahs where id = ?";
+    let surah: Surahs = sqlx::query_as(SQL1).bind(number).fetch_one(pool).await?;
+
+    Ok(Surahs {
+        name_simple: surah.name_simple,
+        id: surah.id,
+        ayah_end: surah.ayah_end,
+        ayah_start: surah.ayah_start,
+        bismillah_pre: surah.bismillah_pre,
+        name_arabic: surah.name_arabic,
+        name_complex: surah.name_complex,
+        page_end: surah.page_end,
+        page_start: surah.page_start,
+        revelation_order: surah.revelation_order,
+    })
+}

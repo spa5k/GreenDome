@@ -14,45 +14,6 @@ importers:
       husky: 8.0.2
       turbo: 1.6.3
 
-  packages/deen:
-    specifiers:
-      '@quran/tsconfig': workspace:^0.0.0
-      '@swc/core': ^1.3.24
-      '@swc/helpers': ^0.4.14
-      '@tauri-apps/api': ^1.2.0
-      '@types/better-sqlite3': ^7.6.3
-      '@types/node': ^18.11.18
-      '@typescript-eslint/eslint-plugin': ^5.47.1
-      '@typescript-eslint/parser': ^5.47.1
-      eslint: ^8.30.0
-      eslint-config-custom: workspace:^0.0.0
-      eslint-plugin-import: ^2.26.0
-      eslint-plugin-simple-import-sort: ^8.0.0
-      ohmyfetch: ^0.4.21
-      regenerator-runtime: ^0.13.11
-      ts-node: ^10.9.1
-      tslib: ^2.4.1
-      typescript: ^4.9.4
-    dependencies:
-      '@tauri-apps/api': 1.2.0
-      ohmyfetch: 0.4.21
-    devDependencies:
-      '@quran/tsconfig': link:../tsconfig
-      '@swc/core': 1.3.24
-      '@swc/helpers': 0.4.14
-      '@types/better-sqlite3': 7.6.3
-      '@types/node': 18.11.18
-      '@typescript-eslint/eslint-plugin': 5.47.1_txmweb6yn7coi7nfrp22gpyqmy
-      '@typescript-eslint/parser': 5.47.1_lzzuuodtsqwxnvqeq4g4likcqa
-      eslint: 8.30.0
-      eslint-config-custom: link:../eslint-config-custom
-      eslint-plugin-import: 2.26.0_smw3o7qjeokkcohbvp7rylsoqq
-      eslint-plugin-simple-import-sort: 8.0.0_eslint@8.30.0
-      regenerator-runtime: 0.13.11
-      ts-node: 10.9.1_wiov2xnxutssp33bmsvup4kx3q
-      tslib: 2.4.1
-      typescript: 4.9.4
-
   packages/eslint-config-custom:
     specifiers:
       '@typescript-eslint/parser': ^5.47.1
@@ -72,7 +33,7 @@ importers:
     devDependencies:
       typescript: 4.9.4
 
-  packages/sheikh:
+  packages/scraper:
     specifiers:
       '@quran/tsconfig': workspace:^0.0.0
       '@swc/core': ^1.3.24
@@ -120,8 +81,8 @@ importers:
 
   tanzil:
     specifiers:
-      '@quran/deen': workspace:^0.0.0
       '@quran/tsconfig': workspace:^0.0.0
+      '@tauri-apps/api': ^1.2.0
       '@typescript-eslint/eslint-plugin': ^5.47.1
       '@typescript-eslint/parser': ^5.47.1
       autoprefixer: ^10.4.13
@@ -137,7 +98,7 @@ importers:
       vite: ^4.0.3
       vite-plugin-solid: ^2.5.0
     dependencies:
-      '@quran/deen': link:../packages/deen
+      '@tauri-apps/api': 1.2.0
       solid-js: 1.6.6
     devDependencies:
       '@quran/tsconfig': link:../packages/tsconfig

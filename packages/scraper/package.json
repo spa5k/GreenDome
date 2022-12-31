@@ -1,10 +1,11 @@
 {
-	"name": "@quran/sheikh",
+	"name": "@quran/scraper",
 	"version": "1.0.0",
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "ts-node-esm src/index.ts",
-		"lint": "eslint . --ext .ts,.tsx"
+		"lint": "eslint . --ext .ts,.tsx",
+		"codegen": "npx kysely-codegen --camel-case"
 	},
 	"dependencies": {
 		"better-sqlite3": "^8.0.1",

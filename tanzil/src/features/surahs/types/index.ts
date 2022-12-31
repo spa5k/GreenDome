@@ -1,13 +1,15 @@
+/* eslint-disable no-prototype-builtins */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // To parse this data:
 //
-//   import { Convert } from "./file";
+//   import { ConvertSurah } from "./file";
 //
-//   const surahList = Convert.toSurahList(json);
+//   const surah = ConvertSurah.toSurah(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface SurahDB {
+export interface Surah {
 	ayahEnd: number;
 	ayahStart: number;
 	bismillahPre: string;
@@ -20,15 +22,46 @@ export interface SurahDB {
 	revelationOrder: number;
 }
 
+export interface SurahQuranAPI {
+	chapters: Chapter[];
+}
+
+export interface Chapter {
+	id: number;
+	revelation_place: RevelationPlace;
+	revelation_order: number;
+	bismillah_pre: boolean;
+	name_simple: string;
+	name_complex: string;
+	name_arabic: string;
+	verses_count: number;
+	pages: number[];
+	translated_name: TranslatedName;
+}
+
+export enum RevelationPlace {
+	Madinah = 'madinah',
+	Makkah = 'makkah',
+}
+
+export interface TranslatedName {
+	language_name: LanguageName;
+	name: string;
+}
+
+export enum LanguageName {
+	English = 'english',
+}
+
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
-export class Convert {
-	public static toSurahList(json: string): Surah[] {
-		return cast(JSON.parse(json), a(r('SurahList')));
+export class ConvertSurah {
+	public static toSurah(json: string): Surah[] {
+		return cast(JSON.parse(json), a(r('Surah')));
 	}
 
-	public static surahListToJson(value: Surah[]): string {
-		return JSON.stringify(uncast(value, a(r('SurahList'))), null, 2);
+	public static surahToJson(value: Surah[]): string {
+		return JSON.stringify(uncast(value, a(r('Surah'))), null, 2);
 	}
 }
 
@@ -70,7 +103,7 @@ function transform(val: any, typ: any, getProps: any, key: any = ''): any {
 			const typ = typs[i];
 			try {
 				return transform(val, typ, getProps);
-			} catch (_) {}
+			} catch (_) { /* empty */ }
 		}
 		return invalidValue(typs, val);
 	}
@@ -151,16 +184,8 @@ function a(typ: any) {
 	return { arrayItems: typ };
 }
 
-function u(...typs: any[]) {
-	return { unionMembers: typs };
-}
-
 function o(props: any[], additional: any) {
 	return { props, additional };
-}
-
-function m(additional: any) {
-	return { props: [], additional };
 }
 
 function r(name: string) {
@@ -168,7 +193,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-	'SurahList': o([
+	'Surah': o([
 		{ json: 'ayah_end', js: 'ayahEnd', typ: 0 },
 		{ json: 'ayah_start', js: 'ayahStart', typ: 0 },
 		{ json: 'bismillah_pre', js: 'bismillahPre', typ: '' },
