@@ -3,7 +3,7 @@ import { Chapter, ConvertSurah, Surah, SurahQuranAPI } from '../types/index.js';
 
 // We can add more functions like getSurah(), getInfo()
 abstract class SurahAbstract {
-	isTauri = window.__TAURI_METADATA__ ? true : false;
+	isTauri = window?.__TAURI_METADATA__ ? true : false;
 	public abstract getSurahs(): Promise<Surah[]>;
 	public abstract getSurah(id: number): Promise<Surah>;
 }
@@ -28,6 +28,7 @@ class TauriApi extends SurahAbstract {
 
 class QuranApi extends SurahAbstract {
 	public async getSurahs(): Promise<Surah[]> {
+		console.log('here');
 		const data: SurahQuranAPI = await (await fetch('https://api.quran.com/api/v4/chapters')).json();
 		const { chapters } = data;
 		return this.formatData(chapters);
