@@ -5,7 +5,14 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "dprint.dprint"
 	},
-	"conventionalCommits.scopes": ["main", "docs", "database", "tanzil", "deps"],
+	"conventionalCommits.scopes": [
+		"main",
+		"docs",
+		"database",
+		"tanzil",
+		"deps",
+		"routing"
+	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true

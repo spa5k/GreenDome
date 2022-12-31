@@ -1,7 +1,16 @@
 /* @refresh reload */
+import { Router, useRoutes } from '@solidjs/router';
 import { render } from 'solid-js/web';
-import './index.css';
+import routes from '~solid-pages';
 
-import { Tanzil } from './App';
-
-render(() => <Tanzil />, document.getElementById('root') as HTMLElement);
+render(
+	() => {
+		const Routes = useRoutes(routes);
+		return (
+			<Router>
+				<Routes />
+			</Router>
+		);
+	},
+	document.getElementById('root') as HTMLElement,
+);

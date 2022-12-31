@@ -6,6 +6,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./src/*"]
-		}
+		},
+		"types": ["vite-plugin-pages/client-solid"]
 	}
 }

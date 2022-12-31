@@ -33,8 +33,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let sqlite_pool = block_on(db::create_sqlite_pool())?;
 
-    let sqlite_pool = block_on(db::create_sqlite_pool())?;
-
     tracing::subscriber::set_global_default(subscriber).unwrap();
 
     tauri::Builder::default()
