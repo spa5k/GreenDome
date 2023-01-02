@@ -32,7 +32,8 @@ pub(crate) async fn create_sqlite_pool() -> DbResult<SqlitePool> {
     let connection_options = SqliteConnectOptions::from_str(db_file_path.to_str().unwrap())?
         .create_if_missing(true)
         .journal_mode(SqliteJournalMode::Off)
-        .synchronous(SqliteSynchronous::Normal);
+        .synchronous(SqliteSynchronous::Normal)
+        .extension("sqlite_zstd");
 
     let sqlite_pool = SqlitePoolOptions::new()
         .connect_with(connection_options)

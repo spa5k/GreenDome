@@ -42,7 +42,7 @@ export enum LanguageName {
 
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
-export class Convert {
+export class ConvertSurah {
 	public static toSurahs(json: string): Surahs {
 		return cast(JSON.parse(json), r('Surahs'));
 	}
