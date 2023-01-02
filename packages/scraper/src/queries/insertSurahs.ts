@@ -26,5 +26,5 @@ export const insertSurahs = async (surahs: Chapter[]) => {
 		await db.insertInto('surahs').values(final).execute();
 		ayahStart = ayahEnd;
 	}
-	console.log("added surah's list");
+	console.log('Surah Added');
 };
