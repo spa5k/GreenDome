@@ -11,7 +11,8 @@
 		"database",
 		"tanzil",
 		"deps",
-		"routing"
+		"routing",
+		"tajweed"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
