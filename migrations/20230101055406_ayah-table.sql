@@ -2,14 +2,12 @@
 create table `ayah_info` (
 	`id` integer not null unique,
 	`surah` integer not null,
-	`ayah` integer not null unique,
-	`number_in_surah` integer not null,
+	`ayah` integer not null,
 	`ayah_key` text not null,
 	`hizb` integer not null,
 	`rub_el_hizb` integer not null,
 	`ruku` integer not null,
 	`manzil` integer not null,
-	`sajdah` integer,
 	`page` integer not null,
 	`juz` integer not null
 );
