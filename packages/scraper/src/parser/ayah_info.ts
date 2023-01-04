@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-empty */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-prototype-builtins */
 // To parse this data:
 //
-//   import { Convert, AyahQuran } from "./file";
+//   import { Convert, AyahQuranAPI } from "./file";
 //
-//   const ayahQuran = Convert.toAyahQuran(json);
+//   const ayahQuranAPI = Convert.toAyahQuranAPI(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface AyahQuran {
+export interface AyahQuranAPI {
 	verses: Verse[];
 	pagination: Pagination;
 }
@@ -39,20 +40,17 @@ export interface Verse {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class ConvertAyah {
-	public static toAyahQuran(json: string): AyahQuran {
-		return cast(JSON.parse(json), r('AyahQuran'));
+	public static toAyahQuranAPI(json: string): AyahQuranAPI {
+		return cast(JSON.parse(json), r('AyahQuranAPI'));
 	}
 
-	public static ayahQuranToJson(value: AyahQuran): string {
-		return JSON.stringify(uncast(value, r('AyahQuran')), null, 2);
+	public static ayahQuranAPIToJson(value: AyahQuranAPI): string {
+		return JSON.stringify(uncast(value, r('AyahQuranAPI')), null, 2);
 	}
 }
 
-function invalidValue(typ: any, val: any, key: any = ''): never {
-	if (key) {
-		throw Error(`Invalid value for key "${key}". Expected type ${JSON.stringify(typ)} but got ${JSON.stringify(val)}`);
-	}
-	throw Error(`Invalid value ${JSON.stringify(val)} for type ${JSON.stringify(typ)}`);
+function invalidValue(typ: any, val: any, _key: any = '') {
+	// lol
 }
 
 function jsonToJSProps(typ: any): any {
@@ -176,7 +174,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-	'AyahQuran': o([
+	'AyahQuranAPI': o([
 		{ json: 'verses', js: 'verses', typ: a(r('Verse')) },
 		{ json: 'pagination', js: 'pagination', typ: r('Pagination') },
 	], false),
