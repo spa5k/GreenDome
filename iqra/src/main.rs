@@ -17,10 +17,19 @@ use dotenvy::dotenv;
 
 use crate::commands::surah::{get_surah, get_surahs};
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    use tauri::async_runtime::block_on;
+use crate::api::Ctx;
 
+mod api;
+#[tauri::command]
+fn greet(name: &str) -> String {
+    format!("Hello, {}! You've been greeted from Rust!", name)
+}
+
+#[tokio::main]
+async fn main() {
     dotenv().ok();
+    let router = api::new().build().arced();
+    router.export_ts("../../tanzil/src/types/rspc.ts").unwrap();
 
     LogTracer::init().expect("Unable to setup log tracer!");
     let app_name = concat!(env!("CARGO_PKG_NAME"), "-", env!("CARGO_PKG_VERSION")).to_string();
@@ -30,18 +39,17 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         .with(EnvFilter::new("INFO"))
         .with(JsonStorageLayer)
         .with(bunyan_formatting_layer);
-
-    let sqlite_pool = block_on(db::create_sqlite_pool())?;
-
     tracing::subscriber::set_global_default(subscriber).unwrap();
 
+    let sqlite_pool = db::create_sqlite_pool().await.unwrap();
+
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_surahs, get_surah])
+        .plugin(rspc::integrations::tauri::plugin(router, || Ctx {}))
+        .invoke_handler(tauri::generate_handler![greet, get_surahs, get_surah])
         .setup(|app| {
             app.manage(sqlite_pool);
             Ok(())
         })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
-    Ok(())
 }
