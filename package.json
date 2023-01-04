@@ -15,6 +15,7 @@
 		"salah": "pnpm --filter=./apps/salah",
 		"sheikh": "pnpm --filter=./packages/sheikh",
 		"tanzil": "pnpm --filter=./tanzil",
+		"tanzil-react": "pnpm --filter=./tanzil-react",
 		"tanzil:dev": "cargo tauri dev",
 		"test": "turbo run test",
 		"tauri": "tauri"

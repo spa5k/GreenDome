@@ -1,12 +1,19 @@
 {
 	"extends": "@quran/tsconfig/vite.json",
-	"include": ["**/*.ts", "**/*.tsx"],
-	"exclude": ["node_modules"],
 	"compilerOptions": {
+		"allowJs": false,
 		"baseUrl": ".",
+		"composite": false,
+		"forceConsistentCasingInFileNames": true,
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"types": ["vite-plugin-pages/client-solid"]
-	}
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"isolatedModules": false,
+		"types": ["vite-plugin-pages/client-react"],
+		"useDefineForClassFields": true
+	},
+	"include": ["src"]
 }
