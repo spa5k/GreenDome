@@ -1,17 +1,17 @@
 module.exports = {
 	parser: '@typescript-eslint/parser',
 	plugins: [
-		'solid',
 		'jsx-a11y',
 		'@typescript-eslint',
 		'import',
 		'simple-import-sort',
+		'react',
 	],
 	extends: [
 		'eslint:recommended',
-		'plugin:solid/typescript',
+		'plugin:react/recommended',
+		'plugin:react/jsx-runtime',
 		'plugin:import/recommended',
-		'plugin:solid/recommended',
 		'plugin:jsx-a11y/recommended',
 		'plugin:@typescript-eslint/recommended',
 	],
@@ -19,5 +19,10 @@ module.exports = {
 		es6: true,
 		browser: true,
 		node: true,
+	},
+	settings: {
+		react: {
+			version: 'detect',
+		},
 	},
 };

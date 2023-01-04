@@ -5,13 +5,14 @@
 	"compilerOptions": {
 		"target": "ESNext",
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "Node",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js",
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
 		"types": ["vite/client"],
 		"noEmit": true,
-		"isolatedModules": true
+		"isolatedModules": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"]
 	}
 }
