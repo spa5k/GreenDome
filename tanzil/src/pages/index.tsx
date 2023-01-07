@@ -1,11 +1,19 @@
-import { rspc } from '@/utils/rspc.js';
-
+import { SurahApi } from '@/features/index.js';
 import { Link } from 'react-router-dom';
+
+const surah = new SurahApi();
+
 const Index = () => {
-	const { data } = rspc.useQuery(['surah_list']);
-	if (!data) {
+	const { data, error, isLoading } = surah.useSurahList();
+
+	if (isLoading) {
 		return <p>loading..</p>;
 	}
+
+	if (error) {
+		return <p>error..</p>;
+	}
+
 	return (
 		<div>
 			<div>

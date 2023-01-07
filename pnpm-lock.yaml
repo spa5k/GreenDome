@@ -97,6 +97,7 @@ importers:
       eslint-config-custom: workspace:^0.0.0
       jotai: ^1.12.1
       jotai-tanstack-query: ^0.4.0
+      ohmyfetch: ^0.4.21
       postcss: ^8.4.21
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -117,6 +118,7 @@ importers:
       '@tauri-apps/api': 1.2.0
       jotai: 1.12.1_ir62pzpkgzxbvpb4feygpmpq5y
       jotai-tanstack-query: 0.4.0_chugegnb4zz2te75wnwxfwru7a
+      ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-router: 6.6.1_react@18.2.0

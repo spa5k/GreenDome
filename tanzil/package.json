@@ -20,6 +20,7 @@
 		"@tauri-apps/api": "^1.2.0",
 		"jotai": "^1.12.1",
 		"jotai-tanstack-query": "^0.4.0",
+		"ohmyfetch": "^0.4.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router": "^6.6.1",

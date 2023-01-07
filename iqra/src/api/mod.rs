@@ -23,14 +23,12 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
         })
         .query("surah_info", |t| {
             t(|ctx, input: i32| async move {
-                println!("{:?}", input);
                 let surahs = get_surah_info(&ctx.db, input).await.unwrap();
                 Ok(surahs)
             })
         })
         .query("ayahs", |t| {
             t(|ctx, input: i32| async move {
-                println!("{:?}", input);
                 let surahs = get_surah_text(&ctx.db, input).await.unwrap();
                 Ok(surahs)
             })

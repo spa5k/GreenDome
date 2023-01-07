@@ -2,7 +2,7 @@
 
 export type Procedures = {
 	queries:
-		| { key: 'ayahs'; input: number; result: Array<Ayahs>; }
+		| { key: 'ayahs'; input: number; result: Array<Ayah>; }
 		| { key: 'surah_info'; input: number; result: Surahs; }
 		| { key: 'surah_list'; input: never; result: Array<Surahs>; }
 		| { key: 'version'; input: never; result: string; };
@@ -10,15 +10,14 @@ export type Procedures = {
 	subscriptions: never;
 };
 
-export interface Ayahs {
-	surah: number;
+export interface Ayah {
 	ayah: number;
-	indopak: string;
-	uthmani: string;
-	unicode: string;
-	simple: string;
-	warsh: string;
-	tajweed: string;
+	surah: number;
+	indopak: string | null;
+	uthmani: string | null;
+	warsh: string | null;
+	unicode: string | null;
+	simple: string | null;
 }
 
 export interface Surahs {

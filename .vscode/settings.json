@@ -12,7 +12,8 @@
 		"tanzil",
 		"deps",
 		"routing",
-		"tajweed"
+		"tajweed",
+		"refactor"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
