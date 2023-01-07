@@ -19,20 +19,24 @@ pub struct Surahs {
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
-pub struct Ayahs {
-    surah: i32,
+pub struct Ayah {
     ayah: i32,
-    indopak: String,
-    uthmani: String,
-    unicode: String,
-    simple: String,
-    warsh: String,
-    tajweed: String,
+    surah: i32,
+    indopak: Option<String>,
+    uthmani: Option<String>,
+    warsh: Option<String>,
+    unicode: Option<String>,
+    simple: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct SurahVector {
     surah: Vec<Surahs>,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct AyahVector {
+    ayahs: Vec<Ayah>,
 }
 
 pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
@@ -75,9 +79,21 @@ pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<S
     })
 }
 
-pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayahs>> {
+pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayah>> {
     const SQL1: &str = "SELECT * FROM quran where surah = ?";
-    let ayahs: Vec<Ayahs> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
+    let rows: Vec<Ayah> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
+    let mut ayah_vector = AyahVector { ayahs: Vec::new() };
 
-    Ok(ayahs)
+    for ayah in rows {
+        ayah_vector.ayahs.push(Ayah {
+            ayah: ayah.ayah,
+            surah: ayah.surah,
+            indopak: ayah.indopak,
+            uthmani: ayah.uthmani,
+            warsh: ayah.warsh,
+            unicode: ayah.unicode,
+            simple: ayah.simple,
+        })
+    }
+    Ok(ayah_vector.ayahs)
 }
