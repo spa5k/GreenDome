@@ -1,7 +1,7 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
 	root: true,
-	extends: ['custom'],
+	extends: ['custom', './.eslintrc-auto-import.json'],
 	settings: {
 		'import/parsers': {
 			'@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -21,5 +21,6 @@ module.exports = {
 			},
 		],
 		'import/no-unresolved': 'off',
+		'react/jsx-no-undef': 'off',
 	},
 };
