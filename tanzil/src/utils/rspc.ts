@@ -13,5 +13,6 @@ const queryClient = new QueryClient();
 const rspc = createReactQueryHooks<Procedures>();
 const useRspcQuery = rspc.useQuery;
 const useRspcMutation = rspc.useMutation;
+const RspcProvider = rspc.Provider;
 
-export { client, queryClient, rspc, useRspcMutation, useRspcQuery };
+export { client, queryClient, rspc, RspcProvider, useRspcMutation, useRspcQuery };

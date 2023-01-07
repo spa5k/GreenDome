@@ -1,10 +1,6 @@
-import { SurahApi } from '@/features/index.js';
-import type { FC } from 'react';
-import { Link, useParams } from 'react-router-dom';
-
 const surah = new SurahApi();
 
-const Component: FC = () => {
+const Component = () => {
 	const { id } = useParams();
 	const { data, isLoading, error } = surah.useSurahByNumber(parseInt(String(id)));
 	const { data: ayahs } = surah.useAyahs(parseInt(String(id)));

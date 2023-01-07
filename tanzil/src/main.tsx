@@ -2,10 +2,11 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { Provider } from 'jotai';
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import { client, queryClient, rspc } from '@/utils/rspc.js';
+import '_tailwind-devtools_.js';
 import routes from '~react-pages';
+import './main.css';
 
 function App() {
 	return (
@@ -21,12 +22,12 @@ const app = createRoot(document.getElementById('root')!);
 app.render(
 	<StrictMode>
 		<BrowserRouter>
-			<rspc.Provider client={client} queryClient={queryClient}>
+			<RspcProvider client={client} queryClient={queryClient}>
 				<Provider>
 					<ReactQueryDevtools initialIsOpen={false} />
 					<App />
 				</Provider>
-			</rspc.Provider>
+			</RspcProvider>
 		</BrowserRouter>
 	</StrictMode>,
 );

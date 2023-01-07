@@ -1,6 +1,3 @@
-import { SurahApi } from '@/features/index.js';
-import { Link } from 'react-router-dom';
-
 const surah = new SurahApi();
 
 const Index = () => {
