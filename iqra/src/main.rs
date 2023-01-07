@@ -2,7 +2,6 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-use tauri::Manager;
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 use tracing_log::LogTracer;
 use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
@@ -15,15 +14,9 @@ mod queries;
 
 use dotenvy::dotenv;
 
-use crate::commands::surah::{get_surah, get_surahs};
-
 use crate::api::Ctx;
 
 mod api;
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
-}
 
 #[tokio::main]
 async fn main() {
@@ -44,12 +37,9 @@ async fn main() {
     let sqlite_pool = db::create_sqlite_pool().await.unwrap();
 
     tauri::Builder::default()
-        .plugin(rspc::integrations::tauri::plugin(router, || Ctx {}))
-        .invoke_handler(tauri::generate_handler![greet, get_surahs, get_surah])
-        .setup(|app| {
-            app.manage(sqlite_pool);
-            Ok(())
-        })
+        .plugin(rspc::integrations::tauri::plugin(router, move || Ctx {
+            db: sqlite_pool.clone().into(),
+        }))
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -1,20 +1,33 @@
+use rspc::Type;
 use serde::{Deserialize, Serialize};
 use sqlx::{FromRow, SqlitePool};
 
 use crate::db::DbResult;
 
-#[derive(Debug, Serialize, Deserialize, FromRow)]
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
 pub struct Surahs {
-    id: i64,
-    revelation_order: i64,
+    id: i32,
+    revelation_order: i32,
     bismillah_pre: String,
     name_simple: String,
     name_complex: String,
     name_arabic: String,
-    ayah_start: i64,
-    ayah_end: i64,
-    page_start: i64,
-    page_end: i64,
+    ayah_start: i32,
+    ayah_end: i32,
+    page_start: i32,
+    page_end: i32,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+pub struct Ayahs {
+    surah: i32,
+    ayah: i32,
+    indopak: String,
+    uthmani: String,
+    unicode: String,
+    simple: String,
+    warsh: String,
+    tajweed: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
@@ -44,7 +57,7 @@ pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
     Ok(surah_vector.surah)
 }
 
-pub(crate) async fn get_one_surah(pool: &SqlitePool, number: i32) -> DbResult<Surahs> {
+pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<Surahs> {
     const SQL1: &str = "SELECT * FROM surahs where id = ?";
     let surah: Surahs = sqlx::query_as(SQL1).bind(number).fetch_one(pool).await?;
 
@@ -60,4 +73,11 @@ pub(crate) async fn get_one_surah(pool: &SqlitePool, number: i32) -> DbResult<Su
         page_start: surah.page_start,
         revelation_order: surah.revelation_order,
     })
+}
+
+pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayahs>> {
+    const SQL1: &str = "SELECT * FROM quran where surah = ?";
+    let ayahs: Vec<Ayahs> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
+
+    Ok(ayahs)
 }
