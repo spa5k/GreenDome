@@ -5,6 +5,7 @@ use sqlx::{FromRow, SqlitePool};
 use crate::db::DbResult;
 
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+#[serde(rename_all = "camelCase")]
 pub struct Surahs {
     id: i32,
     revelation_order: i32,
@@ -19,6 +20,7 @@ pub struct Surahs {
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+#[serde(rename_all = "camelCase")]
 pub struct Ayah {
     ayah: i32,
     surah: i32,
