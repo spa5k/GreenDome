@@ -22,13 +22,13 @@ export interface Ayah {
 
 export interface Surahs {
 	id: number;
-	revelation_order: number;
-	bismillah_pre: string;
-	name_simple: string;
-	name_complex: string;
-	name_arabic: string;
-	ayah_start: number;
-	ayah_end: number;
-	page_start: number;
-	page_end: number;
+	revelationOrder: number;
+	bismillahPre: string;
+	nameSimple: string;
+	nameComplex: string;
+	nameArabic: string;
+	ayahStart: number;
+	ayahEnd: number;
+	pageStart: number;
+	pageEnd: number;
 }

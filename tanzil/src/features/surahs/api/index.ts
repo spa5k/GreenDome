@@ -30,8 +30,7 @@ class TauriApi extends SurahAbstract {
 		const { data, isLoading, error } = useRspcQuery(['surah_list']);
 
 		if (!isLoading) {
-			const fixedData = this.formatData(JSON.stringify(data));
-			return { data: fixedData, isLoading, error };
+			return { data, isLoading, error };
 		}
 		return { data, isLoading, error };
 	}
@@ -39,9 +38,7 @@ class TauriApi extends SurahAbstract {
 	public useSurahByNumber(id: number) {
 		const { data, isLoading, error } = useRspcQuery(['surah_info', id]);
 		if (!isLoading) {
-			const tempSurah = [{ ...data }];
-			const res = ConvertSurah.toSurah(JSON.stringify(tempSurah))[0];
-			return { data: res, isLoading, error };
+			return { data, isLoading, error };
 		}
 		return { data, isLoading, error };
 	}
@@ -53,8 +50,7 @@ class TauriApi extends SurahAbstract {
 	public useAyahs(id: number) {
 		const { data, isLoading, error } = useRspcQuery(['ayahs', id]);
 		if (!isLoading) {
-			const tempData = data as Ayah[];
-			return { data: tempData, isLoading, error };
+			return { data, isLoading, error };
 		}
 
 		return { data, isLoading, error };
