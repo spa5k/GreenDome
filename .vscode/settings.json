@@ -13,7 +13,8 @@
 		"deps",
 		"routing",
 		"tajweed",
-		"refactor"
+		"refactor",
+		"github"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
