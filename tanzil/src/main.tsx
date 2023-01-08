@@ -1,16 +1,17 @@
+import { enableLegendStateReact } from '@legendapp/state/react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { Provider } from 'jotai';
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-
-import '_tailwind-devtools_.js';
 import routes from '~react-pages';
-import './main.css';
+import './index.css';
+
+enableLegendStateReact();
 
 function App() {
 	return (
 		<Suspense fallback={<p>Loading...</p>}>
+			<ReactQueryDevtools initialIsOpen={false} />
 			{useRoutes(routes)}
 		</Suspense>
 	);
@@ -23,10 +24,7 @@ app.render(
 	<StrictMode>
 		<BrowserRouter>
 			<RspcProvider client={client} queryClient={queryClient}>
-				<Provider>
-					<ReactQueryDevtools initialIsOpen={false} />
-					<App />
-				</Provider>
+				<App />
 			</RspcProvider>
 		</BrowserRouter>
 	</StrictMode>,

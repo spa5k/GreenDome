@@ -2,6 +2,7 @@
 export {};
 declare global {
 	const ConvertSurah: typeof import('./features/surahs/types/index')['ConvertSurah'];
+	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const Link: typeof import('react-router-dom')['Link'];
 	const NavLink: typeof import('react-router-dom')['NavLink'];
@@ -12,6 +13,7 @@ declare global {
 	const Routes: typeof import('react-router-dom')['Routes'];
 	const RspcProvider: typeof import('./utils/rspc')['RspcProvider'];
 	const SurahApi: typeof import('./features/surahs/api/index')['SurahApi'];
+	const Theme: typeof import('./stores/theme')['Theme'];
 	const afterAll: typeof import('vitest')['afterAll'];
 	const afterEach: typeof import('vitest')['afterEach'];
 	const assert: typeof import('vitest')['assert'];
