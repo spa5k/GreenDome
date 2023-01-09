@@ -48,6 +48,6 @@
 		"vite-plugin-checker": "^0.5.3",
 		"vite-plugin-pages": "^0.28.0",
 		"vite-plugin-svgr": "^2.4.0",
-		"vitest": "^0.26.3"
+		"vitest": "^0.27.0"
 	}
 }
