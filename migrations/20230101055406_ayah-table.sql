@@ -1,6 +1,6 @@
 -- Add migration script here
 create table `ayah_info` (
-	`id` integer not null unique,
+	`id` integer not null primary key autoincrement,
 	`surah` integer not null,
 	`ayah` integer not null,
 	`ayah_key` text not null,
@@ -13,6 +13,7 @@ create table `ayah_info` (
 );
 
 create table `quran` (
+	`id` integer not null primary key autoincrement,
 	`surah` integer not null,
 	`ayah` integer not null,
 	`indopak` text not null,

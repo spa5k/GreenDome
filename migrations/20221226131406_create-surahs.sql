@@ -1,7 +1,7 @@
 -- Add migration script here
 
 CREATE TABLE IF NOT EXISTS `surahs` (
-	`id` integer not null unique,
+	`id` integer not null primary key autoincrement,
 	`revelation_order` integer not null,
 	`bismillah_pre` text not null,
 	`name_simple` text not null unique,
