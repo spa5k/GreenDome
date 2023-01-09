@@ -1,11 +1,11 @@
+import { useSelector } from '@legendapp/state/react';
+
 const surah = new SurahApi();
 
 const Index = () => {
 	const { data, error, isLoading } = surah.useSurahList();
 
-	const theme = () => ({
-		width: Theme.theme.get(),
-	});
+	const isSelected = useSelector(() => Theme.theme.get());
 
 	if (isLoading) {
 		return <p>loading..</p>;
@@ -16,22 +16,20 @@ const Index = () => {
 	}
 
 	return (
-		<div className={`bg-primary text-text ${theme} `}>
+		<div className={`bg-primary text-text ${isSelected} `}>
 			<h2 className='text-text text-4xl font-bold'>
 				THEME
 			</h2>
 
 			<button
-				onClick={() => {
-					Theme.theme.set('rashidun');
-				}}
+				className='p-5 bg-white text-red-500 m-5'
+				onClick={() => Theme.theme.set('rashidun')}
 			>
 				Change theme to rashidun
 			</button>
 			<button
-				onClick={() => {
-					Theme.theme.set('default');
-				}}
+				className='p-5 bg-white text-red-500'
+				onClick={() => Theme.theme.set('default')}
 			>
 				Revert back to default
 			</button>

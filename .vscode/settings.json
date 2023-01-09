@@ -14,7 +14,8 @@
 		"routing",
 		"tajweed",
 		"refactor",
-		"github"
+		"github",
+		"tailwind"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
