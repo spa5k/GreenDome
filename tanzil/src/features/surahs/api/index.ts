@@ -2,7 +2,7 @@ import { Ayah } from '@/utils/bindings.js';
 import { useRspcQuery } from '@/utils/rspc.js';
 import { useQuery } from '@tanstack/react-query';
 import { $fetch } from 'ohmyfetch';
-import { Chapter, ConvertSurah, Surah, SurahQuranAPI } from '../types/index.js';
+import { Chapter, Surah, SurahQuranAPI } from '../types/index.js';
 
 // We can add more functions like getSurah(), getInfo()
 abstract class SurahAbstract {
@@ -41,10 +41,6 @@ class TauriApi extends SurahAbstract {
 			return { data, isLoading, error };
 		}
 		return { data, isLoading, error };
-	}
-
-	formatData(data: string) {
-		return ConvertSurah.toSurah(data);
 	}
 
 	public useAyahs(id: number) {

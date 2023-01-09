@@ -117,9 +117,32 @@ import { AwesomeComponent } from '@/features/awesome-feature/components/AwesomeC
 - [ahooks](https://ahooks.js.org/)
 - [react-query](react-query-v3.tanstack.com/)
 - [legend-state](https://legendapp.com/open-source/state/)
-- [jotai](jotai.org/)
 
-7. Palette
+## 7. Themes.
+
+1. Primary
+2. Secondary
+3. Text
+4. Other
+5. Background
+
+### 1. Default theme.
+
+- #152C5D
+- #1A2744
+- #FCFCFD
+- #090B13
+- #121B31
+
+### 2. Other (WIP)
+
+- #152C5D
+- #1A2744
+- #FCFCFD
+- #090B13
+- #121B31
+
+### 3. Other (WIP)
 
 - #152C5D
 - #1A2744

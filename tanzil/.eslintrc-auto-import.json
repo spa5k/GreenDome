@@ -1,6 +1,7 @@
 {
 	"globals": {
 		"ConvertSurah": true,
+		"HomePage": true,
 		"LanguageName": true,
 		"Link": true,
 		"NavLink": true,
@@ -11,6 +12,7 @@
 		"Routes": true,
 		"RspcProvider": true,
 		"SurahApi": true,
+		"Theme": true,
 		"afterAll": true,
 		"afterEach": true,
 		"assert": true,

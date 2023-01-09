@@ -29,7 +29,7 @@ const Component = () => {
 						<p>
 							{ayah.ayah}
 						</p>
-						<p>{ayah.indopak}</p>
+						<p>{ayah.unicode}</p>
 					</div>
 				);
 			})}
