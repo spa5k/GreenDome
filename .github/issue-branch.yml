@@ -13,3 +13,4 @@ copyIssueProjectsToPR: true
 copyIssueMilestoneToPR: true
 prSkipCI: true
 conventionalPrTitles: true
+gitSafeReplacementChar: '-'
