@@ -24,11 +24,7 @@ pub struct Surahs {
 pub struct Ayah {
     ayah: i32,
     surah: i32,
-    indopak: Option<String>,
-    uthmani: Option<String>,
-    warsh: Option<String>,
-    unicode: Option<String>,
-    simple: Option<String>,
+    text: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
@@ -85,21 +81,50 @@ pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<S
     })
 }
 
-pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayah>> {
+pub(crate) async fn get_surah_text(
+    pool: &SqlitePool,
+    number: i32,
+    edition: String,
+) -> DbResult<Vec<Ayah>> {
     const SQL1: &str = r#"
-		SELECT * FROM quran where surah = ?"#;
-    let rows: Vec<Ayah> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
+		SELECT * FROM quran where surah = ? and key= ?"#;
+    let rows: Vec<Ayah> = sqlx::query_as(SQL1)
+        .bind(number)
+        .bind(edition)
+        .fetch_all(pool)
+        .await?;
     let mut ayah_vector = AyahVector { ayahs: Vec::new() };
 
     for ayah in rows {
         ayah_vector.ayahs.push(Ayah {
             ayah: ayah.ayah,
             surah: ayah.surah,
-            indopak: ayah.indopak,
-            uthmani: ayah.uthmani,
-            warsh: ayah.warsh,
-            unicode: ayah.unicode,
-            simple: ayah.simple,
+            text: ayah.text,
+        })
+    }
+    Ok(ayah_vector.ayahs)
+}
+
+pub(crate) async fn get_translation_with_edition(
+    pool: &SqlitePool,
+    number: i32,
+    edition: String,
+) -> DbResult<Vec<Ayah>> {
+    const SQL1: &str = r#"
+		SELECT * FROM quran where surah = ? and key=?"#;
+    let rows: Vec<Ayah> = sqlx::query_as(SQL1)
+        .bind(number)
+        .bind(edition)
+        .fetch_all(pool)
+        .await?;
+
+    let mut ayah_vector = AyahVector { ayahs: Vec::new() };
+
+    for ayah in rows {
+        ayah_vector.ayahs.push(Ayah {
+            ayah: ayah.ayah,
+            surah: ayah.surah,
+            text: ayah.text,
         })
     }
     Ok(ayah_vector.ayahs)

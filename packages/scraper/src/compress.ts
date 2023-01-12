@@ -8,6 +8,8 @@ const prepareColumns = `	SELECT
 const runMaintainece = `
 select zstd_incremental_maintenance(null, 1);`;
 
+const vaccuum = `VACUUM;`;
+
 export const compress = async () => {
 	const dbpath = path.resolve();
 	const root = path.resolve(dbpath, '../', '../', './iqra', './data', 'quran.db');
@@ -23,6 +25,12 @@ export const compress = async () => {
 	}
 	try {
 		sqlite.exec(runMaintainece);
+	} catch (err) {
+		console.error(err);
+	}
+
+	try {
+		sqlite.exec(vaccuum);
 	} catch (err) {
 		console.error(err);
 	}

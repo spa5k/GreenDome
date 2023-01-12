@@ -2,8 +2,9 @@ const surah = new SurahApi();
 
 const Component = () => {
 	const { id } = useParams();
+	const edition = 'ara-quranacademy';
 	const { data, isLoading, error } = surah.useSurahByNumber(parseInt(String(id)));
-	const { data: ayahs } = surah.useAyahs(parseInt(String(id)));
+	const { data: ayahs } = surah.useAyahs(parseInt(String(id)), edition);
 
 	if (isLoading) {
 		return <p>loading..</p>;
@@ -29,7 +30,7 @@ const Component = () => {
 						<p>
 							{ayah.ayah}
 						</p>
-						<p>{ayah.unicode}</p>
+						<p>{ayah.text}</p>
 					</div>
 				);
 			})}

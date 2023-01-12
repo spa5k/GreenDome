@@ -18,7 +18,7 @@ abstract class SurahAbstract {
 		error: unknown;
 	};
 
-	public abstract useAyahs(id: number): {
+	public abstract useAyahs(id: number, edition: string): {
 		data: Ayah[] | undefined;
 		isLoading: boolean;
 		error: unknown;
@@ -43,8 +43,8 @@ class TauriApi extends SurahAbstract {
 		return { data, isLoading, error };
 	}
 
-	public useAyahs(id: number) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', id]);
+	public useAyahs(id: number, edition: string) {
+		const { data, isLoading, error } = useRspcQuery(['ayahs', { edition: edition, number: id }]);
 		if (!isLoading) {
 			return { data, isLoading, error };
 		}
@@ -103,11 +103,10 @@ class QuranApi extends SurahAbstract {
 		return surahs;
 	}
 
-	public useAyahs(id: number) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', id]);
+	public useAyahs(id: number, edition: string) {
+		const { data, isLoading, error } = useRspcQuery(['ayahs', { edition: edition, number: id }]);
 		if (!isLoading) {
-			const tempData = data as Ayah[];
-			return { data: tempData, isLoading, error };
+			return { data, isLoading, error };
 		}
 
 		return { data, isLoading, error };
@@ -123,7 +122,7 @@ export class SurahApi extends SurahAbstract {
 		return this.helper.useSurahByNumber(id);
 	}
 
-	public useAyahs(id: number) {
-		return this.helper.useAyahs(id);
+	public useAyahs(id: number, edition: string) {
+		return this.helper.useAyahs(id, edition);
 	}
 }
