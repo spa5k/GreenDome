@@ -3,7 +3,12 @@ use std::{path::PathBuf, sync::Arc};
 use rspc::Config;
 pub use rspc::RouterBuilder;
 
-use crate::queries::surah::{get_surah_info, get_surah_list, get_surah_text};
+use crate::queries::surah::{
+    get_surah_info, get_surah_list, get_surah_text, get_translation_with_edition,
+};
+use rspc::Type;
+use serde::{Deserialize, Serialize};
+use sqlx::FromRow;
 
 #[derive(Clone)]
 pub struct Ctx {
@@ -28,8 +33,18 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
             })
         })
         .query("ayahs", |t| {
-            t(|ctx, input: i32| async move {
-                let surahs = get_surah_text(&ctx.db, input).await.unwrap();
+            t(|ctx, input: TranslationEdition| async move {
+                let surahs = get_surah_text(&ctx.db, input.number, input.edition)
+                    .await
+                    .unwrap();
+                Ok(surahs)
+            })
+        })
+        .query("translations", |t| {
+            t(|ctx, input: TranslationEdition| async move {
+                let surahs = get_translation_with_edition(&ctx.db, input.number, input.edition)
+                    .await
+                    .unwrap();
                 Ok(surahs)
             })
         })
@@ -41,4 +56,10 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
                         .join("../tanzil/src/utils/bindings.ts"),
                 ),
         )
+}
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+
+pub struct TranslationEdition {
+    edition: String,
+    number: i32,
 }

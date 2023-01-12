@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS `surahs` (
 	`ayah_end` integer not null,
 	`type` text not null,
 	`page_start` integer not null,
-	`page_end` integer not null
+	`page_end` integer not null,
+	`surah_id` integer not null
 );
