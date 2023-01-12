@@ -42,7 +42,9 @@ pub struct AyahVector {
 }
 
 pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
-    const SQL1: &str = "SELECT * FROM surahs ORDER BY id ASC";
+    const SQL1: &str = r#"
+		SELECT * FROM surahs ORDER BY id ASC;
+		"#;
     let rows: Vec<Surahs> = sqlx::query_as(SQL1).fetch_all(pool).await?;
     let mut surah_vector = SurahVector { surah: Vec::new() };
 
@@ -64,7 +66,9 @@ pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
 }
 
 pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<Surahs> {
-    const SQL1: &str = "SELECT * FROM surahs where id = ?";
+    const SQL1: &str = r#"
+		SELECT * FROM surahs where id = ?;
+		"#;
     let surah: Surahs = sqlx::query_as(SQL1).bind(number).fetch_one(pool).await?;
 
     Ok(Surahs {
@@ -82,7 +86,8 @@ pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<S
 }
 
 pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayah>> {
-    const SQL1: &str = "SELECT * FROM quran where surah = ?";
+    const SQL1: &str = r#"
+		SELECT * FROM quran where surah = ?"#;
     let rows: Vec<Ayah> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
     let mut ayah_vector = AyahVector { ayahs: Vec::new() };
 
