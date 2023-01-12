@@ -4,6 +4,7 @@
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "ts-node-esm src/index.ts",
+		"compress": "ts-node-esm src/compress.ts",
 		"lint": "eslint . --ext .ts,.tsx",
 		"codegen": "npx kysely-codegen --camel-case"
 	},
