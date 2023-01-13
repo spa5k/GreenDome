@@ -15,7 +15,8 @@
 		"tajweed",
 		"refactor",
 		"github",
-		"tailwind"
+		"tailwind",
+		"lint"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,

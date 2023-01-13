@@ -54,9 +54,7 @@ export const fetchEditions = async () => {
 	const json = await $fetch(url);
 	const editions: string[] = Object.keys(json);
 	const finalEditions: Editions[] = [];
-
-	for (let index = 0; index < editions.length; index++) {
-		const edition = editions[index];
+	for (const edition of editions) {
 		const editionInfo: EditionsApi = json[edition];
 		// @ts-ignore
 		const editionFinal: Editions = {

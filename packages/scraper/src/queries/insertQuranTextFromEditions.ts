@@ -17,7 +17,6 @@ const blackList = ['ara_quranacademy', 'ara_quranbazzi', 'ara_qurandoori', 'ara_
 export const insertQuranEditions = async () => {
 	const names = await db.selectFrom('editions').where('type', '=', 'quran').select(['name']).execute();
 	console.log(names);
-	// const names = editions.map((e: { name: string; }) => e.name);
 	for (const name of names) {
 		if (blackList.includes(name.name)) {
 			continue;
