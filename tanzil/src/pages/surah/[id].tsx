@@ -1,10 +1,11 @@
 const surah = new SurahApi();
+const mushaf = new MushafApi();
 
 const Component = () => {
 	const { id } = useParams();
 	const edition = 'ara-quranacademy';
 	const { data, isLoading, error } = surah.useSurahByNumber(parseInt(String(id)));
-	const { data: ayahs } = surah.useAyahs(parseInt(String(id)), edition);
+	const { data: ayahs } = mushaf.useAyahs(parseInt(String(id)), edition);
 
 	if (isLoading) {
 		return <p>loading..</p>;

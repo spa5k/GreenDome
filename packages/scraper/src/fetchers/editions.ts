@@ -24,16 +24,6 @@ enum Type {
 	QURAN_TRANSLITERATION = 'quran_transliteration',
 }
 
-// export interface Editions {
-// 	name: string;
-// 	author: string;
-// 	language: string;
-// 	direction: Direction;
-// 	source?: string;
-// 	type: Type;
-// 	enabled: boolean;
-// }
-
 const getEdition = (string: string) => {
 	const quranTransliteration = /^ara_quran.*la$/;
 	const quranRegex = /^ara_quran(?!.*(la\d*)$)/;

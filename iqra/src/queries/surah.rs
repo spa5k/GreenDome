@@ -2,7 +2,7 @@ use rspc::Type;
 use serde::{Deserialize, Serialize};
 use sqlx::{FromRow, SqlitePool};
 
-use crate::db::DbResult;
+use crate::{api::EditionsEnum, db::DbResult};
 
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
 #[serde(rename_all = "camelCase")]
@@ -35,6 +35,24 @@ pub struct SurahVector {
 #[derive(Debug, Serialize, Deserialize, FromRow)]
 pub struct AyahVector {
     ayahs: Vec<Ayah>,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+#[serde(rename_all = "camelCase")]
+pub struct Edition {
+    id: i32,
+    name: String,
+    author: Option<String>,
+    language: String,
+    direction: String,
+    source: Option<String>,
+    r#type: String,
+    enabled: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct EditionVector {
+    editions: Vec<Edition>,
 }
 
 pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
@@ -128,4 +146,40 @@ pub(crate) async fn get_translation_with_edition(
         })
     }
     Ok(ayah_vector.ayahs)
+}
+
+pub(crate) async fn get_editions(
+    pool: &SqlitePool,
+    edition: EditionsEnum,
+) -> DbResult<Vec<Edition>> {
+    const SQL1: &str = r#"
+		SELECT * FROM editions where type = ?"#;
+
+    let edition_name = match edition {
+        EditionsEnum::Quran => "quran",
+        EditionsEnum::Translation => "translation",
+        EditionsEnum::Transliteration => "transliteration",
+    };
+    let rows: Vec<Edition> = sqlx::query_as(SQL1)
+        .bind(edition_name)
+        .fetch_all(pool)
+        .await?;
+
+    let mut edition_vector = EditionVector {
+        editions: Vec::new(),
+    };
+
+    for edition in rows {
+        edition_vector.editions.push(Edition {
+            id: edition.id,
+            name: edition.name,
+            author: edition.author.or_else(|| Some("".to_string())),
+            language: edition.language,
+            direction: edition.direction,
+            source: edition.source,
+            r#type: edition.r#type,
+            enabled: edition.enabled,
+        })
+    }
+    Ok(edition_vector.editions)
 }

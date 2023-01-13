@@ -16,14 +16,11 @@ export default defineConfig({
 		Icons({ autoInstall: true, compiler: 'jsx', jsx: 'react', defaultClass: 'icon' }),
 		AutoImport({
 			include: [
-				/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-				/\.md$/, // .md
+				/\.[tj]sx?$/,
+				/\.md$/,
 			],
 			imports: ['vitest', 'react-router-dom', 'ahooks', 'react'],
-			dirs: ['./src/utils', './src/features/**', './src/screens/**', './src/stores/**'],
-			eslintrc: {
-				enabled: true,
-			},
+			dirs: ['./src/utils', './src/features/**', './src/screens/**', './src/stores/**', './src/utils/*'],
 			dts: './src/auto-import.d.ts',
 		}),
 	],

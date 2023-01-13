@@ -8,7 +8,6 @@ use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
 
 use std::env;
 
-mod commands;
 mod db;
 mod queries;
 
