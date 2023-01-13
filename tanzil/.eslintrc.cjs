@@ -1,7 +1,7 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
 	root: true,
-	extends: ['custom', './.eslintrc-auto-import.json'],
+	extends: ['custom'],
 	settings: {
 		'import/parsers': {
 			'@typescript-eslint/parser': ['.ts', '.tsx'],

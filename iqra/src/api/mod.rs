@@ -4,7 +4,7 @@ use rspc::Config;
 pub use rspc::RouterBuilder;
 
 use crate::queries::surah::{
-    get_surah_info, get_surah_list, get_surah_text, get_translation_with_edition,
+    get_editions, get_surah_info, get_surah_list, get_surah_text, get_translation_with_edition,
 };
 use rspc::Type;
 use serde::{Deserialize, Serialize};
@@ -48,6 +48,12 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
                 Ok(surahs)
             })
         })
+        .query("editions", |t| {
+            t(|ctx, input: EditionsType| async move {
+                let surahs = get_editions(&ctx.db, input.edition).await.unwrap();
+                Ok(surahs)
+            })
+        })
         .config(
             Config::new()
                 // Doing this will automatically export the bindings when the `build` function is called.
@@ -58,8 +64,19 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
         )
 }
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
-
 pub struct TranslationEdition {
     edition: String,
     number: i32,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+pub struct EditionsType {
+    edition: EditionsEnum,
+}
+
+#[derive(Debug, Serialize, Deserialize, Type)]
+pub enum EditionsEnum {
+    Quran,
+    Translation,
+    Transliteration,
 }
