@@ -1,12 +1,10 @@
-import { enableLegendStateReact } from '@legendapp/state/react';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import 'virtual:fonts.css';
 import routes from '~react-pages';
 import './index.css';
-
-enableLegendStateReact();
 
 function App() {
 	return (
