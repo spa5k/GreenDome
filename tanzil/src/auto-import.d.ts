@@ -2,9 +2,11 @@
 export {};
 declare global {
 	const ConvertSurah: typeof import('./features/surahs/types/index')['ConvertSurah'];
+	const EditionsApi: typeof import('./features/editions/api/index')['EditionsApi'];
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const Link: typeof import('react-router-dom')['Link'];
+	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
 	const NavLink: typeof import('react-router-dom')['NavLink'];
 	const Navigate: typeof import('react-router-dom')['Navigate'];
 	const Outlet: typeof import('react-router-dom')['Outlet'];

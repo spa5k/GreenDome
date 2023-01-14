@@ -1,4 +1,3 @@
-import { Ayah } from '@/utils/bindings.js';
 import { useRspcQuery } from '@/utils/rspc.js';
 import { useQuery } from '@tanstack/react-query';
 import { $fetch } from 'ohmyfetch';
@@ -14,12 +13,6 @@ abstract class SurahAbstract {
 	};
 	public abstract useSurahByNumber(id: number): {
 		data: Surah | undefined;
-		isLoading: boolean;
-		error: unknown;
-	};
-
-	public abstract useAyahs(id: number): {
-		data: Ayah[] | undefined;
 		isLoading: boolean;
 		error: unknown;
 	};
@@ -40,15 +33,6 @@ class TauriApi extends SurahAbstract {
 		if (!isLoading) {
 			return { data, isLoading, error };
 		}
-		return { data, isLoading, error };
-	}
-
-	public useAyahs(id: number) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', id]);
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-
 		return { data, isLoading, error };
 	}
 }
@@ -102,16 +86,6 @@ class QuranApi extends SurahAbstract {
 		}
 		return surahs;
 	}
-
-	public useAyahs(id: number) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', id]);
-		if (!isLoading) {
-			const tempData = data as Ayah[];
-			return { data: tempData, isLoading, error };
-		}
-
-		return { data, isLoading, error };
-	}
 }
 
 export class SurahApi extends SurahAbstract {
@@ -121,9 +95,5 @@ export class SurahApi extends SurahAbstract {
 	}
 	public useSurahByNumber(id: number) {
 		return this.helper.useSurahByNumber(id);
-	}
-
-	public useAyahs(id: number) {
-		return this.helper.useAyahs(id);
 	}
 }

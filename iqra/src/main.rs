@@ -8,7 +8,6 @@ use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
 
 use std::env;
 
-mod commands;
 mod db;
 mod queries;
 
@@ -22,7 +21,6 @@ mod api;
 async fn main() {
     dotenv().ok();
     let router = api::new().build().arced();
-    router.export_ts("../../tanzil/src/types/rspc.ts").unwrap();
 
     LogTracer::init().expect("Unable to setup log tracer!");
     let app_name = concat!(env!("CARGO_PKG_NAME"), "-", env!("CARGO_PKG_VERSION")).to_string();

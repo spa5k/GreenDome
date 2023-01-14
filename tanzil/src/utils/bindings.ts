@@ -2,9 +2,11 @@
 
 export type Procedures = {
 	queries:
-		| { key: 'ayahs'; input: number; result: Array<Ayah>; }
+		| { key: 'ayahs'; input: TranslationEdition; result: Array<Ayah>; }
+		| { key: 'editions'; input: EditionsType; result: Array<Edition>; }
 		| { key: 'surah_info'; input: number; result: Surahs; }
 		| { key: 'surah_list'; input: never; result: Array<Surahs>; }
+		| { key: 'translations'; input: TranslationEdition; result: Array<Ayah>; }
 		| { key: 'version'; input: never; result: string; };
 	mutations: never;
 	subscriptions: never;
@@ -13,11 +15,24 @@ export type Procedures = {
 export interface Ayah {
 	ayah: number;
 	surah: number;
-	indopak: string | null;
-	uthmani: string | null;
-	warsh: string | null;
-	unicode: string | null;
-	simple: string | null;
+	text: string;
+}
+
+export interface Edition {
+	id: number;
+	name: string;
+	author: string | null;
+	language: string;
+	direction: string;
+	source: string | null;
+	type: string;
+	enabled: string;
+}
+
+export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
+
+export interface EditionsType {
+	edition: EditionsEnum;
 }
 
 export interface Surahs {
@@ -31,4 +46,9 @@ export interface Surahs {
 	ayahEnd: number;
 	pageStart: number;
 	pageEnd: number;
+}
+
+export interface TranslationEdition {
+	edition: string;
+	number: number;
 }

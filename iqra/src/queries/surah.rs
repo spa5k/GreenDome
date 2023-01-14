@@ -2,7 +2,7 @@ use rspc::Type;
 use serde::{Deserialize, Serialize};
 use sqlx::{FromRow, SqlitePool};
 
-use crate::db::DbResult;
+use crate::{api::EditionsEnum, db::DbResult};
 
 #[derive(Debug, Serialize, Deserialize, FromRow, Type)]
 #[serde(rename_all = "camelCase")]
@@ -24,11 +24,7 @@ pub struct Surahs {
 pub struct Ayah {
     ayah: i32,
     surah: i32,
-    indopak: Option<String>,
-    uthmani: Option<String>,
-    warsh: Option<String>,
-    unicode: Option<String>,
-    simple: Option<String>,
+    text: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, FromRow)]
@@ -41,8 +37,28 @@ pub struct AyahVector {
     ayahs: Vec<Ayah>,
 }
 
+#[derive(Debug, Serialize, Deserialize, FromRow, Type)]
+#[serde(rename_all = "camelCase")]
+pub struct Edition {
+    id: i32,
+    name: String,
+    author: Option<String>,
+    language: String,
+    direction: String,
+    source: Option<String>,
+    r#type: String,
+    enabled: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, FromRow)]
+pub struct EditionVector {
+    editions: Vec<Edition>,
+}
+
 pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
-    const SQL1: &str = "SELECT * FROM surahs ORDER BY id ASC";
+    const SQL1: &str = r#"
+		SELECT * FROM surahs ORDER BY id ASC;
+		"#;
     let rows: Vec<Surahs> = sqlx::query_as(SQL1).fetch_all(pool).await?;
     let mut surah_vector = SurahVector { surah: Vec::new() };
 
@@ -64,7 +80,9 @@ pub(crate) async fn get_surah_list(pool: &SqlitePool) -> DbResult<Vec<Surahs>> {
 }
 
 pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<Surahs> {
-    const SQL1: &str = "SELECT * FROM surahs where id = ?";
+    const SQL1: &str = r#"
+		SELECT * FROM surahs where id = ?;
+		"#;
     let surah: Surahs = sqlx::query_as(SQL1).bind(number).fetch_one(pool).await?;
 
     Ok(Surahs {
@@ -81,21 +99,87 @@ pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<S
     })
 }
 
-pub(crate) async fn get_surah_text(pool: &SqlitePool, number: i32) -> DbResult<Vec<Ayah>> {
-    const SQL1: &str = "SELECT * FROM quran where surah = ?";
-    let rows: Vec<Ayah> = sqlx::query_as(SQL1).bind(number).fetch_all(pool).await?;
+pub(crate) async fn get_surah_text(
+    pool: &SqlitePool,
+    number: i32,
+    edition: String,
+) -> DbResult<Vec<Ayah>> {
+    const SQL1: &str = r#"
+		SELECT * FROM quran where surah = ? and key= ?"#;
+    let rows: Vec<Ayah> = sqlx::query_as(SQL1)
+        .bind(number)
+        .bind(edition)
+        .fetch_all(pool)
+        .await?;
     let mut ayah_vector = AyahVector { ayahs: Vec::new() };
 
     for ayah in rows {
         ayah_vector.ayahs.push(Ayah {
             ayah: ayah.ayah,
             surah: ayah.surah,
-            indopak: ayah.indopak,
-            uthmani: ayah.uthmani,
-            warsh: ayah.warsh,
-            unicode: ayah.unicode,
-            simple: ayah.simple,
+            text: ayah.text,
         })
     }
     Ok(ayah_vector.ayahs)
+}
+
+pub(crate) async fn get_translation_with_edition(
+    pool: &SqlitePool,
+    number: i32,
+    edition: String,
+) -> DbResult<Vec<Ayah>> {
+    const SQL1: &str = r#"
+		SELECT * FROM quran where surah = ? and key=?"#;
+    let rows: Vec<Ayah> = sqlx::query_as(SQL1)
+        .bind(number)
+        .bind(edition)
+        .fetch_all(pool)
+        .await?;
+
+    let mut ayah_vector = AyahVector { ayahs: Vec::new() };
+
+    for ayah in rows {
+        ayah_vector.ayahs.push(Ayah {
+            ayah: ayah.ayah,
+            surah: ayah.surah,
+            text: ayah.text,
+        })
+    }
+    Ok(ayah_vector.ayahs)
+}
+
+pub(crate) async fn get_editions(
+    pool: &SqlitePool,
+    edition: EditionsEnum,
+) -> DbResult<Vec<Edition>> {
+    const SQL1: &str = r#"
+		SELECT * FROM editions where type = ?"#;
+
+    let edition_name = match edition {
+        EditionsEnum::Quran => "quran",
+        EditionsEnum::Translation => "translation",
+        EditionsEnum::Transliteration => "transliteration",
+    };
+    let rows: Vec<Edition> = sqlx::query_as(SQL1)
+        .bind(edition_name)
+        .fetch_all(pool)
+        .await?;
+
+    let mut edition_vector = EditionVector {
+        editions: Vec::new(),
+    };
+
+    for edition in rows {
+        edition_vector.editions.push(Edition {
+            id: edition.id,
+            name: edition.name,
+            author: edition.author.or_else(|| Some("".to_string())),
+            language: edition.language,
+            direction: edition.direction,
+            source: edition.source,
+            r#type: edition.r#type,
+            enabled: edition.enabled,
+        })
+    }
+    Ok(edition_vector.editions)
 }

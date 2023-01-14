@@ -4,6 +4,7 @@
 	"main": "src/index.ts",
 	"scripts": {
 		"dev": "ts-node-esm src/index.ts",
+		"compress": "ts-node-esm src/compress.ts",
 		"lint": "eslint . --ext .ts,.tsx",
 		"codegen": "npx kysely-codegen --camel-case"
 	},
@@ -15,15 +16,15 @@
 	},
 	"devDependencies": {
 		"@quran/tsconfig": "workspace:^0.0.0",
-		"@swc/core": "^1.3.25",
+		"@swc/core": "^1.3.26",
 		"@swc/helpers": "^0.4.14",
 		"@types/better-sqlite3": "^7.6.3",
 		"@types/node": "^18.11.18",
-		"@typescript-eslint/eslint-plugin": "^5.48.0",
-		"@typescript-eslint/parser": "^5.48.0",
+		"@typescript-eslint/eslint-plugin": "^5.48.1",
+		"@typescript-eslint/parser": "^5.48.1",
 		"eslint": "^8.31.0",
 		"eslint-config-custom": "workspace:^0.0.0",
-		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-import": "^2.27.4",
 		"eslint-plugin-simple-import-sort": "^8.0.0",
 		"kysely-codegen": "^0.9.0",
 		"regenerator-runtime": "^0.13.11",

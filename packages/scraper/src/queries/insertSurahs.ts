@@ -1,4 +1,3 @@
-import { Surahs } from 'kysely-codegen';
 import { db } from '../db.js';
 import { Chapter } from '../parser/surah.js';
 
@@ -9,20 +8,19 @@ export const insertSurahs = async (surahs: Chapter[]) => {
 		const pageStart = surah.pages[0];
 		const pageEnd = surah.pages[1];
 
-		const final: Surahs = {
+		const final = {
 			ayahEnd: ayahEnd,
 			ayahStart: ayahStart,
 			pageEnd,
 			pageStart,
 			type: surah.revelationPlace,
 			bismillahPre: surah.bismillahPre ? 'true' : 'false',
-			id: surah.id,
 			nameArabic: surah.nameArabic,
 			nameComplex: surah.nameComplex,
 			nameSimple: surah.nameSimple,
 			revelationOrder: surah.revelationOrder,
+			surahId: surah.id,
 		};
-		console.log(final);
 		await db.insertInto('surahs').values(final).execute();
 		ayahStart = ayahEnd;
 	}
