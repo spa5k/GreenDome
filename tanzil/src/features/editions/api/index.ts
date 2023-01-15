@@ -1,39 +1,22 @@
 import { Edition, EditionsEnum } from '@/utils/bindings.js';
-import { useRspcQuery } from '@/utils/rspc.js';
-import { useQuery } from '@tanstack/react-query';
 import { $fetch } from 'ohmyfetch';
 
 abstract class EditionsAbstract {
 	isTauri = window?.__TAURI_METADATA__ ? true : false;
-	public abstract useEditionsList(editionType: EditionsEnum): {
-		data: Edition[] | undefined;
-		isLoading: boolean;
-		error: unknown;
-	};
+	public abstract getEditions(editionType: EditionsEnum): Promise<Edition[]>;
 }
 
 class TauriApi extends EditionsAbstract {
-	public useEditionsList(editionType: EditionsEnum) {
-		const { data, isLoading, error } = useRspcQuery(['editions', { edition: editionType }]);
-
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async getEditions(editionType: EditionsEnum) {
+		return await client.query(['editions', { edition: editionType }]);
 	}
 }
 
 class QuranApi extends EditionsAbstract {
-	public useEditionsList(editionType: EditionsEnum) {
-		const { data, isLoading, error } = useQuery(['editions'], async () => {
-			return await $fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions.min.json');
-		});
-
-		if (!isLoading) {
-			const formattedData = this.formatData(data, editionType);
-			return { data: formattedData, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async getEditions(editionType: EditionsEnum) {
+		const data = await $fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions.min.json');
+		const formattedData = this.formatData(data, editionType);
+		return formattedData;
 	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -73,21 +56,12 @@ class QuranApi extends EditionsAbstract {
 		}
 		return finalEditions;
 	}
-
-	public useAyahs(id: number, edition: string) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', { edition: edition, number: id }]);
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-
-		return { data, isLoading, error };
-	}
 }
 
 export class EditionsApi extends EditionsAbstract {
 	helper = this.isTauri ? new TauriApi() : new QuranApi();
-	public useEditionsList(editionType: EditionsEnum) {
-		return this.helper.useEditionsList(editionType);
+	public getEditions(editionType: EditionsEnum) {
+		return this.helper.getEditions(editionType);
 	}
 }
 

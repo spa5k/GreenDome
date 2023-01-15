@@ -1,68 +1,41 @@
-import { useRspcQuery } from '@/utils/rspc.js';
-import { useQuery } from '@tanstack/react-query';
+import { Surahs } from '@/utils/bindings.js';
 import { $fetch } from 'ohmyfetch';
 import { Chapter, Surah, SurahQuranAPI } from '../types/index.js';
 
 // We can add more functions like getSurah(), getInfo()
 abstract class SurahAbstract {
 	isTauri = window?.__TAURI_METADATA__ ? true : false;
-	public abstract useSurahList(): {
-		data: Surah[] | undefined;
-		isLoading: boolean;
-		error: unknown;
-	};
-	public abstract useSurahByNumber(id: number): {
-		data: Surah | undefined;
-		isLoading: boolean;
-		error: unknown;
-	};
+	public abstract surahList(): Promise<Surahs[]>;
+	public abstract surahInfoByNumber(id: number): Promise<Surahs>;
 }
 
 class TauriApi extends SurahAbstract {
-	public useSurahList() {
-		const { data, isLoading, error } = useRspcQuery(['surah_list']);
-
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async surahList() {
+		return await client.query(['surah_list']);
 	}
 
-	public useSurahByNumber(id: number) {
-		const { data, isLoading, error } = useRspcQuery(['surah_info', id]);
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async surahInfoByNumber(number: number) {
+		return await client.query(['surah_info', number]);
 	}
 }
 
 class QuranApi extends SurahAbstract {
-	public useSurahList() {
-		const { data, isLoading, error } = useQuery(['surah_info'], async () => {
-			return await $fetch('https://api.quran.com/api/v4/chapters');
-		});
-
-		if (!isLoading) {
-			const { chapters } = data as SurahQuranAPI;
-			const formattedData = this.formatData(chapters);
-			return { data: formattedData, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async surahList(): Promise<Surahs[]> {
+		const data: SurahQuranAPI = await $fetch(
+			'https://api.quran.com/api/v4/chapters',
+		);
+		const formattedData: Surahs[] = this.formatData(data.chapters);
+		return formattedData;
 	}
 
-	public useSurahByNumber(id: number) {
-		const { data, isLoading, error } = useQuery(['surah_info'], async () => {
-			return await $fetch(
-				`https://api.quran.com/api/v4/chapters/${id}?language=en`,
-			);
-		});
-		if (!isLoading) {
-			const { chapter }: { chapter: Chapter; } = data;
-			const formattedData = this.formatData([chapter])[0];
-			return { data: formattedData, isLoading, error };
-		}
-		return { data, isLoading, error };
+	public async surahInfoByNumber(id: number) {
+		const data = await $fetch(
+			`https://api.quran.com/api/v4/chapters/${id}?language=en`,
+		);
+
+		const { chapter }: { chapter: Chapter; } = data;
+		const formattedData: Surahs = this.formatData([chapter])[0];
+		return formattedData;
 	}
 
 	public formatData(chapters: Chapter[]): Surah[] {
@@ -90,10 +63,10 @@ class QuranApi extends SurahAbstract {
 
 export class SurahApi extends SurahAbstract {
 	helper = this.isTauri ? new TauriApi() : new QuranApi();
-	public useSurahList() {
-		return this.helper.useSurahList();
+	public surahList() {
+		return this.helper.surahList();
 	}
-	public useSurahByNumber(id: number) {
-		return this.helper.useSurahByNumber(id);
+	public async surahInfoByNumber(id: number) {
+		return this.helper.surahInfoByNumber(id);
 	}
 }
