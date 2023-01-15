@@ -3,18 +3,18 @@ import { Surahs } from '@/utils/bindings.js';
 import { Link, LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 const surah = new SurahApi();
 
-export type Home = {
+export type HomeRoute = {
 	surahs: Surahs[];
 };
 
-type Route = MakeGenerics<{ LoaderData: Home; }>;
+type Route = MakeGenerics<{ LoaderData: HomeRoute; }>;
 
 export const Loader: LoaderFn<Route> = async () => {
 	const surahs = await surah.surahList();
 	return { surahs };
 };
 
-export default function Home() {
+export default function Index() {
 	const { data } = useMatch<Route>();
 
 	return (

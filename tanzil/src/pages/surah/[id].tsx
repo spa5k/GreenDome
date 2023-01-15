@@ -3,12 +3,12 @@ import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 const surah = new SurahApi();
 const mushaf = new MushafApi();
 
-export type Mushaf = {
+export type SurahRoute = {
 	surahInfo: Surahs;
 	ayahs: Ayah[];
 };
 
-type Route = MakeGenerics<{ LoaderData: Mushaf; Params: { id: string; edition: string; }; }>;
+type Route = MakeGenerics<{ LoaderData: SurahRoute; Params: { id: string; edition: string; }; }>;
 
 export const Loader: LoaderFn<Route> = async ({ params }) => {
 	const surahInfo = await surah.surahInfoByNumber(parseInt(params.id));
