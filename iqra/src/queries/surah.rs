@@ -84,19 +84,7 @@ pub(crate) async fn get_surah_info(pool: &SqlitePool, number: i32) -> DbResult<S
 		SELECT * FROM surahs where id = ?;
 		"#;
     let surah: Surahs = sqlx::query_as(SQL1).bind(number).fetch_one(pool).await?;
-
-    Ok(Surahs {
-        name_simple: surah.name_simple,
-        id: surah.id,
-        ayah_end: surah.ayah_end,
-        ayah_start: surah.ayah_start,
-        bismillah_pre: surah.bismillah_pre,
-        name_arabic: surah.name_arabic,
-        name_complex: surah.name_complex,
-        page_end: surah.page_end,
-        page_start: surah.page_start,
-        revelation_order: surah.revelation_order,
-    })
+    Ok(surah)
 }
 
 pub(crate) async fn get_surah_text(

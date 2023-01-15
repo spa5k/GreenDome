@@ -22,7 +22,6 @@ module.exports = {
 						background: '#8A88BF',
 						other: '#4F5E8C',
 						body: '#F2F2F2',
-						...colors,
 					},
 					fontFamily: {
 						body: ['Readex', ...defaultTheme.fontFamily.sans], // To display translations

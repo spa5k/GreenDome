@@ -1,31 +1,31 @@
 import { Ayah } from '@/utils/bindings.js';
-import { useRspcQuery } from '@/utils/rspc.js';
-import { useQuery } from '@tanstack/react-query';
+import { client } from '@/utils/rspc.js';
 import { $fetch } from 'ohmyfetch';
 
 // We can add more functions like getSurah(), getInfo()
 abstract class MushafAbstract {
 	isTauri = window?.__TAURI_METADATA__ ? true : false;
-	public abstract useAyahs(id: number, edition: string): {
-		data: Ayah[] | undefined;
-		isLoading: boolean;
-		error: unknown;
-	};
+	public abstract ayahsByChapter(chapter: number, edition: string): Promise<Ayah[]>;
 }
 
 class TauriApi extends MushafAbstract {
-	public useAyahs(id: number, edition: string) {
-		const { data, isLoading, error } = useRspcQuery(['ayahs', { edition: edition, number: id }]);
-		if (!isLoading) {
-			return { data, isLoading, error };
-		}
-
-		return { data, isLoading, error };
+	public async ayahsByChapter(id: number, edition: string) {
+		const data = await client.query(['ayahs', { edition: edition, number: id }]);
+		return data;
 	}
 }
 
 class QuranApi extends MushafAbstract {
-	public formatData(chapters: { verse: number; surah: number; text: string; }[]) {
+	public async ayahsByChapter(id: number, edition = 'ara-quranindopak') {
+		const data = await $fetch(
+			`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${edition}/${id}.json`,
+		);
+		const ayahs = data.chapter;
+		const formattedData = this.formatData(ayahs);
+		return formattedData;
+	}
+
+	private formatData(chapters: { verse: number; surah: number; text: string; }[]) {
 		const ayahs: Ayah[] = [];
 
 		for (const chapter of chapters) {
@@ -37,35 +37,12 @@ class QuranApi extends MushafAbstract {
 		}
 		return ayahs;
 	}
-
-	public useAyahs(id: number, edition = 'ara-quranindopak'): {
-		data: Ayah[];
-		isLoading: boolean;
-		error: unknown;
-	} | {
-		data: undefined;
-		isLoading: boolean;
-		error: unknown;
-	} {
-		const { data, isLoading, error } = useQuery(['ayahs'], async () => {
-			return await $fetch(
-				`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${edition}/${id}.json`,
-			);
-		});
-		if (!isLoading) {
-			const ayahs = data.chapter;
-			const formattedData = this.formatData(ayahs);
-			return { data: formattedData, isLoading, error };
-		}
-
-		return { data, isLoading, error };
-	}
 }
 
 export class MushafApi extends MushafAbstract {
 	helper = this.isTauri ? new TauriApi() : new QuranApi();
 
-	public useAyahs(id: number, edition: string) {
-		return this.helper.useAyahs(id, edition);
+	public ayahsByChapter(id: number, edition: string) {
+		return this.helper.ayahsByChapter(id, edition);
 	}
 }
