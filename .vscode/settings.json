@@ -16,7 +16,8 @@
 		"refactor",
 		"github",
 		"tailwind",
-		"lint"
+		"lint",
+		"ci"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,

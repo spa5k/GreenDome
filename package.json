@@ -22,7 +22,7 @@
 	},
 	"devDependencies": {
 		"@tauri-apps/cli": "^1.2.2",
-		"dprint": "^0.34.1",
+		"dprint": "^0.34.4",
 		"husky": "^8.0.3",
 		"turbo": "^1.7.0"
 	},

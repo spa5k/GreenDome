@@ -1,8 +1,4 @@
-import LeftBar from '@/components/LeftBar.js';
-import MainContent from '@/components/MainContent.js';
-import RightBar from '@/components/RighBar.js';
-
-export const Layout = () => {
+export const HomePage = () => {
 	return (
 		<div className='flex h-screen'>
 			<LeftBar />
