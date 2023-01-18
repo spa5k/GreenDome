@@ -3,10 +3,17 @@ export {};
 declare global {
 	const ConvertSurah: typeof import('./features/surahs/types/index')['ConvertSurah'];
 	const EditionsApi: typeof import('./features/editions/api/index')['EditionsApi'];
+	const HomePage: typeof import('./screens/homepage')['HomePage'];
+	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
+	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
-	const Layout: typeof import('./screens/homepage')['Layout'];
+	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
+	const MainContent: typeof import('./components/Layout/MainContent')['default'];
 	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
+	const Navbar: typeof import('./components/Header/Navbar')['Navbar'];
+	const NavbarHook: typeof import('./stores/navbar')['NavbarHook'];
 	const RevelationPlace: typeof import('./features/surahs/types/index')['RevelationPlace'];
+	const RightBar: typeof import('./components/Layout/RightBar')['default'];
 	const SurahApi: typeof import('./features/surahs/api/index')['SurahApi'];
 	const Theme: typeof import('./stores/theme')['Theme'];
 	const afterAll: typeof import('vitest')['afterAll'];

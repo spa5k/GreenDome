@@ -1,4 +1,4 @@
-import { Layout } from '@/screens/homepage.js';
+import { HomePage } from '@/screens/homepage.js';
 import { Surahs } from '@/utils/bindings.js';
 import { Link, LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 const surah = new SurahApi();
@@ -19,7 +19,7 @@ export default function Index() {
 
 	return (
 		<div>
-			<Layout />
+			<HomePage />
 			{data.surahs?.map((s) => {
 				return (
 					<Link to={`/surah/${s.id}`} key={s.nameArabic}>

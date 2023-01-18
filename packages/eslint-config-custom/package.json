@@ -4,11 +4,11 @@
 	"main": ".eslintrc.js",
 	"license": "MIT",
 	"dependencies": {
-		"@typescript-eslint/parser": "^5.48.1",
+		"@typescript-eslint/parser": "^5.48.2",
 		"eslint": "^8.32.0",
 		"eslint-config-next": "13.1.2",
 		"eslint-config-turbo": "latest",
-		"eslint-plugin-react": "7.32.0"
+		"eslint-plugin-react": "7.32.1"
 	},
 	"devDependencies": {
 		"typescript": "^4.9.4"

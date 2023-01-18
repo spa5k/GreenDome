@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
+import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';
@@ -12,7 +13,9 @@ export default defineConfig({
 		react(),
 		checker({ typescript: true, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
 		svgr(),
-		Icons({ autoInstall: true, compiler: 'jsx', jsx: 'react', defaultClass: 'icon' }),
+		Icons({
+			compiler: 'jsx',
+		}),
 		VitePluginFonts({
 			google: {
 				families: ['Rubik', 'Viga', 'Antic Slab'],
@@ -30,13 +33,22 @@ export default defineConfig({
 			},
 		}),
 		AutoImport({
-			include: [
-				/\.[tj]sx?$/,
-				/\.md$/,
-			],
 			imports: ['vitest', 'ahooks', 'react'],
-			dirs: ['./src/utils', './src/features/**', './src/screens/**', './src/stores/**', './src/utils/*'],
+			dirs: ['./src/utils/**', './src/features/**', './src/screens/**', './src/stores/**', './src/components/**', './src/assets/icons'],
 			dts: './src/auto-import.d.ts',
+			defaultExportByFilename: true,
+			resolvers: [
+				IconsResolver({
+					prefix: 'Icon',
+					extension: 'jsx',
+				}),
+			],
+			include: [
+				/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+				/\.vue$/,
+				/\.vue\?vue/, // .vue
+				/\.md$/, // .md
+			],
 		}),
 	],
 	server: {
