@@ -12,7 +12,7 @@
 		"skipLibCheck": true,
 		"strict": true,
 		"isolatedModules": false,
-		"types": ["@tauri-apps/api", "vite/client"],
+		"types": ["@tauri-apps/api", "vite/client", "unplugin-icons/types/react"],
 		"useDefineForClassFields": true
 	},
 	"include": ["src"]

@@ -11,7 +11,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
 	plugins: [
 		react(),
-		checker({ typescript: true, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
+		checker({ typescript: process.env.NODE_ENV !== 'CI' ? true : false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
 		svgr(),
 		Icons({
 			compiler: 'jsx',
