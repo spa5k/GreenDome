@@ -21,10 +21,10 @@
 		"tauri": "tauri"
 	},
 	"devDependencies": {
-		"@tauri-apps/cli": "^1.2.2",
+		"@tauri-apps/cli": "^1.2.3",
 		"dprint": "^0.34.4",
 		"husky": "^8.0.3",
 		"turbo": "^1.7.0"
 	},
-	"packageManager": "pnpm@7.25.0"
+	"packageManager": "pnpm@7.25.1"
 }

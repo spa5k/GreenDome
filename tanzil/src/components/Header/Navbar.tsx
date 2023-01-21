@@ -17,16 +17,13 @@ export const Navbar = () => {
 					</div>
 					{/*  Mobile menu button  */}
 					<div className='flex lg:hidden'>
-						<button
-							type='button'
-							className='text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400'
-							aria-label='toggle menu'
-							onClick={() => setNavbar(!navbar)}
-						>
-							{navbar
+						<Button
+							startIcon={navbar
 								? <IconCharmCross />
 								: <IconMdiMenu />}
-						</button>
+							aria-label='toggle menu'
+							onClick={() => setNavbar(!navbar)}
+						/>
 					</div>
 				</div>
 				{/* Mobile Menu open: "block", Menu closed: "hidden" */}

@@ -22,5 +22,6 @@ module.exports = {
 		],
 		'import/no-unresolved': 'off',
 		'react/jsx-no-undef': 'off',
+		'react/prop-types': 'off',
 	},
 };

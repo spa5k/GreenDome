@@ -8,10 +8,16 @@ import { checker } from 'vite-plugin-checker';
 import { VitePluginFonts } from 'vite-plugin-fonts';
 import svgr from 'vite-plugin-svgr';
 
+let typescript = true;
+
+if (process.env.NODE_ENV === 'CI' || process.env.STORYBOOK === 'true') {
+	typescript = false;
+}
+
 export default defineConfig({
 	plugins: [
 		react(),
-		checker({ typescript: process.env.NODE_ENV !== 'CI' ? true : false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
+		checker({ typescript, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
 		svgr(),
 		Icons({
 			compiler: 'jsx',
