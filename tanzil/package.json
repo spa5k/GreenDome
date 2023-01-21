@@ -4,8 +4,8 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "tsc && vite build",
-		"check": "",
+		"build": "cross-env NODE_ENV=production tsc && vite build",
+		"check": "tsc",
 		"dev": "vite",
 		"lint": "eslint . --ext .ts,.tsx",
 		"preview": "vite preview",
