@@ -17,8 +17,8 @@ export const Navbar = () => {
 					</div>
 					{/*  Mobile menu button  */}
 					<div className='flex md:hidden'>
-						<Button
-							startIcon={navbar
+						<IconButton
+							icon={navbar
 								? <IconCharmCross />
 								: <IconMdiMenu />}
 							aria-label='toggle menu'
