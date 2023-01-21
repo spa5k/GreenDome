@@ -11,9 +11,9 @@
 		"preview": "vite preview",
 		"storybook": " cross-env STORYBOOK=true concurrently \"pnpm:watch:*\"",
 		"build-storybook": "concurrently \"pnpm:build:*\"",
-		"build:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css",
+		"build:css": "npx tailwindcss -i ./src/main.css -o ./public/tailwind.css",
 		"build:storybook": "storybook build",
-		"watch:css": "npx tailwindcss -i ./src/index.css -o ./public/tailwind.css --watch",
+		"watch:css": "npx tailwindcss -i ./src/main.css -o ./public/tailwind.css --watch",
 		"watch:storybook": "storybook dev -p 6006"
 	},
 	"dependencies": {
@@ -30,6 +30,7 @@
 		"ohmyfetch": "^0.4.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
+		"react-error-boundary": "^3.1.4",
 		"react-wrap-balancer": "^0.3.0"
 	},
 	"devDependencies": {

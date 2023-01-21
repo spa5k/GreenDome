@@ -16,7 +16,7 @@ export const Navbar = () => {
 						</Link>
 					</div>
 					{/*  Mobile menu button  */}
-					<div className='flex lg:hidden'>
+					<div className='flex md:hidden'>
 						<Button
 							startIcon={navbar
 								? <IconCharmCross />

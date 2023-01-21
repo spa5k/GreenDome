@@ -40,7 +40,7 @@ export default defineConfig({
 		}),
 		AutoImport({
 			imports: ['vitest', 'ahooks', 'react'],
-			dirs: ['./src/utils/**', './src/features/**', './src/screens/**', './src/stores/**', './src/components/**', './src/assets/icons'],
+			dirs: ['./src/utils/**', './src/features/**', './src/screens/**', './src/stores/**', './src/components/**', './src/providers/**'],
 			dts: './src/auto-import.d.ts',
 			defaultExportByFilename: true,
 			resolvers: [

@@ -117,6 +117,7 @@ importers:
       prop-types: 15.8.1
       react: ^18.2.0
       react-dom: ^18.2.0
+      react-error-boundary: ^3.1.4
       react-wrap-balancer: ^0.3.0
       storybook: 7.0.0-beta.31
       storybook-tailwind-dark-mode: ^1.0.15
@@ -146,6 +147,7 @@ importers:
       ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+      react-error-boundary: 3.1.4_react@18.2.0
       react-wrap-balancer: 0.3.0_react@18.2.0
     devDependencies:
       '@iconify/json': 2.2.9
@@ -8568,6 +8570,16 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-is: 18.1.0
     dev: true
+
+  /react-error-boundary/3.1.4_react@18.2.0:
+    resolution: {integrity: sha512-uM9uPzZJTF6wRQORmSrvOIgt4lJ9MC1sNgEOj2XGsDTRE4kmpWxg7ENK9EWNKJRMAOY9z0MuF4yIfl6gp4sotA==}
+    engines: {node: '>=10', npm: '>=6'}
+    peerDependencies:
+      react: '>=16.13.1'
+    dependencies:
+      '@babel/runtime': 7.20.7
+      react: 18.2.0
+    dev: false
 
   /react-inspector/6.0.1_react@18.2.0:
     resolution: {integrity: sha512-cxKSeFTf7jpSSVddm66sKdolG90qURAX3g1roTeaN6x0YEbtWc8JpmFN9+yIqLNH2uEkYerWLtJZIXRIFuBKrg==}
