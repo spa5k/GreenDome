@@ -55,7 +55,6 @@ declare global {
 	const startTransition: typeof import('react')['startTransition'];
 	const suite: typeof import('vitest')['suite'];
 	const test: typeof import('vitest')['test'];
-	const theme: typeof import('./components/Elements/Button/button.stories')['theme'];
 	const useAntdTable: typeof import('ahooks')['useAntdTable'];
 	const useAsyncEffect: typeof import('ahooks')['useAsyncEffect'];
 	const useBoolean: typeof import('ahooks')['useBoolean'];
