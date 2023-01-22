@@ -31,6 +31,7 @@
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-error-boundary": "^3.1.4",
+		"react-resizable-panels": "^0.0.35",
 		"react-wrap-balancer": "^0.3.0",
 		"theme-change": "^2.3.0"
 	},

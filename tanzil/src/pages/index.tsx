@@ -1,6 +1,6 @@
 import { HomePage } from '@/screens/homepage.js';
 import { Surahs } from '@/utils/bindings.js';
-import { Link, LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
+import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 const surah = new SurahApi();
 
 export type HomeRoute = {
@@ -16,19 +16,11 @@ export const Loader: LoaderFn<Route> = async () => {
 
 export default function Index() {
 	const { data } = useMatch<Route>();
+	console.log(data);
 
 	return (
 		<div>
 			<HomePage />
-			{data.surahs?.map((s) => {
-				return (
-					<Link to={`/surah/${s.id}`} key={s.nameArabic}>
-						<p>
-							{s.nameSimple} - {s.id}
-						</p>
-					</Link>
-				);
-			})}
 		</div>
 	);
 }
