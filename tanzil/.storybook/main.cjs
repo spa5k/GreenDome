@@ -6,9 +6,8 @@ module.exports = {
 		'@storybook/addon-essentials',
 		'@storybook/addon-interactions',
 		'@storybook/addon-storysource',
-		'@storybook/addon-viewport',
-		'@storybook/addon-outline',
-		'storybook-tailwind-dark-mode',
+		'storybook-addon-themes',
+		'storybook-dark-mode',
 	],
 	framework: {
 		name: '@storybook/react-vite',

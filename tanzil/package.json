@@ -26,22 +26,24 @@
 		"ahooks": "^3.7.4",
 		"clsx": "^1.2.1",
 		"daisyui": "^2.47.0",
-		"generouted": "^1.7.1",
+		"generouted": "^1.7.2",
 		"ohmyfetch": "^0.4.21",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-error-boundary": "^3.1.4",
-		"react-wrap-balancer": "^0.3.0"
+		"react-wrap-balancer": "^0.3.0",
+		"theme-change": "^2.3.0"
 	},
 	"devDependencies": {
-		"@iconify/json": "^2.2.9",
+		"@iconify/json": "^2.2.10",
 		"@quran/tsconfig": "workspace:^0.0.0",
 		"@storybook/addon-essentials": "7.0.0-beta.31",
 		"@storybook/addon-interactions": "7.0.0-beta.31",
 		"@storybook/addon-links": "7.0.0-beta.31",
-		"@storybook/addon-outline": "^6.5.15",
-		"@storybook/addon-storysource": "^6.5.15",
-		"@storybook/addon-viewport": "^6.5.15",
+		"@storybook/addon-outline": "7.0.0-beta.31",
+		"@storybook/addon-storysource": "7.0.0-beta.31",
+		"@storybook/addon-viewport": "7.0.0-beta.31",
+		"@storybook/addons": "7.0.0-beta.31",
 		"@storybook/blocks": "7.0.0-beta.31",
 		"@storybook/react": "7.0.0-beta.31",
 		"@storybook/react-vite": "7.0.0-beta.31",
@@ -58,7 +60,7 @@
 		"postcss": "^8.4.21",
 		"prop-types": "15.8.1",
 		"storybook": "7.0.0-beta.31",
-		"storybook-tailwind-dark-mode": "^1.0.15",
+		"storybook-dark-mode": "^2.0.5",
 		"tailwindcss": "^3.2.4",
 		"tailwindcss-logical": "^3.0.0",
 		"tailwindcss-themer": "^2.0.3",
@@ -70,6 +72,6 @@
 		"vite-plugin-fonts": "^0.7.0",
 		"vite-plugin-pages": "^0.28.0",
 		"vite-plugin-svgr": "^2.4.0",
-		"vitest": "^0.27.2"
+		"vitest": "^0.27.3"
 	}
 }

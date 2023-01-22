@@ -18,8 +18,8 @@ const listItems = array.map(array => (
 
 export default function leftBar() {
 	return (
-		<div className='basis-1/4 bg-yellow-900'>
-			<img src='/favicon.svg' className='h-[90px] m-6' alt='Salam App Logo' />
+		<div className='basis-1/4 bg-base-200'>
+			<img src='/favicon.svg' className='h-[90px] m-6 bg-primary rounded-lg' alt='Salam App Logo' />
 			<ul className='pl-10'>
 				{listItems}
 			</ul>

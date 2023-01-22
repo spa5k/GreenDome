@@ -11,6 +11,7 @@ declare global {
 	const EditionsApi: typeof import('./features/editions/api/index')['EditionsApi'];
 	const Example: typeof import('./components/Elements/Button/buttongroup.stories')['Example'];
 	const GenericButton: typeof import('./components/Elements/Button/button.stories')['GenericButton'];
+	const Header: typeof import('./components/Header/Header.stories')['default'];
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
@@ -22,6 +23,7 @@ declare global {
 	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
 	const Navbar: typeof import('./components/Header/Navbar')['Navbar'];
 	const NavbarHook: typeof import('./stores/navbar')['NavbarHook'];
+	const NavbarSB: typeof import('./components/Header/Header.stories')['NavbarSB'];
 	const PrimaryWithIcon: typeof import('./components/Elements/Button/iconbutton.stories')['PrimaryWithIcon'];
 	const RevelationPlace: typeof import('./features/surahs/types/index')['RevelationPlace'];
 	const RightBar: typeof import('./components/Layout/RightBar')['default'];
