@@ -29,7 +29,7 @@ tracing-appender = '0.2'
 tracing-bunyan-formatter = '0.3'
 tracing-log = '0.1'
 tracing-subscriber = { version = '0.3', features = ['env-filter', 'std'] }
-islam = "0.2.0"
+islam = "1.0.0"
 time = "0.3.17"
 
 [features]
