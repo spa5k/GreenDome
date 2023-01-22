@@ -15,8 +15,11 @@ declare global {
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
+	const IconElResizeHorizontal: typeof import('~icons/el/resize-horizontal.jsx')['default'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
+	const IconIcons8ResizeHorizontal: typeof import('~icons/icons8/resize-horizontal.jsx')['default'];
 	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
+	const IconUilArrowsResizeH: typeof import('~icons/uil/arrows-resize-h.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
@@ -25,6 +28,7 @@ declare global {
 	const NavbarHook: typeof import('./stores/navbar')['NavbarHook'];
 	const NavbarSB: typeof import('./components/Header/Header.stories')['NavbarSB'];
 	const PrimaryWithIcon: typeof import('./components/Elements/Button/iconbutton.stories')['PrimaryWithIcon'];
+	const ResizeHandler: typeof import('./components/Elements/ResizeHandler/ResizeHandler')['default'];
 	const RevelationPlace: typeof import('./features/surahs/types/index')['RevelationPlace'];
 	const RightBar: typeof import('./components/Layout/RightBar')['default'];
 	const Spinner: typeof import('./components/Elements/Spinner/Spinner')['Spinner'];

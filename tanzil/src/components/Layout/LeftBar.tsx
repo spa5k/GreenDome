@@ -4,7 +4,7 @@ const array = [
 	{ title: 'Hadith', selected: true, id: 3 },
 	{ title: 'Prayer Times', selected: true, id: 4 },
 	{ title: 'Prayer Tracker', selected: true, id: 5 },
-	{ title: 'Settigns', selected: true, id: 6 },
+	{ title: 'Settings', selected: true, id: 6 },
 ];
 
 const listItems = array.map(array => (
@@ -18,8 +18,8 @@ const listItems = array.map(array => (
 
 export default function leftBar() {
 	return (
-		<div className='basis-1/4 bg-base-200'>
-			<img src='/favicon.svg' className='h-[90px] m-6 bg-primary rounded-lg' alt='Salam App Logo' />
+		<div className='basis-1/4 bg-base-200  h-full'>
+			<img src='/favicon.svg' className='h-[90px] mx-6 bg-primary rounded-lg' alt='Salam App Logo' />
 			<ul className='pl-10'>
 				{listItems}
 			</ul>
