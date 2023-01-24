@@ -15,11 +15,8 @@ declare global {
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
-	const IconElResizeHorizontal: typeof import('~icons/el/resize-horizontal.jsx')['default'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
-	const IconIcons8ResizeHorizontal: typeof import('~icons/icons8/resize-horizontal.jsx')['default'];
 	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
-	const IconUilArrowsResizeH: typeof import('~icons/uil/arrows-resize-h.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
@@ -34,6 +31,7 @@ declare global {
 	const Spinner: typeof import('./components/Elements/Spinner/Spinner')['Spinner'];
 	const SpinnerSB: typeof import('./components/Elements/Spinner/spinner.stories')['SpinnerSB'];
 	const SurahApi: typeof import('./features/surahs/api/index')['SurahApi'];
+	const SurahPage: typeof import('./screens/surahpage')['SurahPage'];
 	const Theme: typeof import('./stores/theme')['Theme'];
 	const afterAll: typeof import('vitest')['afterAll'];
 	const afterEach: typeof import('vitest')['afterEach'];

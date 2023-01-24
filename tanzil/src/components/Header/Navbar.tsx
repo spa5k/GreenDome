@@ -15,7 +15,6 @@ export const Navbar = () => {
 							Quran
 						</Link>
 					</div>
-					{/*  Mobile menu button  */}
 					<div className='flex md:hidden'>
 						<IconButton
 							icon={navbar
@@ -36,25 +35,7 @@ export const Navbar = () => {
 					<div className='flex flex-col md:flex-row md:mx-6'>
 						<Link
 							className='my-2 transition-colors duration-300 md:mx-4 md:my-0 link link-hover hover:text-secondary'
-							to='/'
-						>
-							Home
-						</Link>
-						<Link
-							className='my-2 transition-colors duration-300 md:mx-4 md:my-0 link link-hover hover:text-secondary'
-							to='#'
-						>
-							Surah
-						</Link>
-						<Link
-							className='my-2 transition-colors duration-300 md:mx-4 md:my-0 link link-hover hover:text-secondary'
-							to='#'
-						>
-							Salah
-						</Link>
-						<Link
-							className='my-2 transition-colors duration-300 md:mx-4 md:my-0 link link-hover hover:text-secondary'
-							to='#'
+							to='/about'
 						>
 							About
 						</Link>
