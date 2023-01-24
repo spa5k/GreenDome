@@ -120,7 +120,7 @@ importers:
       react-dom: ^18.2.0
       react-error-boundary: ^3.1.4
       react-resizable-panels: ^0.0.35
-      react-wrap-balancer: ^0.3.0
+      react-wrap-balancer: ^0.4.0
       storybook: 7.0.0-beta.32
       storybook-dark-mode: ^2.0.5
       tailwindcss: ^3.2.4
@@ -152,7 +152,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-error-boundary: 3.1.4_react@18.2.0
       react-resizable-panels: 0.0.35_biqbaboplfbrettd7655fr4n2y
-      react-wrap-balancer: 0.3.0_react@18.2.0
+      react-wrap-balancer: 0.4.0_react@18.2.0
       theme-change: 2.3.0
     devDependencies:
       '@iconify/json': 2.2.10
@@ -8642,8 +8642,8 @@ packages:
       refractor: 3.6.0
     dev: true
 
-  /react-wrap-balancer/0.3.0_react@18.2.0:
-    resolution: {integrity: sha512-UlnQvCvSRW0jh8uILic2LJs4tV0KjOO+P70ookE5qRpfZvsKmY8KLcV8s7TBPB6cuVYkoH7+fbqankFrFata8w==}
+  /react-wrap-balancer/0.4.0_react@18.2.0:
+    resolution: {integrity: sha512-MUsROihHd7bFHCo9kCOifKDYBEZPgKTyGvfa8RcwRQKtT2cL7Um9Cc8A7GvuT8t3np7LAGsEkzdEyJdKrr5lVQ==}
     peerDependencies:
       react: ^18.0.0
     dependencies:
