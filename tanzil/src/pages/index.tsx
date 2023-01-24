@@ -18,9 +18,5 @@ export default function Index() {
 	const { data } = useMatch<Route>();
 	console.log(data);
 
-	return (
-		<div>
-			<HomePage />
-		</div>
-	);
+	return <HomePage />;
 }
