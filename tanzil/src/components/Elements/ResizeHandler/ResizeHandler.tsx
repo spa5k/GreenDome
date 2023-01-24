@@ -13,7 +13,7 @@ export default function ResizeHandle({
 			id={id}
 			className={clsx(
 				className,
-				'rounded-md  flex flex-col items-center align-middle justify-center border-x-1 w-0.5 resize hover:bg-white active:bg-whit transition-all  duration-150 ease-out hover:ease-in',
+				'rounded-md  flex flex-col items-center align-middle justify-center border-x-1 w-0.5 resize hover:bg-white active:bg-white transition-all  duration-150 ease-out hover:ease-in',
 			)}
 		/>
 	);
