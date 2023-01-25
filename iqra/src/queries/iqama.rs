@@ -16,7 +16,7 @@ impl Default for PrayerParameters{
     fn default() -> Self {
         Self{
             date: date!(2023 - 01 - 19),
-            location: Location::new(9.1099, 7.4042, 1), //Location of Gwarinpa
+            location: Location::new(9.1099, 7.4042), //Location of Gwarinpa
             madhab_type: Madhab::Shafi,
             time_calculation_method: Method::Egyptian,
         }
@@ -24,7 +24,7 @@ impl Default for PrayerParameters{
 }
 
 
-fn all_prayer_time() -> Result<PrayerTimes, Error>{
+pub(crate) fn all_prayer_time() -> Result<PrayerTimes, Error>{
 //let date  = Utc.ymd(2019, 1, 25);
         // https://www.mapcoordinates.net/en
     let config = Config::new().with(PrayerParameters::default().time_calculation_method, PrayerParameters::default().madhab_type);
@@ -37,7 +37,7 @@ fn all_prayer_time() -> Result<PrayerTimes, Error>{
     Ok(prayer_times)
 }
 
-fn next_prayer_time() -> Result<Prayer, Error>{
+pub(crate) fn next_prayer_time() -> Result<Prayer, Error>{
     let config = Config::new().with(PrayerParameters::default().time_calculation_method, PrayerParameters::default().madhab_type);
     let ptimes = PrayerTimes::new(PrayerParameters::default().date, PrayerParameters::default().location, config)?;
     
