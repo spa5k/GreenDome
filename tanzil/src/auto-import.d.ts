@@ -16,6 +16,12 @@ declare global {
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
+	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.jsx')['default'];
+	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
+	const IconIcBaselineSettings: typeof import('~icons/ic/baseline-settings.jsx')['default'];
+	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
+	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
+	const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.jsx')['default'];
 	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
