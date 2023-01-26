@@ -1,27 +1,21 @@
 import { Panel, PanelGroup } from 'react-resizable-panels';
 
-type FilesState = {
+type SidebarState = {
 	fileListCollapsed: boolean;
 };
 
-const initialState: FilesState = {
+const initialState: SidebarState = {
 	fileListCollapsed: false,
 };
-type CloseAction = { type: 'close'; file: File; };
-type OpenAction = { type: 'open'; file: File; };
 type ToggleCollapsedAction = { type: 'toggleCollapsed'; collapsed: boolean; };
 
-export type FilesAction = CloseAction | OpenAction | ToggleCollapsedAction;
+export type SidebarAction = ToggleCollapsedAction;
 
-function reducer(state: FilesState, action: FilesAction): FilesState {
-	switch (action.type) {
-		case 'toggleCollapsed': {
-			return { ...state, fileListCollapsed: action.collapsed };
-		}
-		default: {
-			throw `Unknown action type: ${(action).type}`;
-		}
+function reducer(state: SidebarState, action: SidebarAction): SidebarState {
+	if (action.type === 'toggleCollapsed') {
+		return { ...state, fileListCollapsed: action.collapsed };
 	}
+	return state;
 }
 
 export default function App({ children }: { children: React.ReactNode; }) {

@@ -25,7 +25,6 @@ declare global {
 	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
-	const LeftBarCollapsed: typeof import('./components/Layout/LeftBarCollapsed')['default'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
 	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
 	const Navbar: typeof import('./components/Header/Navbar')['Navbar'];

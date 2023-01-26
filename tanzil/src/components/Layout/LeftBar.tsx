@@ -34,7 +34,7 @@ export default function LeftBar({ hideText }: { hideText: boolean; }) {
 						const isActive = pathName === path.to;
 						return (
 							<li key={path.id} className={clsx('w-full hover-bordered h-14', isActive && 'active')}>
-								<Link to={path.to} className={clsx('h-14')}>
+								<Link to={path.to} className={clsx('h-14', hideText && 'justify-center')}>
 									{path.icon}
 									{!hideText && (
 										<p className='whitespace-nowrap'>
