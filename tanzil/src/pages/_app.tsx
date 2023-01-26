@@ -38,12 +38,12 @@ export default function App({ children }: { children: React.ReactNode; }) {
 					<>
 						<Panel
 							defaultSize={10}
-							minSize={3}
+							minSize={2.7}
 							maxSize={15}
 							collapsible={true}
 							onCollapse={toggleCollapsed}
 							onResize={(size) => {
-								if (size <= 3.1) {
+								if (size <= 3) {
 									sethideText(true);
 								} else {
 									sethideText(false);
