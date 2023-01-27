@@ -13,6 +13,7 @@ declare global {
 	const GenericButton: typeof import('./components/Elements/Button/button.stories')['GenericButton'];
 	const Header: typeof import('./components/Header/Header.stories')['default'];
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
+	const IconArcticonsQuran: typeof import('~icons/arcticons/quran.jsx')['default'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconCharmCross: typeof import('~icons/charm/cross.jsx')['default'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
@@ -20,9 +21,12 @@ declare global {
 	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
 	const IconIcBaselineSettings: typeof import('~icons/ic/baseline-settings.jsx')['default'];
 	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
+	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.jsx')['default'];
 	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
+	const IconMdiAccountOutline: typeof import('~icons/mdi/account-outline.jsx')['default'];
 	const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.jsx')['default'];
 	const IconMdiMenu: typeof import('~icons/mdi/menu.jsx')['default'];
+	const IconRiHome2Line: typeof import('~icons/ri/home2-line.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['default'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];

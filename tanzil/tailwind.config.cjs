@@ -12,7 +12,6 @@ module.exports = {
 			'emerald',
 			'corporate',
 			'retro',
-			'halloween',
 			'garden',
 			'forest',
 			'aqua',
