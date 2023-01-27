@@ -44,7 +44,7 @@ importers:
       eslint: ^8.32.0
       eslint-config-custom: workspace:^0.0.0
       eslint-plugin-import: ^2.27.5
-      eslint-plugin-simple-import-sort: ^9.0.0
+      eslint-plugin-simple-import-sort: ^10.0.0
       kysely: ^0.23.4
       kysely-codegen: ^0.9.0
       ohmyfetch: ^0.4.21
@@ -69,7 +69,7 @@ importers:
       eslint: 8.32.0
       eslint-config-custom: link:../eslint-config-custom
       eslint-plugin-import: 2.27.5_6savw6y3b7jng6f64kgkyoij64
-      eslint-plugin-simple-import-sort: 9.0.0_eslint@8.32.0
+      eslint-plugin-simple-import-sort: 10.0.0_eslint@8.32.0
       kysely-codegen: 0.9.0_rgu37vxitkpqtrrcwiybl3l34q
       regenerator-runtime: 0.13.11
       ts-node: 10.9.1_wobfdaxj5rgl42klascyjsh46q
@@ -5784,8 +5784,8 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: false
 
-  /eslint-plugin-simple-import-sort/9.0.0_eslint@8.32.0:
-    resolution: {integrity: sha512-PtrLjyXP8kjRneWT1n0b99y/2Fyup37we7FVoWsI61/O7x4ztLohzhep/pxI/cYlECr/cQ2j6utckdvWpVwXNA==}
+  /eslint-plugin-simple-import-sort/10.0.0_eslint@8.32.0:
+    resolution: {integrity: sha512-AeTvO9UCMSNzIHRkg8S6c3RPy5YEwKWSQPx3DYghLedo2ZQxowPFLGDN1AZ2evfg6r6mjBSZSLxLFsWSu3acsw==}
     peerDependencies:
       eslint: '>=5.0.0'
     dependencies:
