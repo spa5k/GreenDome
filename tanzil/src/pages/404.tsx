@@ -1,3 +1,7 @@
 export default function NotFound() {
-	return <h1>404</h1>;
+	return (
+		<div className='flex h-screen grow bg-base-200'>
+			404
+		</div>
+	);
 }

@@ -30,31 +30,30 @@ export default function App({ children }: { children: React.ReactNode; }) {
 	return (
 		<section>
 			<header>
-				<Navbar />
 			</header>
 
 			<main>
 				<PanelGroup autoSaveId='homepage' direction='horizontal'>
-					<>
-						<Panel
-							defaultSize={10}
-							minSize={2.7}
-							maxSize={15}
-							collapsible={true}
-							onCollapse={toggleCollapsed}
-							onResize={(size) => {
-								if (size <= 3) {
-									sethideText(true);
-								} else {
-									sethideText(false);
-								}
-							}}
-						>
-							<LeftBar hideText={hideText} />
-						</Panel>
-						<ResizeHandler />
-					</>
+					<Panel
+						defaultSize={10}
+						minSize={2.7}
+						maxSize={15}
+						collapsible={true}
+						onCollapse={toggleCollapsed}
+						onResize={(size) => {
+							if (size <= 3) {
+								sethideText(true);
+							} else {
+								sethideText(false);
+							}
+						}}
+					>
+						<LeftBar hideText={hideText} />
+					</Panel>
+					<ResizeHandler />
+
 					<Panel minSize={30}>
+						<Navbar />
 						{children}
 					</Panel>
 					<ResizeHandler />
