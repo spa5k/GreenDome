@@ -1,4 +1,3 @@
-import { leftSideBarCollapseSignal } from '@/stores/collapse.signal.js';
 import { Link, useLocation } from '@tanstack/react-location';
 import { clsx } from 'clsx';
 import { RefObject } from 'react';
