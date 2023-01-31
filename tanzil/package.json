@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@headlessui/react": "^1.7.8",
 		"@legendapp/state": "^0.23.2",
+		"@preact/signals-react": "^1.2.2",
 		"@rspc/client": "^0.1.2",
 		"@rspc/tauri": "^0.1.2",
 		"@tanstack/react-location": "^3.7.4",
@@ -28,8 +29,6 @@
 		"clsx": "^1.2.1",
 		"daisyui": "^2.49.0",
 		"generouted": "^1.7.2",
-		"jotai": "^2.0.0",
-		"jotai-signal": "^0.7.3",
 		"ohmyfetch": "^0.4.21",
 		"react": "latest",
 		"react-dom": "latest",

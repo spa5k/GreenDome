@@ -27,12 +27,9 @@ declare global {
 	const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['LeftBar'];
-	const LeftBarCollapse: typeof import('./stores/leftBarCollapse')['LeftBarCollapse'];
-	const LeftBarSize: typeof import('./stores/leftBarCollapse')['LeftBarSize'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
 	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
 	const Navbar: typeof import('./components/Header/Navbar')['Navbar'];
-	const NavbarHook: typeof import('./stores/navbar')['NavbarHook'];
 	const NavbarSB: typeof import('./components/Header/Header.stories')['NavbarSB'];
 	const PrimaryWithIcon: typeof import('./components/Elements/Button/iconbutton.stories')['PrimaryWithIcon'];
 	const ResizeHandler: typeof import('./components/Elements/ResizeHandler/ResizeHandler')['default'];
@@ -42,7 +39,6 @@ declare global {
 	const SpinnerSB: typeof import('./components/Elements/Spinner/spinner.stories')['SpinnerSB'];
 	const SurahApi: typeof import('./features/surahs/api/index')['SurahApi'];
 	const SurahPage: typeof import('./screens/surahpage')['SurahPage'];
-	const Theme: typeof import('./stores/theme')['Theme'];
 	const afterAll: typeof import('vitest')['afterAll'];
 	const afterEach: typeof import('vitest')['afterEach'];
 	const assert: typeof import('vitest')['assert'];
@@ -61,6 +57,7 @@ declare global {
 	const iconbutton: typeof import('./components/Elements/Button/iconbutton.stories')['default'];
 	const it: typeof import('vitest')['it'];
 	const lazy: typeof import('react')['lazy'];
+	const leftSideBarCollapseSignal: typeof import('./stores/collapse.signal')['leftSideBarCollapseSignal'];
 	const memo: typeof import('react')['memo'];
 	const roundness: typeof import('./components/Elements/Button/Button')['roundness'];
 	const spinner: typeof import('./components/Elements/Spinner/spinner.stories')['default'];

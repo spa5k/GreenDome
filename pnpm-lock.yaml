@@ -94,6 +94,7 @@ importers:
       '@headlessui/react': ^1.7.8
       '@iconify/json': ^2.2.13
       '@legendapp/state': ^0.23.2
+      '@preact/signals-react': ^1.2.2
       '@quran/tsconfig': workspace:^0.0.0
       '@rspc/client': ^0.1.2
       '@rspc/tauri': ^0.1.2
@@ -129,8 +130,6 @@ importers:
       eslint-plugin-react: 7.32.2
       eslint-plugin-simple-import-sort: ^10.0.0
       generouted: ^1.7.2
-      jotai: ^2.0.0
-      jotai-signal: ^0.7.3
       ohmyfetch: ^0.4.21
       postcss: ^8.4.21
       prop-types: 15.8.1
@@ -157,6 +156,7 @@ importers:
     dependencies:
       '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
       '@legendapp/state': 0.23.2_react@18.2.0
+      '@preact/signals-react': 1.2.2_react@18.2.0
       '@rspc/client': 0.1.2
       '@rspc/tauri': 0.1.2_@tauri-apps+api@1.2.0
       '@tanstack/react-location': 3.7.4_biqbaboplfbrettd7655fr4n2y
@@ -165,8 +165,6 @@ importers:
       clsx: 1.2.1
       daisyui: 2.49.0_gbtt6ss3tbiz4yjtvdr6fbrj44
       generouted: 1.7.2_vite@4.0.4
-      jotai: 2.0.0_react@18.2.0
-      jotai-signal: 0.7.3_jotai@2.0.0+react@18.2.0
       ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -207,7 +205,7 @@ importers:
       prop-types: 15.8.1
       storybook: 7.0.0-beta.36
       storybook-dark-mode: 2.0.5_biqbaboplfbrettd7655fr4n2y
-      tailwindcss: 3.2.4_postcss@8.4.21
+      tailwindcss: 3.2.4
       tailwindcss-logical: 3.0.0_gbtt6ss3tbiz4yjtvdr6fbrj44
       tailwindcss-themer: 2.0.3_tailwindcss@3.2.4
       typescript: 4.9.4
@@ -1995,6 +1993,20 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+
+  /@preact/signals-core/1.2.3:
+    resolution: {integrity: sha512-Kui4p7PMcEQevBgsTO0JBo3gyQ88Q3qzEvsVCuSp11t0JcN4DmGCTJcGRVSCq7Bn7lGxJBO+57jNSzDoDJ+QmA==}
+    dev: false
+
+  /@preact/signals-react/1.2.2_react@18.2.0:
+    resolution: {integrity: sha512-GoESQ9n1bns2FD+8yqH7lBvQMavboKLCNEW+s0hs3Wcp5B1VHvVxwJo6aFs6rpxoh1/q8Tvwbi4vIeehBD2mzA==}
+    peerDependencies:
+      react: 17.x || 18.x
+    dependencies:
+      '@preact/signals-core': 1.2.3
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -4984,14 +4996,6 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /create-react-signals/0.6.2_react@18.2.0:
-    resolution: {integrity: sha512-p+I3k2LbTaZapE/ZYhCPi4P+n4TljdqiT6Q6y+qVKwLels2FNywlck8mrx94AgcMK+WmQliywzDAZ1woQtOL9g==}
-    peerDependencies:
-      react: '>=17.0.0'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /create-require/1.1.1:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: true
@@ -5044,7 +5048,7 @@ packages:
       css-selector-tokenizer: 0.8.0
       postcss: 8.4.21
       postcss-js: 4.0.0_postcss@8.4.21
-      tailwindcss: 3.2.4_postcss@8.4.21
+      tailwindcss: 3.2.4
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -7072,29 +7076,6 @@ packages:
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: true
-
-  /jotai-signal/0.7.3_jotai@2.0.0+react@18.2.0:
-    resolution: {integrity: sha512-j+8ICuQFdetLy4G5sskckMfvX3lHin484rt6PRiPi7YmLKLHG0LcNd3nxPsZpRVAzwAkfUUYmcneWRXRqNUG0w==}
-    peerDependencies:
-      jotai: '>=1.11.0'
-      react: '>=17.0.0'
-    dependencies:
-      create-react-signals: 0.6.2_react@18.2.0
-      jotai: 2.0.0_react@18.2.0
-      react: 18.2.0
-    dev: false
-
-  /jotai/2.0.0_react@18.2.0:
-    resolution: {integrity: sha512-04G0CRZQgp3xrFAezd6X14psZ2TRGekHeYMBcbDJ/BR8ZJQPS+j0YkMTxUxyG58HJnN2+adfj5sWQWoqgtp1XQ==}
-    engines: {node: '>=12.20.0'}
-    peerDependencies:
-      react: '>=17.0.0'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /js-cookie/2.2.1:
     resolution: {integrity: sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==}
@@ -9324,7 +9305,7 @@ packages:
       just-unique: 4.2.0
       lodash.merge: 4.6.2
       lodash.mergewith: 4.6.2
-      tailwindcss: 3.2.4_postcss@8.4.21
+      tailwindcss: 3.2.4
     dev: true
 
   /tailwindcss/3.0.7_gbtt6ss3tbiz4yjtvdr6fbrj44:
@@ -9366,40 +9347,6 @@ packages:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    dependencies:
-      arg: 5.0.2
-      chokidar: 3.5.3
-      color-name: 1.1.4
-      detective: 5.2.1
-      didyoumean: 1.2.2
-      dlv: 1.1.3
-      fast-glob: 3.2.12
-      glob-parent: 6.0.2
-      is-glob: 4.0.3
-      lilconfig: 2.0.6
-      micromatch: 4.0.5
-      normalize-path: 3.0.0
-      object-hash: 3.0.0
-      picocolors: 1.0.0
-      postcss: 8.4.21
-      postcss-import: 14.1.0_postcss@8.4.21
-      postcss-js: 4.0.0_postcss@8.4.21
-      postcss-load-config: 3.1.4_postcss@8.4.21
-      postcss-nested: 6.0.0_postcss@8.4.21
-      postcss-selector-parser: 6.0.11
-      postcss-value-parser: 4.2.0
-      quick-lru: 5.1.1
-      resolve: 1.22.1
-    transitivePeerDependencies:
-      - ts-node
-    dev: false
-
-  /tailwindcss/3.2.4_postcss@8.4.21:
-    resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}
-    engines: {node: '>=12.13.0'}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
@@ -10014,6 +9961,14 @@ packages:
     resolution: {integrity: sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==}
     deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
+
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}

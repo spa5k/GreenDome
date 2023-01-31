@@ -18,15 +18,6 @@ const ErrorFallback = () => {
 const App = ({ children }: { children: React.ReactNode; }) => {
 	const [hideText, sethideText] = useState(false);
 	const ref = useRef<ImperativePanelHandle>(null);
-	const panel = ref.current;
-
-	// LeftBarCollapse.state.onChange((value) => {
-	// 	if (value && panel) {
-	// 		panel.resize(3);
-	// 	} else if (!value && panel) {
-	// 		panel.resize(15);
-	// 	}
-	// });
 
 	return (
 		<section>
@@ -43,17 +34,15 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 							collapsible
 							ref={ref}
 							onResize={(size) => {
-								console.log(size);
+								console.log('resize', size);
 								if (size <= 3) {
-									// LeftBarCollapse.state.set(true);
 									sethideText(true);
 								} else {
-									// LeftBarCollapse.state.set(false);
 									sethideText(false);
 								}
 							}}
 						>
-							<LeftBar hideText={hideText} />
+							<LeftBar hideText={hideText} handler={ref} />
 						</Panel>
 						<ResizeHandler />
 

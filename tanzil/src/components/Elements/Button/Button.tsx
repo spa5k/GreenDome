@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import * as React from 'react';
 
 export const buttonVariants = {
-	primary: 'shadow-sm shadow-accent',
+	primary: '',
 	inverse: 'bg-white text-blue-600',
 	danger: 'bg-red-600 text-white',
 };

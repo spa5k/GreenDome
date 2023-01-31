@@ -4,7 +4,7 @@ import { themeChange } from 'theme-change';
 
 export const AppProvider = () => {
 	useEffect(() => {
-		themeChange(false);
+		themeChange(true);
 	}, []);
 
 	return (

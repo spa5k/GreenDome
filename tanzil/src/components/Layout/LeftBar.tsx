@@ -1,5 +1,8 @@
+import { leftSideBarCollapseSignal } from '@/stores/collapse.signal.js';
 import { Link, useLocation } from '@tanstack/react-location';
 import { clsx } from 'clsx';
+import { RefObject } from 'react';
+import { ImperativePanelHandle } from 'react-resizable-panels';
 
 const mainRoutes = [
 	{ title: 'Dashboard', selected: false, id: 1, to: '/', icon: <IconFa6SolidHouseChimneyWindow className='min-h-6 h-6 w-6' style={{ minWidth: '1.5rem' }} /> },
@@ -19,16 +22,32 @@ const secondaryRoutes = [
 	{ title: 'Settings', selected: false, id: 1, to: '/settings', icon: <IconIcBaselineSettings style={{ minWidth: '1.5rem' }} /> },
 ];
 
-export const LeftBar = ({ hideText }: { hideText: boolean; }) => {
+export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: RefObject<ImperativePanelHandle>; }) => {
 	const pathName = useLocation().current.pathname;
-	const [toggled, settoggled] = useState(false);
+
+	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 3 });
+
+	const toggleSidebar = () => {
+		const value = leftSideBarCollapseSignal.value;
+		leftSideBarCollapseSignal.value = !value;
+		const panel = handler.current;
+		if (panel) {
+			const size = panel?.getSize();
+			if (size > 3) {
+				setLocalSize(size);
+				panel?.resize(3);
+			} else {
+				panel?.resize(localSize);
+			}
+		}
+	};
 
 	return (
 		<div className='bg-base-100 mx-1 h-full basis-1/4 py-2'>
 			<div className='flex w-full items-end justify-end'>
 				<IconButton
-					icon={toggled ? <IconIcRoundKeyboardArrowRight /> : <IconIcRoundKeyboardArrowLeft />}
-					onClick={() => settoggled(!toggled)}
+					icon={leftSideBarCollapseSignal.value ? <IconIcRoundKeyboardArrowRight /> : <IconIcRoundKeyboardArrowLeft />}
+					onClick={toggleSidebar}
 				/>
 			</div>
 
@@ -47,14 +66,14 @@ export const LeftBar = ({ hideText }: { hideText: boolean; }) => {
 									to={path.to}
 									className={clsx(
 										'mt-2 flex h-14 w-full items-center rounded px-3',
-										isActive && 'text-accent',
+										isActive && 'text-accent-focus',
 									)}
 									key={path.id}
 								>
 									{path.icon}
 									{!hideText
 										&& (
-											<span className='font-lg ml-2 truncate whitespace-nowrap text-lg '>
+											<span className={clsx('font-lg ml-2 truncate whitespace-nowrap text-lg', isActive ? '' : 'text-base-content')}>
 												{path.title}
 											</span>
 										)}
