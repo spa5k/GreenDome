@@ -23,12 +23,12 @@ const secondaryRoutes = [
 
 export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: RefObject<ImperativePanelHandle>; }) => {
 	const pathName = useLocation().current.pathname;
+	const [leftSidebarState, setleftSidebarState] = useState(false);
 
 	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 3 });
 
 	const toggleSidebar = () => {
-		const value = leftSideBarCollapseSignal.value;
-		leftSideBarCollapseSignal.value = !value;
+		setleftSidebarState(() => !leftSidebarState);
 		const panel = handler.current;
 		if (panel) {
 			const size = panel?.getSize();
@@ -45,7 +45,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 		<div className='bg-base-100 mx-1 h-full basis-1/4 py-2'>
 			<div className='flex w-full items-end justify-end'>
 				<IconButton
-					icon={leftSideBarCollapseSignal.value ? <IconIcRoundKeyboardArrowRight /> : <IconIcRoundKeyboardArrowLeft />}
+					icon={leftSidebarState ? <IconIcRoundKeyboardArrowRight /> : <IconIcRoundKeyboardArrowLeft />}
 					onClick={toggleSidebar}
 				/>
 			</div>

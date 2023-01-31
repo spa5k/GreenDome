@@ -94,7 +94,6 @@ importers:
       '@headlessui/react': ^1.7.8
       '@iconify/json': ^2.2.13
       '@legendapp/state': ^0.23.2
-      '@preact/signals-react': ^1.2.2
       '@quran/tsconfig': workspace:^0.0.0
       '@rspc/client': ^0.1.2
       '@rspc/tauri': ^0.1.2
@@ -156,7 +155,6 @@ importers:
     dependencies:
       '@headlessui/react': 1.7.8_biqbaboplfbrettd7655fr4n2y
       '@legendapp/state': 0.23.2_react@18.2.0
-      '@preact/signals-react': 1.2.2_react@18.2.0
       '@rspc/client': 0.1.2
       '@rspc/tauri': 0.1.2_@tauri-apps+api@1.2.0
       '@tanstack/react-location': 3.7.4_biqbaboplfbrettd7655fr4n2y
@@ -1993,20 +1991,6 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
-
-  /@preact/signals-core/1.2.3:
-    resolution: {integrity: sha512-Kui4p7PMcEQevBgsTO0JBo3gyQ88Q3qzEvsVCuSp11t0JcN4DmGCTJcGRVSCq7Bn7lGxJBO+57jNSzDoDJ+QmA==}
-    dev: false
-
-  /@preact/signals-react/1.2.2_react@18.2.0:
-    resolution: {integrity: sha512-GoESQ9n1bns2FD+8yqH7lBvQMavboKLCNEW+s0hs3Wcp5B1VHvVxwJo6aFs6rpxoh1/q8Tvwbi4vIeehBD2mzA==}
-    peerDependencies:
-      react: 17.x || 18.x
-    dependencies:
-      '@preact/signals-core': 1.2.3
-      react: 18.2.0
-      use-sync-external-store: 1.2.0_react@18.2.0
-    dev: false
 
   /@rollup/pluginutils/4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -9961,14 +9945,6 @@ packages:
     resolution: {integrity: sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==}
     deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
-
-  /use-sync-external-store/1.2.0_react@18.2.0:
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /use/3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==}

@@ -57,7 +57,6 @@ declare global {
 	const iconbutton: typeof import('./components/Elements/Button/iconbutton.stories')['default'];
 	const it: typeof import('vitest')['it'];
 	const lazy: typeof import('react')['lazy'];
-	const leftSideBarCollapseSignal: typeof import('./stores/sidebarCollapse.signal')['leftSideBarCollapseSignal'];
 	const memo: typeof import('react')['memo'];
 	const roundness: typeof import('./components/Elements/Button/Button')['roundness'];
 	const spinner: typeof import('./components/Elements/Spinner/spinner.stories')['default'];
