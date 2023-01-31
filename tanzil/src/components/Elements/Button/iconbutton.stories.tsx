@@ -15,6 +15,6 @@ type IconButtonStory = StoryObj<typeof IconButton>;
 
 export const PrimaryWithIcon: IconButtonStory = {
 	args: {
-		icon: <IconRadixIconsCross2 />,
+		icon: <IconIcRoundKeyboardArrowRight />,
 	},
 };
