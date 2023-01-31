@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'CI' || process.env.STORYBOOK === 'true' || process
 export default defineConfig({
 	plugins: [
 		react(),
-		checker({ typescript, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' } }),
+		checker({ typescript: false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' }, overlay: { initialIsOpen: false } }),
 		svgr(),
 		Icons({
 			compiler: 'jsx',
