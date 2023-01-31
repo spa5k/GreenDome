@@ -2,7 +2,7 @@ import { clsx } from 'clsx';
 import * as React from 'react';
 
 export const buttonVariants = {
-	primary: 'bg-secondary',
+	primary: '',
 	inverse: 'bg-white text-blue-600',
 	danger: 'bg-red-600 text-white',
 };
@@ -52,7 +52,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				type={type}
 				className={clsx(
-					'flex justify-center items-center  disabled:opacity-70 disabled:cursor-not-allowed font-medium focus:outline-none hover:opacity-80',
+					'flex items-center justify-center  font-medium hover:opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70',
 					buttonVariants[variant],
 					buttonSizes[size],
 					roundness[round],
@@ -62,7 +62,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			>
 				{isLoading && <Spinner />}
 				{!isLoading && startIcon}
-				<span className='mx-2 text-primary'>{props.children}</span> {!isLoading && endIcon}
+				<span className='text-primary mx-2'>{props.children}</span> {!isLoading && endIcon}
 			</button>
 		);
 	},

@@ -29,7 +29,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 				ref={ref}
 				type={type}
 				className={clsx(
-					'flex justify-center items-center disabled:opacity-70 disabled:cursor-not-allowed font-medium focus:outline-none hover:opacity-80',
+					'flex items-center justify-center font-medium hover:opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70',
 					buttonVariants[variant],
 					buttonSizes[size],
 					roundness[round],

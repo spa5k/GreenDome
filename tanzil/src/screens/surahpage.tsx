@@ -1,9 +1,8 @@
 import { Surahs } from '@/utils/bindings.js';
 
 export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
-	console.log(surahs);
 	return (
-		<div className='flex h-screen grow bg-base-200'>
+		<div className='bg-base-200 flex h-screen grow'>
 			<p>Surah</p>
 		</div>
 	);

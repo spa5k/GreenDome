@@ -15,5 +15,6 @@
 		"types": ["@tauri-apps/api", "vite/client", "unplugin-icons/types/react"],
 		"useDefineForClassFields": true
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"exclude": ["*.stories.tsx"]
 }

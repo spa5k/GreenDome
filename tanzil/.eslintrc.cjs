@@ -12,6 +12,24 @@ module.exports = {
 				alwaysTryTypes: true,
 			},
 		},
+		tailwindcss: {
+			// These are the default values but feel free to customize
+			callees: ['classnames', 'clsx', 'ctl'],
+			config: 'tailwind.config.js',
+			cssFiles: [
+				'**/*.css',
+				'!**/node_modules',
+				'!**/.*',
+				'!**/dist',
+				'!**/build',
+			],
+			cssFilesRefreshRate: 5_000,
+			removeDuplicates: true,
+			skipClassAttribute: false,
+			whitelist: [],
+			tags: [],
+			classRegex: '^class(Name)?$', // can be modified to support custom attributes. E.g. "^tw$" for `twin.macro`
+		},
 	},
 	rules: {
 		'no-restricted-imports': [

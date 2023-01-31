@@ -18,7 +18,7 @@ export const Example: ButtonGroupStory = {
 		children: (
 			<>
 				<Button round='none'>Nice</Button>
-				<IconButton round='none' icon={<IconCharmCross />} />
+				<IconButton round='none' icon={<IconIcRoundKeyboardArrowRight />} />
 			</>
 		),
 	},

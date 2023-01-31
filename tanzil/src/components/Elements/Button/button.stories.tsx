@@ -23,13 +23,13 @@ export const GenericButton: ButtonStory = {
 export const ButtonWithStartIcon: ButtonStory = {
 	args: {
 		children: 'Primary Button',
-		startIcon: <IconCharmCross />,
+		startIcon: <IconIcRoundKeyboardArrowRight />,
 	},
 };
 
 export const ButtonWithEndIcon: ButtonStory = {
 	args: {
 		children: 'Primary Button',
-		endIcon: <IconCharmCross />,
+		endIcon: <IconIcRoundKeyboardArrowRight />,
 	},
 };
