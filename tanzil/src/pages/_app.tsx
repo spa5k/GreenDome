@@ -31,10 +31,9 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 							defaultSize={10}
 							minSize={3}
 							maxSize={15}
-							collapsible
+							collapsible={false}
 							ref={ref}
 							onResize={(size) => {
-								console.log('resize', size);
 								if (size <= 3) {
 									sethideText(true);
 								} else {

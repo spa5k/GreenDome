@@ -15,12 +15,14 @@ declare global {
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
+	const IconEvaSettingsFill: typeof import('~icons/eva/settings-fill.jsx')['default'];
 	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.jsx')['default'];
 	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
 	const IconIcBaselineSettings: typeof import('~icons/ic/baseline-settings.jsx')['default'];
 	const IconIcRoundKeyboardArrowLeft: typeof import('~icons/ic/round-keyboard-arrow-left.jsx')['default'];
 	const IconIcRoundKeyboardArrowRight: typeof import('~icons/ic/round-keyboard-arrow-right.jsx')['default'];
 	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
+	const IconIonSettingsSharp: typeof import('~icons/ion/settings-sharp.jsx')['default'];
 	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.jsx')['default'];
 	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
 	const IconMdiAccountOutline: typeof import('~icons/mdi/account-outline.jsx')['default'];
@@ -35,6 +37,7 @@ declare global {
 	const ResizeHandler: typeof import('./components/Elements/ResizeHandler/ResizeHandler')['default'];
 	const RevelationPlace: typeof import('./features/surahs/types/index')['RevelationPlace'];
 	const RightBar: typeof import('./components/Layout/RightBar')['default'];
+	const SidebarLink: typeof import('./components/Elements/Text/SidebarLink')['SidebarLink'];
 	const Spinner: typeof import('./components/Elements/Spinner/Spinner')['Spinner'];
 	const SpinnerSB: typeof import('./components/Elements/Spinner/spinner.stories')['SpinnerSB'];
 	const SurahApi: typeof import('./features/surahs/api/index')['SurahApi'];
