@@ -100,7 +100,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 						})}
 						<div className='mt-2 flex w-full items-start justify-start px-3'>
 							{!hideText && (
-								<select data-choose-theme className='select my-0 w-full outline-none'>
+								<select data-choose-theme className='my-2 bg-white p-1 flex border border-gray-200 rounded'>
 									<option value='light'>Light</option>
 									<option value='dark'>Dark</option>
 									<option value='cupcake'>Cupcake</option>
@@ -116,7 +116,6 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 									<option value='fantasy'>Fantasy</option>
 									<option value='black'>Black</option>
 									<option value='dracula'>Dracula</option>
-									<option value='cmyk'>Cmyk</option>
 									<option value='autumn'>Autumn</option>
 									<option value='business'>Business</option>
 									<option value='acid'>Acid</option>

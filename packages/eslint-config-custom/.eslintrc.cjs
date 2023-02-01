@@ -24,5 +24,11 @@ module.exports = {
 		react: {
 			version: '18.2.0',
 		},
+		'import/resolver': {
+			typescript: {
+				alwaysTryTypes: true,
+				project: ['packages/*/tsconfig.json', 'tanzil/tsconfig.json'],
+			},
+		},
 	},
 };

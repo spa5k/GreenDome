@@ -1,4 +1,7 @@
 {
+	"[javascript]": {
+		"editor.defaultFormatter": "dprint.dprint"
+	},
 	"[toml]": {
 		"editor.defaultFormatter": "dprint.dprint"
 	},
@@ -26,6 +29,6 @@
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.formatOnSave": true,
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"typescript.preferences.importModuleSpecifierEnding": "js",
-	"typescript.preferences.importModuleSpecifier": "non-relative"
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.importModuleSpecifierEnding": "js"
 }

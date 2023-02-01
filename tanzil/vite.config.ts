@@ -8,11 +8,6 @@ import { checker } from 'vite-plugin-checker';
 import { VitePluginFonts } from 'vite-plugin-fonts';
 import svgr from 'vite-plugin-svgr';
 
-let typescript = true;
-
-if (process.env.NODE_ENV === 'CI' || process.env.STORYBOOK === 'true' || process.env.NODE_ENV === 'production') {
-	typescript = false;
-}
 export default defineConfig({
 	plugins: [
 		react(),
