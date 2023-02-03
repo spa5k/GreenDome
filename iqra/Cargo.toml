@@ -31,11 +31,10 @@ tracing-appender = '0.2'
 tracing-bunyan-formatter = '0.3'
 tracing-log = '0.1'
 tracing-subscriber = { version = '0.3', features = ['env-filter', 'std'] }
-<<<<<<< HEAD
+
 islam = "1.0.0"
 time = "0.3.17"
-=======
->>>>>>> 9e377dd4e220fcb531ee468e45fd7c4b4093111b
+
 
 [features]
 # by default Tauri runs in production mode
