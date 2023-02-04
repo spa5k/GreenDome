@@ -32,6 +32,10 @@ tracing-bunyan-formatter = '0.3'
 tracing-log = '0.1'
 tracing-subscriber = { version = '0.3', features = ['env-filter', 'std'] }
 
+islam = "1.0.0"
+time = "0.3.17"
+
+
 [features]
 # by default Tauri runs in production mode
 # when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL

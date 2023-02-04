@@ -6,6 +6,11 @@ pub use rspc::RouterBuilder;
 use crate::queries::surah::{
     get_editions, get_surah_info, get_surah_list, get_surah_text, get_translation_with_edition,
 };
+
+use crate::queries::iqama::{
+    all_prayer_time, next_prayer_time,
+};
+
 use rspc::Type;
 use serde::{Deserialize, Serialize};
 use sqlx::FromRow;
@@ -53,6 +58,21 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
                 let surahs = get_editions(&ctx.db, input.edition).await.unwrap();
                 Ok(surahs)
             })
+        
+        })
+        .query("nextsalah", |t| {
+            t(|ctx, input: PrayerParameter| async move {
+                let salahtime = next_prayer_time().await.unwrap();
+                Ok(salahtime)
+            })
+        
+        })
+        .query("allsalah", |t| {
+            t(|ctx, input: PrayerParameter| async move {
+                let salahtime = all_prayer_time().await.unwrap();
+                Ok(salahtime)
+            })
+        
         })
         .config(
             Config::new()
@@ -79,4 +99,12 @@ pub enum EditionsEnum {
     Quran,
     Translation,
     Transliteration,
+}
+
+pub struct PrayerParameters {
+    pub date: Date,
+    pub location: Location,
+    pub madhab_type: Madhab,
+    pub time_calculation_method: Method, 
+
 }
