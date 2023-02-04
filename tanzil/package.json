@@ -18,7 +18,7 @@
 		"watch:storybook": "storybook dev -p 6006"
 	},
 	"dependencies": {
-		"@headlessui/react": "^1.7.8",
+		"@headlessui/react": "^1.7.9",
 		"@legendapp/state": "^0.23.3",
 		"@rspc/client": "^0.1.2",
 		"@rspc/tauri": "^0.1.2",
@@ -27,7 +27,7 @@
 		"ahooks": "^3.7.4",
 		"clsx": "^1.2.1",
 		"daisyui": "^2.50.0",
-		"generouted": "^1.7.2",
+		"generouted": "^1.7.3",
 		"ohmyfetch": "^0.4.21",
 		"react": "latest",
 		"react-dom": "latest",
@@ -87,6 +87,6 @@
 		"vite-plugin-fonts": "^0.7.0",
 		"vite-plugin-pages": "^0.28.0",
 		"vite-plugin-svgr": "^2.4.0",
-		"vitest": "^0.28.3"
+		"vitest": "^0.28.4"
 	}
 }
