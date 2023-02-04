@@ -1,2 +1,2 @@
+pub(crate) mod iqama;
 pub(crate) mod surah;
-pub(crate) mod iqama; 
