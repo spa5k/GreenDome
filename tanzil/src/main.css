@@ -3,3 +3,6 @@
 @tailwind utilities;
 
 
+* {
+	font-family: 'Readex Pro'
+}

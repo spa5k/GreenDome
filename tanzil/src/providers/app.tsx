@@ -1,6 +1,8 @@
 import { Routes } from 'generouted/react-location';
 import { StrictMode, Suspense } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { themeChange } from 'theme-change';
+const queryClient = new QueryClient();
 
 export const AppProvider = () => {
 	useEffect(() => {
@@ -16,7 +18,9 @@ export const AppProvider = () => {
 					</div>
 				}
 			>
-				<Routes />
+				<QueryClientProvider client={queryClient}>
+					<Routes />
+				</QueryClientProvider>
 			</Suspense>
 		</StrictMode>
 	);

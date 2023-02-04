@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import * as React from 'react';
 
 export type ButtonGroupProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {

@@ -15,17 +15,14 @@ declare global {
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
-	const IconEvaSettingsFill: typeof import('~icons/eva/settings-fill.jsx')['default'];
 	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.jsx')['default'];
 	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
-	const IconIcBaselineSettings: typeof import('~icons/ic/baseline-settings.jsx')['default'];
 	const IconIcRoundKeyboardArrowLeft: typeof import('~icons/ic/round-keyboard-arrow-left.jsx')['default'];
 	const IconIcRoundKeyboardArrowRight: typeof import('~icons/ic/round-keyboard-arrow-right.jsx')['default'];
 	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
 	const IconIonSettingsSharp: typeof import('~icons/ion/settings-sharp.jsx')['default'];
 	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.jsx')['default'];
 	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
-	const IconMdiAccountOutline: typeof import('~icons/mdi/account-outline.jsx')['default'];
 	const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['LeftBar'];
@@ -53,6 +50,7 @@ declare global {
 	const buttongroup: typeof import('./components/Elements/Button/buttongroup.stories')['default'];
 	const chai: typeof import('vitest')['chai'];
 	const client: typeof import('./utils/rspc')['client'];
+	const clsx: typeof import('./utils/classMeger')['clsx'];
 	const createRef: typeof import('react')['createRef'];
 	const describe: typeof import('vitest')['describe'];
 	const expect: typeof import('vitest')['expect'];
@@ -65,6 +63,7 @@ declare global {
 	const spinner: typeof import('./components/Elements/Spinner/spinner.stories')['default'];
 	const startTransition: typeof import('react')['startTransition'];
 	const suite: typeof import('vitest')['suite'];
+	const surahStore: typeof import('./stores/surahStore')['surahStore'];
 	const test: typeof import('vitest')['test'];
 	const useAntdTable: typeof import('ahooks')['useAntdTable'];
 	const useAsyncEffect: typeof import('ahooks')['useAsyncEffect'];
