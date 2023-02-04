@@ -42,7 +42,7 @@ export default defineConfig({
 				'./src/utils/**',
 				'./src/features/**',
 				'./src/screens/**',
-				'./src/stores/**',
+				'./src/stores/*',
 				'./src/components/**',
 				'./src/providers/**',
 				'./src/components/Elements/**',
