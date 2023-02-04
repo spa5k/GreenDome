@@ -22,14 +22,18 @@ export default defineConfig({
 			},
 			custom: {
 				families: [{
-					name: 'Readex',
-					local: 'Readex',
+					name: 'Readex Pro',
+					local: 'Readex Pro',
 					src: 'public/fonts/readex/*.ttf',
+				}, {
+					name: 'Uthmanic',
+					local: 'Uthmanic',
+					src: 'public/fonts/hafs_uthmanic_v14_full/*',
 				}],
 				display: 'auto',
 				preload: true,
 				prefetch: false,
-				injectTo: 'head-prepend',
+				injectTo: 'body',
 			},
 		}),
 		AutoImport({
@@ -38,7 +42,7 @@ export default defineConfig({
 				'./src/utils/**',
 				'./src/features/**',
 				'./src/screens/**',
-				'./src/stores/**',
+				'./src/stores/*',
 				'./src/components/**',
 				'./src/providers/**',
 				'./src/components/Elements/**',

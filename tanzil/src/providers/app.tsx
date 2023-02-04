@@ -1,6 +1,10 @@
 import { Routes } from 'generouted/react-location';
 import { StrictMode, Suspense } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { themeChange } from 'theme-change';
+
+const queryClient = new QueryClient();
 
 export const AppProvider = () => {
 	useEffect(() => {
@@ -16,7 +20,10 @@ export const AppProvider = () => {
 					</div>
 				}
 			>
-				<Routes />
+				<QueryClientProvider client={queryClient}>
+					<Routes />
+					<ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+				</QueryClientProvider>
 			</Suspense>
 		</StrictMode>
 	);

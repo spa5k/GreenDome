@@ -1,5 +1,4 @@
 import { Edition, EditionsEnum } from '@/utils/bindings.js';
-import { $fetch } from 'ohmyfetch';
 
 abstract class EditionsAbstract {
 	isTauri = window?.__TAURI_METADATA__ ? true : false;
@@ -8,12 +7,16 @@ abstract class EditionsAbstract {
 
 class TauriApi extends EditionsAbstract {
 	public async getEditions(editionType: EditionsEnum) {
+		const { client } = await import('@/utils/rspc');
+
 		return await client.query(['editions', { edition: editionType }]);
 	}
 }
 
 class QuranApi extends EditionsAbstract {
 	public async getEditions(editionType: EditionsEnum) {
+		const { $fetch } = await import('ohmyfetch');
+
 		const data = await $fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions.min.json');
 		const formattedData = this.formatData(data, editionType);
 		return formattedData;

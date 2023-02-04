@@ -1,5 +1,4 @@
 import { Link } from '@tanstack/react-location';
-import { clsx } from 'clsx';
 import { ReactElement } from 'react';
 
 export function SidebarLink(

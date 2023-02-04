@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import * as React from 'react';
 
 type IconProps = { icon: React.ReactElement; };

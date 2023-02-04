@@ -1,6 +1,4 @@
 import { Ayah } from '@/utils/bindings.js';
-import { client } from '@/utils/rspc.js';
-import { $fetch } from 'ohmyfetch';
 
 // We can add more functions like getSurah(), getInfo()
 abstract class MushafAbstract {
@@ -10,6 +8,8 @@ abstract class MushafAbstract {
 
 class TauriApi extends MushafAbstract {
 	public async ayahsByChapter(id: number, edition: string) {
+		const { client } = await import('@/utils/rspc');
+
 		const data = await client.query(['ayahs', { edition: edition, number: id }]);
 		return data;
 	}
@@ -17,6 +17,8 @@ class TauriApi extends MushafAbstract {
 
 class QuranApi extends MushafAbstract {
 	public async ayahsByChapter(id: number, edition = 'ara-quranindopak') {
+		const { $fetch } = await import('ohmyfetch');
+
 		const data = await $fetch(
 			`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${edition}/${id}.json`,
 		);
@@ -46,3 +48,5 @@ export class MushafApi extends MushafAbstract {
 		return this.helper.ayahsByChapter(id, edition);
 	}
 }
+
+export const mushaf = new MushafApi();

@@ -1,4 +1,3 @@
-import { clsx } from 'clsx';
 import { PanelResizeHandle } from 'react-resizable-panels';
 
 export default function ResizeHandle({
