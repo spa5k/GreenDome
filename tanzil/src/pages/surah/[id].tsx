@@ -22,7 +22,7 @@ export default function Surah() {
 	const { data: route } = useMatch<Route>();
 	const { surahInfo } = route;
 	const { fetchQuranText, changeQuranTextEdition, quranTextEdition } = surahStore();
-	const { data: queryData, refetch } = useQuery<Ayah[]>('quran_text', async () => {
+	const { data: queryData, refetch, isLoading } = useQuery<Ayah[]>('quran_text', async () => {
 		return await fetchQuranText(Number(route.surahInfo?.id));
 	});
 
@@ -34,6 +34,10 @@ export default function Surah() {
 		}
 		refetch();
 	};
+
+	if (isLoading) {
+		return <p>loading..</p>;
+	}
 
 	return (
 		<div>
