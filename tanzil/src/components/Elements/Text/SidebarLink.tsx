@@ -1,4 +1,5 @@
-import { Link } from '@tanstack/react-location';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { Link } from '@tanstack/react-router';
 import { ReactElement } from 'react';
 
 export function SidebarLink(
@@ -13,7 +14,11 @@ export function SidebarLink(
 	},
 ) {
 	return (
-		<Link to={props.path.to} className={clsx('mt-2 flex h-14 w-full items-center rounded pl-3', props.isActive && 'text-accent-focus')}>
+		<Link
+			to={String(props.path.to)}
+			className={clsx('mt-2 flex h-14 w-full items-center rounded pl-3', props.isActive && 'text-accent-focus')}
+			params={props.path.to}
+		>
 			{props.path.icon}
 			{props.showText && (
 				<span className='font-lg ml-2 truncate whitespace-nowrap text-lg w-full'>

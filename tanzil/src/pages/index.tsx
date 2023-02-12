@@ -1,20 +1,16 @@
-import { Surahs } from '@/utils/bindings.js';
-import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
-const surah = new SurahApi();
-
-export type HomeRoute = {
-	surahs: Surahs[];
-};
-
-type Route = MakeGenerics<{ LoaderData: HomeRoute; }>;
-
-export const Loader: LoaderFn<Route> = async () => {
+export const Loader = () => async () => {
+	const surah = new SurahApi();
 	const surahs = await surah.surahList();
 	return { surahs };
 };
 
-export default function Index() {
-	const { data } = useMatch<Route>();
+export const Action = () => console.log('Route action');
+
+export const Pending = () => <div>Route pending</div>;
+export const Catch = () => <div>Route error</div>;
+
+export default function Home() {
+	console.log('posts');
 
 	return <HomePage />;
 }

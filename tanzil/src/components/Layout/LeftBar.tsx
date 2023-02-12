@@ -1,4 +1,4 @@
-import { Link, useLocation } from '@tanstack/react-location';
+import { Link } from '@tanstack/react-router';
 import { RefObject } from 'react';
 import { ImperativePanelHandle } from 'react-resizable-panels';
 
@@ -21,7 +21,7 @@ const secondaryRoutes = [
 ];
 
 export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: RefObject<ImperativePanelHandle>; }) => {
-	const pathName = useLocation().current.pathname;
+	const pathName = '';
 	const [leftSidebarState, setleftSidebarState] = useState(false);
 	const showText = !hideText;
 
@@ -54,10 +54,6 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				<Link className='mt-3 flex w-full items-center pl-3' to='/'>
 					<IconLineMdMoonFilledLoop className='h-8 w-8 fill-current' style={{ minWidth: '2rem' }} />
 					{showText && <span className='ml-2 truncate text-2xl font-bold'>Quran</span>}
-				</Link>
-
-				<Link className='mt-3 flex w-full items-center pl-3' to='/surah/1'>
-					Surah 1
 				</Link>
 
 				<div className='my-2 py-2 w-full'>

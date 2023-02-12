@@ -1,25 +1,28 @@
-import { SurahPage } from '@/screens/surahpage.js';
-import { Surahs } from '@/utils/bindings.js';
-import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
-const surah = new SurahApi();
+import { useLoaderClient } from '@tanstack/react-loaders';
+import { useMatch } from '@tanstack/react-router';
 
-export type HomeRoute = {
-	surahs: Surahs[];
-};
+import { loaderClient } from '../../routes.gen.js';
 
-type Route = MakeGenerics<{ LoaderData: HomeRoute; }>;
+const x = loaderClient;
+x.init;
 
-export const Loader: LoaderFn<Route> = async () => {
+export const Loader = async () => {
 	const surahs = await surah.surahList();
 	return { surahs };
 };
 
 export default function Index() {
-	const { data } = useMatch<Route>();
+	const { route } = useMatch({ from: '/surah/' });
+	console.log(route);
+
+	const data = useLoaderClient();
+	console.log(data);
+	// const posts = useLoaderInstance({ key: 'surahindex' });
+	// console.log(posts)
 
 	return (
 		<div>
-			<SurahPage surahs={data.surahs} />
+			{/* <SurahPage surahs={} /> */}
 		</div>
 	);
 }

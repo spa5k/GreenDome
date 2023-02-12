@@ -1,3 +1,4 @@
+import generouted from '@generouted/tanstack-react-router';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
@@ -11,6 +12,7 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
 	plugins: [
 		react(),
+		generouted(),
 		checker({ typescript: false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' }, overlay: { initialIsOpen: false } }),
 		svgr(),
 		Icons({

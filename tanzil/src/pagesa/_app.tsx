@@ -17,7 +17,7 @@ const ErrorFallback = () => {
 	);
 };
 
-export default function App() {
+const App = () => {
 	const [hideText, sethideText] = useState(false);
 	const ref = useRef<ImperativePanelHandle>(null);
 
@@ -62,4 +62,6 @@ export default function App() {
 			</section>
 		</ErrorBoundary>
 	);
-}
+};
+
+export default App;
