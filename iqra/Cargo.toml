@@ -24,7 +24,7 @@ serde_json = '1.0'
 specta = "0.0.6"
 sqlx = { version = '0.6', features = ['runtime-tokio-rustls', 'sqlite', 'migrate', 'offline'] }
 tauri = { version = '1.2.4', features = ["api-all"] }
-time = "0.3.17"
+time = "0.3.19"
 tokio = { version = '1', features = ['full'] }
 tracing = '0.1'
 tracing-appender = '0.2'
