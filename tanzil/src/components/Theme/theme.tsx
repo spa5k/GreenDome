@@ -3,7 +3,7 @@ export const ThemeChange = () => {
 	const [light, setLight] = useState(true);
 
 	useEffect(() => {
-		theme;
+		console.log('Theme', theme);
 	}, [light]);
 
 	return (
