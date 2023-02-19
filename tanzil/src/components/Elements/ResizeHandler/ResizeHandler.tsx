@@ -12,7 +12,7 @@ export default function ResizeHandle({
 			id={id}
 			className={clsx(
 				className,
-				'border-x-1 bg-base-300 hover:bg-accent-content active:bg-accent-content flex w-0.5 resize flex-col items-center justify-center rounded-md align-middle transition-all duration-150 ease-out hover:ease-in',
+				'hover:text-text active:text-text bg-text flex w-0.5 resize flex-col items-center justify-center rounded-md align-middle transition-all duration-150 ease-out hover:ease-in',
 			)}
 		/>
 	);
