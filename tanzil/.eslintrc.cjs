@@ -1,7 +1,7 @@
 /** @type {import('eslint').ESLint.ConfigData} */
 module.exports = {
 	root: true,
-	extends: ['custom'],
+	extends: ['custom', 'plugin:tailwindcss/recommended'],
 	settings: {
 		'import/parsers': {
 			'@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -13,7 +13,6 @@ module.exports = {
 			},
 		},
 		tailwindcss: {
-			// These are the default values but feel free to customize
 			callees: ['classnames', 'clsx', 'ctl'],
 			config: 'tailwind.config.js',
 			cssFiles: [
@@ -41,5 +40,6 @@ module.exports = {
 		'import/no-unresolved': 'off',
 		'react/jsx-no-undef': 'off',
 		'react/prop-types': 'off',
+		'tailwindcss/no-custom-classname': 'off',
 	},
 };

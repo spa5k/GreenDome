@@ -8,7 +8,7 @@ const ErrorFallback = () => {
 			className='flex h-screen w-screen flex-col items-center justify-center'
 			role='alert'
 		>
-			<h2 className='text-primary text-lg font-semibold'>Ooops, something went wrong :(</h2>
+			<h2 className='text-text text-lg font-semibold'>Ooops, something went wrong :(</h2>
 			<Button className='mt-4' onClick={() => window.location.assign(window.location.origin)}>
 				Refresh
 			</Button>
@@ -26,12 +26,22 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 				<header>
 				</header>
 
-				<main className='transition-all duration-150'>
+				<main className='bg-background text-text transition-all duration-150'>
+					{
+						/* <button
+						onClick={() => toggleTheme()}
+						type='button'
+						className='rounded bg-black p-4 font-semibold text-white dark:bg-white dark:text-black'
+					>
+						Toggle Theme
+					</button> */
+					}
+
 					<PanelGroup autoSaveId='homepage' direction='horizontal'>
 						<Panel
 							defaultSize={10}
 							minSize={3}
-							maxSize={15}
+							maxSize={14}
 							collapsible={false}
 							ref={ref}
 							onResize={(size) => {
@@ -46,6 +56,7 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 								<LeftBar hideText={hideText} handler={ref} />
 							</ErrorBoundary>
 						</Panel>
+
 						<ResizeHandler />
 
 						<Panel minSize={30}>

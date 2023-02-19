@@ -7,7 +7,7 @@ const sizes = {
 
 const variants = {
 	secondary: 'text-secondary',
-	primary: 'text-primary',
+	primary: 'text-text',
 };
 
 export type SpinnerProps = {

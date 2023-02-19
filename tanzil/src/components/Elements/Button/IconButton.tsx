@@ -1,43 +1,18 @@
+import { ButtonProps } from '@/components/Elements/Button/Button.js';
 import * as React from 'react';
 
-type IconProps = { icon: React.ReactElement; };
-
-export type IconButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-	variant?: keyof typeof buttonVariants;
-	size?: keyof typeof buttonSizes;
-	round?: keyof typeof roundness;
-	isLoading?: boolean;
-} & IconProps;
-
-export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-	(
-		{
-			type = 'button',
-			className = '',
-			variant = 'primary',
-			size = 'md',
-			round = 'md',
-			isLoading = false,
-			icon,
-			...props
-		},
-		ref,
-	) => {
+export const IconButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+	({ className, variant, size, children, ...props }, ref) => {
 		return (
-			<button
+			<Button
+				className={clsx(className)}
 				ref={ref}
-				type={type}
-				className={clsx(
-					'flex items-center justify-center font-medium hover:opacity-80 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70',
-					buttonVariants[variant],
-					buttonSizes[size],
-					roundness[round],
-					className,
-				)}
 				{...props}
+				variant={variant}
+				size={size}
 			>
-				{isLoading ? <Spinner /> : icon}
-			</button>
+				{children}
+			</Button>
 		);
 	},
 );
