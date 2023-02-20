@@ -5,9 +5,18 @@ importers:
   .:
     specifiers:
       '@tauri-apps/cli': ^1.2.3
+      adhan: ^4.4.3
       dprint: ^0.34.4
       husky: ^8.0.3
+      moment-timezone: ^0.5.40
       turbo: ^1.7.2
+      use-position: ^1.0.0
+      zustand: ^4.3.2
+    dependencies:
+      adhan: 4.4.3
+      moment-timezone: 0.5.40
+      use-position: 1.0.0
+      zustand: 4.3.2
     devDependencies:
       '@tauri-apps/cli': 1.2.3
       dprint: 0.34.4
@@ -4104,6 +4113,10 @@ packages:
     engines: {node: '>= 10.0.0'}
     dev: true
 
+  /adhan/4.4.3:
+    resolution: {integrity: sha512-568KkQd8OMLUj7o7+d2FDcm6vZHWQrE7vsm/Evssh8sfUDpPyaboj3PVsScZAr7L7sNRgPrtLMmDZZfM7VeAYw==}
+    dev: false
+
   /agent-base/5.1.1:
     resolution: {integrity: sha512-TMeqbNl2fMW0nMjTEPOwe3J/PRFP4vqeoNuQMG0HlMrtm5QxKqdvAkZ1pRBQ/ulIyDD5Yq0nJ7YbdD8ey0TO3g==}
     engines: {node: '>= 6.0.0'}
@@ -7802,6 +7815,16 @@ packages:
       ufo: 1.0.1
     dev: true
 
+  /moment-timezone/0.5.40:
+    resolution: {integrity: sha512-tWfmNkRYmBkPJz5mr9GVDn9vRlVZOTe6yqY92rFxiOdWXbjaR0+9LwQnZGGuNR63X456NqmEkbskte8tWL5ePg==}
+    dependencies:
+      moment: 2.29.4
+    dev: false
+
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
+
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -10222,6 +10245,18 @@ packages:
     deprecated: Please see https://github.com/lydell/urix#deprecated
     dev: true
 
+  /use-position/1.0.0:
+    resolution: {integrity: sha512-YEN3YwP3rBmtlJeU49C4qPTPPV+FZJ8O+L3VpIFwnaDcYzf1RVp2HWYWsuLytYHm5ga2a3lZjyk4ou5vonxNrQ==}
+    peerDependencies:
+      react: ^16.8.0
+    dev: false
+
+  /use-sync-external-store/1.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dev: false
+
   /use-sync-external-store/1.2.0_react@18.2.0:
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
     peerDependencies:
@@ -10809,6 +10844,21 @@ packages:
     dependencies:
       create-react-signals: 0.6.2_react@18.2.0
       react: 18.2.0
+    dev: false
+
+  /zustand/4.3.2:
+    resolution: {integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      use-sync-external-store: 1.2.0
     dev: false
 
   /zustand/4.3.2_react@18.2.0:
