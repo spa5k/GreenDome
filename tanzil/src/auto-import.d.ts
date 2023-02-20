@@ -30,28 +30,7 @@ declare global {
 	const Header: typeof import('./components/Header/Header.stories')['default'];
 	const HomePage: typeof import('./screens/homepage')['HomePage'];
 	const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton'];
-	const IconCiCreditCard: typeof import('~icons/ci/credit-card.jsx')['default'];
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
-	const IconFa6SolidFaceSmileBeam: typeof import('~icons/fa6-solid/face-smile-beam.jsx')['default'];
-	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.jsx')['default'];
-	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
-	const IconIcRoundKeyboardArrowLeft: typeof import('~icons/ic/round-keyboard-arrow-left.jsx')['default'];
-	const IconIcRoundKeyboardArrowRight: typeof import('~icons/ic/round-keyboard-arrow-right.jsx')['default'];
-	const IconIcSharpSettings: typeof import('~icons/ic/sharp-settings.jsx')['default'];
-	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
-	const IconIonSettingsSharp: typeof import('~icons/ion/settings-sharp.jsx')['default'];
-	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.jsx')['default'];
-	const IconLineMdSunnyFilledLoop: typeof import('~icons/line-md/sunny-filled-loop.jsx')['default'];
-	const IconLineMdSunnyFilledLoopToMoonAltFilledLoopTransition:
-		typeof import('~icons/line-md/sunny-filled-loop-to-moon-alt-filled-loop-transition.jsx')['default'];
-	const IconMaterialSymbolsCalculateSharp: typeof import('~icons/material-symbols/calculate-sharp.jsx')['default'];
-	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
-	const IconMdiCalendarMonth: typeof import('~icons/mdi/calendar-month.jsx')['default'];
-	const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.jsx')['default'];
-	const IconMingcuteSearch3Fill: typeof import('~icons/mingcute/search3-fill.jsx')['default'];
-	const IconRadixIconsCross2: typeof import('~icons/radix-icons/cross2.jsx')['default'];
-	const IconRiSearch2Line: typeof import('~icons/ri/search2-line.jsx')['default'];
-	const IconRiUserHeartLine: typeof import('~icons/ri/user-heart-line.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['LeftBar'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
@@ -187,7 +166,6 @@ declare global {
 	const useState: typeof import('react')['useState'];
 	const useSyncExternalStore: typeof import('react')['useSyncExternalStore'];
 	const useTextSelection: typeof import('ahooks')['useTextSelection'];
-	const useThemeStore: typeof import('./stores/themeStore')['useThemeStore'];
 	const useThrottle: typeof import('ahooks')['useThrottle'];
 	const useThrottleEffect: typeof import('ahooks')['useThrottleEffect'];
 	const useThrottleFn: typeof import('ahooks')['useThrottleFn'];

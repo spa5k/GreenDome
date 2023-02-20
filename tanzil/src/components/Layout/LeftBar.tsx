@@ -17,7 +17,6 @@ const mainRoutes = [
 		to: '/surah',
 		icon: <IconFaSolidQuran className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
-	{ title: 'Surah 2', selected: false, id: 6, to: '/surah/2', icon: <IconFaSolidQuran className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} /> },
 	{ title: 'Hadith', selected: true, id: 3, to: '/hadith', icon: <IconIonMdMap className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} /> },
 	{
 		title: 'Salah',
