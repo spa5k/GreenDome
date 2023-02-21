@@ -1,3 +1,16 @@
+/*This code is a React component that displays the daily Islamic prayer times for a user's current location.
+
+The component uses several external packages, including adhan, moment-timezone, react-query, and zustand, to retrieve the prayer times, display the information to the user, and manage state throughout the process.
+
+The component first gets the user's current location coordinates using the usePosition hook from the use-position package. Then, it uses the getPrayerTimes function from the adhan package to calculate the prayer times for the day based on the user's location.
+
+If the user's location and prayer times are successfully retrieved, the component displays the prayer times for Fajr, Dhuhr, Asr, Maghrib, and Isha. If the user's current time falls within any of these prayer times, the component displays a notification indicating which prayer is currently active.
+
+The component uses the zustand package to create a state store, which allows it to track and update the prayer times, user's location, and any errors that occur during the process of retrieving this information.
+
+If any errors occur, the component displays an error message to the user and provides a button to try again.
+*/
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { CalculationMethod, Coordinates, Prayer, PrayerTimes } from 'adhan';
 import moment from 'moment-timezone';
@@ -78,11 +91,11 @@ export default function PrayerTimesComponent() {
 	if (error || zustandError) {
 		return (
 			<div className='flex flex-col items-center'>
-				<p className='mb-4 text-red-500'>
+				<p className='text-text mb-4'>
 					Sorry, an error occurred: {error?.message || zustandError?.message}
 				</p>
 				<button
-					className='rounded bg-blue-500 py-2 px-4 font-bold text-white hover:bg-blue-700'
+					className='bg-secondary text-button hover:bg-tertiary rounded py-2 px-4 font-bold'
 					onClick={() => window.location.reload()}
 				>
 					Try again
@@ -108,7 +121,7 @@ export default function PrayerTimesComponent() {
 					<div className='border-border flex flex-col items-center rounded-lg border-2 p-4'>
 						<p className='text-text mb-4 '>Sorry, an error occurred: {error.message}</p>
 						<button
-							className='bg-secondary text-text hover:bg-tertiary rounded py-2 px-4 font-bold'
+							className='bg-secondary text-button hover:bg-tertiary rounded py-2 px-4 font-bold'
 							onClick={() => window.location.reload()}
 						>
 							Try again
@@ -120,13 +133,9 @@ export default function PrayerTimesComponent() {
 					<div className='flex flex-col items-center'>
 						<div className='grid grid-cols-1 gap-4 md:grid-cols-2'>
 							{Object.keys(prayerTimes)
-								.filter(
-									(prayer) =>
-										prayer !== 'date'
-										&& prayer !== 'coordinates'
-										&& prayer !== 'calculationParameters'
-										&& prayer !== 'sunset'
-										&& prayer !== 'sunrise',
+								.filter(prayer =>
+									!['date', 'coordinates', 'calculationParameters', 'sunset', 'sunrise']
+										.includes(prayer)
 								)
 								.map((prayer) => {
 									return (
