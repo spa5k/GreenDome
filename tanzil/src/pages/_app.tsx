@@ -26,17 +26,7 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 				<header>
 				</header>
 
-				<main className='bg-background text-text transition-all duration-150'>
-					{
-						/* <button
-						onClick={() => toggleTheme()}
-						type='button'
-						className='rounded bg-black p-4 font-semibold text-white dark:bg-white dark:text-black'
-					>
-						Toggle Theme
-					</button> */
-					}
-
+				<main className='bg-background text-text min-h-screen transition-all duration-150'>
 					<PanelGroup autoSaveId='homepage' direction='horizontal'>
 						<Panel
 							defaultSize={10}

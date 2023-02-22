@@ -24,12 +24,7 @@
 		"@tauri-apps/cli": "^1.2.3",
 		"dprint": "^0.34.5",
 		"husky": "^8.0.3",
-		"turbo": "^1.8.1"
+		"turbo": "^1.8.2"
 	},
-	"packageManager": "pnpm@7.27.1",
-	"dependencies": {
-		"adhan": "^4.4.3",
-		"moment-timezone": "^0.5.40",
-		"use-position": "^1.0.0"
-	}
+	"packageManager": "pnpm@7.27.1"
 }
