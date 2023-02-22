@@ -7,6 +7,7 @@ declare global {
 	const ButtonGroupBorder: typeof import('./components/Elements/Button/buttongroup.stories')['ButtonGroupBorder'];
 	const ButtonWithEndIcon: typeof import('./components/Elements/Button/button.stories')['ButtonWithEndIcon'];
 	const ButtonWithStartIcon: typeof import('./components/Elements/Button/button.stories')['ButtonWithStartIcon'];
+	const CalculationMethodEnum: typeof import('./features/salah/types/index')['CalculationMethodEnum'];
 	const Command: typeof import('./components/Command/command')['Command'];
 	const CommandDialog: typeof import('./components/Command/command')['CommandDialog'];
 	const CommandEmpty: typeof import('./components/Command/command')['CommandEmpty'];
@@ -54,7 +55,7 @@ declare global {
 	const IconRiUserHeartLine: typeof import('~icons/ri/user-heart-line.jsx')['default'];
 	const LanguageName: typeof import('./features/surahs/types/index')['LanguageName'];
 	const LeftBar: typeof import('./components/Layout/LeftBar')['LeftBar'];
-	const MadhabMethod: typeof import('./stores/salah')['MadhabMethod'];
+	const MadhabMethod: typeof import('./features/salah/types/index')['MadhabMethod'];
 	const MainContent: typeof import('./components/Layout/MainContent')['default'];
 	const MushafApi: typeof import('./features/mushaf/api/index')['MushafApi'];
 	const Navbar: typeof import('./components/Header/Navbar')['Navbar'];
@@ -63,6 +64,7 @@ declare global {
 	const ResizeHandler: typeof import('./components/Elements/ResizeHandler/ResizeHandler')['default'];
 	const RevelationPlace: typeof import('./features/surahs/types/index')['RevelationPlace'];
 	const RightBar: typeof import('./components/Layout/RightBar')['default'];
+	const SalahCard: typeof import('./components/Card/card')['SalahCard'];
 	const Select: typeof import('./components/Elements/Select/select')['Select'];
 	const SelectContent: typeof import('./components/Elements/Select/select')['SelectContent'];
 	const SelectGroup: typeof import('./components/Elements/Select/select')['SelectGroup'];
@@ -100,6 +102,8 @@ declare global {
 	const encodeToBinary: typeof import('./utils/storeUrlHash')['encodeToBinary'];
 	const expect: typeof import('vitest')['expect'];
 	const forwardRef: typeof import('react')['forwardRef'];
+	const getLocationInfo: typeof import('./features/salah/api/index')['getLocationInfo'];
+	const getPrayerTimes: typeof import('./features/salah/api/index')['getPrayerTimes'];
 	const hashStorage: typeof import('./utils/storeUrlHash')['hashStorage'];
 	const iconbutton: typeof import('./components/Elements/Button/iconbutton.stories')['default'];
 	const it: typeof import('vitest')['it'];
