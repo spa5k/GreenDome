@@ -1331,6 +1331,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "indoc"
+version = "1.0.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bfa799dd5ed20a7e349f3b4639aa80d74549c81716d9ec4f994c9b5815598306"
+
+[[package]]
 name = "infer"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1358,7 +1364,7 @@ dependencies = [
  "rspc",
  "serde",
  "serde_json",
- "specta 0.0.6",
+ "specta 1.0.0",
  "sqlx",
  "tauri",
  "tauri-build",
@@ -2890,16 +2896,18 @@ dependencies = [
 
 [[package]]
 name = "specta"
-version = "0.0.6"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "427e2820d72e030de0f4e3d57a4b1060d1d5865d822751f9cc21a12ffe4e8c80"
+checksum = "7a27c41db2eeac1d45f34554de1f2a4f33c0ff357abdeb87a85c4398cbc29917"
 dependencies = [
  "document-features",
+ "indoc",
  "once_cell",
  "paste",
  "serde",
  "serde_json",
- "specta-macros 0.0.6",
+ "specta-macros 1.0.0",
+ "thiserror",
 ]
 
 [[package]]
@@ -2917,11 +2925,12 @@ dependencies = [
 
 [[package]]
 name = "specta-macros"
-version = "0.0.6"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4fb7a302eb421c00c45715b2c8abb61650dd01d26a475505834f3e8ee23ffcbb"
+checksum = "bf06715ef4029f77b5e4796cddf59577b0411174769e7c9120c9e9486e4bab3b"
 dependencies = [
  "Inflector",
+ "itertools",
  "proc-macro2",
  "quote",
  "syn",
