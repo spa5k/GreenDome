@@ -20,7 +20,8 @@
 		"github",
 		"tailwind",
 		"lint",
-		"ci"
+		"ci",
+		"salah"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
