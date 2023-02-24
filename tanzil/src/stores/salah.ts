@@ -24,6 +24,7 @@ export const useSalahStore = create<SalahState & SalahActions>()(devtools(persis
 					latitude: position.coords.latitude,
 					longitude: position.coords.longitude,
 				}));
+				get().getPrayerTimes();
 			};
 
 			const errorCallback = (error: GeolocationPositionError) => {
