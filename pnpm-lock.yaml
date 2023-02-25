@@ -102,6 +102,7 @@ importers:
       '@radix-ui/react-tooltip': ^1.0.4
       '@rspc/client': ^0.1.2
       '@rspc/tauri': ^0.1.2
+      '@shrutibalasa/tailwind-grid-auto-fit': ^1.1.0
       '@storybook/addon-essentials': 7.0.0-beta.53
       '@storybook/addon-interactions': 7.0.0-beta.53
       '@storybook/addon-links': 7.0.0-beta.53
@@ -124,6 +125,7 @@ importers:
       '@vitejs/plugin-react-swc': ^3.2.0
       adhan: ^4.4.3
       ahooks: ^3.7.4
+      animate-css-grid: ^1.4.3
       autoprefixer: ^10.4.13
       class-variance-authority: ^0.4.0
       clsx: ^1.2.1
@@ -138,7 +140,7 @@ importers:
       eslint-plugin-react: 7.32.2
       eslint-plugin-simple-import-sort: ^10.0.0
       eslint-plugin-tailwindcss: ^3.9.0
-      generouted: ^1.7.17
+      generouted: ^1.7.19
       ohmyfetch: ^0.4.21
       postcss: ^8.4.21
       prop-types: 15.8.1
@@ -169,7 +171,7 @@ importers:
       vite-plugin-svgr: ^2.4.0
       vitest: ^0.28.5
       zustand: ^4.3.3
-      zustand-signal: ^0.5.1
+      zustand-signal: ^0.5.2
     dependencies:
       '@headlessui/react': 1.7.12_biqbaboplfbrettd7655fr4n2y
       '@legendapp/state': 0.23.4_react@18.2.0
@@ -184,10 +186,11 @@ importers:
       '@tauri-apps/api': 1.2.0
       adhan: 4.4.3
       ahooks: 3.7.4_react@18.2.0
+      animate-css-grid: 1.4.3
       class-variance-authority: 0.4.0_typescript@4.9.5
       clsx: 1.2.1
       cmdk: 0.1.22_zula6vjvt3wdocc4mwcxqa6nzi
-      generouted: 1.7.17_vite@4.1.4
+      generouted: 1.7.19_vite@4.1.4
       ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -199,10 +202,11 @@ importers:
       tailwindcss-animate: 1.0.5_tailwindcss@3.2.7
       theme-change: 2.3.0
       zustand: 4.3.3_react@18.2.0
-      zustand-signal: 0.5.1_react@18.2.0
+      zustand-signal: 0.5.2_react@18.2.0
     devDependencies:
       '@iconify/json': 2.2.27
       '@quran/tsconfig': link:../packages/tsconfig
+      '@shrutibalasa/tailwind-grid-auto-fit': 1.1.0
       '@storybook/addon-essentials': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-interactions': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-links': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
@@ -2168,6 +2172,20 @@ packages:
       tslib: 2.5.0
     dev: true
 
+  /@popmotion/easing/1.0.2:
+    resolution: {integrity: sha512-IkdW0TNmRnWTeWI7aGQIVDbKXPWHVEYdGgd5ZR4SH/Ty/61p63jCjrPxX1XrR7IGkl08bjhJROStD7j+RKgoIw==}
+    dev: false
+
+  /@popmotion/popcorn/0.4.4:
+    resolution: {integrity: sha512-jYO/8319fKoNLMlY4ZJPiPu8Ea8occYwRZhxpaNn/kZsK4QG2E7XFlXZMJBsTWDw7I1i0uaqyC4zn1nwEezLzg==}
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      framesync: 4.1.0
+      hey-listen: 1.0.8
+      style-value-types: 3.2.0
+      tslib: 1.14.1
+    dev: false
+
   /@radix-ui/number/1.0.0:
     resolution: {integrity: sha512-Ofwh/1HX69ZfJRiRBMTy7rgjAzHmwe4kW9C9Y99HTRUcYLUuVT0KESFj15rPjRgKJs20GPq8Bm5aEDJ8DuA3vA==}
     dependencies:
@@ -2691,6 +2709,10 @@ packages:
       '@rspc/client': 0.1.2
       '@tauri-apps/api': 1.2.0
     dev: false
+
+  /@shrutibalasa/tailwind-grid-auto-fit/1.1.0:
+    resolution: {integrity: sha512-sh/Vmdz/xTVziUF9ZYDb5YpECApdK85KXSRIJY58GzmdUuum5QBE3jqDeNMjICEVaVOSrOnp+gqUWx8A9dmZjA==}
+    dev: true
 
   /@sinclair/typebox/0.24.51:
     resolution: {integrity: sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA==}
@@ -4754,6 +4776,14 @@ packages:
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
 
+  /animate-css-grid/1.4.3:
+    resolution: {integrity: sha512-Yq/5cxm7amQALKCB4/SFJzNQFhLfgJE+lGoy8F131a2uuSF4K4/yCmOYr9jZi1J4KQqAbnilurnBRXkYbOXqvQ==}
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      lodash.throttle: 4.1.1
+      popmotion: 8.7.6
+    dev: false
+
   /ansi-align/3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
     dependencies:
@@ -5669,8 +5699,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /create-react-signals/0.6.2_react@18.2.0:
-    resolution: {integrity: sha512-p+I3k2LbTaZapE/ZYhCPi4P+n4TljdqiT6Q6y+qVKwLels2FNywlck8mrx94AgcMK+WmQliywzDAZ1woQtOL9g==}
+  /create-react-signals/0.7.0_react@18.2.0:
+    resolution: {integrity: sha512-DZmZTMExl9nyX/5PUTsPxw7w9HuI538h5ppxp85JXs/SMgABqDGJ5dVtuM0MLDVWyUmJZMx92f8QTnn3fP7yig==}
     peerDependencies:
       react: '>=17.0.0'
     dependencies:
@@ -6890,6 +6920,12 @@ packages:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
     dev: true
 
+  /framesync/4.1.0:
+    resolution: {integrity: sha512-MmgZ4wCoeVxNbx2xp5hN/zPDCbLSKiDt4BbbslK7j/pM2lg5S0vhTNv1v8BCVb99JPIo6hXBFdwzU7Q4qcAaoQ==}
+    dependencies:
+      hey-listen: 1.0.8
+    dev: false
+
   /fresh/0.5.2:
     resolution: {integrity: sha512-zJ2mQYM18rEFOudeV4GShTGIQ7RbzA7ozbU9I/XBpm7kqgMywgmylMwXHxZJmkVoYkna9d2pVXVXPdYTP9ej8Q==}
     engines: {node: '>= 0.6'}
@@ -6961,8 +6997,8 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /generouted/1.7.17_vite@4.1.4:
-    resolution: {integrity: sha512-c9lBkdvUS4d0maV1E23CYrSsjP9iPFYGDT10kiW58YI5zS15+nYRezJDQINhUa2R902TbZGwsVVyt7n2Agay4w==}
+  /generouted/1.7.19_vite@4.1.4:
+    resolution: {integrity: sha512-kCA5TyXVos6p4/rCzOxYU+OOlb7ieAglKHSJJ4euiDgdQN16Nni0I79QOwa/ofYcjPJDDKqJ45V/4VBrTd6b+w==}
     peerDependencies:
       vite: '>=3'
     dependencies:
@@ -7292,6 +7328,10 @@ packages:
       property-information: 5.6.0
       space-separated-tokens: 1.1.5
     dev: true
+
+  /hey-listen/1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
+    dev: false
 
   /highlight.js/10.7.3:
     resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
@@ -8079,6 +8119,10 @@ packages:
     resolution: {integrity: sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==}
     dev: true
 
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
+    dev: false
+
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -8847,6 +8891,18 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.13
     dev: true
+
+  /popmotion/8.7.6:
+    resolution: {integrity: sha512-gzU0mRAik8FIEOP4Nk5yqYptJIvHLoq/IRU+rANmKjDZ7tynAivYQ9cIJAxVaoS9h0zfXvN0cFBAg93ncmHHkA==}
+    dependencies:
+      '@popmotion/easing': 1.0.2
+      '@popmotion/popcorn': 0.4.4
+      framesync: 4.1.0
+      hey-listen: 1.0.8
+      style-value-types: 3.2.0
+      stylefire: 7.0.3
+      tslib: 1.14.1
+    dev: false
 
   /postcss-import/14.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
@@ -10047,6 +10103,23 @@ packages:
     dependencies:
       acorn: 8.8.1
     dev: true
+
+  /style-value-types/3.2.0:
+    resolution: {integrity: sha512-ih0mGsrYYmVvdDi++/66O6BaQPRPRMQHoZevNNdMMcPlP/cH28Rnfsqf1UEba/Bwfuw9T8BmIMwbGdzsPwQKrQ==}
+    dependencies:
+      hey-listen: 1.0.8
+      tslib: 1.14.1
+    dev: false
+
+  /stylefire/7.0.3:
+    resolution: {integrity: sha512-Q0l7NSeFz/OkX+o6/7Zg3VZxSAZeQzQpYomWmIpOehFM/rJNMSLVX5fgg6Q48ut2ETNKwdhm97mPNU643EBCoQ==}
+    dependencies:
+      '@popmotion/popcorn': 0.4.4
+      framesync: 4.1.0
+      hey-listen: 1.0.8
+      style-value-types: 3.2.0
+      tslib: 1.14.1
+    dev: false
 
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
@@ -11451,12 +11524,12 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zustand-signal/0.5.1_react@18.2.0:
-    resolution: {integrity: sha512-uKweonbjk010Gkok1T4tW0drwUDutzyfnANClZJqM02IZGVq9HqJa7JATjRUAh/NbNXXZztPuXMbb+aCGi3NYA==}
+  /zustand-signal/0.5.2_react@18.2.0:
+    resolution: {integrity: sha512-0dL59Kfy1jlqrtuzhijx1094mYT/RlGfCzh4dYzVLqer2XMugGaIgomrsmH3jjqbrpTcR8YyBCR9nFpkwg8kcA==}
     peerDependencies:
       react: '>=17.0.0'
     dependencies:
-      create-react-signals: 0.6.2_react@18.2.0
+      create-react-signals: 0.7.0_react@18.2.0
       react: 18.2.0
     dev: false
 

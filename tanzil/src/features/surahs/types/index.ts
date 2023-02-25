@@ -20,6 +20,7 @@ export interface Surah {
 	pageEnd: number;
 	pageStart: number;
 	revelationOrder: number;
+	reveleationPlace: 'makkah' | 'madinah';
 }
 
 export interface SurahQuranAPI {

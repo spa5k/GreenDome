@@ -38,6 +38,7 @@ export interface EditionsType {
 export interface Surahs {
 	id: number;
 	revelationOrder: number;
+	reveleationPlace: 'makkah' | 'madinah';
 	bismillahPre: string;
 	nameSimple: string;
 	nameComplex: string;

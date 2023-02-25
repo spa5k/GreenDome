@@ -50,6 +50,7 @@ class QuranApi extends SurahAbstract {
 		let ayahStart = 0;
 
 		for (const chapter of chapters) {
+			const reveleationPlace = chapter.revelation_place;
 			surahs.push({
 				ayahEnd: chapter.verses_count,
 				ayahStart,
@@ -61,6 +62,7 @@ class QuranApi extends SurahAbstract {
 				pageEnd: chapter.pages[1],
 				pageStart: chapter.pages[0],
 				revelationOrder: chapter.revelation_order,
+				reveleationPlace: reveleationPlace === 'makkah' ? 'makkah' : 'madinah',
 			});
 			ayahStart = ayahStart + chapter.verses_count;
 		}
