@@ -34,16 +34,21 @@ declare global {
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.jsx')['default'];
 	const IconFa6SolidFaceSmileBeam: typeof import('~icons/fa6-solid/face-smile-beam.jsx')['default'];
 	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.jsx')['default'];
+	const IconFa6SolidMosque: typeof import('~icons/fa6-solid/mosque.jsx')['default'];
+	const IconFaSolidKaaba: typeof import('~icons/fa-solid/kaaba.jsx')['default'];
 	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.jsx')['default'];
+	const IconFluentEmojiFlatKaaba: typeof import('~icons/fluent-emoji-flat/kaaba.jsx')['default'];
 	const IconIcRoundKeyboardArrowLeft: typeof import('~icons/ic/round-keyboard-arrow-left.jsx')['default'];
 	const IconIcRoundKeyboardArrowRight: typeof import('~icons/ic/round-keyboard-arrow-right.jsx')['default'];
 	const IconIcSharpSettings: typeof import('~icons/ic/sharp-settings.jsx')['default'];
 	const IconIonMdMap: typeof import('~icons/ion/md-map.jsx')['default'];
 	const IconIonSettingsSharp: typeof import('~icons/ion/settings-sharp.jsx')['default'];
+	const IconLaSlackHash: typeof import('~icons/la/slack-hash.jsx')['default'];
 	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.jsx')['default'];
 	const IconLineMdSunnyFilledLoop: typeof import('~icons/line-md/sunny-filled-loop.jsx')['default'];
 	const IconLineMdSunnyFilledLoopToMoonAltFilledLoopTransition:
 		typeof import('~icons/line-md/sunny-filled-loop-to-moon-alt-filled-loop-transition.jsx')['default'];
+	const IconMajesticonsBookmark: typeof import('~icons/majesticons/bookmark.jsx')['default'];
 	const IconMaterialSymbolsCalculateSharp: typeof import('~icons/material-symbols/calculate-sharp.jsx')['default'];
 	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.jsx')['default'];
 	const IconMdiCalendarMonth: typeof import('~icons/mdi/calendar-month.jsx')['default'];
