@@ -63,7 +63,7 @@ export const useSalahStore = create<SalahState & SalahActions>()(devtools(persis
 	}
 ), {
 	name: 'salah',
-	getStorage: () => hashStorage,
+	getStorage: () => localStorage,
 })));
 
 if (process.env.NODE_ENV !== 'production') {

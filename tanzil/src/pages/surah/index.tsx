@@ -15,7 +15,6 @@ export const Loader: LoaderFn<Route> = async () => {
 
 export default function Index() {
 	const { data } = useMatch<Route>();
-	console.log(data);
 
 	return (
 		<div>

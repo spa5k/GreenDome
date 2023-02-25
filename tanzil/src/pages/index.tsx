@@ -1,5 +1,5 @@
 import { Surahs } from '@/utils/bindings.js';
-import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
+import { LoaderFn, MakeGenerics } from '@tanstack/react-location';
 const surah = new SurahApi();
 
 export type HomeRoute = {
@@ -14,7 +14,5 @@ export const Loader: LoaderFn<Route> = async () => {
 };
 
 export default function Index() {
-	const { data } = useMatch<Route>();
-
 	return <HomePage />;
 }
