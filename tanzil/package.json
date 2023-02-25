@@ -98,6 +98,6 @@
 		"vite-plugin-mkcert": "^1.13.2",
 		"vite-plugin-pages": "^0.28.0",
 		"vite-plugin-svgr": "^2.4.0",
-		"vitest": "^0.28.5"
+		"vitest": "^0.29.0"
 	}
 }
