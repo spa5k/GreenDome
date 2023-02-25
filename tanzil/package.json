@@ -35,7 +35,7 @@
 		"class-variance-authority": "^0.4.0",
 		"clsx": "^1.2.1",
 		"cmdk": "^0.1.22",
-		"generouted": "^1.7.17",
+		"generouted": "^1.7.19",
 		"ohmyfetch": "^0.4.21",
 		"react": "latest",
 		"react-dom": "latest",
@@ -47,11 +47,12 @@
 		"tailwindcss-animate": "^1.0.5",
 		"theme-change": "^2.3.0",
 		"zustand": "^4.3.3",
-		"zustand-signal": "^0.5.1"
+		"zustand-signal": "^0.5.2"
 	},
 	"devDependencies": {
 		"@iconify/json": "^2.2.27",
 		"@quran/tsconfig": "workspace:^0.0.0",
+		"@shrutibalasa/tailwind-grid-auto-fit": "^1.1.0",
 		"@storybook/addon-essentials": "7.0.0-beta.53",
 		"@storybook/addon-interactions": "7.0.0-beta.53",
 		"@storybook/addon-links": "7.0.0-beta.53",

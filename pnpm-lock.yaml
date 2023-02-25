@@ -102,6 +102,7 @@ importers:
       '@radix-ui/react-tooltip': ^1.0.4
       '@rspc/client': ^0.1.2
       '@rspc/tauri': ^0.1.2
+      '@shrutibalasa/tailwind-grid-auto-fit': ^1.1.0
       '@storybook/addon-essentials': 7.0.0-beta.53
       '@storybook/addon-interactions': 7.0.0-beta.53
       '@storybook/addon-links': 7.0.0-beta.53
@@ -139,7 +140,7 @@ importers:
       eslint-plugin-react: 7.32.2
       eslint-plugin-simple-import-sort: ^10.0.0
       eslint-plugin-tailwindcss: ^3.9.0
-      generouted: ^1.7.17
+      generouted: ^1.7.19
       ohmyfetch: ^0.4.21
       postcss: ^8.4.21
       prop-types: 15.8.1
@@ -170,7 +171,7 @@ importers:
       vite-plugin-svgr: ^2.4.0
       vitest: ^0.28.5
       zustand: ^4.3.3
-      zustand-signal: ^0.5.1
+      zustand-signal: ^0.5.2
     dependencies:
       '@headlessui/react': 1.7.12_biqbaboplfbrettd7655fr4n2y
       '@legendapp/state': 0.23.4_react@18.2.0
@@ -189,7 +190,7 @@ importers:
       class-variance-authority: 0.4.0_typescript@4.9.5
       clsx: 1.2.1
       cmdk: 0.1.22_zula6vjvt3wdocc4mwcxqa6nzi
-      generouted: 1.7.17_vite@4.1.4
+      generouted: 1.7.19_vite@4.1.4
       ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -201,10 +202,11 @@ importers:
       tailwindcss-animate: 1.0.5_tailwindcss@3.2.7
       theme-change: 2.3.0
       zustand: 4.3.3_react@18.2.0
-      zustand-signal: 0.5.1_react@18.2.0
+      zustand-signal: 0.5.2_react@18.2.0
     devDependencies:
       '@iconify/json': 2.2.27
       '@quran/tsconfig': link:../packages/tsconfig
+      '@shrutibalasa/tailwind-grid-auto-fit': 1.1.0
       '@storybook/addon-essentials': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-interactions': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-links': 7.0.0-beta.53_biqbaboplfbrettd7655fr4n2y
@@ -2707,6 +2709,10 @@ packages:
       '@rspc/client': 0.1.2
       '@tauri-apps/api': 1.2.0
     dev: false
+
+  /@shrutibalasa/tailwind-grid-auto-fit/1.1.0:
+    resolution: {integrity: sha512-sh/Vmdz/xTVziUF9ZYDb5YpECApdK85KXSRIJY58GzmdUuum5QBE3jqDeNMjICEVaVOSrOnp+gqUWx8A9dmZjA==}
+    dev: true
 
   /@sinclair/typebox/0.24.51:
     resolution: {integrity: sha512-1P1OROm/rdubP5aFDSZQILU0vrLCJ4fvHt6EoqHEM+2D/G5MK3bIaymUKLit8Js9gbns5UyJnkP/TZROLw4tUA==}
@@ -5693,8 +5699,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /create-react-signals/0.6.2_react@18.2.0:
-    resolution: {integrity: sha512-p+I3k2LbTaZapE/ZYhCPi4P+n4TljdqiT6Q6y+qVKwLels2FNywlck8mrx94AgcMK+WmQliywzDAZ1woQtOL9g==}
+  /create-react-signals/0.7.0_react@18.2.0:
+    resolution: {integrity: sha512-DZmZTMExl9nyX/5PUTsPxw7w9HuI538h5ppxp85JXs/SMgABqDGJ5dVtuM0MLDVWyUmJZMx92f8QTnn3fP7yig==}
     peerDependencies:
       react: '>=17.0.0'
     dependencies:
@@ -6991,8 +6997,8 @@ packages:
       wide-align: 1.1.5
     dev: true
 
-  /generouted/1.7.17_vite@4.1.4:
-    resolution: {integrity: sha512-c9lBkdvUS4d0maV1E23CYrSsjP9iPFYGDT10kiW58YI5zS15+nYRezJDQINhUa2R902TbZGwsVVyt7n2Agay4w==}
+  /generouted/1.7.19_vite@4.1.4:
+    resolution: {integrity: sha512-kCA5TyXVos6p4/rCzOxYU+OOlb7ieAglKHSJJ4euiDgdQN16Nni0I79QOwa/ofYcjPJDDKqJ45V/4VBrTd6b+w==}
     peerDependencies:
       vite: '>=3'
     dependencies:
@@ -11518,12 +11524,12 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zustand-signal/0.5.1_react@18.2.0:
-    resolution: {integrity: sha512-uKweonbjk010Gkok1T4tW0drwUDutzyfnANClZJqM02IZGVq9HqJa7JATjRUAh/NbNXXZztPuXMbb+aCGi3NYA==}
+  /zustand-signal/0.5.2_react@18.2.0:
+    resolution: {integrity: sha512-0dL59Kfy1jlqrtuzhijx1094mYT/RlGfCzh4dYzVLqer2XMugGaIgomrsmH3jjqbrpTcR8YyBCR9nFpkwg8kcA==}
     peerDependencies:
       react: '>=17.0.0'
     dependencies:
-      create-react-signals: 0.6.2_react@18.2.0
+      create-react-signals: 0.7.0_react@18.2.0
       react: 18.2.0
     dev: false
 
