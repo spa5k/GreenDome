@@ -69,7 +69,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 	};
 
 	return (
-		<div className='mx-1 h-full basis-1/4 py-2'>
+		<div className='mx-1 min-h-screen basis-1/4 py-2'>
 			<div className='flex w-full items-end justify-end '>
 				<TooltipProvider>
 					<Tooltip>
