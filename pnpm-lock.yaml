@@ -129,7 +129,7 @@ importers:
       autoprefixer: ^10.4.13
       class-variance-authority: ^0.4.0
       clsx: ^1.2.1
-      cmdk: ^0.1.22
+      cmdk: ^0.2.0
       concurrently: ^7.6.0
       cross-env: ^7.0.3
       eslint: ^8.34.0
@@ -189,7 +189,7 @@ importers:
       animate-css-grid: 1.4.3
       class-variance-authority: 0.4.0_typescript@4.9.5
       clsx: 1.2.1
-      cmdk: 0.1.22_zula6vjvt3wdocc4mwcxqa6nzi
+      cmdk: 0.2.0_zula6vjvt3wdocc4mwcxqa6nzi
       generouted: 1.7.19_vite@4.1.4
       ohmyfetch: 0.4.21
       react: 18.2.0
@@ -6852,8 +6852,8 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /cmdk/0.1.22_zula6vjvt3wdocc4mwcxqa6nzi:
-    resolution: {integrity: sha512-F0ffliBO/U6SXKGRud9AjsNuINvfF+d9BVUgi/y2+v3TSBHVOmIXl43CWLEyEEIOwc2DTnlXvIQenhGAEpwW0Q==}
+  /cmdk/0.2.0_zula6vjvt3wdocc4mwcxqa6nzi:
+    resolution: {integrity: sha512-JQpKvEOb86SnvMZbYaFKYhvzFntWBeSZdyii0rZPhKJj9uwJBxu4DaVYDrRN7r3mPop56oPhRw+JYWTKs66TYw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
