@@ -11,9 +11,6 @@ import svgr from 'vite-plugin-svgr';
 export default defineConfig({
 	plugins: [
 		react(),
-		// mkcert({
-		// 	mkcertPath: '/usr/local/bin/mkcert',
-		// }),
 		checker({ typescript: false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' }, overlay: { initialIsOpen: false } }),
 		svgr(),
 		Icons({
@@ -60,8 +57,6 @@ export default defineConfig({
 			],
 			include: [
 				/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-				/\.vue$/,
-				/\.vue\?vue/, // .vue
 				/\.md$/, // .md
 			],
 		}),
