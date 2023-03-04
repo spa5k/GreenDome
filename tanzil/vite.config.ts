@@ -1,4 +1,3 @@
-import react from '@vitejs/plugin-react';
 import path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
 import IconsResolver from 'unplugin-icons/resolver';
@@ -10,7 +9,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
 	plugins: [
-		react(),
+		// react({ jsxImportSource: 'signia-react-jsx' }),
 		// mkcert({
 		// 	mkcertPath: '/usr/local/bin/mkcert',
 		// }),
@@ -76,5 +75,9 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
+	},
+	optimizeDeps: {
+		include: ['generouted/react-location'],
+		extensions: ['.jsx', '.tsx'],
 	},
 });
