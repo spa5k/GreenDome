@@ -1,5 +1,6 @@
 import { SalahCard } from '@/components/Card/card.js';
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
+import { Key } from 'react';
 import { useQuery } from 'react-query';
 
 export default function Salah() {
@@ -15,7 +16,6 @@ export default function Salah() {
 	useEffect(() => {
 		getLocation();
 	}, []);
-
 	if (latitude === 1) {
 		return (
 			<div className='flex flex-col items-center justify-center gap-y-10'>
@@ -31,12 +31,12 @@ export default function Salah() {
 			<div className='flex flex-wrap items-center gap-x-5'>
 				{!prayerTimes && <p>Loading...</p>}
 				{prayerTimes
-					&& prayerTimes.map((prayer) => {
+					&& prayerTimes.map((prayer: { time: string | number | Date; prayer: Key | null | undefined; }) => {
 						const time = new Date(prayer.time);
 						return (
 							<SalahCard
 								key={prayer.prayer}
-								prayer={prayer.prayer}
+								prayer={prayer.prayer as string}
 								time={time}
 							/>
 						);
