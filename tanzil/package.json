@@ -30,7 +30,7 @@
 		"class-variance-authority": "^0.4.0",
 		"clsx": "^1.2.1",
 		"cmdk": "^0.2.0",
-		"generouted": "^1.10.0",
+		"generouted": "^1.11.1",
 		"ohmyfetch": "^0.4.21",
 		"react": "latest",
 		"react-dom": "latest",
@@ -42,11 +42,12 @@
 		"tailwind-merge": "^1.10.0",
 		"tailwindcss-animate": "^1.0.5",
 		"theme-change": "^2.5.0",
+		"ts-results": "^3.3.0",
 		"zustand": "^4.3.6",
 		"zustand-signal": "^0.5.3"
 	},
 	"devDependencies": {
-		"@iconify/json": "^2.2.31",
+		"@iconify/json": "^2.2.32",
 		"@quran/tsconfig": "workspace:^0.0.0",
 		"@shrutibalasa/tailwind-grid-auto-fit": "^1.1.0",
 		"@types/jsurl": "^1.2.30",

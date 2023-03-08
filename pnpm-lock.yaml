@@ -91,7 +91,7 @@ importers:
 
   tanzil:
     specifiers:
-      '@iconify/json': ^2.2.31
+      '@iconify/json': ^2.2.32
       '@quran/tsconfig': workspace:^0.0.0
       '@radix-ui/react-checkbox': ^1.0.2
       '@radix-ui/react-dialog': ^1.0.2
@@ -129,7 +129,7 @@ importers:
       eslint-plugin-react: 7.32.2
       eslint-plugin-simple-import-sort: ^10.0.0
       eslint-plugin-tailwindcss: ^3.10.1
-      generouted: ^1.10.0
+      generouted: ^1.11.1
       ohmyfetch: ^0.4.21
       postcss: ^8.4.21
       prop-types: 15.8.1
@@ -147,6 +147,7 @@ importers:
       tailwindcss-logical: ^3.0.0
       tailwindcss-themer: ^3.0.1
       theme-change: ^2.5.0
+      ts-results: ^3.3.0
       tw-colors: ^1.1.6
       typescript: ^4.9.5
       unplugin-auto-import: ^0.13.0
@@ -178,7 +179,7 @@ importers:
       class-variance-authority: 0.4.0_typescript@4.9.5
       clsx: 1.2.1
       cmdk: 0.2.0_zula6vjvt3wdocc4mwcxqa6nzi
-      generouted: 1.10.0_vite@4.1.4
+      generouted: 1.11.1_vite@4.1.4
       ohmyfetch: 0.4.21
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -190,10 +191,11 @@ importers:
       tailwind-merge: 1.10.0
       tailwindcss-animate: 1.0.5_tailwindcss@3.2.7
       theme-change: 2.5.0
+      ts-results: 3.3.0
       zustand: 4.3.6_react@18.2.0
       zustand-signal: 0.5.3_react@18.2.0
     devDependencies:
-      '@iconify/json': 2.2.31
+      '@iconify/json': 2.2.32
       '@quran/tsconfig': link:../packages/tsconfig
       '@shrutibalasa/tailwind-grid-auto-fit': 1.1.0
       '@types/jsurl': 1.2.30
@@ -722,8 +724,8 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
 
-  /@iconify/json/2.2.31:
-    resolution: {integrity: sha512-DztAaMCNFM+b46IDnqlCU3LvjD6hFQyHKsd7+KusdHwbCDq0EeLMtyyydOivModCaGc0zQwLqfLCGbxDBdj0wA==}
+  /@iconify/json/2.2.32:
+    resolution: {integrity: sha512-303XU9iOVQxihO0a11S9x/cQgrlgQk3j4TwT5lCfx4kxomHL00mswTPrnUGZXM5VOTbLOM+7LdpdCnay7NAJnw==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.0
@@ -3601,8 +3603,8 @@ packages:
   /functions-have-names/1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  /generouted/1.10.0_vite@4.1.4:
-    resolution: {integrity: sha512-o4wwYlzM0WUUdSBt29gv1zLhIdqEQt42eIRGB6/0BwaBOi1lQALfeKIZ8hRm0Fs5sfKV7NBGlWUzlipRBosEzg==}
+  /generouted/1.11.1_vite@4.1.4:
+    resolution: {integrity: sha512-zPuX7UtJEzV4BkXjz+mMVonwPGKTe2ARSNxemX8G9L+jTOL4q/9zIfFE6zOPvcnEchFC5ypi5jZtIIoQYk0+mw==}
     peerDependencies:
       vite: '>=3'
     dependencies:
@@ -5523,6 +5525,10 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
+
+  /ts-results/3.3.0:
+    resolution: {integrity: sha512-FWqxGX2NHp5oCyaMd96o2y2uMQmSu8Dey6kvyuFdRJ2AzfmWo3kWa4UsPlCGlfQ/qu03m09ZZtppMoY8EMHuiA==}
+    dev: false
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}

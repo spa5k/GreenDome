@@ -2,7 +2,7 @@ import { Label } from '@/components/Elements/Label/label.js';
 
 export const Settings = () => {
 	const {
-		changeTranslationEdition,
+		changeTranslationEditions: changeTranslationEdition,
 		leftbarEnabled,
 		rightbarEnabled,
 		enabledTranslations,
@@ -12,7 +12,7 @@ export const Settings = () => {
 		toggleTransliteration,
 		translation,
 		translationEnabled,
-		recieter,
+		enabledRecieter: recieter,
 		recitationEnabled,
 		toggleRecitation,
 		transliterationEnabled,
