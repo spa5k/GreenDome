@@ -1,130 +1,111 @@
-import { mountStoreDevtool } from 'simple-zustand-devtools';
+import { useQuranTextSettingsStore } from '@/stores/quranStore.js';
+import { useRecitationStore } from '@/stores/recitationStore.js';
+import { useSidebarStore } from '@/stores/sidebarsStore.js';
+import { useTranslationSettingsStore } from '@/stores/translationsStore.js';
+import { useTransliterationSettingsStore } from '@/stores/transliterationStore.js';
 import { create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-
-type State = {
-	enabledQuranTextEdition: string;
-	enabledRecieter: string;
-	enabledTranslations: string[];
-	enabledTransliterations: string[];
-	leftbarEnabled: boolean;
-	quranTextEditions: string[];
-	quranTextEnabled: boolean;
-	recieters?: string[];
-	recitationEnabled: boolean;
-	rightbarEnabled: boolean;
-	translationEnabled: boolean;
-	translations?: string[];
-	transliterationEnabled: boolean;
-	transliterations?: string[];
-};
-
-type Actions = {
-	changeQuranTextEdition: (edition: string) => void;
-	changeRecieter: (recieter: string) => void;
-	changeTranslationEditions: (edition: string) => void;
-	changeTransliterationEditions: (edition: string) => void;
-	toggleCollapsibleLeftbar: () => void;
-	toggleCollapsibleRightbar: () => void;
-	toggleQuranText: () => void;
-	toggleRecitation: () => void;
-	toggleTranslation: () => void;
-	toggleTransliteration: () => void;
-};
-
-export const useSettingsStore = create<State & Actions>()(devtools(persist((set, get) => ({
-	enabledQuranTextEdition: '',
-	enabledRecieter: '',
-	enabledTranslations: [''],
-	enabledTransliterations: [''],
-	leftbarEnabled: Boolean(true),
-	quranTextEditions: [''],
-	quranTextEnabled: Boolean(true),
-	recieters: [''],
-	recitationEnabled: Boolean(true),
-	rightbarEnabled: Boolean(true),
-	translationEnabled: Boolean(true),
-	translations: [''],
-	transliterationEnabled: Boolean(true),
-	transliterations: [''],
-	changeQuranTextEdition(edition) {
-		set(() => ({ enabledQuranTextEdition: edition }));
-	},
-	changeTranslationEditions(edition) {
-		const enabledTranslations = get().enabledTranslations;
-		const index = enabledTranslations.indexOf(edition);
-		if (index === -1) {
-			enabledTranslations.push(edition);
-		} else {
-			enabledTranslations.splice(index, 1);
-		}
-		set(() => ({ enabledTranslations }));
-	},
-	changeTransliterationEditions(edition) {
-		const enabledTransliterations = get().enabledTransliterations;
-		const index = enabledTransliterations.indexOf(edition);
-		if (index === -1) {
-			enabledTransliterations.push(edition);
-		} else {
-			enabledTransliterations.splice(index, 1);
-		}
-		set(() => ({ enabledTransliterations }));
-	},
-	toggleQuranText() {
-		set(() => ({ quranTextEnabled: !get().quranTextEnabled }));
-	},
-	changeRecieter(recieter) {
-		if (get().enabledRecieter !== recieter) {
-			set(() => ({ enabledRecieter: recieter }));
-		}
-	},
-	toggleCollapsibleLeftbar() {
-		set(() => ({ leftbarEnabled: !get().leftbarEnabled }));
-	},
-	toggleCollapsibleRightbar() {
-		set(() => ({ rightbarEnabled: !get().rightbarEnabled }));
-	},
-	toggleRecitation() {
-		set(() => ({ recitationEnabled: !get().recitationEnabled }));
-	},
-	toggleTranslation() {
-		set(() => ({ translationEnabled: !get().translationEnabled }));
-	},
-	toggleTransliteration() {
-		set(() => ({ transliterationEnabled: !get().transliterationEnabled }));
-	},
-}), {
-	name: 'settings',
-	getStorage: () => localStorage,
-})));
-
-if (process.env.NODE_ENV !== 'production') {
-	mountStoreDevtool('settingsStore', useSettingsStore);
-}
+import { combine } from 'zustand/middleware';
 
 const getQuranTextEditions = async () => {
+	// Get a list of all editions with the name "Quran"
 	const editionsApi = new EditionsApi();
 	const editions = await editionsApi.getEditions('Quran');
+	// If there are no editions, give up
+	if (!editions.length) {
+		return;
+	}
 	const quranTextEditions = editions.map((edition) => edition.name);
-	const settingsStore = useSettingsStore.getState();
-	settingsStore.enabledQuranTextEdition = quranTextEditions[0];
+
+	if (!quranTextEditions.length) {
+		return;
+	}
+	// Store the list of Quran text editions in the settings store
+	const settingsStore = useQuranTextSettingsStore.getState();
 	settingsStore.quranTextEditions = quranTextEditions;
+	settingsStore.enabledQuranTextEdition = settingsStore.enabledQuranTextEdition || quranTextEditions[0];
 };
 
 const getTranslationEditions = async () => {
+	// Get a list of all editions with the name "Translation"
 	const editionsApi = new EditionsApi();
 	const editions = await editionsApi.getEditions('Translation');
+	// If there are no editions, give up
+	if (!editions.length) {
+		return;
+	}
+	// Get the names of the editions
 	const translations = editions.map((edition) => edition.name);
-	const settingsStore = useSettingsStore.getState();
-	settingsStore.enabledTranslations = [translations[0]];
+	if (!translations.length) {
+		return;
+	}
+	// Get the state of the translation settings store
+	const settingsStore = useTranslationSettingsStore.getState();
+	// Set the enabled translations to the first edition
+	settingsStore.enabledTranslations = translations;
+	// Set the translation names to the list of editions
 	settingsStore.translations = translations;
 };
 
 const getTransliterationEditions = async () => {
+	// Get a list of all editions with the name "Transliteration"
 	const editionsApi = new EditionsApi();
 	const editions = await editionsApi.getEditions('Transliteration');
+
+	// If there are no editions, give up
+	if (!editions.length) {
+		return;
+	}
+
+	// Get the name of each edition
 	const transliterations = editions.map((edition) => edition.name);
-	const settingsStore = useSettingsStore.getState();
+
+	// If there are no editions, give up
+	if (!transliterations.length) {
+		return;
+	}
+
+	// Set the enabled transliterations to the first one in the list
+	const settingsStore = useTransliterationSettingsStore.getState();
 	settingsStore.enabledTransliterations = [transliterations[0]];
+
+	// Set the list of transliterations to the list we created
 	settingsStore.transliterations = transliterations;
 };
+
+export const useSettingsStore = create(
+	combine(
+		{
+			translationSettings: useTranslationSettingsStore,
+			transliterationSettings: useTransliterationSettingsStore,
+			quranSettings: useQuranTextSettingsStore,
+			sidebarSettings: useSidebarStore,
+			recitationSettings: useRecitationStore,
+		},
+		(set, get) => ({
+			// Here you can define any derived state or actions that combine data from multiple stores.
+			// For example:
+			getEnabledTranslations: () => {
+				const translationSettings = get().translationSettings;
+				const enabledTranslations = translationSettings().enabledTranslations;
+				const translations = translationSettings().translations;
+				return enabledTranslations.map((enabledTranslation) => {
+					return translations?.find((translation) => translation === enabledTranslation);
+				});
+			},
+			getEnabledTransliterations: () => {
+				const transliterationSettings = get().transliterationSettings;
+				const enabledTransliterations = transliterationSettings().enabledTransliterations;
+				const transliterations = transliterationSettings().transliterations;
+				return enabledTransliterations.map((enabledTransliteration) => {
+					return transliterations?.find((transliteration) => transliteration === enabledTransliteration);
+				});
+			},
+			getEnabledQuranTextEdition: () => {
+				const quranSettings = get().quranSettings;
+				const enabledQuranTextEdition = quranSettings().enabledQuranTextEdition;
+				const quranTextEditions = quranSettings().quranTextEditions;
+				return quranTextEditions?.find((quranTextEdition) => quranTextEdition === enabledQuranTextEdition);
+			},
+		}),
+	),
+);

@@ -7,7 +7,7 @@ const Switch = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<SwitchPrimitives.Root
 		className={clsx(
-			'focus:ring-brand-300 dark:data-[state=checked]:bg-braring-brand-300 data-[state=unchecked]:bg-tertiary dark:focus:ring-brand-400 dark:data-[state=unchecked]:bg-brand-100 data-[state=checked]:bg-brand-400 peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+			'focus:ring-border data-[state=unchecked]:bg-tertiary data-[state=checked]:bg-secondary focus:outline-border dark:data-[state=checked]:bg-text_button peer inline-flex h-[24px] w-[44px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
 			className,
 		)}
 		{...props}
