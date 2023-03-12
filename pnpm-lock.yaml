@@ -5,12 +5,12 @@ importers:
   .:
     specifiers:
       '@tauri-apps/cli': ^1.2.3
-      dprint: ^0.34.5
+      dprint: ^0.35.0
       husky: ^8.0.3
       turbo: ^1.8.3
     devDependencies:
       '@tauri-apps/cli': 1.2.3
-      dprint: 0.34.5
+      dprint: 0.35.0
       husky: 8.0.3
       turbo: 1.8.3
 
@@ -2993,8 +2993,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /dprint/0.34.5:
-    resolution: {integrity: sha512-uxpTCCijw0SW9evJqAzivij1CD7mSiCJp47eCOi2N0EQUj+CzjT2gWxlilSvt4WnXzmUXF6SdK7pK7mEIPPbWQ==}
+  /dprint/0.35.0:
+    resolution: {integrity: sha512-JoT1Qg1nenaxU+uQvM+anymnn6NCLmZrLMuvrmFU6gbLampsQPfdT7gDmfxQTqO+piINeKlvMRwQAkhZrijLfQ==}
     hasBin: true
     requiresBuild: true
     dependencies:
