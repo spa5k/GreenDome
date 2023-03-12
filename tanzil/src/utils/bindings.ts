@@ -29,7 +29,11 @@ export interface Edition {
 	enabled: string;
 }
 
-export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
+export enum EditionsEnum {
+	Translation = 'Translation',
+	Transliteration = 'Transliteration',
+	Quran = 'Quran',
+}
 
 export interface EditionsType {
 	edition: EditionsEnum;
