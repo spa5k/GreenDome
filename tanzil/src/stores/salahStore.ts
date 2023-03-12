@@ -3,10 +3,10 @@ import { getPrayerTimes } from '@/features/index.js';
 
 import { CalculationParameters } from 'adhan';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
-import { create } from 'zustand';
+import { create, useStore } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-export const useSalahStore = create<SalahState & SalahActions>()(devtools(persist((set, get) => (
+export const salahStore = create<SalahState & SalahActions>()(devtools(persist((set, get) => (
 	{
 		getLocation: () => {
 			if (get().latitude !== 1 && get().longitude !== 1) {
@@ -65,6 +65,8 @@ export const useSalahStore = create<SalahState & SalahActions>()(devtools(persis
 	name: 'salah',
 	getStorage: () => localStorage,
 })));
+
+export const useSalahStore = (selector: (state: SalahState & SalahActions) => unknown) => useStore(salahStore, selector);
 
 if (process.env.NODE_ENV !== 'production') {
 	mountStoreDevtool('salahStore', useSalahStore);

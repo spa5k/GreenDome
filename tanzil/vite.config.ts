@@ -52,7 +52,7 @@ export default defineConfig({
 			resolvers: [
 				IconsResolver({
 					prefix: 'Icon',
-					extension: 'jsx',
+					extension: 'tsx',
 				}),
 			],
 			include: [

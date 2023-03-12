@@ -33,15 +33,15 @@ const mainRoutes = [
 		icon: <IconMaterialSymbolsCheckCircle className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
 ];
-const secondaryRoutes = [
-	{
-		title: 'Settings',
-		selected: false,
-		id: 1,
-		to: '/settings',
-		icon: <IconIonSettingsSharp className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
-	},
-];
+// const secondaryRoutes = [
+// 	{
+// 		title: 'Settings',
+// 		selected: false,
+// 		id: 1,
+// 		to: '/settings',
+// 		icon: <IconIonSettingsSharp className='min-h-6 mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
+// 	},
+// ];
 
 const ToggleClassName = clsx(
 	'hover:bg-subtle dark:focus:ring-offset-secondary inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 disabled:pointer-events-none disabled:opacity-50 data-[state=open]:bg-slate-100 dark:focus:ring-slate-400',
@@ -97,12 +97,6 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				<div className='my-2 w-full py-2'>
 					<div className='mt-3 flex w-full flex-col items-center transition-shadow duration-500'>
 						{mainRoutes.map((path) => {
-							const isActive = pathName === path.to;
-							return <SidebarLink key={path.id} isActive={isActive} showText={showText} path={path} />;
-						})}
-					</div>
-					<div className='mt-3 flex w-full flex-col items-center transition-shadow duration-500'>
-						{secondaryRoutes.map((path) => {
 							const isActive = pathName === path.to;
 							return <SidebarLink key={path.id} isActive={isActive} showText={showText} path={path} />;
 						})}
