@@ -10,7 +10,7 @@ const TabsList = React.forwardRef<
 	<TabsPrimitive.List
 		ref={ref}
 		className={clsx(
-			'bg-tertiary inline-flex items-center justify-center rounded-md p-1 dark:bg-slate-800',
+			'bg-tertiary dark:bg-background inline-flex items-center justify-center rounded-md p-1',
 			className,
 		)}
 		{...props}
@@ -24,7 +24,7 @@ const TabsTrigger = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<TabsPrimitive.Trigger
 		className={clsx(
-			'data-[state=active]:text-text_button dark:data-[state=active]:bg-background dark:data-[state=active]:text-text text-text inline-flex min-w-[100px] items-center  justify-center rounded-[0.185rem] px-3 py-1.5  text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50  data-[state=active]:bg-white data-[state=active]:shadow-sm',
+			'data-[state=active]:text-text_button dark:data-[state=active]:bg-background dark:data-[state=active]:text-text text-text data-[state=active]:bg-secondary inline-flex min-w-[100px]  items-center justify-center rounded-[0.185rem] px-3  py-1.5 text-sm font-medium transition-all disabled:pointer-events-none  disabled:opacity-50 data-[state=active]:shadow-sm',
 			className,
 		)}
 		{...props}
@@ -39,7 +39,7 @@ const TabsContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<TabsPrimitive.Content
 		className={clsx(
-			'mt-2 rounded-md border border-slate-200 p-6 dark:border-slate-700',
+			'border-border mt-2 rounded-md border',
 			className,
 		)}
 		{...props}

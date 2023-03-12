@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 export const Settings = () => {
 	const {
 		translationSettings,
@@ -19,7 +18,7 @@ export const Settings = () => {
 				</DialogDescription>
 			</DialogHeader>
 			<Tabs defaultValue='settings' className='w-full'>
-				<TabsList>
+				<TabsList className='w-full justify-between'>
 					<TabsTrigger value='settings'>Toggle Settings</TabsTrigger>
 					<TabsTrigger value='quran'>Quran</TabsTrigger>
 					<TabsTrigger value='recitation' disabled={!recitationEnabled}>Recitation</TabsTrigger>
@@ -27,13 +26,13 @@ export const Settings = () => {
 					<TabsTrigger value='transliteraions' disabled={!transliterationEnabled}>Transliteraions</TabsTrigger>
 				</TabsList>
 				<TabsContent value='settings'>
-					<div className='w-full'>
+					<div className='mx-10 w-full'>
 						<div className='grid w-4/5 gap-4 py-4'>
 							<div className='flex justify-between'>
 								<Label htmlFor='name' className='text-right'>
 									Translations
 								</Label>
-								<Switch
+								<SwitchIcon
 									id='name'
 									value='Pedro Duarte'
 									className='col-span-3'
@@ -46,7 +45,7 @@ export const Settings = () => {
 									<Label htmlFor='name' className='text-right'>
 										Transliterations
 									</Label>
-									<Switch id='name' value='Pedro Duarte' className='col-span-3' onClick={toggleTransliteration} checked={transliterationEnabled} />
+									<SwitchIcon id='name' value='Pedro Duarte' className='col-span-3' onClick={toggleTransliteration} checked={transliterationEnabled} />
 								</div>
 							</div>
 							<div className='flex flex-col justify-between'>
@@ -54,7 +53,7 @@ export const Settings = () => {
 									<Label htmlFor='name' className='text-right'>
 										Recitation
 									</Label>
-									<Switch id='name' value='Pedro Duarte' className='col-span-3' onClick={toggleRecitation} checked={recitationEnabled} />
+									<SwitchIcon id='name' value='Pedro Duarte' className='col-span-3' onClick={toggleRecitation} checked={recitationEnabled} />
 								</div>
 							</div>
 						</div>
