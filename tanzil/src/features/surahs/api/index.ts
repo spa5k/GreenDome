@@ -8,7 +8,7 @@ abstract class SurahAbstract {
 	public abstract surahInfoByNumber(id: number): Promise<Surahs>;
 }
 
-class TauriApi extends SurahAbstract {
+class SurahTauriApi extends SurahAbstract {
 	public async surahList() {
 		const { client } = await import('@/utils/rspc');
 
@@ -22,7 +22,7 @@ class TauriApi extends SurahAbstract {
 	}
 }
 
-class QuranApi extends SurahAbstract {
+class SurahQuranApi extends SurahAbstract {
 	public async surahList(): Promise<Surahs[]> {
 		const { $fetch } = await import('ohmyfetch');
 
@@ -71,7 +71,7 @@ class QuranApi extends SurahAbstract {
 }
 
 export class SurahApi extends SurahAbstract {
-	helper = this.isTauri ? new TauriApi() : new QuranApi();
+	helper = this.isTauri ? new SurahTauriApi() : new SurahQuranApi();
 	public surahList() {
 		return this.helper.surahList();
 	}

@@ -31,6 +31,8 @@ declare global {
 	const IconEosIconsLoading: typeof import('~icons/eos-icons/loading.tsx')['default'];
 	const IconFa6SolidFaceSmileBeam: typeof import('~icons/fa6-solid/face-smile-beam.tsx')['default'];
 	const IconFa6SolidHouseChimneyWindow: typeof import('~icons/fa6-solid/house-chimney-window.tsx')['default'];
+	const IconFa6SolidMosque: typeof import('~icons/fa6-solid/mosque.tsx')['default'];
+	const IconFaSolidKaaba: typeof import('~icons/fa-solid/kaaba.tsx')['default'];
 	const IconFaSolidQuran: typeof import('~icons/fa-solid/quran.tsx')['default'];
 	const IconIcRoundKeyboardArrowLeft: typeof import('~icons/ic/round-keyboard-arrow-left.tsx')['default'];
 	const IconIcRoundKeyboardArrowRight: typeof import('~icons/ic/round-keyboard-arrow-right.tsx')['default'];
@@ -38,10 +40,12 @@ declare global {
 	const IconIcSharpSettings: typeof import('~icons/ic/sharp-settings.tsx')['default'];
 	const IconIonMdMap: typeof import('~icons/ion/md-map.tsx')['default'];
 	const IconIonSettingsSharp: typeof import('~icons/ion/settings-sharp.tsx')['default'];
+	const IconLaSlackHash: typeof import('~icons/la/slack-hash.tsx')['default'];
 	const IconLineMdMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop.tsx')['default'];
 	const IconLineMdSunnyFilledLoop: typeof import('~icons/line-md/sunny-filled-loop.tsx')['default'];
 	const IconLineMdSunnyFilledLoopToMoonAltFilledLoopTransition:
 		typeof import('~icons/line-md/sunny-filled-loop-to-moon-alt-filled-loop-transition.tsx')['default'];
+	const IconMajesticonsBookmark: typeof import('~icons/majesticons/bookmark.tsx')['default'];
 	const IconMaterialSymbolsCalculateSharp: typeof import('~icons/material-symbols/calculate-sharp.tsx')['default'];
 	const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.tsx')['default'];
 	const IconMdiCalendarMonth: typeof import('~icons/mdi/calendar-month.tsx')['default'];
