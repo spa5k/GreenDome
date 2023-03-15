@@ -1,13 +1,13 @@
 export const Settings = () => {
-	const {
-		translationSettings,
-		transliterationSettings,
-		recitationSettings,
-	} = useSettingsStore();
+	// const {
+	// 	translationSettings,
+	// 	transliterationSettings,
+	// 	recitationSettings,
+	// } = useSettingsStore();
 
-	const { toggleTranslation, translationEnabled } = translationSettings();
-	const { toggleTransliteration, transliterationEnabled } = transliterationSettings();
-	const { toggleRecitation, recitationEnabled } = recitationSettings();
+	const { toggleTranslation, translationEnabled } = useTranslationSettingsStore();
+	const { toggleTransliteration, transliterationEnabled } = useTransliterationSettingsStore();
+	const { toggleRecitation, recitationEnabled } = useRecitationStore();
 
 	return (
 		<DialogContent className='sm:max-w-[625px]'>

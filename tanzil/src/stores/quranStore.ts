@@ -1,40 +1,33 @@
+import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
-type QuranTextState = {
-	enabledQuranTextEdition: string;
-	enabledRecieter: string;
-	quranTextEditions: string[];
+type QuranTextFontState = {
+	enabledQuranFontEdition: string;
+	quranTextFontEditions: string[];
 	quranTextEnabled: boolean;
-	recieters?: string[];
-	recitationEnabled: boolean;
 };
 
-type QuranTextActions = {
-	changeQuranTextEdition: (edition: string) => void;
-	changeRecieter: (recieter: string) => void;
-	toggleQuranText: () => void;
-	toggleRecitation: () => void;
+type QuranTextFontActions = {
+	changeQuranFontEdition: (edition: string) => void;
+	toggleQuranTextFont: () => void;
 };
 
-export const useQuranTextSettingsStore = create<QuranTextState & QuranTextActions>((set, get) => ({
-	enabledQuranTextEdition: '',
-	enabledRecieter: '',
-	quranTextEditions: [''],
+export const useQuranTextFontSettingsStore = create<QuranTextFontState & QuranTextFontActions>()(devtools(persist((set, get) => ({
+	enabledQuranFontEdition: '',
+	quranTextFontEditions: [''],
 	quranTextEnabled: Boolean(true),
-	recieters: [''],
-	recitationEnabled: Boolean(true),
-	changeQuranTextEdition(edition) {
-		set(() => ({ enabledQuranTextEdition: edition }));
+	changeQuranFontEdition(edition) {
+		set(() => ({ enabledQuranFontEdition: edition }));
 	},
-	changeRecieter(recieter) {
-		if (get().enabledRecieter !== recieter) {
-			set(() => ({ enabledRecieter: recieter }));
-		}
-	},
-	toggleQuranText() {
+	toggleQuranTextFont() {
 		set(() => ({ quranTextEnabled: !get().quranTextEnabled }));
 	},
-	toggleRecitation() {
-		set(() => ({ recitationEnabled: !get().recitationEnabled }));
-	},
-}));
+}), {
+	name: 'quranFont',
+	getStorage: () => localStorage,
+})));
+
+if (process.env.NODE_ENV !== 'production') {
+	mountStoreDevtool('quranFont', useQuranTextFontSettingsStore);
+}
