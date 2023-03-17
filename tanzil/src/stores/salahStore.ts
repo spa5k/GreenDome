@@ -2,11 +2,12 @@ import type { SalahActions, SalahState } from '@/features/index.js';
 import { getPrayerTimes } from '@/features/index.js';
 
 import { CalculationParameters } from 'adhan';
+import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
-import { create, useStore } from 'zustand';
+import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
-export const salahStore = create<SalahState & SalahActions>()(devtools(persist((set, get) => (
+export const useSalahStore = create<SalahState & SalahActions>()(devtools(persist((set, get) => (
 	{
 		getLocation: () => {
 			if (get().latitude !== 1 && get().longitude !== 1) {
@@ -66,8 +67,10 @@ export const salahStore = create<SalahState & SalahActions>()(devtools(persist((
 	getStorage: () => localStorage,
 })));
 
-export const useSalahStore = (selector: (state: SalahState & SalahActions) => unknown) => useStore(salahStore, selector);
-
 if (process.env.NODE_ENV !== 'production') {
 	mountStoreDevtool('salahStore', useSalahStore);
 }
+
+export const useSalahTrackedStore = createTrackedSelector(
+	useSalahStore,
+);

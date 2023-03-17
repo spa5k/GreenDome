@@ -1,13 +1,7 @@
 export const Settings = () => {
-	// const {
-	// 	translationSettings,
-	// 	transliterationSettings,
-	// 	recitationSettings,
-	// } = useSettingsStore();
-
-	const { toggleTranslation, translationEnabled } = useTranslationSettingsStore();
-	const { toggleTransliteration, transliterationEnabled } = useTransliterationSettingsStore();
-	const { toggleRecitation, recitationEnabled } = useRecitationStore();
+	const { toggleTranslation, translationEnabled } = useTranslationTrackedStore();
+	const { toggleTransliteration, transliterationEnabled } = useTransliterationTrackedStore();
+	const { toggleRecitation, recitationEnabled } = useRecitationTrackedStore();
 
 	return (
 		<DialogContent className='sm:max-w-[625px]'>
@@ -60,26 +54,7 @@ export const Settings = () => {
 					</div>
 				</TabsContent>
 				<TabsContent value='quran'>
-					<div className='inline-flex rounded-md shadow-sm' role='group'>
-						<button
-							type='button'
-							className='rounded-l-lg border border-gray-900 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:bg-gray-900 focus:text-white focus:ring-2 focus:ring-gray-500 dark:border-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700'
-						>
-							Profile
-						</button>
-						<button
-							type='button'
-							className='border-y border-gray-900 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:bg-gray-900 focus:text-white focus:ring-2 focus:ring-gray-500 dark:border-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700'
-						>
-							Settings
-						</button>
-						<button
-							type='button'
-							className='rounded-r-md border border-gray-900 bg-transparent px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:bg-gray-900 focus:text-white focus:ring-2 focus:ring-gray-500 dark:border-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700'
-						>
-							Downloads
-						</button>
-					</div>
+					<QuranTextEditionSelector />
 				</TabsContent>
 			</Tabs>
 		</DialogContent>

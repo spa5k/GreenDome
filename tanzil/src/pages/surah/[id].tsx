@@ -1,12 +1,13 @@
-import { getQuranTextEditions } from '@/stores/settingsStore.js';
 import { Ayah, Surahs } from '@/utils/bindings.js';
 import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 export type SurahRoute = {
 	surahInfo: Surahs;
 	ayahs: Ayah[];
 };
+
+const mushafApi = new MushafApi();
 
 type Route = MakeGenerics<{ LoaderData: SurahRoute; Params: { id: string; quranTextEdition: string; }; }>;
 
@@ -23,18 +24,44 @@ export const Failure = () => <h1>Something went wrong...</h1>;
 export default function Surah() {
 	const { data: route } = useMatch<Route>();
 	const { surahInfo } = route;
-	const { fetchQuranText, quranTextEdition } = surahStore();
-	const { data: queryData, refetch } = useQuery<Ayah[]>('quran_text', async () => {
-		return await fetchQuranText(Number(route.surahInfo?.id));
-	});
+
+	const { enabledQuranFontEdition } = useQuranTrackedStore();
+	const { enabledTranslations } = useTranslationTrackedStore();
+
+	const { data: ayahs, isLoading: isAyahsLoading } = useQuery(
+		['ayahs', surahInfo?.id, enabledQuranFontEdition],
+		() => mushafApi.ayahsByChapter(surahInfo?.id as number, enabledQuranFontEdition),
+		{
+			enabled: !!surahInfo,
+		},
+	);
+
+	// use react-query to fetch translations
+	const { data: translations, isLoading: isTranslationsLoading } = useQuery(
+		['translations', surahInfo?.id, enabledTranslations],
+		() => mushafApi.translationsByChapter(surahInfo?.id as number, enabledTranslations),
+		{
+			enabled: !!surahInfo,
+		},
+	);
+
+	console.log('translations', translations);
 
 	return (
 		<div>
 			<QuranTextEditionSelector />
-			<p>Currently Selected - {quranTextEdition}</p>
-			<h1>Post @ {surahInfo?.nameArabic}</h1>
-			<h1>{quranTextEdition}</h1>
-			{queryData?.map((ayah) => <p key={ayah.ayah} style={{ fontFamily: 'Uthmanic' }} className='text-lg'>{ayah.text}</p>)}
+			{surahInfo && (
+				<div>
+					<h1>{surahInfo.nameSimple}</h1>
+				</div>
+			)}
+
+			{isAyahsLoading && <h1>Loading...</h1>}
+			{ayahs?.map((ayah) => (
+				<div key={ayah.ayah}>
+					<h1>{ayah.text}</h1>
+				</div>
+			))}
 		</div>
 	);
 }

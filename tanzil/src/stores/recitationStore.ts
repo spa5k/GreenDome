@@ -1,3 +1,4 @@
+import { createTrackedSelector } from 'react-tracked';
 import { create } from 'zustand';
 
 type Recitation = {
@@ -28,3 +29,7 @@ export const useRecitationStore = create<RecitationState & RecitationActions>((s
 		set((state) => ({ recitationEnabled: !state.recitationEnabled }));
 	},
 }));
+
+export const useRecitationTrackedStore = createTrackedSelector(
+	useRecitationStore,
+);

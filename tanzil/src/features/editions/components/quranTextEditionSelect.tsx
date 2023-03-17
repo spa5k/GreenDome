@@ -1,7 +1,7 @@
-import { useQuranTextFontSettingsStore } from '@/stores/quranStore.js';
+import { useQuranTrackedStore } from '@/stores/quranStore.js';
 
 export const QuranTextEditionSelector = () => {
-	const { enabledQuranFontEdition, changeQuranFontEdition, quranTextFontEditions } = useQuranTextFontSettingsStore();
+	const { enabledQuranFontEdition, changeQuranFontEdition, quranTextFontEditions } = useQuranTrackedStore();
 	console.log('getEnabledQuranTextEdition', enabledQuranFontEdition, quranTextFontEditions);
 
 	return (
