@@ -22,7 +22,7 @@ export const surahStore = create<State & Actions>()(devtools(persist((set, get) 
 	translationTextEdition: 'ara-quranuthmanihaf',
 	transliterationTextEdition: 'ara-quranuthmanihaf',
 	fetchQuranText: async (number) => {
-		return await mushaf.ayahsTextByChapter(number, get().quranTextEdition);
+		return await mushaf.ayahsByChapter(number, get().quranTextEdition);
 	},
 }), {
 	name: 'surah',

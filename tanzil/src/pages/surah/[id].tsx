@@ -15,6 +15,8 @@ export const Loader: LoaderFn<Route> = async ({ params }) => {
 	const surahInfo = await surah.surahInfoByNumber(parseInt(params.id));
 	const ayahs = await mushaf.ayahsByChapter(parseInt(params.id), params.quranTextEdition);
 	await getQuranTextEditions();
+	await getTranslationEditions();
+	await getTransliterationEditions();
 	return { ayahs, surahInfo };
 };
 
@@ -27,6 +29,7 @@ export default function Surah() {
 
 	const { enabledQuranFontEdition } = useQuranTrackedStore();
 	const { enabledTranslations } = useTranslationTrackedStore();
+	const { enabledTransliterations } = useTransliterationTrackedStore();
 
 	const { data: ayahs, isLoading: isAyahsLoading } = useQuery(
 		['ayahs', surahInfo?.id, enabledQuranFontEdition],
@@ -36,20 +39,11 @@ export default function Surah() {
 		},
 	);
 
-	// use react-query to fetch translations
-	const { data: translations, isLoading: isTranslationsLoading } = useQuery(
-		['translations', surahInfo?.id, enabledTranslations],
-		() => mushafApi.translationsByChapter(surahInfo?.id as number, enabledTranslations),
-		{
-			enabled: !!surahInfo,
-		},
-	);
-
-	console.log('translations', translations);
-
 	return (
 		<div>
 			<QuranTextEditionSelector />
+			<TranslationsTextEditionSelector />
+
 			{surahInfo && (
 				<div>
 					<h1>{surahInfo.nameSimple}</h1>
