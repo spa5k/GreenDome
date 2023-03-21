@@ -114,7 +114,6 @@ declare global {
   const lazy: typeof import('react')['lazy']
   const memo: typeof import('react')['memo']
   const mushaf: typeof import('./features/mushaf/api/index')['mushaf']
-  const salahStore: typeof import('./stores/salahStore')['salahStore']
   const startTransition: typeof import('react')['startTransition']
   const suite: typeof import('vitest')['suite']
   const surah: typeof import('./features/surahs/api/index')['surah']
