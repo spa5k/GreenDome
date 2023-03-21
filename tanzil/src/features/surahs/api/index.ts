@@ -8,7 +8,7 @@ abstract class SurahAbstract {
 	public abstract surahInfoByNumber(id: number): Promise<Surahs>;
 }
 
-class TauriApi extends SurahAbstract {
+class SurahTauriApi extends SurahAbstract {
 	public async surahList() {
 		const { client } = await import('@/utils/rspc');
 
@@ -22,7 +22,7 @@ class TauriApi extends SurahAbstract {
 	}
 }
 
-class QuranApi extends SurahAbstract {
+class SurahQuranApi extends SurahAbstract {
 	public async surahList(): Promise<Surahs[]> {
 		const { $fetch } = await import('ohmyfetch');
 
@@ -50,6 +50,7 @@ class QuranApi extends SurahAbstract {
 		let ayahStart = 0;
 
 		for (const chapter of chapters) {
+			const reveleationPlace = chapter.revelation_place;
 			surahs.push({
 				ayahEnd: chapter.verses_count,
 				ayahStart,
@@ -61,6 +62,7 @@ class QuranApi extends SurahAbstract {
 				pageEnd: chapter.pages[1],
 				pageStart: chapter.pages[0],
 				revelationOrder: chapter.revelation_order,
+				reveleationPlace: reveleationPlace === 'makkah' ? 'makkah' : 'madinah',
 			});
 			ayahStart = ayahStart + chapter.verses_count;
 		}
@@ -69,7 +71,7 @@ class QuranApi extends SurahAbstract {
 }
 
 export class SurahApi extends SurahAbstract {
-	helper = this.isTauri ? new TauriApi() : new QuranApi();
+	helper = this.isTauri ? new SurahTauriApi() : new SurahQuranApi();
 	public surahList() {
 		return this.helper.surahList();
 	}

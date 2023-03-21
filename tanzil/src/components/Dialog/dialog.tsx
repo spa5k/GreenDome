@@ -21,8 +21,7 @@ DialogPortal.displayName = DialogPrimitive.Portal.displayName;
 const DialogOverlay = React.forwardRef<
 	React.ElementRef<typeof DialogPrimitive.Overlay>,
 	React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
-> // eslint-disable-next-line @typescript-eslint/no-unused-vars
-(({ className, children, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
 	<DialogPrimitive.Overlay
 		className={clsx(
 			'data-[state=closed]:animate-out data-[state=open]:fade-in data-[state=closed]:fade-out fixed inset-0 z-50 bg-black/50 backdrop-blur-sm transition-all duration-100',
@@ -43,7 +42,7 @@ const DialogContent = React.forwardRef<
 		<DialogPrimitive.Content
 			ref={ref}
 			className={clsx(
-				'animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 fixed z-50 grid w-full gap-4 rounded-b-lg bg-white p-6 sm:max-w-lg sm:rounded-lg',
+				'animate-in data-[state=open]:fade-in-90 data-[state=open]:slide-in-from-bottom-10 sm:zoom-in-90 data-[state=open]:sm:slide-in-from-bottom-0 bg-background text-text fixed z-50 grid w-full gap-4 rounded-b-lg p-6 sm:max-w-lg sm:rounded-lg',
 				'dark:bg-slate-900',
 				className,
 			)}
@@ -94,8 +93,8 @@ const DialogTitle = React.forwardRef<
 	<DialogPrimitive.Title
 		ref={ref}
 		className={clsx(
-			'text-lg font-semibold text-slate-900',
-			'dark:text-slate-50',
+			'text-text text-lg font-semibold',
+			'',
 			className,
 		)}
 		{...props}
@@ -109,7 +108,7 @@ const DialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<DialogPrimitive.Description
 		ref={ref}
-		className={clsx('text-sm text-slate-500', 'dark:text-slate-400', className)}
+		className={clsx('text-text text-sm', className)}
 		{...props}
 	/>
 ));

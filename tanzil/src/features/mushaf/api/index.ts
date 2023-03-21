@@ -6,7 +6,7 @@ abstract class MushafAbstract {
 	public abstract ayahsByChapter(chapter: number, edition: string): Promise<Ayah[]>;
 }
 
-class TauriApi extends MushafAbstract {
+class MushafTauriApi extends MushafAbstract {
 	public async ayahsByChapter(id: number, edition: string) {
 		const { client } = await import('@/utils/rspc');
 
@@ -15,7 +15,7 @@ class TauriApi extends MushafAbstract {
 	}
 }
 
-class QuranApi extends MushafAbstract {
+class MushafQuranApi extends MushafAbstract {
 	public async ayahsByChapter(id: number, edition = 'ara-quranindopak') {
 		const { $fetch } = await import('ohmyfetch');
 
@@ -42,7 +42,7 @@ class QuranApi extends MushafAbstract {
 }
 
 export class MushafApi extends MushafAbstract {
-	helper = this.isTauri ? new TauriApi() : new QuranApi();
+	helper = this.isTauri ? new MushafTauriApi() : new MushafQuranApi();
 
 	public ayahsByChapter(id: number, edition: string) {
 		return this.helper.ayahsByChapter(id, edition);

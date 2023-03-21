@@ -4,19 +4,19 @@
 	"main": ".eslintrc.cjs",
 	"license": "MIT",
 	"dependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.53.0",
-		"@typescript-eslint/parser": "^5.53.0",
-		"eslint": "^8.34.0",
+		"@typescript-eslint/eslint-plugin": "^5.54.1",
+		"@typescript-eslint/parser": "^5.54.1",
+		"eslint": "^8.36.0",
 		"eslint-config-turbo": "latest",
 		"eslint-plugin-import": "npm:eslint-plugin-i@2.26.0-2",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
 		"eslint-plugin-react": "7.32.2",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
-		"eslint-plugin-tailwindcss": "^3.9.0",
+		"eslint-plugin-tailwindcss": "^3.10.1",
 		"tailwindcss": "^3.2.7"
 	},
 	"devDependencies": {
-		"typescript": "^4.9.5"
+		"typescript": "^5.0.0"
 	},
 	"publishConfig": {
 		"access": "public"

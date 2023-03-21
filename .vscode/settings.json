@@ -8,6 +8,9 @@
 	"[typescript]": {
 		"editor.defaultFormatter": "dprint.dprint"
 	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "dprint.dprint"
+	},
 	"conventionalCommits.scopes": [
 		"main",
 		"docs",
@@ -30,9 +33,9 @@
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.formatOnSave": true,
 	"javascript.preferences.importModuleSpecifierEnding": "js",
-	"typescript.preferences.importModuleSpecifier": "non-relative",
-	"typescript.preferences.importModuleSpecifierEnding": "js",
 	"tailwindCSS.experimental.classRegex": [
 		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-	]
+	],
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.importModuleSpecifierEnding": "js"
 }

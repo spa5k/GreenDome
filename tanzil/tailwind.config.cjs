@@ -54,6 +54,7 @@ module.exports = {
 
 	plugins: [
 		require('tailwindcss-animate'),
+		require('@shrutibalasa/tailwind-grid-auto-fit'),
 		createThemes({
 			light: {
 				'primary': '#f6efd7',

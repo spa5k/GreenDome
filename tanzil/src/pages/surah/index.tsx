@@ -1,4 +1,3 @@
-import { SurahPage } from '@/screens/surahpage.js';
 import { Surahs } from '@/utils/bindings.js';
 import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 const surah = new SurahApi();

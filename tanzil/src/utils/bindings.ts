@@ -29,7 +29,11 @@ export interface Edition {
 	enabled: string;
 }
 
-export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
+export enum EditionsEnum {
+	Translation = 'Translation',
+	Transliteration = 'Transliteration',
+	Quran = 'Quran',
+}
 
 export interface EditionsType {
 	edition: EditionsEnum;
@@ -38,6 +42,7 @@ export interface EditionsType {
 export interface Surahs {
 	id: number;
 	revelationOrder: number;
+	reveleationPlace: 'makkah' | 'madinah';
 	bismillahPre: string;
 	nameSimple: string;
 	nameComplex: string;
