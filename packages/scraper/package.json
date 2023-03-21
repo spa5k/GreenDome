@@ -26,7 +26,7 @@
 		"eslint-config-custom": "workspace:^0.0.0",
 		"eslint-plugin-import": "npm:eslint-plugin-i@2.26.0-2",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
-		"kysely-codegen": "^0.9.0",
+		"kysely-codegen": "^0.10.0",
 		"regenerator-runtime": "^0.13.11",
 		"ts-node": "^10.9.1",
 		"tslib": "^2.5.0",
