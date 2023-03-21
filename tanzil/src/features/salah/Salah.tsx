@@ -26,8 +26,8 @@ export default function Salah() {
 
 	return (
 		<div className='flex flex-col items-center justify-center gap-y-10'>
-			<p>Latitude - {latitude}</p>
-			<p>Longitude - {longitude}</p>
+			{/* <p>Latitude - {latitude}</p>
+			<p>Longitude - {longitude}</p> */}
 			<div className='flex flex-wrap items-center gap-x-5'>
 				{!prayerTimes && <p>Loading...</p>}
 				{prayerTimes
