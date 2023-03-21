@@ -4,7 +4,9 @@ import { Key } from 'react';
 import { useQuery } from 'react-query';
 
 export default function Salah() {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahStore();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { data } = useQuery<GeoLocationInfo>(
 		'quran_text',
 		async () => {
@@ -25,10 +27,10 @@ export default function Salah() {
 	}
 
 	return (
-		<div className='flex flex-col items-center justify-center gap-y-10'>
+		<div className='flex flex-col items-center justify-center '>
 			{/* <p>Latitude - {latitude}</p>
 			<p>Longitude - {longitude}</p> */}
-			<div className='flex flex-wrap items-center gap-x-5'>
+			<div className='flex flex-wrap items-center '>
 				{!prayerTimes && <p>Loading...</p>}
 				{prayerTimes
 					&& prayerTimes.map((prayer: { time: string | number | Date; prayer: Key | null | undefined; }) => {
@@ -42,13 +44,13 @@ export default function Salah() {
 						);
 					})}
 			</div>
-			<p className='mt-6 text-lg'>Current Prayer: {currentPrayer}</p>
+			<p className=' text-lg font-semibold'>Current Prayer: {currentPrayer}</p>
 
-			{data && (
+			{/* {data && (
 				<p>
 					Current location - {data.city}, {data.principalSubdivision}
 				</p>
-			)}
+			)} */}
 		</div>
 	);
 }
