@@ -1,18 +1,17 @@
-export const TranslationsTextEditionSelector = () => {
-	const { changeTranslationEditions, enabledTranslations, toggleTranslation, translationEnabled, translations, isEnabled } = useTranslationTrackedStore();
+export const TransliterationsTextEditionSelector = () => {
+	const { changeTransliterationEditions, transliterations, isEnabled } = useTransliterationTrackedStore();
 	// format translations to be used in react-select
-	if (!translations) return null;
-	console.log(enabledTranslations);
+	if (!transliterations) return null;
 
 	return (
-		<CommandGroup heading='Translations'>
-			{translations.map((translation) => (
+		<CommandGroup heading='Transliterations'>
+			{transliterations.map((translation) => (
 				<CommandItem key={translation.name}>
 					<div className='flex cursor-pointer items-center space-x-2'>
 						<Checkbox
 							checked={isEnabled(translation.name)}
 							onClick={() => {
-								changeTranslationEditions(translation.name);
+								changeTransliterationEditions(translation.name);
 							}}
 						/>
 

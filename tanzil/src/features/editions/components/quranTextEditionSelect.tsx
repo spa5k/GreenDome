@@ -1,3 +1,4 @@
+import { RadioGroup, RadioGroupItem } from '@/components/Elements/ToggleGroup/toggleGroup.js';
 import { useQuranTrackedStore } from '@/stores/quranStore.js';
 
 export const QuranTextEditionSelector = () => {
@@ -5,26 +6,28 @@ export const QuranTextEditionSelector = () => {
 	console.log('getEnabledQuranTextEdition', enabledQuranFontEdition, quranTextFontEditions);
 
 	return (
-		<div className='flex flex-col items-center'>
-			<div className='flex flex-col items-center'>
-				<Select
-					onValueChange={(e) => {
-						changeQuranFontEdition(e);
-					}}
-					value={enabledQuranFontEdition}
-				>
-					<SelectTrigger className='w-[180px]'>
-						<SelectValue placeholder='Select Quran Font' />
-					</SelectTrigger>
-					<SelectContent>
-						{quranTextFontEditions.map((edition) => (
-							<SelectItem key={edition} value={edition}>
-								{edition}
-							</SelectItem>
-						))}
-					</SelectContent>
-				</Select>
-			</div>
-		</div>
+		<CommandGroup heading='Quran Font'>
+			<RadioGroup defaultValue='option-one'>
+				{quranTextFontEditions.map((edition) => (
+					<CommandItem
+						key={edition}
+						value={edition}
+						onSelect={() => {
+							changeQuranFontEdition(edition);
+						}}
+						className='cursor-pointer'
+					>
+						<div className='flex cursor-pointer items-center space-x-2'>
+							<RadioGroupItem
+								value='option-one'
+								id='option-one'
+								checked={edition === enabledQuranFontEdition}
+							/>
+							<Label htmlFor='option-one'>{edition}</Label>
+						</div>
+					</CommandItem>
+				))}
+			</RadioGroup>
+		</CommandGroup>
 	);
 };

@@ -1,16 +1,18 @@
+import { Edition } from '@/utils/bindings.js';
 import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 
 type TransliterationSettingsState = {
-	enabledTransliterations: string[];
+	enabledTransliterations: Edition[];
 	transliterationEnabled: boolean;
-	transliterations?: string[];
+	transliterations?: Edition[];
 };
 
 type TransliterationSettingsActions = {
 	changeTransliterationEditions: (edition: string) => void;
 	toggleTransliteration: () => void;
+	isEnabled: (edition: string) => boolean;
 };
 
 export const useTransliterationSettingsStore = create<
@@ -20,15 +22,30 @@ export const useTransliterationSettingsStore = create<
 	transliterationEnabled: true,
 	transliterations: [],
 
-	changeTransliterationEditions(edition) {
-		const enabledTransliterations = get().enabledTransliterations;
-		const index = enabledTransliterations.indexOf(edition);
-		if (index === -1) {
-			enabledTransliterations.push(edition);
+	changeTransliterationEditions(updatedEdition) {
+		const { enabledTransliterations } = get();
+		let found = false;
+		enabledTransliterations.forEach((edition) => {
+			if (edition.name === updatedEdition) {
+				found = true;
+				return;
+			}
+		});
+		let newEditions: Edition[];
+		if (found) {
+			newEditions = enabledTransliterations.filter((edition) => edition.name !== updatedEdition);
 		} else {
-			enabledTransliterations.splice(index, 1);
+			const { transliterations } = get();
+			const newEdition = transliterations?.find((edition) => edition.name === updatedEdition);
+			if (newEdition) {
+				newEditions = [...enabledTransliterations, newEdition];
+			}
 		}
-		set({ enabledTransliterations: [...enabledTransliterations] });
+		set(() => ({ enabledTransliterations: newEditions }));
+	},
+	isEnabled(edition) {
+		const { enabledTransliterations } = get();
+		return enabledTransliterations.some((enabledEdition) => enabledEdition.name === edition);
 	},
 
 	toggleTransliteration() {
@@ -57,18 +74,18 @@ export const getTransliterationEditions = async () => {
 	}
 
 	// Get the name of each edition
-	const transliterations = finalEditions.map((edition) => edition.name);
+	// const transliterations = finalEditions.map((edition) => edition.name);
 
 	// If there are no editions, give up
-	if (!transliterations.length) {
+	if (!finalEditions.length) {
 		return;
 	}
 
 	// Set the enabled transliterations to the first one in the list
 	const settingsStore = useTransliterationSettingsStore.getState();
-	settingsStore.enabledTransliterations = [transliterations[0]];
+
 	// Set the list of transliterations to the list we created
-	settingsStore.transliterations = transliterations;
+	settingsStore.transliterations = finalEditions;
 };
 
 export const useTransliterationTrackedStore = createTrackedSelector(
