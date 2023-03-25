@@ -26,5 +26,5 @@
 		"husky": "^8.0.3",
 		"turbo": "^1.8.5"
 	},
-	"packageManager": "pnpm@7.30.0"
+	"packageManager": "pnpm@7.30.3"
 }
