@@ -3,15 +3,14 @@ import { useQuranTrackedStore } from '@/stores/quranStore.js';
 
 export const QuranTextEditionSelector = () => {
 	const { enabledQuranFontEdition, changeQuranFontEdition, quranTextFontEditions } = useQuranTrackedStore();
-	console.log('getEnabledQuranTextEdition', enabledQuranFontEdition, quranTextFontEditions);
 
 	return (
 		<CommandGroup heading='Quran Font'>
 			<RadioGroup defaultValue='option-one'>
-				{quranTextFontEditions.map((edition) => (
+				{quranTextFontEditions?.map((edition) => (
 					<CommandItem
-						key={edition}
-						value={edition}
+						key={edition.name}
+						value={edition.name}
 						onSelect={() => {
 							changeQuranFontEdition(edition);
 						}}
@@ -21,9 +20,9 @@ export const QuranTextEditionSelector = () => {
 							<RadioGroupItem
 								value='option-one'
 								id='option-one'
-								checked={edition === enabledQuranFontEdition}
+								checked={edition.name === enabledQuranFontEdition?.name}
 							/>
-							<Label htmlFor='option-one'>{edition}</Label>
+							<Label htmlFor='option-one'>{edition.author} - {edition.name}</Label>
 						</div>
 					</CommandItem>
 				))}

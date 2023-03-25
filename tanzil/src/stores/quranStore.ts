@@ -1,16 +1,17 @@
+import { Edition } from '@/utils/bindings.js';
 import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 type QuranTextFontState = {
-	enabledQuranFontEdition: string;
-	quranTextFontEditions: string[];
+	enabledQuranFontEdition?: Edition;
+	quranTextFontEditions?: Edition[];
 	quranTextEnabled: boolean;
 };
 
 type QuranTextFontActions = {
-	changeQuranFontEdition: (edition: string) => void;
+	changeQuranFontEdition: (edition: Edition) => void;
 	toggleQuranTextFont: () => void;
 };
 
@@ -35,8 +36,6 @@ export const useQuranTextFontSettingsStore = create<
 	devtools(
 		persist(
 			(set, get) => ({
-				enabledQuranFontEdition: '',
-				quranTextFontEditions: [''],
 				quranTextEnabled: Boolean(true),
 				changeQuranFontEdition(edition) {
 					set(() => ({ enabledQuranFontEdition: edition }));
@@ -74,18 +73,25 @@ export const getQuranTextEditions = async () => {
 	if (!finalEditions) {
 		throw new Error('No Quran text editions found');
 	}
-	const quranTextEditions = finalEditions.map((edition) => edition.name);
+	// const quranTextEditions = finalEditions.map((edition) => edition.name);
 
-	if (!quranTextEditions.length) {
+	if (!finalEditions.length) {
 		return;
 	}
-
+	const blackListedEditions = [
+		'ara-quranphoneticst',
+	];
 	// Delete  ara-quranphoneticst from the editions
 	// Deleting it because its transliteration
-	const index = quranTextEditions.indexOf('ara-quranphoneticst');
-	if (index > -1) {
-		quranTextEditions.splice(index, 1);
-	}
+	// const index = quranTextEditions.indexOf('ara-quranphoneticst');
+	// const index=
+	// if (index > -1) {
+	// 	quranTextEditions.splice(index, 1);
+	// }
+	// Iterate through the editions and remove the ones that are in the blacklist
+	const quranTextEditions = finalEditions.filter((edition) => {
+		return !blackListedEditions.includes(edition.name);
+	});
 
 	const settingsStore = useQuranTextFontSettingsStore.getState();
 	settingsStore.quranTextFontEditions = quranTextEditions;

@@ -1,6 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { ImperativePanelHandle, Panel, PanelGroup } from 'react-resizable-panels';
-import 'virtual:fonts.css';
+import 'unfonts.css';
 
 const ErrorFallback = () => {
 	return (

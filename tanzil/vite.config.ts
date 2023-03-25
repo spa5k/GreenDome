@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
+import Unfonts from 'unplugin-fonts/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
 import { checker } from 'vite-plugin-checker';
-import { VitePluginFonts } from 'vite-plugin-fonts';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
@@ -16,7 +16,7 @@ export default defineConfig({
 		Icons({
 			compiler: 'jsx',
 		}),
-		VitePluginFonts({
+		Unfonts({
 			google: {
 				families: ['Rubik', 'Viga', 'Antic Slab'],
 			},
