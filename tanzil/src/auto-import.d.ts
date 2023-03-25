@@ -26,6 +26,7 @@ declare global {
   const EditionType: typeof import('./features/editions/api/helpers')['EditionType']
   const EditionsApi: typeof import('./features/editions/api/index')['EditionsApi']
   const EditionsEnum: typeof import('./utils/bindings')['EditionsEnum']
+  const Hijri: typeof import('./features/hijri/Hijri')['default']
   const HomePage: typeof import('./screens/homepage')['HomePage']
   const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton']
   const IconCharmCross: typeof import('~icons/charm/cross.tsx')['default']
