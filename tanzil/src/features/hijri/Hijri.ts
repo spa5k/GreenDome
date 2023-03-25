@@ -14,7 +14,3 @@
 		});
 		return hijriFormatter.format(Date.now());
 		}
-	
-	// Example usage:
-	// const hijriDateInArabic = getHijriDate('ar'); // returns the Hijri date in Arabic
-	// const hijriDateInEnglish = getHijriDate('en'); // returns the Hijri date in English
