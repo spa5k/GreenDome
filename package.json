@@ -22,9 +22,9 @@
 	},
 	"devDependencies": {
 		"@tauri-apps/cli": "^1.2.3",
-		"dprint": "^0.35.0",
+		"dprint": "^0.35.3",
 		"husky": "^8.0.3",
-		"turbo": "^1.8.3"
+		"turbo": "^1.8.5"
 	},
 	"packageManager": "pnpm@7.30.3"
 }

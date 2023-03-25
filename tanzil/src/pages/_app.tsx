@@ -1,6 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { ImperativePanelHandle, Panel, PanelGroup } from 'react-resizable-panels';
-import 'virtual:fonts.css';
+import 'unfonts.css';
 
 const ErrorFallback = () => {
 	return (
@@ -50,12 +50,16 @@ const App = ({ children }: { children: React.ReactNode; }) => {
 						<ResizeHandler />
 
 						<Panel minSize={30}>
-							<Navbar />
-							{children}
+							<ErrorBoundary FallbackComponent={ErrorFallback}>
+								<Navbar />
+								{children}
+							</ErrorBoundary>
 						</Panel>
 						<ResizeHandler />
 						<Panel defaultSize={20} minSize={20}>
-							<RightBar />
+							<ErrorBoundary FallbackComponent={ErrorFallback}>
+								<RightBar />
+							</ErrorBoundary>
 						</Panel>
 					</PanelGroup>
 				</main>

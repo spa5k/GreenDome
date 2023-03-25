@@ -57,7 +57,7 @@ export enum MadhabMethod {
 export type SalahState = {
 	latitude: number;
 	longitude: number;
-	prayerTimes: {
+	prayerTimes?: {
 		prayer: string;
 		time: Date;
 	}[];

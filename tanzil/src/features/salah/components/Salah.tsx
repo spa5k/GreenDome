@@ -1,14 +1,13 @@
 import { SalahCard } from '@/components/Card/card.js';
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
+import { useQuery } from '@tanstack/react-query';
 import { Key } from 'react';
-import { useQuery } from 'react-query';
 
-export default function Salah() {
-
+export const Salah = () => {
 	const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahStore();
 
 	const { data } = useQuery<GeoLocationInfo>(
-		'quran_text',
+		['quran_text'],
 		async () => {
 			return await getLocationInfo();
 		},
@@ -18,7 +17,7 @@ export default function Salah() {
 	console.log('latitude:', latitude);
 	console.log('longitude:', longitude);
 	console.log('data:', data);
-	
+
 	useEffect(() => {
 		getLocation();
 	}, []);
@@ -32,7 +31,7 @@ export default function Salah() {
 
 	return (
 		<div className='flex flex-col items-center justify-center '>
-{}
+			{}
 			<div className='flex flex-wrap items-center '>
 				{!prayerTimes && <p>Loading...</p>}
 				{prayerTimes
@@ -48,9 +47,6 @@ export default function Salah() {
 					})}
 			</div>
 			<p className=' text-lg font-semibold'>Current Prayer: {currentPrayer}</p>
-
-		
-			
 		</div>
 	);
-}
+};

@@ -1,12 +1,13 @@
 import { SalahCard } from '@/components/Card/card.js';
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
+import { useSalahTrackedStore } from '@/stores/salahStore.js';
+import { useQuery } from '@tanstack/react-query';
 import { Key } from 'react';
-import { useQuery } from 'react-query';
 
 export default function Salah() {
-	const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahStore();
+	const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahTrackedStore();
 	const { data } = useQuery<GeoLocationInfo>(
-		'quran_text',
+		['quran_text'],
 		async () => {
 			return await getLocationInfo();
 		},

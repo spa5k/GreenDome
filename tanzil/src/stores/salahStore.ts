@@ -2,6 +2,7 @@ import type { SalahActions, SalahState } from '@/features/index.js';
 import { getPrayerTimes } from '@/features/index.js';
 
 import { CalculationParameters } from 'adhan';
+import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
@@ -69,3 +70,7 @@ export const useSalahStore = create<SalahState & SalahActions>()(devtools(persis
 if (process.env.NODE_ENV !== 'production') {
 	mountStoreDevtool('salahStore', useSalahStore);
 }
+
+export const useSalahTrackedStore = createTrackedSelector(
+	useSalahStore,
+);
