@@ -1,6 +1,4 @@
-import { SalahCard } from '@/components/Card/card.js';
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
-import { useSalahTrackedStore } from '@/stores/salahStore.js';
 import { useQuery } from '@tanstack/react-query';
 import { Key } from 'react';
 
