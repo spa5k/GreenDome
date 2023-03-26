@@ -1,4 +1,5 @@
 import { Ayah } from '@/utils/bindings.js';
+import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
@@ -16,7 +17,7 @@ type Actions = {
 	fetchQuranText: (number: number) => Promise<Ayah[]>;
 };
 
-export const surahStore = create<State & Actions>()(devtools(persist((set, get) => ({
+export const useSurahStore = create<State & Actions>()(devtools(persist((set, get) => ({
 	changeQuranTextEdition: (edition) => set(() => ({ quranTextEdition: edition })),
 	quranTextEdition: 'ara-quranuthmanihaf',
 	translationTextEdition: 'ara-quranuthmanihaf',
@@ -29,6 +30,10 @@ export const surahStore = create<State & Actions>()(devtools(persist((set, get) 
 	getStorage: () => hashStorage,
 })));
 
+export const useSurahTrackedStore = createTrackedSelector(
+	useSurahStore,
+);
+
 if (process.env.NODE_ENV !== 'production') {
-	mountStoreDevtool('surahStore', surahStore);
+	mountStoreDevtool('surahStore', useSurahStore);
 }

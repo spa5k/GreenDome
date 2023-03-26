@@ -1,4 +1,3 @@
-import { formatEditionsData } from '@/features/index.js';
 import { Edition, EditionsEnum } from '@/utils/bindings.js';
 import { Err, Ok, Result } from 'ts-results';
 

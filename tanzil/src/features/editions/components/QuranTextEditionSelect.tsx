@@ -1,6 +1,3 @@
-import { RadioGroup, RadioGroupItem } from '@/components/Elements/ToggleGroup/toggleGroup.js';
-import { useQuranTrackedStore } from '@/stores/quranStore.js';
-
 export const QuranTextEditionSelector = () => {
 	const { enabledQuranFontEdition, changeQuranFontEdition, quranTextFontEditions } = useQuranTrackedStore();
 

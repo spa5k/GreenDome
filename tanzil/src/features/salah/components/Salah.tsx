@@ -1,4 +1,3 @@
-import { SalahCard } from '@/components/Card/card.js';
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
 import { useQuery } from '@tanstack/react-query';
 import { Key } from 'react';
@@ -21,6 +20,7 @@ export const Salah = () => {
 	useEffect(() => {
 		getLocation();
 	}, []);
+
 	if (latitude === 1) {
 		return (
 			<div className='flex flex-col items-center justify-center gap-y-10'>

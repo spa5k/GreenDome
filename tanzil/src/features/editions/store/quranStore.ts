@@ -83,12 +83,6 @@ export const getQuranTextEditions = async () => {
 	];
 	// Delete  ara-quranphoneticst from the editions
 	// Deleting it because its transliteration
-	// const index = quranTextEditions.indexOf('ara-quranphoneticst');
-	// const index=
-	// if (index > -1) {
-	// 	quranTextEditions.splice(index, 1);
-	// }
-	// Iterate through the editions and remove the ones that are in the blacklist
 	const quranTextEditions = finalEditions.filter((edition) => {
 		return !blackListedEditions.includes(edition.name);
 	});
