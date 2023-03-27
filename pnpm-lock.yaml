@@ -19,7 +19,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.56.0
       '@typescript-eslint/parser': ^5.56.0
       eslint: ^8.36.0
-      eslint-config-turbo: ^0.0.10
+      eslint-config-turbo: ^1.0.0
       eslint-plugin-import: npm:eslint-plugin-i@^2.27.5
       eslint-plugin-jsx-a11y: ^6.7.1
       eslint-plugin-react: 7.32.2
@@ -31,7 +31,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
       '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
       eslint: 8.36.0
-      eslint-config-turbo: 0.0.10_eslint@8.36.0
+      eslint-config-turbo: 1.8.6_eslint@8.36.0
       eslint-plugin-import: /eslint-plugin-i/2.27.5_cnkxirszkzb4o6ts7gbclno24e
       eslint-plugin-jsx-a11y: 6.7.1_eslint@8.36.0
       eslint-plugin-react: 7.32.2_eslint@8.36.0
@@ -3232,13 +3232,13 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /eslint-config-turbo/0.0.10_eslint@8.36.0:
-    resolution: {integrity: sha512-o4ULFZYM1OihSd63eDGEuy9rt6tW4ma6xnW9grnr44BoJwKaGQko2aka9kfqQs0vtmwD1++Os3ThPHETmzkFzA==}
+  /eslint-config-turbo/1.8.6_eslint@8.36.0:
+    resolution: {integrity: sha512-LSMqrHmFeQcYRuBnzrzw+B2bJ3+o8wxPkRwfK0Y+SSLsq2F/niRJ2kqB8j4uOSCfxybHHpFEB2CgUpQiiyfeoQ==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
       eslint: 8.36.0
-      eslint-plugin-turbo: 0.0.10_eslint@8.36.0
+      eslint-plugin-turbo: 1.8.6_eslint@8.36.0
     dev: false
 
   /eslint-import-resolver-node/0.3.7:
@@ -3449,8 +3449,8 @@ packages:
       postcss: 8.4.21
       tailwindcss: 3.2.7
 
-  /eslint-plugin-turbo/0.0.10_eslint@8.36.0:
-    resolution: {integrity: sha512-T7QRwF4rjBQCJD9AHLHn9ShtHCHNkfIZW5Oio92WtQYhoU5jZCU3ynU+ONFXLuvoUx4dJ19WergIyHL+DwL2+g==}
+  /eslint-plugin-turbo/1.8.6_eslint@8.36.0:
+    resolution: {integrity: sha512-LieXzur+4XtIsLst8GdupTMhvGn2ebFetG3AVErh2jHBy1EobPHbatjcdNZQMy5EsdG35axQVB8KFF3jo4u+OQ==}
     peerDependencies:
       eslint: '>6.6.0'
     dependencies:
