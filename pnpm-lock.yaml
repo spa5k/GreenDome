@@ -158,7 +158,7 @@ importers:
       typescript: ^5.0.2
       unplugin-auto-import: ^0.15.2
       unplugin-fonts: ^1.0.0
-      unplugin-icons: ^0.15.3
+      unplugin-icons: ^0.16.0
       vite: ^4.2.1
       vite-plugin-checker: ^0.5.6
       vite-plugin-mkcert: ^1.13.4
@@ -238,7 +238,7 @@ importers:
       typescript: 5.0.2
       unplugin-auto-import: 0.15.2
       unplugin-fonts: 1.0.0_vite@4.2.1
-      unplugin-icons: 0.15.3
+      unplugin-icons: 0.16.0
       vite: 4.2.1
       vite-plugin-checker: 0.5.6_cyugs6cx4w5rbv2x5b3ugvgjtm
       vite-plugin-mkcert: 1.13.4_vite@4.2.1
@@ -5823,10 +5823,10 @@ packages:
       vite: 4.2.1
     dev: true
 
-  /unplugin-icons/0.15.3:
-    resolution: {integrity: sha512-YWgJqv5AahrokeOnta8uX/m1damZA6Rf6zPClgHg2Fa/45iyOe3Lj+Wn/Ba+CSsq9yBffn17YfKfJNyWCNZPvw==}
+  /unplugin-icons/0.16.0:
+    resolution: {integrity: sha512-1YDsaMmJDVj9JDffpDrngWvrVtZZeZDHvyDqKEx4O9aQNiS4jRlGC7B14IKy91aHtBZ8/Q3RiF2YrjsyFgGO/A==}
     peerDependencies:
-      '@svgr/core': '>=5.5.0'
+      '@svgr/core': '>=7.0.0'
       '@vue/compiler-sfc': ^3.0.2 || ^2.7.0
       vue-template-compiler: ^2.6.12
       vue-template-es2015-compiler: ^1.9.0
