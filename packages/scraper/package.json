@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"better-sqlite3": "^8.2.0",
-		"kysely": "^0.23.5",
+		"kysely": "^0.24.0",
 		"ohmyfetch": "^0.4.21",
 		"tajweed-ts": "^1.0.0"
 	},
