@@ -5,6 +5,7 @@
 export {};
 declare global {
 	const AppProvider: typeof import('./providers/app')['AppProvider'];
+	const AyahTextViewer: typeof import('./features/mushaf/components/AyahTextViewer/AyahTextViewer')['AyahTextViewer'];
 	const Button: typeof import('./components/Elements/Button/Button')['Button'];
 	const ButtonGroup: typeof import('./components/Elements/Button/ButtonGroup')['ButtonGroup'];
 	const CalculationMethodEnum: typeof import('./features/salah/types/index')['CalculationMethodEnum'];
@@ -26,7 +27,9 @@ declare global {
 	const DialogHeader: typeof import('./components/Dialog/Dialog')['DialogHeader'];
 	const DialogTitle: typeof import('./components/Dialog/Dialog')['DialogTitle'];
 	const DialogTrigger: typeof import('./components/Dialog/Dialog')['DialogTrigger'];
+	const EditionSelectorSheet: typeof import('./features/mushaf/components/EditionSelectorSheet/EditionSelectorSheet')['EditionSelectorSheet'];
 	const EditionType: typeof import('./features/editions/api/helpers')['EditionType'];
+	const EditionViewer: typeof import('./features/mushaf/components/EditionsViewer/EditionsViewer')['EditionViewer'];
 	const EditionsApi: typeof import('./features/editions/api/index')['EditionsApi'];
 	const EditionsEnum: typeof import('./utils/bindings')['EditionsEnum'];
 	const HomePage: typeof import('./screens/Homepage')['HomePage'];
@@ -74,6 +77,7 @@ declare global {
 	const PopoverContent: typeof import('./components/Elements/Popover/Popover')['PopoverContent'];
 	const PopoverTrigger: typeof import('./components/Elements/Popover/Popover')['PopoverTrigger'];
 	const QuranTextEditionSelector: typeof import('./features/editions/components/QuranTextEditionSelect')['QuranTextEditionSelector'];
+	const QuranTextViewer: typeof import('./features/mushaf/components/QuranTextViewer/QuranTextViewer')['QuranTextViewer'];
 	const RadioGroup: typeof import('./components/Elements/ToggleGroup/ToggleGroup')['RadioGroup'];
 	const RadioGroupItem: typeof import('./components/Elements/ToggleGroup/ToggleGroup')['RadioGroupItem'];
 	const ResizeHandler: typeof import('./components/Elements/ResizeHandler/ResizeHandler')['default'];
