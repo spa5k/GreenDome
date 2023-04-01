@@ -17,7 +17,7 @@ type TranslationActions = {
 };
 
 export const useTranslationSettingsStore = create<TranslationState & TranslationActions>()(devtools(persist((set, get) => ({
-	enabledTranslations: [],
+	enabledTranslations: [] as Edition[],
 	translationEnabled: Boolean(true),
 	translations: [],
 	changeTranslationEditions(updatedEdition) {
@@ -26,7 +26,6 @@ export const useTranslationSettingsStore = create<TranslationState & Translation
 		enabledTranslations.forEach((edition) => {
 			if (edition.name === updatedEdition) {
 				found = true;
-				return;
 			}
 		});
 		let newEditions: Edition[];
@@ -85,27 +84,3 @@ if (process.env.NODE_ENV !== 'production') {
 export const useTranslationTrackedStore = createTrackedSelector(
 	useTranslationSettingsStore,
 );
-
-// changeTranslationEditions(updatedEdition) {
-// 		const { enabledTranslations } = get();
-// 		let found = false;
-// 		enabledTranslations.forEach((edition) => {
-// 			if (edition.name === updatedEdition) {
-// 				found = true;
-// 				return;
-// 			}
-// 		});
-
-// 		let newEditions: Edition[];
-// 		if (found) {
-// 			newEditions = enabledTranslations.filter((edition) => edition.name !== updatedEdition);
-// 		} else {
-// 			const { translations } = get();
-// 			const newEdition = translations.find((edition) => edition.name === updatedEdition);
-// 			if (newEdition) {
-// 				newEditions = [...enabledTranslations, newEdition];
-// 			}
-// 		}
-
-// 		set(() => ({ enabledTranslations: newEditions }));
-// 	},

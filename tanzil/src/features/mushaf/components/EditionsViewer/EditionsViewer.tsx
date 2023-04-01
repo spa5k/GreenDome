@@ -25,7 +25,7 @@ export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 
 	const { data, isLoading } = useQuery(
 		['ayahs', surahInfo.id, enabledQuranFontEdition],
-		() => mushafApi.ayahsByChapter(surahInfo.id as number, enabledQuranFontEdition?.name as string),
+		() => mushafApi.ayahsByChapter(surahInfo.id, enabledQuranFontEdition?.name as string),
 		{
 			enabled: !!surahInfo,
 		},

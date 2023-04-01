@@ -27,10 +27,6 @@ export default function Surah() {
 	const { data: route } = useMatch<Route>();
 	const { surahInfo } = route;
 
-	const { enabledQuranFontEdition } = useQuranTrackedStore();
-	const { enabledTranslations } = useTranslationTrackedStore();
-	const { enabledTransliterations } = useTransliterationTrackedStore();
-
 	return (
 		<div>
 			<EditionSelectorSheet />

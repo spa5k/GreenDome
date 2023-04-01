@@ -6,7 +6,7 @@ const mushafApi = new MushafApi();
 export const QuranTextViewer = ({ quranFontEdition, surahInfo }: { quranFontEdition: Edition; surahInfo: Surahs; }) => {
 	const { data, isLoading } = useQuery(
 		['ayahs', surahInfo.id, quranFontEdition],
-		() => mushafApi.ayahsByChapter(surahInfo.id as number, quranFontEdition.name as string),
+		() => mushafApi.ayahsByChapter(surahInfo.id, quranFontEdition.name),
 		{
 			enabled: !!surahInfo,
 		},

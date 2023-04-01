@@ -35,9 +35,7 @@ export const fetchQuranText = async (): Promise<QuranText[]> => {
 			FinalRes.push({ ayah: ayah.verse, surah: ayah.chapter });
 		}
 	}
-
-	for (let index = 0; index < sources.length; index++) {
-		const source = sources[index];
+	for (const source of sources) {
 		const url = `https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/${source}.json`;
 		const data: Quran = await $fetch(url);
 
