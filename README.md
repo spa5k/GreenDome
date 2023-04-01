@@ -89,5 +89,4 @@ src
 +-- types             # base types used across the application
 |
 +-- utils             # shared utility functions
-
 ```

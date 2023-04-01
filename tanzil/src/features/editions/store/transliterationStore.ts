@@ -28,7 +28,6 @@ export const useTransliterationSettingsStore = create<
 		enabledTransliterations.forEach((edition) => {
 			if (edition.name === updatedEdition) {
 				found = true;
-				return;
 			}
 		});
 		let newEditions: Edition[];

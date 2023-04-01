@@ -73,16 +73,14 @@ export const getQuranTextEditions = async () => {
 	if (!finalEditions) {
 		throw new Error('No Quran text editions found');
 	}
-	// const quranTextEditions = finalEditions.map((edition) => edition.name);
 
 	if (!finalEditions.length) {
 		return;
 	}
 	const blackListedEditions = [
-		'ara-quranphoneticst',
+		'ara-quranphoneticst', // Its a transliteration
 	];
-	// Delete  ara-quranphoneticst from the editions
-	// Deleting it because its transliteration
+
 	const quranTextEditions = finalEditions.filter((edition) => {
 		return !blackListedEditions.includes(edition.name);
 	});

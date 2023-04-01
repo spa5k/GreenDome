@@ -1,5 +1,5 @@
 export const TranslationsTextEditionSelector = () => {
-	const { changeTranslationEditions, enabledTranslations, toggleTranslation, translationEnabled, translations, isEnabled } = useTranslationTrackedStore();
+	const { changeTranslationEditions, enabledTranslations, translations, isEnabled } = useTranslationTrackedStore();
 	// format translations to be used in react-select
 	if (!translations) return null;
 	console.log(enabledTranslations);

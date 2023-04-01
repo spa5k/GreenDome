@@ -15,6 +15,7 @@ export default defineConfig({
 		svgr(),
 		Icons({
 			compiler: 'jsx',
+			defaultClass: 'icon',
 		}),
 		Unfonts({
 			google: {
