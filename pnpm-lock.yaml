@@ -210,8 +210,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3(react@18.2.0)
       react-resizable-panels:
-        specifier: ^0.0.38
-        version: 0.0.38(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.0.39
+        version: 0.0.39(react-dom@18.2.0)(react@18.2.0)
       react-tracked:
         specifier: ^1.7.11
         version: 1.7.11(react-dom@18.2.0)(react@18.2.0)(scheduler@0.23.0)
@@ -4945,8 +4945,8 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.0.31)(react@18.2.0)
     dev: false
 
-  /react-resizable-panels@0.0.38(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-MSzVM3KmzPszIBahIxugKlfnKxdQv8TOv8msPiehu8Zob/I6CCrMXIw8GDJGmByqUF9x5fz7WIm2KEP3Ip5H2g==}
+  /react-resizable-panels@0.0.39(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-qQDZtC9a+CxW8gPQ+E1aTK9j8dvKigRiBYcoWqZWkJlulsgPZda+GjWk4SXZHZzsCNJmyVjEVW2QaM850rNRUQ==}
     peerDependencies:
       react: ^16.14.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0
