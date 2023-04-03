@@ -1,5 +1,6 @@
-import { Edition, Surahs } from '@/utils/bindings.js';
+import { Ayah, Edition, Surahs } from '@/utils/bindings.js';
 import { useQueries, useQuery } from '@tanstack/react-query';
+
 const mushafApi = new MushafApi();
 
 export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
@@ -16,7 +17,13 @@ export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 		{
 			queries: combinedEditions.map((edition) => ({
 				queryKey: ['ayahs', surahInfo.id, edition.name],
-				queryFn: () => mushafApi.ayahsByChapter(surahInfo.id, edition.name),
+				queryFn: async () => {
+					const data = await mushafApi.ayahsByChapter(surahInfo.id, edition.name);
+					if (data.err) {
+						throw new Error(data.err);
+					}
+					return data.val;
+				},
 				enabled: !!surahInfo,
 				staleTime: Infinity, // add this to cache data indefinitely
 			})),
@@ -25,7 +32,13 @@ export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 
 	const { data, isLoading } = useQuery(
 		['ayahs', surahInfo.id, enabledQuranFontEdition],
-		() => mushafApi.ayahsByChapter(surahInfo.id, enabledQuranFontEdition?.name as string),
+		async () => {
+			const data = await mushafApi.ayahsByChapter(surahInfo.id, enabledQuranFontEdition?.name as string);
+			if (data.err) {
+				throw new Error(data.err);
+			}
+			return data.val;
+		},
 		{
 			enabled: !!surahInfo,
 		},
@@ -35,15 +48,15 @@ export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 		return <h1>Loading...</h1>;
 	}
 
+	const ayahs = data?.ayahs;
+
 	return (
 		<div className='flex flex-col space-y-4'>
-			{data?.map((ayah, index) => (
+			{ayahs?.map((ayah, index) => (
 				<div key={ayah.ayah}>
-					<h1>{ayah.text}</h1>
+					<QuranTextViewer ayah={ayah} edition={enabledQuranFontEdition as Edition} />
 					{results.map((result) => (
-						<div key={result.data?.[index].ayah}>
-							<h1>{result.data?.[index].text}</h1>
-						</div>
+						<AyahTextViewer key={result.data?.ayahs[index].ayah} ayah={result.data?.ayahs[index] as Ayah} edition={result.data?.edition as Edition} />
 					))}
 				</div>
 			))}

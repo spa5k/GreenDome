@@ -1,13 +1,14 @@
-export const AyahTextViewer = (text: string) => {
+import { Ayah, Edition } from '@/utils/bindings.js';
+
+type AyahTextViewerProps = {
+	edition: Edition;
+	ayah: Ayah;
+};
+
+export const AyahTextViewer = ({ ayah }: AyahTextViewerProps) => {
 	return (
-		<div className='
-			flex
-			h-screen
-			grow
-		'>
-			<p className='leading-7 [&:not(:first-child)]:mt-6'>
-				{text}
-			</p>
-		</div>
+		<p className='leading-7 [&:not(:first-child)]:mt-2'>
+			{ayah.text}
+		</p>
 	);
 };
