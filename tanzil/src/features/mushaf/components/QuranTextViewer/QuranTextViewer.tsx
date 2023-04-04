@@ -5,9 +5,9 @@ type QuranTextViewerProps = {
 	ayah: Ayah;
 };
 
-export const QuranTextViewer = ({ ayah }: QuranTextViewerProps) => {
+export const QuranTextViewer = ({ ayah, edition }: QuranTextViewerProps) => {
 	return (
-		<p className='leading-7 [&:not(:first-child)]:mt-6' style={{ fontFamily: 'Uthmanic' }}>
+		<p className='leading-7 [&:not(:first-child)]:mt-6' style={{ fontFamily: 'Uthmanic' }} dir={edition.direction}>
 			{ayah.text}
 		</p>
 	);

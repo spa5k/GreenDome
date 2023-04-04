@@ -56,7 +56,11 @@ export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 				<div key={ayah.ayah}>
 					<QuranTextViewer ayah={ayah} edition={enabledQuranFontEdition as Edition} />
 					{results.map((result) => (
-						<AyahTextViewer key={result.data?.ayahs[index].ayah} ayah={result.data?.ayahs[index] as Ayah} edition={result.data?.edition as Edition} />
+						<AyahTextViewer
+							key={`${result.data?.edition.name}${result.data?.ayahs[index].ayah}`}
+							ayah={result.data?.ayahs[index] as Ayah}
+							edition={result.data?.edition as Edition}
+						/>
 					))}
 				</div>
 			))}

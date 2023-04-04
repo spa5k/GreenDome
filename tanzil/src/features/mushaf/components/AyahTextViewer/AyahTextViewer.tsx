@@ -5,9 +5,9 @@ type AyahTextViewerProps = {
 	ayah: Ayah;
 };
 
-export const AyahTextViewer = ({ ayah }: AyahTextViewerProps) => {
+export const AyahTextViewer = ({ ayah, edition }: AyahTextViewerProps) => {
 	return (
-		<p className='leading-7 [&:not(:first-child)]:mt-2'>
+		<p className='leading-7 [&:not(:first-child)]:mt-2' dir={edition.direction} style={{ fontFamily: 'Readex Pro' }}>
 			{ayah.text}
 		</p>
 	);
