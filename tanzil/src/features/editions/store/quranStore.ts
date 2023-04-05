@@ -5,7 +5,7 @@ import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 
 type QuranTextFontState = {
-	enabledQuranFontEdition?: Edition;
+	enabledQuranFontEdition: Edition;
 	quranTextFontEditions?: Edition[];
 	quranTextEnabled: boolean;
 };
@@ -42,6 +42,16 @@ export const useQuranTextFontSettingsStore = create<
 				},
 				toggleQuranTextFont() {
 					set(() => ({ quranTextEnabled: !get().quranTextEnabled }));
+				},
+				enabledQuranFontEdition: {
+					name: 'ara-quranuthmanihaf1',
+					author: 'Quran Uthmani Hafs No Diacritics',
+					language: 'Arabic',
+					direction: 'rtl',
+					source: 'https://qurancomplex.gov.sa/',
+					id: 1,
+					type: 'quran',
+					enabled: 'true',
 				},
 			}),
 			{

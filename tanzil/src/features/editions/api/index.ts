@@ -8,6 +8,7 @@ abstract class EditionsAbstract {
 	public abstract getTranslationEditions(): Promise<EditionResult>;
 	public abstract getTransliterationEditions(): Promise<EditionResult>;
 	public abstract getQuranTextEditions(): Promise<EditionResult>;
+	public abstract getEditionInfo(edition: string): Promise<Result<Edition, unknown>>;
 }
 
 export class TauriApi extends EditionsAbstract {
@@ -34,6 +35,27 @@ export class TauriApi extends EditionsAbstract {
 	public getQuranTextEditions() {
 		return this.getEditions(EditionsEnum.Quran);
 	}
+
+	public async getEditionInfo(edition: string) {
+		try {
+			// Iterate through the editions and return the one that matches the edition name
+			const editions = await this.getEditions(EditionsEnum.Quran);
+			const translationEditions = await this.getEditions(EditionsEnum.Translation);
+			const transliterationEditions = await this.getEditions(EditionsEnum.Transliteration);
+
+			if (editions.ok && translationEditions.ok && transliterationEditions.ok) {
+				const allEditions = [...editions, ...translationEditions, ...transliterationEditions];
+
+				const editionInfo = allEditions.find((e) => e.name === edition);
+				if (editionInfo) {
+					return Ok(editionInfo);
+				}
+			}
+			return Err('Edition not found');
+		} catch (err) {
+			return Err(err);
+		}
+	}
 }
 
 class QuranApi extends EditionsAbstract {
@@ -56,6 +78,26 @@ class QuranApi extends EditionsAbstract {
 	}
 	public getQuranTextEditions() {
 		return this.getEditions(EditionsEnum.Quran);
+	}
+	public async getEditionInfo(edition: string) {
+		try {
+			// Iterate through the editions and return the one that matches the edition name
+			const editions = await this.getEditions(EditionsEnum.Quran);
+			const translationEditions = await this.getEditions(EditionsEnum.Translation);
+			const transliterationEditions = await this.getEditions(EditionsEnum.Transliteration);
+
+			if (editions.ok && translationEditions.ok && transliterationEditions.ok) {
+				const allEditions = [...editions, ...translationEditions, ...transliterationEditions];
+
+				const editionInfo = allEditions.find((e) => e.name === edition);
+				if (editionInfo) {
+					return Ok(editionInfo);
+				}
+			}
+			return Err('Edition not found');
+		} catch (err) {
+			return Err(err);
+		}
 	}
 }
 /**
@@ -124,5 +166,19 @@ export class EditionsApi extends EditionsAbstract {
 	 */
 	public async getQuranTextEditions() {
 		return await this.helper.getEditions(EditionsEnum.Quran);
+	}
+
+	/**
+	 * Gets the edition info of a given edition name.
+	 * @param {string} edition The name of the edition.
+	 * @returns The edition info.
+	 * @example
+	 * ```ts
+	 * const editionsApi = new EditionsApi();
+	 * const editionInfo = await editionsApi.getEditionInfo('en.sahih');
+	 * ```
+	 */
+	public async getEditionInfo(edition: string) {
+		return await this.helper.getEditionInfo(edition);
 	}
 }

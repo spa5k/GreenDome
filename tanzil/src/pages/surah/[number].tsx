@@ -1,23 +1,18 @@
-import { EditionViewer } from '@/features/index.js';
-import { Ayah, Surahs } from '@/utils/bindings.js';
+import { Surahs } from '@/utils/bindings.js';
 import { LoaderFn, MakeGenerics, useMatch } from '@tanstack/react-location';
 
 export type SurahRoute = {
 	surahInfo: Surahs;
-	ayahs: Ayah[];
 };
 
-const mushafApi = new MushafApi();
-
-type Route = MakeGenerics<{ LoaderData: SurahRoute; Params: { number: string; quranTextEdition: string; }; }>;
+type Route = MakeGenerics<{ LoaderData: SurahRoute; Params: { number: string; }; }>;
 
 export const Loader: LoaderFn<Route> = async ({ params }) => {
 	const surahInfo = await surah.surahInfoByNumber(parseInt(params.number));
-	const ayahs = await mushaf.ayahsByChapter(parseInt(params.number), params.quranTextEdition);
 	await getQuranTextEditions();
 	await getTranslationEditions();
 	await getTransliterationEditions();
-	return { ayahs, surahInfo };
+	return { surahInfo };
 };
 
 export const Pending = () => <h1>Loading...</h1>;

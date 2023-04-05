@@ -13,13 +13,13 @@ export const Navbar = () => {
 	}, []);
 
 	return (
-		<nav className='py-2 px-6 shadow-sm'>
+		<nav className='px-6 py-2 shadow-sm'>
 			<div className='flex justify-between'>
 				<p className='text-xl normal-case'>Quran</p>
 				<div className='space-x-6'>
 					<ThemeChange />
 					<Dialog>
-						<DialogTrigger className='hover:bg-subtle dark:focus:ring-offset-secondary bg-secondary text-text_button hover:text-text data-[state=open]:bg-tertiary data-[state=open]:text-secondary inline-flex h-12 items-center justify-center rounded-lg py-2 px-4 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 disabled:pointer-events-none disabled:opacity-50 dark:focus:ring-slate-400'>
+						<DialogTrigger className='hover:bg-subtle dark:focus:ring-offset-secondary bg-secondary text-text_button hover:text-text data-[state=open]:bg-tertiary data-[state=open]:text-secondary inline-flex h-12 items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 disabled:pointer-events-none disabled:opacity-50 dark:focus:ring-slate-400'>
 							<IconIonSettingsSharp />
 						</DialogTrigger>
 						<Settings />

@@ -1,27 +1,14 @@
-import { Edition, Surahs } from '@/utils/bindings.js';
-import { useQuery } from '@tanstack/react-query';
+import { Ayah, Edition } from '@/utils/bindings.js';
 
-const mushafApi = new MushafApi();
+type QuranTextViewerProps = {
+	edition: Edition;
+	ayah: Ayah;
+};
 
-export const QuranTextViewer = ({ quranFontEdition, surahInfo }: { quranFontEdition: Edition; surahInfo: Surahs; }) => {
-	const { data, isLoading } = useQuery(
-		['ayahs', surahInfo.id, quranFontEdition],
-		() => mushafApi.ayahsByChapter(surahInfo.id, quranFontEdition.name),
-		{
-			enabled: !!surahInfo,
-		},
-	);
-	if (isLoading) {
-		return <h1>Loading...</h1>;
-	}
-
+export const QuranTextViewer = ({ ayah, edition }: QuranTextViewerProps) => {
 	return (
-		<div>
-			{data?.map((ayah) => (
-				<div key={ayah.ayah}>
-					<h1>{ayah.text}</h1>
-				</div>
-			))}
-		</div>
+		<p className='leading-7 [&:not(:first-child)]:mt-6' style={{ fontFamily: 'Uthmanic' }} dir={edition.direction}>
+			{ayah.text}
+		</p>
 	);
 };

@@ -5,13 +5,13 @@ import Unfonts from 'unplugin-fonts/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 import Icons from 'unplugin-icons/vite';
 import { defineConfig } from 'vite';
-import { checker } from 'vite-plugin-checker';
+// import { checker } from 'vite-plugin-checker';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
 	plugins: [
 		react(),
-		checker({ typescript: false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' }, overlay: { initialIsOpen: false } }),
+		// checker({ typescript: false, eslint: { lintCommand: 'eslint "./src/**/*.{ts,tsx}"' }, overlay: { initialIsOpen: false } }),
 		svgr(),
 		Icons({
 			compiler: 'jsx',

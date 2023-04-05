@@ -1,4 +1,4 @@
-import { Ayah } from '@/utils/bindings.js';
+import { Ayah, Edition } from '@/utils/bindings.js';
 import { createTrackedSelector } from 'react-tracked';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 import { create } from 'zustand';
@@ -14,7 +14,7 @@ type State = {
 
 type Actions = {
 	changeQuranTextEdition: (edition: string) => void;
-	fetchQuranText: (number: number) => Promise<Ayah[]>;
+	fetchQuranText: (number: number) => Promise<{ ayahs: Ayah[]; edition: Edition; }>;
 };
 
 export const useSurahStore = create<State & Actions>()(devtools(persist((set, get) => ({
@@ -23,11 +23,15 @@ export const useSurahStore = create<State & Actions>()(devtools(persist((set, ge
 	translationTextEdition: 'ara-quranuthmanihaf',
 	transliterationTextEdition: 'ara-quranuthmanihaf',
 	fetchQuranText: async (number) => {
-		return await mushaf.ayahsByChapter(number, get().quranTextEdition);
+		const data = await mushaf.ayahsByChapter(number, get().quranTextEdition);
+		if (data.err) {
+			throw new Error(data.err);
+		}
+		return data.val;
 	},
 }), {
 	name: 'surah',
-	getStorage: () => hashStorage,
+	getStorage: () => localStorage,
 })));
 
 export const useSurahTrackedStore = createTrackedSelector(
