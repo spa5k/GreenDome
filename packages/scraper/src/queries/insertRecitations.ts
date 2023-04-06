@@ -1,23 +1,18 @@
-import fs from 'fs';
-import path from 'path';
-export function generateRecitations(reciter: string, quality: string): void {
-	let surah = 1;
-	let ayah = 1;
-	const res = [];
-	for (let i = 0; i < ayahCount.length; i++) {
-		for (let j = 0; j < ayahCount[i]; j++) {
-			console.log(`Surah: ${surah}, Ayah: ${ayah}, Reciter: ${reciter}, Quality: ${quality}`);
-			// Insert code here to generate the appropriate SQL insert statements
-			ayah++;
-			res.push(`(${surah}, ${ayah}, ${reciter}, ${quality})`);
+import { db } from '../db.js';
+
+export async function generateRecitations(reciter: string, quality: string): Promise<void> {
+	for (let surah = 1; surah <= 114; surah++) {
+		const ayahs = ayahCount[surah - 1];
+		for (let ayah = 1; ayah <= ayahs; ayah++) {
+			await db.insertInto('recitations').values({
+				ayahNumber: ayah,
+				recitationQuality: quality,
+				reciterName: reciter,
+				surahNumber: surah,
+				downloaded: 0,
+			}).execute();
 		}
-		ayah = 1;
-		surah++;
 	}
-
-	// write res into that file
-
-	fs.writeFileSync(path.join(`${reciter}-${quality}.json`), JSON.stringify(res));
 }
 const ayahCount = [
 	7,
@@ -152,9 +147,9 @@ export function generateAllRecitations(reciters: Record<string, { name: string; 
 	console.log(names);
 	// Iterate over all names, then their quality and call generateRecitations for each
 	for (const [name, qualities] of names) {
-		for (const quality of qualities) {
-			generateRecitations(name, quality);
-		}
+		// put qualities into a json stringified array
+		const qualitiesString = JSON.stringify(qualities);
+		generateRecitations(name, qualitiesString);
 	}
 }
 

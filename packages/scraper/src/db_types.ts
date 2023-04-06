@@ -8,7 +8,6 @@ export interface _SqlxMigrations {
 	description: string;
 	installedOn: Generated<string>;
 	success: number;
-	// @ts-ignore
 	checksum: Buffer;
 	executionTime: string;
 }
@@ -50,6 +49,7 @@ export interface Recitations {
 	surahNumber: number | null;
 	ayahNumber: number | null;
 	recitationQuality: string | null;
+	downloaded: number | null;
 }
 
 export interface Surahs {

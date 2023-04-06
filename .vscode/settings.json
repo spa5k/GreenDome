@@ -25,7 +25,8 @@
 		"lint",
 		"ci",
 		"salah",
-		"iqra"
+		"iqra",
+		"scraper"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,

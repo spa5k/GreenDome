@@ -4,5 +4,6 @@ CREATE TABLE `recitations` (
     surah_number INTEGER,
     ayah_number INTEGER,
     recitation_quality TEXT,
+		downloaded INTEGER,
     PRIMARY KEY (reciter_name, surah_number, ayah_number, recitation_quality)
 );
