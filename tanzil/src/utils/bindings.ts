@@ -2,23 +2,21 @@
 
 export type Procedures = {
 	queries:
-		| { key: 'ayahs'; input: TranslationEdition; result: Array<Ayah>; }
-		| { key: 'editions'; input: EditionsType; result: Array<Edition>; }
+		| { key: 'ayahs'; input: TranslationEdition; result: Ayah[]; }
+		| { key: 'editions'; input: EditionsType; result: Edition[]; }
 		| { key: 'surah_info'; input: number; result: Surahs; }
-		| { key: 'surah_list'; input: never; result: Array<Surahs>; }
-		| { key: 'translations'; input: TranslationEdition; result: Array<Ayah>; }
+		| { key: 'surah_list'; input: never; result: Surahs[]; }
+		| { key: 'translations'; input: TranslationEdition; result: Ayah[]; }
 		| { key: 'version'; input: never; result: string; };
 	mutations: never;
 	subscriptions: never;
 };
 
-export interface Ayah {
-	ayah: number;
-	surah: number;
-	text: string;
-}
+export type TranslationEdition = { edition: string; number: number; };
 
-export interface Edition {
+export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
+
+export type Edition = {
 	id: number;
 	name: string;
 	author: string | null;
@@ -27,22 +25,11 @@ export interface Edition {
 	source: string | null;
 	type: string;
 	enabled: string;
-}
+};
 
-export enum EditionsEnum {
-	Translation = 'Translation',
-	Transliteration = 'Transliteration',
-	Quran = 'Quran',
-}
-
-export interface EditionsType {
-	edition: EditionsEnum;
-}
-
-export interface Surahs {
+export type Surahs = {
 	id: number;
 	revelationOrder: number;
-	reveleationPlace: 'makkah' | 'madinah';
 	bismillahPre: string;
 	nameSimple: string;
 	nameComplex: string;
@@ -51,9 +38,8 @@ export interface Surahs {
 	ayahEnd: number;
 	pageStart: number;
 	pageEnd: number;
-}
+};
 
-export interface TranslationEdition {
-	edition: string;
-	number: number;
-}
+export type Ayah = { ayah: number; surah: number; text: string; };
+
+export type EditionsType = { edition: EditionsEnum; };

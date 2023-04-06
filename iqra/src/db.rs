@@ -33,7 +33,7 @@ pub(crate) async fn create_sqlite_pool() -> DbResult<SqlitePool> {
         .create_if_missing(true)
         .journal_mode(SqliteJournalMode::Off)
         .synchronous(SqliteSynchronous::Normal)
-        .extension("sqlite_zstd");
+        .extension("./libsqlite_zstd");
 
     let sqlite_pool = SqlitePoolOptions::new()
         .connect_with(connection_options)
@@ -41,3 +41,22 @@ pub(crate) async fn create_sqlite_pool() -> DbResult<SqlitePool> {
 
     Ok(sqlite_pool)
 }
+
+// // If windows, change the function above
+// // to this one
+
+// pub(crate) async fn create_sqlite_pool() -> DbResult<SqlitePool> {
+//     let db_file_path = env::current_dir().unwrap().join("data").join("quran.db");
+
+//     let connection_options = SqliteConnectOptions::from_str(db_file_path.to_str().unwrap())?
+//         .create_if_missing(true)
+//         .journal_mode(SqliteJournalMode::Off)
+//         .synchronous(SqliteSynchronous::Normal)
+//         .extension("./libsqlite_zstd.dll");
+
+//     let sqlite_pool = SqlitePoolOptions::new()
+//         .connect_with(connection_options)
+//         .await?;
+
+//     Ok(sqlite_pool)
+// }

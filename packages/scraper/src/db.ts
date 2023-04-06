@@ -7,7 +7,12 @@ import path from 'path';
 const dbpath = path.resolve();
 const root = path.resolve(dbpath, '../', '../', './iqra', './data', 'quran.db');
 
+// const sqlite = new Database(root);
+
+const extensionPath = path.resolve(dbpath, '../', '../', './iqra', 'libsqlite_zstd.so');
+
 const sqlite = new Database(root);
+sqlite.loadExtension(extensionPath);
 
 export const db = new Kysely<DB>({
 	dialect: new SqliteDialect({

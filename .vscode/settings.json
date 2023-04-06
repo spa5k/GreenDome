@@ -24,7 +24,8 @@
 		"tailwind",
 		"lint",
 		"ci",
-		"salah"
+		"salah",
+		"iqra"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
