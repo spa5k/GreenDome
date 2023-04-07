@@ -50,7 +50,6 @@ declare global {
   const IconMaterialSymbolsCalculateSharp: typeof import('~icons/material-symbols/calculate-sharp.tsx')['default']
   const IconMaterialSymbolsCheckCircle: typeof import('~icons/material-symbols/check-circle.tsx')['default']
   const IconMdiCalendarMonth: typeof import('~icons/mdi/calendar-month.tsx')['default']
-  const IconMdiChevronDown: typeof import('~icons/mdi/chevron-down.tsx')['default']
   const IconMdiClockTimeEight: typeof import('~icons/mdi/clock-time-eight.tsx')['default']
   const IconMingcuteSearch3Fill: typeof import('~icons/mingcute/search3-fill.tsx')['default']
   const IconRadixIconsCross2: typeof import('~icons/radix-icons/cross2.tsx')['default']
