@@ -1,17 +1,35 @@
 import { GeoLocationInfo, getLocationInfo } from '@/features/index.js';
 import { useQuery } from '@tanstack/react-query';
 import { Key } from 'react';
-import * as adhan from 'adhan'
+import * as adhan from 'adhan';
 
-const madhabOptions = [  { label: 'Shafi', value: adhan.Madhab.Shafi },  { label: 'Hanafi', value: adhan.Madhab.Hanafi },];
+const madhabOptions = [
+  { label: 'Shafi', value: adhan.Madhab.Shafi },
+  { label: 'Hanafi', value: adhan.Madhab.Hanafi },
+];
 
-const calculationMethodOptions = [  { label: 'Muslim World League', value: adhan.CalculationMethod.MuslimWorldLeague() },  { label: 'Egyptian', value: adhan.CalculationMethod.Egyptian() },  { label: 'Karachi', value: adhan.CalculationMethod.Karachi() },  { label: 'Umm Al-Qura', value: adhan.CalculationMethod.UmmAlQura() },  { label: 'Dubai', value: adhan.CalculationMethod.Dubai() },  { label: 'Qatar', value: adhan.CalculationMethod.Qatar() },  { label: 'Kuwait', value: adhan.CalculationMethod.Kuwait() },  { label: 'Moonsighting Committee', value: adhan.CalculationMethod.MoonsightingCommittee() },  { label: 'Singapore', value: adhan.CalculationMethod.Singapore() },  { label: 'Turkey', value: adhan.CalculationMethod.Turkey() },  { label: 'Tehran', value: adhan.CalculationMethod.Tehran() },  { label: 'North America', value: adhan.CalculationMethod.NorthAmerica() },  { label: 'Other', value: adhan.CalculationMethod.Other() },];
+const calculationMethodOptions = [
+  { label: 'Muslim World League', value: adhan.CalculationMethod.MuslimWorldLeague() },
+  { label: 'Egyptian', value: adhan.CalculationMethod.Egyptian() },
+  { label: 'Karachi', value: adhan.CalculationMethod.Karachi() },
+  { label: 'Umm Al-Qura', value: adhan.CalculationMethod.UmmAlQura() },
+  { label: 'Dubai', value: adhan.CalculationMethod.Dubai() },
+  { label: 'Qatar', value: adhan.CalculationMethod.Qatar() },
+  { label: 'Kuwait', value: adhan.CalculationMethod.Kuwait() },
+  { label: 'Moonsighting Committee', value: adhan.CalculationMethod.MoonsightingCommittee() },
+  { label: 'Singapore', value: adhan.CalculationMethod.Singapore() },
+  { label: 'Turkey', value: adhan.CalculationMethod.Turkey() },
+  { label: 'Tehran', value: adhan.CalculationMethod.Tehran() },
+  { label: 'North America', value: adhan.CalculationMethod.NorthAmerica() },
+  { label: 'Other', value: adhan.CalculationMethod.Other() },
+];
 
 export default function Salah() {
   const [madhab, setMadhab] = useState(adhan.Madhab.Shafi);
   const [calculationMethod, setCalculationMethod] = useState(adhan.CalculationMethod.MuslimWorldLeague());
-  
+
   const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahTrackedStore();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data } = useQuery<GeoLocationInfo>(
     ['quran_text'],
     async () => {
@@ -24,13 +42,38 @@ export default function Salah() {
     getLocation();
   }, []);
 
-  if (latitude === 1) {
-    return (
-      <div className='flex flex-col items-center justify-center gap-y-10'>
-        <IconEosIconsLoading height={100} width={100} />
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (latitude && longitude) {
+      const date = new Date();
+      const location = new adhan.Coordinates(latitude, longitude);
+      let params = adhan.CalculationMethod.Other(); // default calculation method
+
+      // get calculation method from options array based on user selection
+      calculationMethodOptions.forEach((option) => {
+        if (option.value.name === calculationMethod.name) {
+          params = option.value;
+        }
+      });
+
+      // get madhab from options array based on user selection
+      madhabOptions.forEach((option) => {
+        if (option.value === madhab) {
+          params.madhab = option.value;
+        }
+      });
+
+      const prayerTimes = new adhan.PrayerTimes(location, date, params);
+
+      prayerTimes([
+        { prayer: 'Fajr', time: prayerTimes.fajr },
+        { prayer: 'Sunrise', time: prayerTimes.sunrise },
+        { prayer: 'Dhuhr', time: prayerTimes.dhuhr },
+        { prayer: 'Asr', time: prayerTimes.asr },
+        { prayer: 'Maghrib', time: prayerTimes.maghrib },
+        { prayer: 'Isha', time: prayerTimes.isha },
+      ]);
+    }
+  }, [latitude, longitude, calculationMethod, madhab]);
 
   return (
     <div className='flex flex-col items-center justify-center gap-y-10'>
@@ -81,5 +124,4 @@ export default function Salah() {
       </div>
     </div>
   );
-  
 }
