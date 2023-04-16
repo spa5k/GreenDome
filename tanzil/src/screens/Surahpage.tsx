@@ -21,7 +21,7 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 												<span className='border-secondary absolute inset-0 rounded-lg border-2 border-dashed'></span>
 
 												<div className='bg-background border-border text-heading hover:bg-tertiary relative flex h-full items-end rounded-lg border-2 transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2'>
-													<div className='p-2 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-4 lg:p-6'>
+													<div className='p-2 !pt-0  group-hover:absolute group-hover:hidden sm:p-4 lg:p-6'>
 														{surah.reveleationPlace === 'makkah'
 															? <IconFaSolidKaaba className='h-10 w-10 sm:h-8 sm:w-8' />
 															: <IconFa6SolidMosque className='h-10 w-10 sm:h-8 sm:w-8' />}
@@ -34,7 +34,7 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 														</div>
 													</div>
 
-													<div className='absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8'>
+													<div className='absolute p-4 hidden group-hover:relative group-hover:block sm:p-6 lg:p-8'>
 														<h3 className='text-xl font-medium sm:text-2xl'>
 															{surah.id}. {surah.nameSimple}
 														</h3>
