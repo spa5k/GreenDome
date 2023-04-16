@@ -36,7 +36,6 @@ declare global {
   const IconButton: typeof import('./components/Elements/Button/IconButton')['IconButton']
   const IconFa6SolidMosque: typeof import('~icons/fa6-solid/mosque.tsx')['default']
   const IconFaSolidKaaba: typeof import('~icons/fa-solid/kaaba.tsx')['default']
-  const IconLaSlackHash: typeof import('~icons/la/slack-hash.tsx')['default']
   const IconMajesticonsBookmark: typeof import('~icons/majesticons/bookmark.tsx')['default']
   const Input: typeof import('./components/Elements/Input/Input')['Input']
   const Label: typeof import('./components/Elements/Label/Label')['Label']

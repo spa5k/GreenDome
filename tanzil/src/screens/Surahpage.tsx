@@ -16,33 +16,42 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 												to={`${surah.id}`}
 												key={surah.id}
 												preload={surah.id}
-												className='group relative block h-20 sm:h-28 lg:h-32'
+												className='group relative block '
+												// h-20 sm:h-28 lg:h-32
 											>
 												<span className='border-secondary absolute inset-0 rounded-lg border-2 border-dashed'></span>
 
 												<div className='bg-background border-border text-heading hover:bg-tertiary relative flex h-full items-end rounded-lg border-2 transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2'>
-													<div className='p-2 !pt-0  group-hover:absolute group-hover:hidden sm:p-4 lg:p-6'>
+												
+													<div className='p-5 w-full  group-hover:absolute group-hover:hidden'>
+														<div className=' flex justify-evenly'>
+															<div className='flex  text-xl font-medium sm:text-2xl'>
+																{/* <IconLaSlackHash /> */}
+																<h2 >
+																	{surah.id}. {surah.nameSimple}
+																</h2>
+															</div>
+
+
+														{/* icon based ib Makkah or Madinah */}
 														{surah.reveleationPlace === 'makkah'
 															? <IconFaSolidKaaba className='h-10 w-10 sm:h-8 sm:w-8' />
 															: <IconFa6SolidMosque className='h-10 w-10 sm:h-8 sm:w-8' />}
+														{/* icon based ib Makkah or Madinah */}
+														</div>	
 
-														<div className='mt-4 flex space-x-2 text-xl font-medium sm:text-2xl'>
-															<IconLaSlackHash />
-															<h2 className=''>
-																{surah.id}. {surah.nameSimple}
-															</h2>
-														</div>
 													</div>
-
-													<div className='absolute p-4 hidden group-hover:relative group-hover:block sm:p-6 lg:p-8'>
+													{/* this stuff is for hover */}
+													<div className='absolute p-5 hidden group-hover:relative group-hover:block '>
 														<h3 className='text-xl font-medium sm:text-2xl'>
 															{surah.id}. {surah.nameSimple}
 														</h3>
 
-														<p className='text-sm sm:text-base'>
-															{surah.nameArabic} {surah.nameComplex}
+														<p className='text-sm sm:text-base flex justify-evenly'>
+															{surah.nameArabic} {surah.nameComplex} {surah.ayahEnd}
 														</p>
 													</div>
+													{/* this stuff is for hover */}
 												</div>
 											</Link>
 										</TooltipTrigger>
