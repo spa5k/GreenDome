@@ -27,8 +27,12 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 														<div className=' flex justify-evenly'>
 															<div className='flex  text-xl font-medium sm:text-2xl'>
 																{/* <IconLaSlackHash /> */}
+
+																<h2>
+																{surah.id}.
+																</h2>
 																<h2 >
-																	{surah.id}. {surah.nameSimple}
+																	 {surah.nameSimple}
 																</h2>
 															</div>
 
@@ -42,13 +46,16 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 
 													</div>
 													{/* this stuff is for hover */}
-													<div className='absolute p-5 hidden group-hover:relative group-hover:block '>
-														<h3 className='text-xl font-medium sm:text-2xl'>
-															{surah.id}. {surah.nameSimple}
+													<div className='absolute p-5 hidden group-hover:relative group-hover:block w-full'>
+														<h3 className='text-xl font-medium sm:text-2xl w-full'>
+															{surah.id}. {surah.nameArabic}
 														</h3>
 
 														<p className='text-sm sm:text-base flex justify-evenly'>
-															{surah.nameArabic} {surah.nameComplex} {surah.ayahEnd}
+															<div>{surah.nameComplex}</div>
+															<div>translation</div>
+															<div>{surah.ayahEnd}</div>
+															  
 														</p>
 													</div>
 													{/* this stuff is for hover */}
