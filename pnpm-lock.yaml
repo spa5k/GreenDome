@@ -8,8 +8,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       dprint:
-        specifier: ^0.35.3
-        version: 0.35.3
+        specifier: ^0.36.0
+        version: 0.36.0
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -3357,8 +3357,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /dprint@0.35.3:
-    resolution: {integrity: sha512-BWFdr2Ury2dtqyjaTI9P5vCpb1yn5laLfO3Yo5egrrDlK2A2mv6CSpe/oK2cuOPESMY1JT2dubMv2dPDiJfMnA==}
+  /dprint@0.36.0:
+    resolution: {integrity: sha512-41+02e7PbYNJLF4TWAWPwdCal9bcrJQaN1sCa7mco3uG3HMUee4v9jTEms9x6S93rUFFO2R5wcVUQDO9+jvFig==}
     hasBin: true
     requiresBuild: true
     dependencies:
