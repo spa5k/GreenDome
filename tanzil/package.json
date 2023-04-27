@@ -33,7 +33,7 @@
 		"adhan": "^4.4.3",
 		"ahooks": "^3.7.6",
 		"animate-css-grid": "^1.5.1",
-		"class-variance-authority": "^0.5.1",
+		"class-variance-authority": "^0.6.0",
 		"clsx": "^1.2.1",
 		"cmdk": "^0.2.0",
 		"generouted": "1.12.6",
