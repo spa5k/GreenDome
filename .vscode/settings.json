@@ -24,7 +24,9 @@
 		"tailwind",
 		"lint",
 		"ci",
-		"salah"
+		"salah",
+		"iqra",
+		"scraper"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
@@ -32,10 +34,14 @@
 	},
 	"editor.defaultFormatter": "dprint.dprint",
 	"editor.formatOnSave": true,
-	"javascript.preferences.importModuleSpecifierEnding": "js",
 	"tailwindCSS.experimental.classRegex": [
-		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+		[
+			"cva\\(([^)]*)\\)",
+			"[\"'`]([^\"'`]*).*?[\"'`]",
+			"cn\\(([^)]*)\\)",
+			"clsx\\(([^)]*)\\)"
+		]
 	],
-	"typescript.preferences.importModuleSpecifier": "non-relative",
-	"typescript.preferences.importModuleSpecifierEnding": "js"
+	"tailwindCSS.experimental.configFile": "libs/config/src/tailwind.config.ts",
+	"workbench.colorCustomizations": {}
 }
