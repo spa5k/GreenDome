@@ -83,7 +83,7 @@
 		"unplugin-fonts": "^1.0.0",
 		"unplugin-icons": "^0.16.1",
 		"vite": "^4.2.1",
-		"vite-plugin-checker": "^0.5.6",
+		"vite-plugin-checker": "^0.6.0",
 		"vite-plugin-mkcert": "^1.14.0",
 		"vite-plugin-pages": "^0.29.0",
 		"vite-plugin-svgr": "^2.4.0",
