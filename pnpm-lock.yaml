@@ -195,8 +195,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0(@types/react@18.0.33)(react-dom@18.2.0)(react@18.2.0)
       generouted:
-        specifier: 1.12.6
-        version: 1.12.6(vite@4.2.1)
+        specifier: 1.12.7
+        version: 1.12.7(vite@4.2.1)
       ohmyfetch:
         specifier: ^0.4.21
         version: 0.4.21
@@ -4154,8 +4154,8 @@ packages:
   /functions-have-names@1.2.3:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==}
 
-  /generouted@1.12.6(vite@4.2.1):
-    resolution: {integrity: sha512-luSntkfwZFRXHDkL9FXTUCpiXw2v3IuP9Izsm8OsrHf6aY4E6bHYyBjUViK+XgjDJZ1eUigw1WD8clNEIbotHw==}
+  /generouted@1.12.7(vite@4.2.1):
+    resolution: {integrity: sha512-ALzK9sGjGpkgoozMRH7Hg3zRWmo2lTeArjxpAjGtD2KH3ZabldYH1/Yhf3pC2LT0AqNOArgKy2wq/CU0orlCNg==}
     peerDependencies:
       vite: '>=3'
     dependencies:
