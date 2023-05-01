@@ -2,7 +2,7 @@
 import { EnvironmentContext } from '@quran/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useMemo } from 'react';
 
 const LinkWrapper = ({
 	href,
@@ -20,12 +20,17 @@ const EnvironmentContextProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
+	const location = useRouter().pathname;
+	const contextValue = useMemo(() => {
+		return {
+			Link: LinkWrapper,
+			location,
+		};
+	}, [location]);
+
 	return (
 		<EnvironmentContext.Provider
-			value={{
-				Link: LinkWrapper,
-				location: useRouter().pathname,
-			}}
+			value={contextValue}
 		>
 			{children}
 		</EnvironmentContext.Provider>

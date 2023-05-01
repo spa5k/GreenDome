@@ -51,13 +51,22 @@ function Calendar({
 				...classNames,
 			}}
 			components={{
-				IconLeft: ({ ...props }) => <Icon icon='lucide:chevron-left' className='h-4 w-4' />,
-				IconRight: ({ ...props }) => <Icon icon='lucide:chevron-right' className='h-4 w-4' />,
+				IconLeft,
+				IconRight,
 			}}
 			{...props}
 		/>
 	);
 }
+
+function IconLeft(props: any) {
+	return <Icon icon='lucide:chevron-left' className='h-4 w-4' {...props} />;
+}
+
+function IconRight(props: any) {
+	return <Icon icon='lucide:chevron-right' className='h-4 w-4' {...props} />;
+}
+
 Calendar.displayName = 'Calendar';
 
 export { Calendar };

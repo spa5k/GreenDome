@@ -1,7 +1,6 @@
 import { Icon } from '@iconify/react';
 import { Button, Dialog, DialogTrigger } from '@quran/elements';
 import { Key } from 'react';
-import { isClient } from '../../../utils/isTauri';
 import { calculatePrayerTimes, getCoordinates, useLocationTrackedStore, useSalahTrackedStore } from '../store';
 import { CalculationForm } from './CalculationDialog';
 import { SalahCard } from './SalahCard';
@@ -19,10 +18,6 @@ export const Salah = () => {
 				<Icon icon='line-md:loading-loop' height={100} width={100} />
 			</div>
 		);
-	}
-
-	if (!isClient) {
-		return <p>loading</p>;
 	}
 
 	return (

@@ -1,4 +1,5 @@
 import { EnvironmentContext } from '@quran/core';
+import { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const LinkWrapper = ({
@@ -17,12 +18,17 @@ const EnvironmentContextProvider = ({
 }: {
 	children: React.ReactNode;
 }) => {
+	const location = useLocation().pathname;
+	const contextValue = useMemo(() => {
+		return {
+			Link: LinkWrapper,
+			location,
+		};
+	}, [location]);
+
 	return (
 		<EnvironmentContext.Provider
-			value={{
-				Link: LinkWrapper,
-				location: useLocation().pathname,
-			}}
+			value={contextValue}
 		>
 			{children}
 		</EnvironmentContext.Provider>
