@@ -9,7 +9,7 @@ export default function RightBar(): JSX.Element {
 	}, []);
 
 	if (!showChild) {
-		return null;
+		return <></>;
 	}
 
 	if (!isClient) {
