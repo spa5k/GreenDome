@@ -1,28 +1,17 @@
 import { Icon } from '@iconify/react';
-import { useQuery } from '@tanstack/react-query';
-import { Key, useEffect } from 'react';
-import { GeoLocationInfo, getLocationInfo } from '..';
-import { useSalahStore } from '../store/salahStore';
+import { Button, Dialog, DialogTrigger } from '@quran/elements';
+import { Key } from 'react';
+import { isClient } from '../../../utils/isTauri';
+import { calculatePrayerTimes, getCoordinates, useLocationTrackedStore, useSalahTrackedStore } from '../store';
+import { CalculationForm } from './CalculationDialog';
 import { SalahCard } from './SalahCard';
 
+getCoordinates();
+calculatePrayerTimes();
+
 export const Salah = () => {
-	const { getLocation, prayerTimes, currentPrayer, latitude, longitude } = useSalahStore();
-
-	const { data } = useQuery<GeoLocationInfo>(
-		['quran_text'],
-		async () => {
-			return await getLocationInfo();
-		},
-		{ cacheTime: 1000000 },
-	);
-
-	console.log('latitude:', latitude);
-	console.log('longitude:', longitude);
-	console.log('data:', data);
-
-	useEffect(() => {
-		getLocation();
-	}, [getLocation]);
+	const { latitude } = useLocationTrackedStore();
+	const { prayerTimes, currentPrayer } = useSalahTrackedStore();
 
 	if (latitude === 1) {
 		return (
@@ -32,9 +21,23 @@ export const Salah = () => {
 		);
 	}
 
+	if (!isClient) {
+		return <p>loading</p>;
+	}
+
 	return (
-		<div className='flex flex-col items-center justify-center '>
-			{}
+		<div className='my-6 flex flex-col items-center justify-center'>
+			<Dialog>
+				<DialogTrigger asChild>
+					<Button className='gap-2'>
+						<Icon icon='ic:baseline-settings-suggest' />
+						Salah Settings
+					</Button>
+				</DialogTrigger>
+
+				<CalculationForm />
+			</Dialog>
+
 			<div className='flex flex-wrap items-center '>
 				{!prayerTimes && <p>Loading...</p>}
 				{prayerTimes

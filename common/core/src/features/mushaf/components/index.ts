@@ -1,3 +1,4 @@
-export * from './AyahTextViewer/AyahTextViewer';
-export * from './EditionsViewer/EditionsViewer';
-export * from './QuranTextViewer/QuranTextViewer';
+export * from './AyahTextViewer';
+export * from './EditionSelectorSheet';
+export * from './EditionsViewer';
+export * from './QuranTextViewer';

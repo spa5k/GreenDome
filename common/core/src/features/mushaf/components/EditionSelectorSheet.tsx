@@ -1,11 +1,11 @@
 import {
+	Button,
 	Command,
 	CommandEmpty,
 	CommandInput,
 	CommandList,
 	Sheet,
 	SheetContent,
-	SheetDescription,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
@@ -16,8 +16,8 @@ import {
 	TransliterationsTextEditionSelector,
 	useTranslationTrackedStore,
 	useTransliterationTrackedStore,
-} from '../../../..';
-import { useQuranTrackedStore } from '../../../editions/store/quranStore';
+} from '../../..';
+import { useQuranTrackedStore } from '../../editions/store/quranStore';
 
 export const EditionSelectorSheet = () => {
 	const { enabledQuranFontEdition } = useQuranTrackedStore();
@@ -27,28 +27,26 @@ export const EditionSelectorSheet = () => {
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
-				Change Font
+				<Button>Change Font</Button>
 			</SheetTrigger>
 			<SheetContent>
 				<SheetHeader>
 					<SheetTitle>Select Quran Font, Translations and Transliteraions</SheetTitle>
-					<SheetDescription>
-						{enabledTranslations.map((translation) => (
-							<div key={translation.id}>
-								<h1>{translation.language} - {translation.author}</h1>
-							</div>
-						))}
-						{enabledTransliterations.map((transliteration) => (
-							<div key={transliteration.id}>
-								<h1>{transliteration.language} - {transliteration.author}</h1>
-							</div>
-						))}
-						{enabledQuranFontEdition && (
-							<div>
-								<h1>{enabledQuranFontEdition.author}</h1>
-							</div>
-						)}
-					</SheetDescription>
+					{enabledTranslations.map((translation) => (
+						<div key={translation.id}>
+							<h1>{translation.language} - {translation.author}</h1>
+						</div>
+					))}
+					{enabledTransliterations.map((transliteration) => (
+						<div key={transliteration.id}>
+							<h1>{transliteration.language} - {transliteration.author}</h1>
+						</div>
+					))}
+					{enabledQuranFontEdition && (
+						<div>
+							<h1>{enabledQuranFontEdition.author}</h1>
+						</div>
+					)}
 				</SheetHeader>
 				<div className='space-y-20'>
 					<Command className='h-72 w-full'>

@@ -39,9 +39,10 @@
 			"cva\\(([^)]*)\\)",
 			"[\"'`]([^\"'`]*).*?[\"'`]",
 			"cn\\(([^)]*)\\)",
-			"clsx\\(([^)]*)\\)"
+			"clsx\\(([^)]*)\\)",
+			"className\\(([^)]*)\\)",
 		]
 	],
-	"tailwindCSS.experimental.configFile": "libs/config/src/tailwind.config.ts",
+	"tailwindCSS.experimental.configFile": "./libs/config/src/tailwind.config.ts",
 	"workbench.colorCustomizations": {}
 }

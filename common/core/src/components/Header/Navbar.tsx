@@ -24,12 +24,16 @@ export const Navbar = () => {
 				<p className='text-xl normal-case'>Quran</p>
 				<div className='space-x-6'>
 					<ThemeChange />
+
 					<Dialog>
-						<DialogTrigger className='inline-flex h-12 items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 active:scale-95 disabled:pointer-events-none disabled:opacity-50 dark:focus:ring-slate-400'>
-							<Icon icon='solar:settings-outline' />
+						<DialogTrigger asChild>
+							<Button>
+								<Icon icon='solar:settings-outline' />
+							</Button>
 						</DialogTrigger>
 						<Settings />
 					</Dialog>
+
 					<Button onClick={() => setOpen(!open)}>
 						<Icon icon='mingcute:search-3-fill' />
 					</Button>

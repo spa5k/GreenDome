@@ -10,7 +10,7 @@
 		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
-		"@generouted/react-router": "^1.12.6",
+		"@generouted/react-router": "^1.12.7",
 		"@quran/config": "workspace:^",
 		"@quran/core": "workspace:^",
 		"@quran/elements": "workspace:^",

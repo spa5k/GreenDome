@@ -2,7 +2,7 @@
 	"name": "@quran/config",
 	"version": "1.0.0",
 	"description": "",
-	"main": "dist/tailwind.config.js",
+	"main": "src/tailwind.config.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "tsc"
@@ -20,5 +20,7 @@
 		"dist",
 		"src"
 	],
-	"types": "dist/tailwind.config.d.ts"
+	"dependencies": {
+		"tailwindcss-animate": "^1.0.5"
+	}
 }

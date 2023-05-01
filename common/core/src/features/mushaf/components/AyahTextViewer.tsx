@@ -1,4 +1,4 @@
-import { Ayah, Edition } from '../../../..';
+import { Ayah, Edition } from '../../..';
 
 type AyahTextViewerProps = {
 	edition: Edition;

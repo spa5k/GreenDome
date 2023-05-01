@@ -6,8 +6,8 @@ import {
 	useQuranTextFontSettingsStore,
 	useTranslationTrackedStore,
 	useTransliterationTrackedStore,
-} from '../../../..';
-import { AyahTextViewer, EditionWithAyah, MushafApi, QuranTextViewer } from '../..';
+} from '../../..';
+import { AyahTextViewer, EditionWithAyah, MushafApi, QuranTextViewer } from '..';
 
 export const EditionViewer = ({ surahInfo }: { surahInfo: Surahs; }) => {
 	const mushafApi = new MushafApi();

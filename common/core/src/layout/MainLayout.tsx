@@ -3,6 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ImperativePanelHandle, Panel, PanelGroup } from 'react-resizable-panels';
 import { ErrorFallback, Navbar, ResizeHandle } from '../components';
 import { LeftBar } from '.';
+import RightBar from './RightBar';
 
 const logError = (error: Error, info: { componentStack: string; }) => {
 	console.log('error', error, info);
@@ -51,7 +52,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode; }) => {
 						<ResizeHandle />
 						<Panel defaultSize={20} minSize={20}>
 							<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-								<p>right</p>
+								<RightBar />
 							</ErrorBoundary>
 						</Panel>
 					</PanelGroup>

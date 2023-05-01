@@ -75,7 +75,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				setLocalSize(size);
 				panel?.resize(3);
 			} else {
-				panel?.resize(localSize);
+				panel?.resize(Number(localSize));
 			}
 		}
 	};
