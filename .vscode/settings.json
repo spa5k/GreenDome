@@ -40,7 +40,7 @@
 			"[\"'`]([^\"'`]*).*?[\"'`]",
 			"cn\\(([^)]*)\\)",
 			"clsx\\(([^)]*)\\)",
-			"className\\(([^)]*)\\)",
+			"className\\(([^)]*)\\)"
 		]
 	],
 	"tailwindCSS.experimental.configFile": "./libs/config/src/tailwind.config.ts",
