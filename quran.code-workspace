@@ -1,0 +1,71 @@
+{
+	"folders": [
+		{
+			"name": "🌱  quran",
+			"path": "."
+		},
+		{
+			"name": "🍀 NextJS",
+			"path": "apps/next"
+		},
+		{
+			"name": "🎀 Vite",
+			"path": "apps/vite"
+		},
+		{
+			"name": "📦 Core",
+			"path": "common/core"
+		}
+	],
+	"settings": {
+		"conventionalCommits.scopes": [
+			"main",
+			"docs",
+			"database",
+			"tanzil",
+			"deps",
+			"routing",
+			"tajweed",
+			"refactor",
+			"github",
+			"tailwind",
+			"lint",
+			"ci",
+			"salah",
+			"iqra",
+			"scraper"
+		],
+		"tailwindCSS.experimental.configFile": "./libs/config/src/tailwind.config.ts",
+		"workbench.colorCustomizations": {},
+		"ColorfulMonorepo.workspaces.collection": [
+			{
+				"path": "/home/spark/Codes/quran",
+				"packageName": "quran",
+				"label": "🌱  quran",
+				"foreground": "#ffffff",
+				"background": "#6012a8"
+			},
+			{
+				"path": "/home/spark/Codes/quran/apps/next",
+				"packageName": "@quran/next",
+				"label": "🍀 NextJS",
+				"foreground": "#ffffff",
+				"background": "#8f3138"
+			},
+			{
+				"path": "/home/spark/Codes/quran/apps/vite",
+				"packageName": "@quran/vite",
+				"label": "🎀 Vite",
+				"foreground": "#ffffff",
+				"background": "#7e4bc6"
+			},
+			{
+				"path": "/home/spark/Codes/quran/common/core",
+				"packageName": "@quran/core",
+				"label": "📦 Core",
+				"foreground": "#ffffff",
+				"background": "#2e8b09"
+			}
+		]
+	}
+}

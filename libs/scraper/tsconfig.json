@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Simple.js",
+	"compilerOptions": {
+		"target": "ESNext",
+		"sourceMap": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": false,
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"allowSyntheticDefaultImports": true,
+		"lib": ["ES2022"]
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"include": ["src"]
+}

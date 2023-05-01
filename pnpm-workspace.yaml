@@ -1,4 +1,5 @@
 packages:
-  - 'tanzil'
+  - 'apps/**'
   - 'packages/**'
-  - 'tanzil-react'
+  - 'libs/**'
+  - 'common/**'
