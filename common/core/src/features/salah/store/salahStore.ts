@@ -1,19 +1,8 @@
-import {
-	CalculationMethod,
-	CalculationParameters,
-	HighLatitudeRule,
-	Madhab,
-	PolarCircleResolution,
-	PrayerTimes,
-	Rounding,
-	Shafaq,
-} from 'adhan';
+import { CalculationMethod, HighLatitudeRule, Madhab, PolarCircleResolution, Rounding, Shafaq } from 'adhan';
 import { ValueOf } from 'adhan/lib/types/TypeUtils';
 import { createTrackedSelector } from 'react-tracked';
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
-import { isClient } from '../../../utils/isTauri';
-import { locationStore } from './locationStore';
 
 type CalculationParametersState = {
 	method: null | keyof typeof CalculationMethod;
@@ -81,45 +70,3 @@ export const salahCalculationStore = create<
 export const useSalahTrackedStore = createTrackedSelector(
 	salahCalculationStore,
 );
-
-export const calculatePrayerTimes = () => {
-	if (!isClient) {
-		return;
-	}
-	const {
-		method,
-		fajrAngle,
-		ishaAngle,
-		ishaInterval,
-		maghribAngle,
-		madhab,
-		highLatitudeRule,
-		polarCircleResolution,
-		rounding,
-		shafaq,
-	} = salahCalculationStore.getState();
-
-	const date = new Date();
-
-	const { latitude, longitude } = locationStore.getState();
-	const params = new CalculationParameters(method, fajrAngle, ishaAngle, ishaInterval, maghribAngle);
-	const prayerTimes = new PrayerTimes({ latitude, longitude }, date, params);
-
-	const currentPrayer = prayerTimes.currentPrayer(date);
-	const nextPrayer = prayerTimes.nextPrayer(date);
-
-	salahCalculationStore.setState({
-		sunrise: prayerTimes.sunrise,
-		sunset: prayerTimes.sunset,
-		prayerTimes: [
-			{ prayer: 'Fajr', time: prayerTimes.fajr },
-			{ prayer: 'Sunrise', time: prayerTimes.sunrise },
-			{ prayer: 'Dhuhr', time: prayerTimes.dhuhr },
-			{ prayer: 'Asr', time: prayerTimes.asr },
-			{ prayer: 'Maghrib', time: prayerTimes.maghrib },
-			{ prayer: 'Isha', time: prayerTimes.isha },
-		],
-		currentPrayer,
-		nextPrayer,
-	});
-};

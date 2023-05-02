@@ -48,12 +48,14 @@ export const ExtraForm = () => {
 								setHighLatitudeRule('seventhofthenight');
 							} else if (value === 'twilightangle') {
 								setHighLatitudeRule('twilightangle');
+							} else if (value === 'none') {
+								setHighLatitudeRule(null);
 							}
 						}}
 						value={highLatitudeRule?.valueOf().toString() || 'middleofthenight'}
 					>
 						<SelectTrigger className='col-span-3'>
-							<SelectValue placeholder={highLatitudeRule?.valueOf().toString() || 'middleofthenight'} />
+							<SelectValue placeholder={highLatitudeRule?.valueOf().toString() || 'None'} />
 						</SelectTrigger>
 						<SelectContent>
 							<SelectGroup>
@@ -61,6 +63,7 @@ export const ExtraForm = () => {
 								<SelectItem value='middleofthenight'>Middle of the Night</SelectItem>
 								<SelectItem value='seventhofthenight'>Seventh of the Night</SelectItem>
 								<SelectItem value='twilightangle'>Twilight Angle</SelectItem>
+								<SelectItem value='none'>None</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
@@ -77,12 +80,15 @@ export const ExtraForm = () => {
 								setPolarCircleResolution('AqrabYaum');
 							} else if (value === 'Unresolved') {
 								setPolarCircleResolution('Unresolved');
+							} else if (value === 'none') {
+								setPolarCircleResolution(null);
 							}
 						}}
-						value={polarCircleResolution?.valueOf()?.toString() || 'AqrabBalad'}
+						value={polarCircleResolution?.valueOf()?.toString() || 'none'}
+						defaultValue='none'
 					>
 						<SelectTrigger className='col-span-3'>
-							<SelectValue placeholder={polarCircleResolution?.valueOf()?.toString() || 'AqrabBalad'} />
+							<SelectValue placeholder={polarCircleResolution?.valueOf()?.toString() || 'None'} />
 						</SelectTrigger>
 						<SelectContent>
 							<SelectGroup>
@@ -90,6 +96,7 @@ export const ExtraForm = () => {
 								<SelectItem value='AqrabBalad'>Aqrab Balad</SelectItem>
 								<SelectItem value='AqrabYaum'>Aqrab Yaum</SelectItem>
 								<SelectItem value='Unresolved'>Unresolved</SelectItem>
+								<SelectItem value='none'>None</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>
@@ -136,12 +143,15 @@ export const ExtraForm = () => {
 								setShafaq('ahmer');
 							} else if (value === 'abyad') {
 								setShafaq('abyad');
+							} else if (value === 'none') {
+								setShafaq(null);
 							}
 						}}
-						value={shafaq?.valueOf()?.toString() || 'general'}
+						value={shafaq?.valueOf()?.toString() || 'none'}
+						defaultValue='none'
 					>
 						<SelectTrigger className='col-span-3'>
-							<SelectValue placeholder={shafaq?.valueOf()?.toString() || 'general'} />
+							<SelectValue placeholder={shafaq?.valueOf()?.toString()} />
 						</SelectTrigger>
 						<SelectContent>
 							<SelectGroup>
@@ -149,6 +159,7 @@ export const ExtraForm = () => {
 								<SelectItem value='general'>General</SelectItem>
 								<SelectItem value='ahmer'>Ahmer</SelectItem>
 								<SelectItem value='abyad'>Abyad</SelectItem>
+								<SelectItem value='none'>None</SelectItem>
 							</SelectGroup>
 						</SelectContent>
 					</Select>

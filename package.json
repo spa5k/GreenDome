@@ -2,7 +2,6 @@
 	"name": "quran",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
 	"scripts": {
 		"next": "pnpm --filter=./apps/next",
 		"vite": "pnpm --filter=./apps/vite",
@@ -16,11 +15,12 @@
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "UNLICENSED",
 	"devDependencies": {
 		"@tauri-apps/cli": "^1.2.3",
 		"dprint": "^0.36.0",
 		"husky": "^8.0.3",
 		"turbo": "^1.9.3"
-	}
+	},
+	"packageManager": "pnpm@8.4.0"
 }

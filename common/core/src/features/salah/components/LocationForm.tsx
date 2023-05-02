@@ -10,7 +10,8 @@ import {
 	Input,
 	Label,
 } from '@quran/elements';
-import { getCoordinates, useLocationTrackedStore } from '../store';
+import { getCoordinates } from '..';
+import { useLocationTrackedStore } from '../store';
 
 export const LocationForm = () => {
 	const { latitude, longitude, setLatitude, setLongitude } = useLocationTrackedStore();

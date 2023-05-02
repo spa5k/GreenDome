@@ -26,7 +26,8 @@
 		"ci",
 		"salah",
 		"iqra",
-		"scraper"
+		"scraper",
+		"core"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
