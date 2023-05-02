@@ -1,38 +1,5 @@
 import { CalculationParameters } from 'adhan';
 
-export interface GeoLocationInfo {
-	latitude: number;
-	longitude: number;
-	continent: string;
-	lookupSource: string;
-	continentCode: string;
-	localityLanguageRequested: string;
-	city: string;
-	countryName: string;
-	countryCode: string;
-	postcode: string;
-	principalSubdivision: string;
-	principalSubdivisionCode: string;
-	plusCode: string;
-	locality: string;
-	localityInfo: LocalityInfo;
-}
-
-export interface LocalityInfo {
-	administrative: Ative[];
-	informative: Ative[];
-}
-
-export interface Ative {
-	name: string;
-	description?: string;
-	order: number;
-	adminLevel?: number;
-	isoCode?: string;
-	wikidataId?: string;
-	geonameId?: number;
-}
-
 export enum CalculationMethodEnum {
 	MuslimWorldLeague,
 	Egyptian,
@@ -75,3 +42,36 @@ export type SalahActions = {
 	addCoords: (latitude: number, longitude: number) => void;
 	getLocation: () => void;
 };
+
+export interface LocationData {
+	latitude: number;
+	longitude: number;
+	continent: string;
+	lookupSource: string;
+	continentCode: string;
+	localityLanguageRequested: string;
+	city: string;
+	countryName: string;
+	countryCode: string;
+	postcode: string;
+	principalSubdivision: string;
+	principalSubdivisionCode: string;
+	plusCode: string;
+	locality: string;
+	localityInfo: LocalityInfo;
+}
+
+export interface LocalityInfo {
+	administrative: Ative[];
+	informative: Ative[];
+}
+
+export interface Ative {
+	name: string;
+	description?: string;
+	order: number;
+	adminLevel?: number;
+	isoCode?: string;
+	wikidataID?: string;
+	geonameID?: number;
+}

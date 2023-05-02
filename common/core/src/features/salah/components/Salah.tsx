@@ -1,7 +1,8 @@
 import { Icon } from '@iconify/react';
 import { Button, Dialog, DialogTrigger } from '@quran/elements';
 import { Key } from 'react';
-import { calculatePrayerTimes, getCoordinates, useLocationTrackedStore, useSalahTrackedStore } from '../store';
+import { calculatePrayerTimes, getCoordinates } from '..';
+import { useLocationTrackedStore, useSalahTrackedStore } from '../store';
 import { CalculationForm } from './CalculationDialog';
 import { SalahCard } from './SalahCard';
 

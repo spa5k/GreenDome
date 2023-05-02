@@ -11,7 +11,7 @@ import {
 	TabsList,
 	TabsTrigger,
 } from '@quran/elements';
-import { calculatePrayerTimes } from '../store';
+import { calculatePrayerTimes } from '../api';
 import { ExtraForm } from './ExtraForm';
 import { LocationForm } from './LocationForm';
 import { SalahForm } from './SalahForm';
