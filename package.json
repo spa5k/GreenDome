@@ -11,7 +11,8 @@
 		"scraper": "pnpm --filter=./libs/scraper",
 		"typecheck": "turbo run typecheck",
 		"lint": "turbo run lint",
-		"tauri": "tauri"
+		"tauri": "tauri",
+		"format": "dprint fmt"
 	},
 	"keywords": [],
 	"author": "",

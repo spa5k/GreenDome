@@ -11,10 +11,10 @@ type CalculationParametersState = {
 	ishaInterval?: number;
 	maghribAngle?: number;
 	madhab?: ValueOf<typeof Madhab>;
-	highLatitudeRule?: ValueOf<typeof HighLatitudeRule>;
-	polarCircleResolution?: ValueOf<typeof PolarCircleResolution>;
-	rounding?: ValueOf<typeof Rounding>;
-	shafaq?: ValueOf<typeof Shafaq>;
+	highLatitudeRule?: ValueOf<typeof HighLatitudeRule> | null;
+	polarCircleResolution?: ValueOf<typeof PolarCircleResolution> | null;
+	rounding?: ValueOf<typeof Rounding> | null;
+	shafaq?: ValueOf<typeof Shafaq> | null;
 	sunrise: Date;
 	sunset: Date;
 	prayerTimes: { prayer: string; time: Date; }[];
@@ -29,10 +29,10 @@ type CalculationParametersActions = {
 	setIshaInterval: (interval: number) => void;
 	setMaghribAngle: (angle: number) => void;
 	setMadhab: (madhab: ValueOf<typeof Madhab>) => void;
-	setHighLatitudeRule: (rule: ValueOf<typeof HighLatitudeRule>) => void;
-	setPolarCircleResolution: (resolution: ValueOf<typeof PolarCircleResolution>) => void;
-	setRounding: (rounding: ValueOf<typeof Rounding>) => void;
-	setShafaq: (shafaq: ValueOf<typeof Shafaq>) => void;
+	setHighLatitudeRule: (rule: ValueOf<typeof HighLatitudeRule> | null) => void;
+	setPolarCircleResolution: (resolution: ValueOf<typeof PolarCircleResolution> | null) => void;
+	setRounding: (rounding: ValueOf<typeof Rounding> | null) => void;
+	setShafaq: (shafaq: ValueOf<typeof Shafaq> | null) => void;
 	// calculatePrayerTimes: () => void;
 };
 
