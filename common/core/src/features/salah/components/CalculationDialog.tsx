@@ -12,9 +12,9 @@ import {
 	TabsTrigger,
 } from '@quran/elements';
 import { calculatePrayerTimes } from '../api';
-import { ExtraForm } from './ExtraForm';
-import { LocationForm } from './LocationForm';
-import { SalahForm } from './SalahForm';
+import { ExtraSettingsForm } from './ExtraForm';
+import { LocationSettingsForm } from './LocationForm';
+import { SalahSettingsForm } from './SalahForm';
 
 export function CalculationForm() {
 	return (
@@ -23,7 +23,7 @@ export function CalculationForm() {
 				<DialogHeader>
 					<DialogTitle>Edit Salah Parameters</DialogTitle>
 					<DialogDescription>
-						Make changes to Salah Parameters here, click save to save changes.
+						It will automatically update the salah times
 					</DialogDescription>
 				</DialogHeader>
 				<Tabs defaultValue='location'>
@@ -33,13 +33,13 @@ export function CalculationForm() {
 						<TabsTrigger value='extra'>Extra Settings</TabsTrigger>
 					</TabsList>
 					<TabsContent value='location'>
-						<LocationForm />
+						<LocationSettingsForm />
 					</TabsContent>
 					<TabsContent value='salah'>
-						<SalahForm />
+						<SalahSettingsForm />
 					</TabsContent>
 					<TabsContent value='extra'>
-						<ExtraForm />
+						<ExtraSettingsForm />
 					</TabsContent>
 				</Tabs>
 
@@ -48,7 +48,7 @@ export function CalculationForm() {
 				<DialogFooter>
 					<Button onClick={calculatePrayerTimes}>
 						<Icon icon='ic:baseline-refresh' className='mr-2' />
-						Recalculate
+						Force Recalculatation
 					</Button>
 				</DialogFooter>
 			</DialogContent>

@@ -13,7 +13,7 @@ import {
 import { getCoordinates } from '..';
 import { useLocationTrackedStore } from '../store';
 
-export const LocationForm = () => {
+export const LocationSettingsForm = () => {
 	const { latitude, longitude, setLatitude, setLongitude } = useLocationTrackedStore();
 
 	return (
@@ -21,7 +21,7 @@ export const LocationForm = () => {
 			<CardHeader>
 				<CardTitle>Location</CardTitle>
 				<CardDescription>
-					Make changes to your location here. Click save when you're done.
+					Input Custom Location or Get Location Automatically
 				</CardDescription>
 			</CardHeader>
 			<CardContent className='space-y-2'>

@@ -15,7 +15,7 @@ import {
 } from '@quran/elements';
 import { useSalahTrackedStore } from '../store';
 
-export const ExtraForm = () => {
+export const ExtraSettingsForm = () => {
 	const {
 		setHighLatitudeRule,
 		highLatitudeRule,
@@ -32,7 +32,7 @@ export const ExtraForm = () => {
 			<CardHeader>
 				<CardTitle>Extra</CardTitle>
 				<CardDescription>
-					Change your extra here. After saving, you'll be logged out.
+					Optional Settings, NOT RECOMMENDED TO CHANGE
 				</CardDescription>
 			</CardHeader>
 			<CardContent className='space-y-2'>

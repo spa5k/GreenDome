@@ -13,6 +13,7 @@ module.exports = {
 	rules: {
 		'react-refresh/only-export-components': 'warn',
 		'no-undef': 'off',
+		'tailwindcss/no-custom-classname': 'off',
 	},
 	settings: {
 		'import/parsers': {

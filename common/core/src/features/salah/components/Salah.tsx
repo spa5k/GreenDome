@@ -23,7 +23,9 @@ export const Salah = () => {
 
 	return (
 		<div className='my-6 flex flex-col items-center justify-center'>
-			<Dialog>
+			<Dialog
+				onOpenChange={calculatePrayerTimes}
+			>
 				<DialogTrigger asChild>
 					<Button className='gap-2'>
 						<Icon icon='ic:baseline-settings-suggest' />

@@ -16,7 +16,7 @@ import {
 } from '@quran/elements';
 import { useSalahTrackedStore } from '../store';
 
-export const SalahForm = () => {
+export const SalahSettingsForm = () => {
 	const {
 		method,
 		fajrAngle,
@@ -37,7 +37,7 @@ export const SalahForm = () => {
 			<CardHeader>
 				<CardTitle>Salah</CardTitle>
 				<CardDescription>
-					Change your salah here. After saving, you'll be logged out.
+					Change Salah Parameters here
 				</CardDescription>
 			</CardHeader>
 			<CardContent className='space-y-2'>
