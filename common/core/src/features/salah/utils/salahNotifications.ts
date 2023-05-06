@@ -33,25 +33,10 @@ export async function checkSalahTimes(): Promise<void> {
 					continue;
 				}
 
-				const notification = new Notification('Salah Time', {
-					body: `${prayerName} is in ${timeDiffInMinutes} minutes`,
-					icon: 'clock.png',
-					requireInteraction: false,
-					badge: 'islam.png',
-					image: 'islam_green.png',
-					timestamp: Date.now(),
-				});
-				const audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
-				audio.play();
-				// parse prayerName to 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha'
+				sendSalahNotification(prayerTime, timeDiffInMinutes, prayerReminder, now);
 				const prayerNameParsed = prayerName as 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
 
 				setPrayerReminders(prayerNameParsed, now);
-
-				notification.onclick = () => {
-					window.focus();
-					notification.close();
-				};
 			}
 		}
 	}, 60 * 1000);
@@ -61,26 +46,57 @@ export async function checkSalahTimes(): Promise<void> {
 		for (const prayerTime of prayerTimes) {
 			const timeDiff = prayerTime.time.getTime() - now.getTime();
 			const timeDiffInMinutes = Math.abs(Math.round(timeDiff / 60000));
-			console.log(timeDiffInMinutes);
+
 			if (timeDiffInMinutes < 1) {
-				const prayerName = prayerTime.prayer.toLowerCase();
-
-				const notification = new Notification('Salah Time', {
-					body: `${prayerName} is happening!`,
-					icon: 'clock.png',
-					requireInteraction: false,
-					badge: 'islam.png',
-					image: 'islam_green.png',
-					timestamp: Date.now(),
-				});
-				const audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3');
-				audio.play();
-
-				notification.onclick = () => {
-					window.focus();
-					notification.close();
-				};
+				sendSalahNotification(prayerTime, timeDiffInMinutes, null, now);
 			}
 		}
 	}, 20000);
+}
+
+export async function sendSalahNotification(
+	prayerTime: {
+		prayer: string;
+		time: Date;
+	},
+	timeDiffInMinutes: number,
+	prayerReminder: PrayerReminder | null,
+	now: Date,
+): Promise<void> {
+	const prayerName = prayerTime.prayer.toLowerCase() as 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
+
+	const prayerReminderDate = Date.parse(prayerReminder?.lastReminderSentTime?.toString() ?? '');
+
+	if (prayerReminder?.reminderSent && prayerReminderDate === now.getDate()) {
+		console.log(`Notification already sent for ${prayerName} today`, prayerReminder);
+		return;
+	}
+
+	const azanEnabled = salahCalculationStore.getState().azanEnabled;
+
+	const notification = new Notification('Salah Time', {
+		body: `${prayerName} is in ${timeDiffInMinutes} minutes`,
+		icon: 'clock.png',
+		requireInteraction: false,
+		badge: 'islam.png',
+		image: 'islam_green.png',
+		timestamp: Date.now(),
+	});
+
+	const adhan = playAdhanSound(azanEnabled);
+
+	notification.onclick = () => {
+		window.focus();
+		notification.close();
+		adhan?.pause();
+	};
+}
+
+function playAdhanSound(enabled: boolean) {
+	if (!enabled) {
+		return;
+	}
+	const audio = new Audio('http://praytimes.org/audio/adhan/Sunni/Abdul-Basit.mp3');
+	audio.play();
+	return audio;
 }

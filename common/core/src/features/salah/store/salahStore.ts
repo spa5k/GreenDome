@@ -32,6 +32,7 @@ type CalculationParametersState = {
 	>;
 	reminderTime: number;
 	prayersNotification: Record<Salahs, boolean>;
+	azanEnabled: boolean;
 };
 
 type CalculationParametersActions = {
@@ -48,6 +49,7 @@ type CalculationParametersActions = {
 	setPrayerReminders: (prayer: Salahs, time: Date) => void;
 	setReminderTime: (time: number) => void;
 	setPrayersNotification: (prayer: Salahs, value: boolean) => void;
+	setAzanEnabled: (value: boolean) => void;
 };
 
 export const salahCalculationStore = create<
@@ -63,11 +65,11 @@ export const salahCalculationStore = create<
 				prayerTimes: [],
 				reminderTime: 0,
 				prayersNotification: {
-					fajr: false,
-					dhuhr: false,
-					asr: false,
-					maghrib: false,
-					isha: false,
+					fajr: true,
+					dhuhr: true,
+					asr: true,
+					maghrib: true,
+					isha: true,
 				},
 				prayerReminders: {
 					fajr: {
@@ -86,7 +88,10 @@ export const salahCalculationStore = create<
 						reminderSent: false,
 					},
 				},
-
+				azanEnabled: true,
+				setAzanEnabled(value) {
+					set({ azanEnabled: value });
+				},
 				setMethod: (method) => set({ method }),
 				setFajrAngle: (angle) => set({ fajrAngle: angle }),
 				setIshaAngle: (angle) => set({ ishaAngle: angle }),

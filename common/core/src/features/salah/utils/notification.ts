@@ -6,14 +6,14 @@ interface Options {
 
 type Permission = 'granted' | 'denied' | 'default';
 
-async function isPermissionGranted(): Promise<boolean> {
+async function isNotificationPermissionGranted(): Promise<boolean> {
 	if (window.Notification.permission !== 'default') {
 		return Promise.resolve(window.Notification.permission === 'granted');
 	}
 	return true;
 }
 
-async function requestPermission(): Promise<Permission> {
+async function requestNotificationPermission(): Promise<Permission> {
 	return window.Notification.requestPermission();
 }
 
@@ -28,4 +28,8 @@ function sendNotification(options: Options | string) {
 }
 
 export type { Options, Permission };
-export { isPermissionGranted, requestPermission, sendNotification };
+export {
+	isNotificationPermissionGranted as isPermissionGranted,
+	requestNotificationPermission as requestPermission,
+	sendNotification,
+};
