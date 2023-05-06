@@ -146,3 +146,24 @@ export const salahCalculationStore = create<
 export const useSalahTrackedStore = createTrackedSelector(
 	salahCalculationStore,
 );
+
+export const lastSentReminder = (prayer: Salahs) => {
+	const state = salahCalculationStore.getState();
+
+	const reminder: PrayerReminder = state?.prayerReminders[prayer];
+
+	// If there is no reminder, return true to send the first reminder.
+	if (!reminder?.lastReminderSentTime) {
+		return true;
+	}
+
+	const now = new Date();
+
+	// If the last reminder was sent today, return false to not send another.
+	if (now.getDate() === reminder.lastReminderSentTime?.getDate()) {
+		return false;
+	}
+
+	// Otherwise return true.
+	return true;
+};
