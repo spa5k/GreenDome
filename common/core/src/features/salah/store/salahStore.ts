@@ -3,8 +3,9 @@ import { ValueOf } from 'adhan/lib/types/TypeUtils';
 import { createTrackedSelector } from 'react-tracked';
 import { create } from 'zustand';
 import { createJSONStorage, devtools, persist } from 'zustand/middleware';
+import { Salahs } from '..';
 
-type PrayerReminder = {
+export type PrayerReminder = {
 	lastReminderSentTime?: Date;
 	reminderSent: boolean;
 };
@@ -30,7 +31,7 @@ type CalculationParametersState = {
 		PrayerReminder
 	>;
 	reminderTime: number;
-	prayersNotification: Record<'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha', boolean>;
+	prayersNotification: Record<Salahs, boolean>;
 };
 
 type CalculationParametersActions = {
@@ -44,9 +45,9 @@ type CalculationParametersActions = {
 	setPolarCircleResolution: (resolution: ValueOf<typeof PolarCircleResolution> | null) => void;
 	setRounding: (rounding: ValueOf<typeof Rounding> | null) => void;
 	setShafaq: (shafaq: ValueOf<typeof Shafaq> | null) => void;
-	setPrayerReminders: (prayer: string, time: Date) => void;
+	setPrayerReminders: (prayer: Salahs, time: Date) => void;
 	setReminderTime: (time: number) => void;
-	setPrayersNotification: (prayer: string, value: boolean) => void;
+	setPrayersNotification: (prayer: Salahs, value: boolean) => void;
 };
 
 export const salahCalculationStore = create<
@@ -55,7 +56,7 @@ export const salahCalculationStore = create<
 	devtools(
 		persist(
 			(set, get) => ({
-				method: null,
+				method: 'MuslimWorldLeague',
 				madhab: Madhab.Hanafi,
 				sunrise: new Date(),
 				sunset: new Date(),
@@ -107,7 +108,7 @@ export const salahCalculationStore = create<
 					});
 				},
 
-				setPrayerReminders(prayer: 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha', time: Date) {
+				setPrayerReminders(prayer: Salahs, time: Date) {
 					const state = get();
 
 					const reminder: PrayerReminder = state?.prayerReminders[prayer];
@@ -138,7 +139,7 @@ export const useSalahTrackedStore = createTrackedSelector(
 	salahCalculationStore,
 );
 
-export const lastSentReminder = (prayer: 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha') => {
+export const lastSentReminder = (prayer: Salahs) => {
 	const state = salahCalculationStore.getState();
 
 	const reminder: PrayerReminder = state?.prayerReminders[prayer];
