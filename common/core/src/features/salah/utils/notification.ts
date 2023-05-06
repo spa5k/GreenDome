@@ -1,3 +1,5 @@
+import { salahCalculationStore } from '../store';
+
 interface Options {
 	title: string;
 	body?: string;
@@ -14,7 +16,13 @@ async function isNotificationPermissionGranted(): Promise<boolean> {
 }
 
 async function requestNotificationPermission(): Promise<Permission> {
-	return window.Notification.requestPermission();
+	const { notificationPermission } = salahCalculationStore.getState();
+	const permission = await window.Notification.requestPermission();
+
+	if (permission !== notificationPermission) {
+		salahCalculationStore.setState({ notificationPermission: permission });
+	}
+	return permission;
 }
 
 function sendNotification(options: Options | string) {

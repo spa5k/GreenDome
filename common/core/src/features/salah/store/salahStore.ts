@@ -11,45 +11,44 @@ export type PrayerReminder = {
 };
 
 type CalculationParametersState = {
-	method: null | keyof typeof CalculationMethod;
+	azanEnabled: boolean;
+	currentPrayer?: 'none' | 'sunrise' | 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
 	fajrAngle?: number;
+	highLatitudeRule?: ValueOf<typeof HighLatitudeRule> | null;
 	ishaAngle?: number;
 	ishaInterval?: number;
-	maghribAngle?: number;
 	madhab?: ValueOf<typeof Madhab>;
-	highLatitudeRule?: ValueOf<typeof HighLatitudeRule> | null;
+	maghribAngle?: number;
+	method: keyof typeof CalculationMethod;
+	nextPrayer?: 'none' | 'sunrise' | 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
+	notificationPermission: NotificationPermission;
 	polarCircleResolution?: ValueOf<typeof PolarCircleResolution> | null;
+	prayerReminders: Record<'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha', PrayerReminder>;
+	prayersNotification: Record<Salahs, boolean>;
+	prayerTimes: { prayer: string; time: Date; }[];
+	reminderTime: number;
 	rounding?: ValueOf<typeof Rounding> | null;
 	shafaq?: ValueOf<typeof Shafaq> | null;
 	sunrise: Date;
 	sunset: Date;
-	prayerTimes: { prayer: string; time: Date; }[];
-	currentPrayer?: 'none' | 'sunrise' | 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
-	nextPrayer?: 'none' | 'sunrise' | 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';
-	prayerReminders: Record<
-		'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha',
-		PrayerReminder
-	>;
-	reminderTime: number;
-	prayersNotification: Record<Salahs, boolean>;
-	azanEnabled: boolean;
 };
 
 type CalculationParametersActions = {
-	setMethod: (method: null | keyof typeof CalculationMethod) => void;
+	setAzanEnabled: (value: boolean) => void;
 	setFajrAngle: (angle: number) => void;
+	setHighLatitudeRule: (rule: ValueOf<typeof HighLatitudeRule> | null) => void;
 	setIshaAngle: (angle: number) => void;
 	setIshaInterval: (interval: number) => void;
-	setMaghribAngle: (angle: number) => void;
 	setMadhab: (madhab: ValueOf<typeof Madhab>) => void;
-	setHighLatitudeRule: (rule: ValueOf<typeof HighLatitudeRule> | null) => void;
+	setMaghribAngle: (angle: number) => void;
+	setMethod: (method: keyof typeof CalculationMethod) => void;
+	setNotificationPermission: (value: NotificationPermission) => void;
 	setPolarCircleResolution: (resolution: ValueOf<typeof PolarCircleResolution> | null) => void;
+	setPrayerReminders: (prayer: Salahs, time: Date) => void;
+	setPrayersNotification: (prayer: Salahs, value: boolean) => void;
+	setReminderTime: (time: number) => void;
 	setRounding: (rounding: ValueOf<typeof Rounding> | null) => void;
 	setShafaq: (shafaq: ValueOf<typeof Shafaq> | null) => void;
-	setPrayerReminders: (prayer: Salahs, time: Date) => void;
-	setReminderTime: (time: number) => void;
-	setPrayersNotification: (prayer: Salahs, value: boolean) => void;
-	setAzanEnabled: (value: boolean) => void;
 };
 
 export const salahCalculationStore = create<
@@ -64,6 +63,7 @@ export const salahCalculationStore = create<
 				sunset: new Date(),
 				prayerTimes: [],
 				reminderTime: 0,
+				notificationPermission: 'default',
 				prayersNotification: {
 					fajr: true,
 					dhuhr: true,
@@ -103,6 +103,9 @@ export const salahCalculationStore = create<
 				setRounding: (rounding) => set({ rounding }),
 				setShafaq: (shafaq) => set({ shafaq }),
 				setReminderTime: (time) => set({ reminderTime: time }),
+				setNotificationPermission(value) {
+					set({ notificationPermission: value });
+				},
 				setPrayersNotification(prayer, value) {
 					const state = get();
 					set({
@@ -143,24 +146,3 @@ export const salahCalculationStore = create<
 export const useSalahTrackedStore = createTrackedSelector(
 	salahCalculationStore,
 );
-
-export const lastSentReminder = (prayer: Salahs) => {
-	const state = salahCalculationStore.getState();
-
-	const reminder: PrayerReminder = state?.prayerReminders[prayer];
-
-	// If there is no reminder, return true to send the first reminder.
-	if (!reminder?.lastReminderSentTime) {
-		return true;
-	}
-
-	const now = new Date();
-
-	// If the last reminder was sent today, return false to not send another.
-	if (now.getDate() === reminder.lastReminderSentTime?.getDate()) {
-		return false;
-	}
-
-	// Otherwise return true.
-	return true;
-};
