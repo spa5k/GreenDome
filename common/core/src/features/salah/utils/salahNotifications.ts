@@ -96,7 +96,7 @@ function playAdhanSound(enabled: boolean) {
 	if (!enabled) {
 		return;
 	}
-	const audio = new Audio('http://praytimes.org/audio/adhan/Sunni/Abdul-Basit.mp3');
+	const audio = new Audio('/azan1.mp3');
 	audio.play();
 	return audio;
 }

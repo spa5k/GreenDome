@@ -29,7 +29,7 @@ const handleSendNotificationClick = () => {
 
 export const Salah = () => {
 	const { latitude } = useLocationTrackedStore();
-	const { prayerTimes, currentPrayer } = useSalahTrackedStore();
+	const { prayerTimes, currentPrayer, notificationPermission } = useSalahTrackedStore();
 
 	if (latitude === 1) {
 		return (
@@ -55,7 +55,7 @@ export const Salah = () => {
 			</Dialog>
 
 			<div className='my-2'>
-				{Notification.permission !== 'granted'
+				{notificationPermission !== 'granted'
 					? (
 						<Button onClick={requestPermission}>
 							<Icon icon='ic:round-notifications-off' className='mx-2' />

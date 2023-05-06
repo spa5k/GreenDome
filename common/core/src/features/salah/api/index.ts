@@ -1,8 +1,8 @@
 import { CalculationParameters, PrayerTimes } from 'adhan';
 import { $fetch } from 'ohmyfetch';
 import { isClient } from '../../../utils/isTauri';
-import { LocationData } from '..';
-import { locationStore, salahCalculationStore } from '../store';
+import { LocationData, Salahs } from '..';
+import { locationStore, PrayerReminder, salahCalculationStore } from '../store';
 
 export const calculatePrayerTimes = () => {
 	if (!isClient) {
@@ -95,3 +95,24 @@ export async function calculateLocation(latitude: number, longitude: number): Pr
 		throw new Error('Failed to calculate location');
 	}
 }
+
+export const lastSentReminder = (prayer: Salahs) => {
+	const state = salahCalculationStore.getState();
+
+	const reminder: PrayerReminder = state?.prayerReminders[prayer];
+
+	// If there is no reminder, return true to send the first reminder.
+	if (!reminder?.lastReminderSentTime) {
+		return true;
+	}
+
+	const now = new Date();
+
+	// If the last reminder was sent today, return false to not send another.
+	if (now.getDate() === reminder.lastReminderSentTime?.getDate()) {
+		return false;
+	}
+
+	// Otherwise return true.
+	return true;
+};
