@@ -60,7 +60,7 @@ pub(crate) fn new() -> RouterBuilder<Ctx> {
                 // Doing this will automatically export the bindings when the `build` function is called.
                 .export_ts_bindings(
                     PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-                        .join("../tanzil/src/utils/bindings.ts"),
+                        .join("../common/core/src/utils/bindings.ts"),
                 ),
         )
 }
