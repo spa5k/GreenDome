@@ -1,13 +1,31 @@
 import { Icon } from '@iconify/react';
 import { Button, Dialog, DialogTrigger } from '@quran/elements';
 import { Key } from 'react';
-import { calculatePrayerTimes, getCoordinates } from '..';
+import { calculatePrayerTimes, getCoordinates, sendSalahNotification } from '..';
 import { useLocationTrackedStore, useSalahTrackedStore } from '../store';
+import { requestPermission } from '../utils/notification';
 import { CalculationForm } from './CalculationDialog';
 import { SalahCard } from './SalahCard';
 
 getCoordinates();
 calculatePrayerTimes();
+
+const handleSendNotificationClick = () => {
+	// Dummy data for testing purposes
+	const prayerTime = new Date('2023-05-07T05:30:00Z');
+	const prayerName = 'fajr';
+	const timeDiffInMinutes = 5;
+	const now = new Date();
+	sendSalahNotification(
+		{
+			prayer: prayerName,
+			time: prayerTime,
+		},
+		timeDiffInMinutes,
+		null,
+		now,
+	);
+};
 
 export const Salah = () => {
 	const { latitude } = useLocationTrackedStore();
@@ -35,6 +53,24 @@ export const Salah = () => {
 
 				<CalculationForm />
 			</Dialog>
+
+			<div className='my-2'>
+				{Notification.permission !== 'granted'
+					? (
+						<Button onClick={requestPermission}>
+							<Icon icon='ic:round-notifications-off' className='mx-2' />
+							Enable Notifications
+						</Button>
+					)
+					: (
+						<Button
+							onClick={handleSendNotificationClick}
+						>
+							<Icon icon='material-symbols:notifications-active-sharp' className='mx-2' />
+							Test Salah notification
+						</Button>
+					)}
+			</div>
 
 			<div className='flex flex-wrap items-center '>
 				{!prayerTimes && <p>Loading...</p>}

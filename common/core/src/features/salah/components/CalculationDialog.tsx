@@ -14,6 +14,7 @@ import {
 import { calculatePrayerTimes } from '../api';
 import { ExtraSettingsForm } from './ExtraForm';
 import { LocationSettingsForm } from './LocationForm';
+import { NotificationSettingsForm } from './NotificationForm';
 import { SalahSettingsForm } from './SalahForm';
 
 export function CalculationForm() {
@@ -27,10 +28,11 @@ export function CalculationForm() {
 					</DialogDescription>
 				</DialogHeader>
 				<Tabs defaultValue='location'>
-					<TabsList className='grid w-full grid-cols-3'>
+					<TabsList className='grid w-full grid-cols-4'>
 						<TabsTrigger value='location'>Location</TabsTrigger>
 						<TabsTrigger value='salah'>Salah</TabsTrigger>
 						<TabsTrigger value='extra'>Extra Settings</TabsTrigger>
+						<TabsTrigger value='notification'>Notification</TabsTrigger>
 					</TabsList>
 					<TabsContent value='location'>
 						<LocationSettingsForm />
@@ -40,6 +42,9 @@ export function CalculationForm() {
 					</TabsContent>
 					<TabsContent value='extra'>
 						<ExtraSettingsForm />
+					</TabsContent>
+					<TabsContent value='notification'>
+						<NotificationSettingsForm />
 					</TabsContent>
 				</Tabs>
 
