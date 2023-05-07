@@ -6,7 +6,6 @@ import { RefObject, useContext, useState } from 'react';
 import { ImperativePanelHandle } from 'react-resizable-panels';
 import { EnvironmentContext } from '..';
 
-import * from 'react-use-audio-player';
 // unplugin icons
 import { Icon } from '@iconify/react';
 import { SidebarLink } from '../components/Sidebar/SidebarLink';
