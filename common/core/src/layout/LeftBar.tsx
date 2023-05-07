@@ -64,7 +64,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 	const [leftSidebarState, setleftSidebarState] = useState(false);
 	const showText = !hideText;
 
-	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 3 });
+	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 5 });
 
 	const toggleSidebar = () => {
 		setleftSidebarState(() => !leftSidebarState);

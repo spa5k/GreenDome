@@ -35,7 +35,6 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 												{surah.nameArabic} 
 											</p>
 											</div>
-										<p className='flex items-center'>{surah.ayahEnd}</p>
 											<CardFooter className='flex items-center '>
 												{surah.reveleationPlace === 'makkah'
 													? <Icon icon='fluent-emoji-high-contrast:kaaba' className='h-10 w-10 sm:h-8 sm:w-8' />
