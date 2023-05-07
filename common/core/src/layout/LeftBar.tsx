@@ -6,6 +6,7 @@ import { RefObject, useContext, useState } from 'react';
 import { ImperativePanelHandle } from 'react-resizable-panels';
 import { EnvironmentContext } from '..';
 
+import * from 'react-use-audio-player';
 // unplugin icons
 import { Icon } from '@iconify/react';
 import { SidebarLink } from '../components/Sidebar/SidebarLink';
@@ -66,7 +67,14 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 
 	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 5 });
 
+	const playAudio = () => {
+		const audio = new Audio('sounds/select.mp3');
+		audio.play();
+		return audio;
+	};
+
 	const toggleSidebar = () => {
+		playAudio();
 		setleftSidebarState(() => !leftSidebarState);
 		const panel = handler.current;
 		if (panel) {
