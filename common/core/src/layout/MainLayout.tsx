@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ImperativePanelHandle, Panel, PanelGroup } from 'react-resizable-panels';
 import { ErrorFallback, Navbar, ResizeHandle } from '../components';
+import DivSpotlightEffect from '../components/Effects/DivSpotlightEffect.js';
 import { LeftBar } from '.';
 import RightBar from './RightBar';
 
@@ -15,49 +16,51 @@ export const MainLayout = ({ children }: { children: React.ReactNode; }) => {
 	const ref = useRef<ImperativePanelHandle>(null);
 
 	return (
-		<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-			<section>
-				<header>
-				</header>
+		<DivSpotlightEffect>
+			<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
+				<section>
+					<header>
+					</header>
 
-				<main className='min-h-screen transition-all duration-150'>
-					<PanelGroup autoSaveId='homepage' direction='horizontal'>
-						<Panel
-							defaultSize={10}
-							minSize={3}
-							maxSize={14}
-							collapsible={false}
-							ref={ref}
-							onResize={(size) => {
-								if (size <= 3) {
-									sethideText(true);
-								} else {
-									sethideText(false);
-								}
-							}}
-						>
-							<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-								<LeftBar hideText={hideText} handler={ref} />
-							</ErrorBoundary>
-						</Panel>
+					<main className='min-h-screen transition-all duration-150'>
+						<PanelGroup autoSaveId='homepage' direction='horizontal'>
+							<Panel
+								defaultSize={10}
+								minSize={3}
+								maxSize={14}
+								collapsible={false}
+								ref={ref}
+								onResize={(size) => {
+									if (size <= 3) {
+										sethideText(true);
+									} else {
+										sethideText(false);
+									}
+								}}
+							>
+								<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
+									<LeftBar hideText={hideText} handler={ref} />
+								</ErrorBoundary>
+							</Panel>
 
-						<ResizeHandle />
+							<ResizeHandle />
 
-						<Panel minSize={30}>
-							<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-								<Navbar />
-								{children}
-							</ErrorBoundary>
-						</Panel>
-						<ResizeHandle />
-						<Panel defaultSize={20} minSize={20}>
-							<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-								<RightBar />
-							</ErrorBoundary>
-						</Panel>
-					</PanelGroup>
-				</main>
-			</section>
-		</ErrorBoundary>
+							<Panel minSize={30}>
+								<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
+									<Navbar />
+									{children}
+								</ErrorBoundary>
+							</Panel>
+							<ResizeHandle />
+							<Panel defaultSize={20} minSize={20}>
+								<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
+									<RightBar />
+								</ErrorBoundary>
+							</Panel>
+						</PanelGroup>
+					</main>
+				</section>
+			</ErrorBoundary>
+		</DivSpotlightEffect>
 	);
 };
