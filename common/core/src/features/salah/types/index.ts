@@ -75,3 +75,5 @@ export interface Ative {
 	wikidataID?: string;
 	geonameID?: number;
 }
+
+export type Salahs = 'fajr' | 'dhuhr' | 'asr' | 'maghrib' | 'isha';

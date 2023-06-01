@@ -31,5 +31,6 @@
 		"quoteStyle": "preferSingle",
 		"semiColons": "always"
 	},
+	"newLineKind": "auto",
 	"useTabs": true
 }
