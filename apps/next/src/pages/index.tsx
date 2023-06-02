@@ -5,7 +5,6 @@ import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 export default function Home() {
 	const surahs = new SurahApi();
 	const { data } = useQuery({ queryKey: ['surahs'], queryFn: surahs.surahList });
-
 	return (
 		<EnvironmentContextProvider>
 			<main>

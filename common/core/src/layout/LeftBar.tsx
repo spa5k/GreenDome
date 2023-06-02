@@ -16,21 +16,21 @@ const mainRoutes = [
 		selected: false,
 		id: 1,
 		to: '/',
-		icon: <Icon icon='material-symbols:home-rounded' className='mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
+		icon: <Icon icon='material-symbols:home-rounded' className='mr-4 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
 	{
 		title: 'Quran',
 		selected: false,
 		id: 2,
 		to: '/surah',
-		icon: <Icon icon='fa6-solid:book-quran' className='mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
+		icon: <Icon icon='fa6-solid:book-quran' className='mr-4 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
 	{
 		title: 'Hadith',
 		selected: true,
 		id: 3,
 		to: '/hadith',
-		icon: <Icon icon='zondicons:location' className='mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
+		icon: <Icon icon='zondicons:location' className='mr-4 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
 	{
 		title: 'Salah',
@@ -40,7 +40,7 @@ const mainRoutes = [
 		icon: (
 			<Icon
 				icon='ic:baseline-access-time-filled'
-				className='mr-2 h-6 w-6'
+				className='mr-4 h-6 w-6'
 				style={{ minWidth: '1.5rem' }}
 			/>
 		),
@@ -50,7 +50,7 @@ const mainRoutes = [
 		selected: true,
 		id: 5,
 		to: '/tracker',
-		icon: <Icon icon='ic:round-check-circle' className='mr-2 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
+		icon: <Icon icon='ic:round-check-circle' className='mr-4 h-6 w-6' style={{ minWidth: '1.5rem' }} />,
 	},
 ];
 
@@ -64,16 +64,23 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 	const [leftSidebarState, setleftSidebarState] = useState(false);
 	const showText = !hideText;
 
-	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 3 });
+	const [localSize, setLocalSize] = useLocalStorageState('localStorage', { defaultValue: 5 });
+
+	const playAudio = () => {
+		const audio = new Audio('sounds/select.mp3');
+		audio.play();
+		return audio;
+	};
 
 	const toggleSidebar = () => {
+		playAudio();
 		setleftSidebarState(() => !leftSidebarState);
 		const panel = handler.current;
 		if (panel) {
 			const size = panel?.getSize();
-			if (size > 3) {
+			if (size > 5) {
 				setLocalSize(size);
-				panel?.resize(3);
+				panel?.resize(5);
 			} else {
 				panel?.resize(Number(localSize));
 			}
@@ -100,10 +107,10 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				</TooltipProvider>
 			</div>
 
-			<div className='flex h-full flex-col items-start overflow-hidden rounded pl-1 '>
+			<div className='flex h-full flex-col items-start overflow-hidden rounded px-2 '>
 				<Link className='mt-3 flex w-full items-center pl-3' href='/'>
 					<Icon icon='line-md:moon-filled-loop' className='h-8 w-8 fill-current' style={{ minWidth: '2rem' }} />
-					{showText && <span className='ml-2 truncate text-2xl font-bold'>Quran</span>}
+					{showText && <span className='ml-4 truncate text-2xl font-bold'>Quran</span>}
 				</Link>
 				<div className='my-2 w-full py-2'>
 					<div className='mt-3 flex w-full flex-col items-center transition-shadow duration-500'>
