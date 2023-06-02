@@ -4,9 +4,12 @@ import {
 	getQuranTextEditions,
 	getTranslationEditions,
 	getTransliterationEditions,
+	MushafViewer,
 	SurahApi,
 	Surahs,
 } from '@quran/core';
+import { Button } from '@quran/elements';
+import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 
 interface LoaderData {
@@ -33,6 +36,8 @@ export const Failure = () => <h1>Something went wrong...</h1>;
 
 export default function Surah() {
 	const { surahInfo } = useLoaderData() as LoaderData;
+	// a state to toggle between mushaf and edition viewer
+	const [isMushaf, setIsMushaf] = useState(false);
 
 	if (!surahInfo) {
 		return <h1>Loading..</h1>;
@@ -45,8 +50,9 @@ export default function Surah() {
 			<div>
 				<h1>{surahInfo.nameSimple}</h1>
 			</div>
-
-			<EditionViewer surahInfo={surahInfo as Surahs} />
+			<Button onClick={() => setIsMushaf(!isMushaf)}>Toggle Mushaf</Button>
+			{isMushaf && <MushafViewer surahInfo={surahInfo as Surahs} />}
+			{!isMushaf && <EditionViewer surahInfo={surahInfo as Surahs} />}
 		</div>
 	);
 }

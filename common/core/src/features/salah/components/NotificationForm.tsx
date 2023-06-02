@@ -25,7 +25,7 @@ export const NotificationSettingsForm = () => {
 						<p className='text-sm font-medium leading-none'>
 							Azan
 						</p>
-						<p className='text-muted-foreground text-sm'>
+						<p className='text-sm text-muted-foreground'>
 							Play Azan when salah time
 						</p>
 					</div>
