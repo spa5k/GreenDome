@@ -14,8 +14,6 @@ export type Procedures = {
 
 export type EditionsType = { edition: EditionsEnum; };
 
-export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
-
 export type Edition = {
 	id: number;
 	name: string;
@@ -27,9 +25,7 @@ export type Edition = {
 	enabled: string;
 };
 
-export type TranslationEdition = { edition: string; number: number; };
-
-export type Ayah = { ayah: number; surah: number; text: string; };
+export type EditionsEnum = 'Quran' | 'Translation' | 'Transliteration';
 
 export type Surahs = {
 	id: number;
@@ -43,3 +39,7 @@ export type Surahs = {
 	pageStart: number;
 	pageEnd: number;
 };
+
+export type Ayah = { ayah: number; surah: number; text: string; };
+
+export type TranslationEdition = { edition: string; number: number; };
