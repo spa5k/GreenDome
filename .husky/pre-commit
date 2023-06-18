@@ -3,5 +3,6 @@
 
 pnpm check
 pnpm format
+pnpm build
 git update-index --again
 

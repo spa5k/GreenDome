@@ -26,17 +26,17 @@ export default function Surah() {
 	);
 }
 
-export async function getStaticProps() {
-}
+// export async function getStaticProps() {
+// }
 
-export const getStaticPaths = async () => {
-	const surahs = new SurahApi();
-	const surahList = await surahs.surahList();
+// export const getStaticPaths = async () => {
+// 	const surahs = new SurahApi();
+// 	const surahList = await surahs.surahList();
 
-	const paths = surahList.map((surah) => ({
-		params: { number: surah.id.toString() },
-	}));
+// 	const paths = surahList.map((surah) => ({
+// 		params: { number: surah.id.toString() },
+// 	}));
 
-	// { fallback: false } means other routes should 404
-	return { paths, fallback: false };
-};
+// 	// { fallback: false } means other routes should 404
+// 	return { paths, fallback: false };
+// };
