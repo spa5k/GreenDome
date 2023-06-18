@@ -21,7 +21,9 @@ export const Catch = () => <div>Route errorrrrrr</div>;
 export const Loader = async ({ params }: { params: Params; }) => {
 	const surahs = new SurahApi();
 	const number = params.number;
-	const surahInfo = await surahs.surahInfoByNumber(number);
+
+	const surahInfo = await surahs.surahInfoByNumber(parseInt(number.toString()));
+
 	await getQuranTextEditions();
 	await getTranslationEditions();
 	await getTransliterationEditions();

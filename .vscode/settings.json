@@ -27,7 +27,9 @@
 		"salah",
 		"iqra",
 		"scraper",
-		"core"
+		"core",
+		"tauri",
+		"nextjs"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,

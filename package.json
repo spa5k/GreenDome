@@ -6,7 +6,7 @@
 	"license": "UNLICENSED",
 	"author": "",
 	"scripts": {
-		"build": "turbo run build",
+		"build": "turbo run build --parallel",
 		"cfg": "pnpm --filter=./libs/config",
 		"check": "turbo run --parallel lint typecheck",
 		"core": "pnpm --filter=./common/core",
