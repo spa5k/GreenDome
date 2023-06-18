@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm lint
-pnpm typecheck
+pnpm check
 pnpm format
 git update-index --again
 
