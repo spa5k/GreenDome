@@ -27,7 +27,8 @@
 		"salah",
 		"iqra",
 		"scraper",
-		"core"
+		"core",
+		"tauri"
 	],
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
