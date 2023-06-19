@@ -1,6 +1,6 @@
 {
 	"name": "@quran/elements",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"private": true,
 	"type": "module",
 	"main": "src/index.ts",
@@ -44,15 +44,15 @@
 		"cmdk": "^0.2.0",
 		"date-fns": "^2.30.0",
 		"react": "^18.2.0",
-		"react-day-picker": "^8.7.1",
+		"react-day-picker": "^8.8.0",
 		"react-dom": "^18.2.0",
 		"tailwind-merge": "^1.13.2",
 		"tailwindcss-animate": "^1.0.6"
 	},
 	"devDependencies": {
 		"@iconify/react": "^4.1.0",
-		"@types/react": "^18.2.12",
-		"@types/react-dom": "^18.2.5",
+		"@types/react": "^18.2.13",
+		"@types/react-dom": "^18.2.6",
 		"tailwindcss": "^3.3.2",
 		"typescript": "^5.1.3"
 	}

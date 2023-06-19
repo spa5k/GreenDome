@@ -17,7 +17,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode; }) => {
 
 	return (
 		<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-			<section className='scrollbar-none antialiased'>
+			<section className='antialiased scrollbar-none'>
 				<header className='fixed left-0 top-0 z-20 w-full text-clip'>
 					<Menu />
 				</header>
