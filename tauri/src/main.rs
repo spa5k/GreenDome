@@ -2,6 +2,9 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
+
+use window_shadows::set_shadow;
+
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 use tracing_log::LogTracer;
 use tracing_subscriber::{filter::EnvFilter, layer::SubscriberExt, Registry};
@@ -35,6 +38,12 @@ async fn main() {
     let sqlite_pool = db::create_sqlite_pool().await.unwrap();
 
     tauri::Builder::default()
+        .setup(|app| {
+            let window = app.get_window("main").unwrap();
+            #[cfg(any(windows, target_os = "macos"))]
+            set_shadow(&window, true).expect("Unsupported platform!");
+            Ok(())
+        })
         .plugin(rspc::integrations::tauri::plugin(router, move || Ctx {
             db: sqlite_pool.clone().into(),
         }))

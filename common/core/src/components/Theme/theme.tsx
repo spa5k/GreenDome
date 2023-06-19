@@ -13,7 +13,13 @@ export const ThemeChange = () => {
 
 	return (
 		<>
-			<Button data-toggle-theme='dark,light' data-act-class='ACTIVECLASS' onClick={() => setLight(!light)}>
+			<Button
+				data-toggle-theme='dark,light'
+				data-act-class='ACTIVECLASS'
+				onClick={() => setLight(!light)}
+				variant={'ghost'}
+				className='h-8 focus:outline-none'
+			>
 				{theme === 'light'
 					? <Icon icon='line-md:moon-filled-to-sunny-filled-loop-transition' />
 					: <Icon icon='line-md:sunny-outline-to-moon-alt-loop-transition' />}

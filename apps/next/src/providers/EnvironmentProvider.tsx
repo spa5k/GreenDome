@@ -18,7 +18,7 @@ const LinkWrapper = ({
 const EnvironmentContextProvider = ({
 	children,
 }: {
-	children: React.ReactNode;
+	children: any;
 }) => {
 	const location = useRouter().pathname;
 	const contextValue = useMemo(() => {
