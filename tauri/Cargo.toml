@@ -2,7 +2,7 @@
 name = 'Quran'
 version = '0.0.1'
 authors = ['you']
-default-run = 'tauri'
+default-run = 'Quran'
 edition = '2021'
 license = ''
 repository = ''
