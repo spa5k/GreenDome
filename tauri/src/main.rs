@@ -3,6 +3,7 @@
     windows_subsystem = "windows"
 )]
 
+use tauri::Manager;
 use window_shadows::set_shadow;
 
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};

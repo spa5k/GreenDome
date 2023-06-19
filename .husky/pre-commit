@@ -4,5 +4,6 @@
 pnpm check
 pnpm format
 pnpm build
+cd tauri && cargo check
 git update-index --again
 
