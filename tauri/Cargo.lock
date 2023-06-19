@@ -9,30 +9,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fe438c63458706e03479442743baae6c88256498e6431708f6dfc520a26515d3"
 
 [[package]]
-name = "Quran"
-version = "0.0.1"
-dependencies = [
- "anyhow",
- "dotenvy",
- "islam",
- "rspc",
- "serde",
- "serde_json",
- "specta",
- "sqlx",
- "tauri",
- "tauri-build",
- "time",
- "tokio",
- "tracing",
- "tracing-appender",
- "tracing-bunyan-formatter",
- "tracing-log",
- "tracing-subscriber",
- "window-shadows",
-]
-
-[[package]]
 name = "adler"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2700,6 +2676,30 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1b9ab9c7eadfd8df19006f1cf1a4aed13540ed5cbc047010ece5826e10825488"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "quran"
+version = "0.0.1"
+dependencies = [
+ "anyhow",
+ "dotenvy",
+ "islam",
+ "rspc",
+ "serde",
+ "serde_json",
+ "specta",
+ "sqlx",
+ "tauri",
+ "tauri-build",
+ "time",
+ "tokio",
+ "tracing",
+ "tracing-appender",
+ "tracing-bunyan-formatter",
+ "tracing-log",
+ "tracing-subscriber",
+ "window-shadows",
 ]
 
 [[package]]

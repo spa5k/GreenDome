@@ -1,8 +1,8 @@
 [package]
-name = 'Quran'
+name = 'quran'
 version = '0.0.1'
 authors = ['you']
-default-run = 'Quran'
+default-run = 'quran'
 edition = '2021'
 license = ''
 repository = ''
