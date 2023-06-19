@@ -80,3 +80,9 @@
 		font-feature-settings: "rlig" 1, "calt" 1;
 	}
 }
+
+body {
+	overflow: hidden;
+	border-radius: 50px;
+	border-radius: 5%;
+}

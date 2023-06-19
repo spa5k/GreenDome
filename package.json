@@ -18,7 +18,8 @@
 		"scraper": "pnpm --filter=./libs/scraper",
 		"tauri": "tauri",
 		"typecheck": "turbo run typecheck  --parallel",
-		"vite": "pnpm --filter=./apps/vite"
+		"vite": "pnpm --filter=./apps/vite",
+		"shadcdn": "pnpx --filter=./common/elements shadcdn-ui add"
 	},
 	"devDependencies": {
 		"@tauri-apps/cli": "^1.4.0",

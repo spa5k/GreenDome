@@ -6,13 +6,16 @@
 		"distDir": "../apps/vite/dist"
 	},
 	"package": {
-		"productName": "tauri",
-		"version": "0.1.0"
+		"productName": "Quran",
+		"version": "0.0.1"
 	},
 	"tauri": {
 		"allowlist": {
 			"all": true,
 			"notification": {
+				"all": true
+			},
+			"window": {
 				"all": true
 			}
 		},
@@ -63,7 +66,8 @@
 				"height": 600,
 				"resizable": true,
 				"title": "Quran",
-				"width": 800
+				"width": 800,
+				"decorations": false
 			}
 		]
 	}

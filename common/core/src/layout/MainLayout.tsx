@@ -1,7 +1,8 @@
+import { cn } from '@quran/elements';
 import { useRef, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ImperativePanelHandle, Panel, PanelGroup } from 'react-resizable-panels';
-import { ErrorFallback, Navbar, ResizeHandle } from '../components';
+import { ErrorFallback, Menu, ResizeHandle } from '../components';
 import { LeftBar } from '.';
 import RightBar from './RightBar';
 
@@ -16,11 +17,12 @@ export const MainLayout = ({ children }: { children: React.ReactNode; }) => {
 
 	return (
 		<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-			<section>
-				<header>
+			<section className='scrollbar-none antialiased'>
+				<header className='fixed left-0 top-0 z-20 w-full text-clip'>
+					<Menu />
 				</header>
 
-				<main className='min-h-screen transition-all duration-150'>
+				<main className='mt-10 min-h-screen text-clip transition-all duration-150'>
 					<PanelGroup autoSaveId='homepage' direction='horizontal'>
 						<Panel
 							defaultSize={10}
@@ -45,8 +47,14 @@ export const MainLayout = ({ children }: { children: React.ReactNode; }) => {
 
 						<Panel minSize={30}>
 							<ErrorBoundary FallbackComponent={ErrorFallback} onError={logError}>
-								<Navbar />
-								{children}
+								<div
+									className={cn(
+										'h-[calc(100vh-50px)] overflow-y-auto',
+										'scrollbar scrollbar-track-transparent scrollbar-thumb-accent scrollbar-thumb-rounded-sm',
+									)}
+								>
+									{children}
+								</div>
 							</ErrorBoundary>
 						</Panel>
 						<ResizeHandle />

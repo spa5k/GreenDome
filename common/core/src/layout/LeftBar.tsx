@@ -88,8 +88,8 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 	};
 
 	return (
-		<div className='mx-1 min-h-screen basis-1/4 bg-white py-2 text-black'>
-			<div className='flex w-full items-end justify-end '>
+		<aside className='top-0 min-h-screen overflow-hidden'>
+			<div className='flex w-full items-end justify-end'>
 				<TooltipProvider>
 					<Tooltip>
 						<TooltipTrigger
@@ -107,11 +107,7 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				</TooltipProvider>
 			</div>
 
-			<div className='flex h-full flex-col items-start overflow-hidden rounded px-2 '>
-				<Link className='mt-3 flex w-full items-center pl-3' href='/'>
-					<Icon icon='line-md:moon-filled-loop' className='h-8 w-8 fill-current' style={{ minWidth: '2rem' }} />
-					{showText && <span className='ml-4 truncate text-2xl font-bold'>Quran</span>}
-				</Link>
+			<div className='sticky top-10 flex flex-col items-start rounded px-2 '>
 				<div className='my-2 w-full py-2'>
 					<div className='mt-3 flex w-full flex-col items-center transition-shadow duration-500'>
 						{mainRoutes.map((path) => {
@@ -123,6 +119,6 @@ export const LeftBar = ({ hideText, handler }: { hideText: boolean; handler: Ref
 				<div className='mt-2 flex w-full flex-col items-start justify-start px-3'>
 				</div>
 			</div>
-		</div>
+		</aside>
 	);
 };

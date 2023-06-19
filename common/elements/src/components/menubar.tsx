@@ -1,9 +1,8 @@
 'use client';
 
+import { Icon } from '@iconify/react';
 import * as MenubarPrimitive from '@radix-ui/react-menubar';
 import * as React from 'react';
-
-import { Icon } from '@iconify/react';
 import { cn } from '../lib/utils';
 
 const MenubarMenu = MenubarPrimitive.Menu;
@@ -140,7 +139,7 @@ const MenubarCheckboxItem = React.forwardRef<
 	>
 		<span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
 			<MenubarPrimitive.ItemIndicator>
-				<Icon icon='lucide:react' className='h-4 w-4' />
+				<Icon icon='lucide:check' className='h-4 w-4' />
 			</MenubarPrimitive.ItemIndicator>
 		</span>
 		{children}
