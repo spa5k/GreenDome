@@ -1,4 +1,4 @@
-name: 'publish'
+name: 'Release Tauri'
 
 on:
   workflow_dispatch:
