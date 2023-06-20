@@ -18,12 +18,6 @@ export const SurahPage = ({ surahs }: { surahs: Surahs[] | undefined; }) => {
 								className='group relative  h-28 '
 							>
 								<Card>
-									{
-										/* <CardHeader>
-										<CardTitle>{surah.nameSimple}</CardTitle>
-										<CardDescription>{surah.nameArabic}</CardDescription>
-									</CardHeader> */
-									}
 									<CardContent>
 										<div className=' flex justify-between space-x-2 text-xl font-medium sm:text-2xl'>
 											<div>
