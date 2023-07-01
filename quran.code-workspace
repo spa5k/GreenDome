@@ -15,6 +15,10 @@
 		{
 			"name": "📦 Core",
 			"path": "common/core"
+		},
+		{
+			"name": "🐸 Tauri",
+			"path": "tauri"
 		}
 	],
 	"settings": {

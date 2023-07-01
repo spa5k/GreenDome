@@ -25,7 +25,7 @@
 		"@tauri-apps/cli": "^1.4.0",
 		"dprint": "^0.37.1",
 		"husky": "^8.0.3",
-		"turbo": "^1.10.3"
+		"turbo": "^1.10.7"
 	},
-	"packageManager": "pnpm@8.6.0"
+	"packageManager": "pnpm@8.6.5"
 }
