@@ -1,0 +1,71 @@
+version: "3"
+
+tasks:
+  next_dev:
+    desc: "Development server for Next.js"
+    cmds:
+      - "pnpm next dev --turbo"
+
+  next_build:
+    desc: "Build Next.js project"
+    cmds:
+      - "NODE_ENV=production pnpm next build"
+
+  next_start:
+    desc: "Start Next.js project"
+    cmds:
+      - "pnpm next start"
+
+  next_lint:
+    desc: "Lint Next.js project"
+    cmds:
+      - "pnpm next lint"
+
+  format:
+    desc: "Format code"
+    cmds:
+      - "pnpm dprint fmt"
+
+  postinstall:
+    desc: "Install app dependencies for Electron"
+    cmds:
+      - "pnpm electron-builder install-app-deps"
+
+  electron_dist:
+    desc: "Build Electron for distribution in directory mode"
+    cmds:
+      - "pnpm electron-builder --dir"
+
+  electron_dist_deb:
+    desc: "Build Electron for Debian distribution"
+    cmds:
+      - "pnpm electron-builder --linux deb"
+
+  electron_build:
+    desc: "Build Electron using tsup"
+    cmds:
+      - "pnpm tsup"
+
+  build:
+    desc: "Build both Next.js and Electron projects"
+    cmds:
+      - task next_build electron_build --parallel
+
+  dist:
+    desc: "Distribute both Next.js and Electron projects"
+    cmds:
+      - "task next_build && task electron_dist"
+
+  dev:
+    desc: "Development mode for both Electron and Next.js"
+    cmds:
+      - task next_dev electron_dev electron_build_watch --parallel
+  electron_build_watch:
+    desc: "Watch mode for Electron with tsup"
+    cmds:
+      - "pnpm tsup --watch"
+
+  electron_dev:
+    desc: "Development mode for Electron"
+    cmds:
+      - "pnpm cross-env NODE_ENV='development' nodemon"
