@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
-import type { Edition } from "../api/editions";
+import { Edition } from "../api/edition";
 
 export function EditionsMultiSelect({ editions }: {
   editions: {
