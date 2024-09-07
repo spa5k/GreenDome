@@ -69,3 +69,13 @@ tasks:
     desc: "Development mode for Electron"
     cmds:
       - "pnpm cross-env NODE_ENV='development' nodemon"
+
+  docker_build:
+    desc: "Build Docker image"
+    cmds:
+      - "docker build -t noorsiraat ."
+
+  docker_run:
+    desc: "Run Docker container"
+    cmds:
+      - "docker run -d -p 3000:3000 noorsiraat"

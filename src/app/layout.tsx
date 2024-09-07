@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ElectronIndicator } from "@/components/generic/ElectronIndicator";
+import { TailwindIndicator } from "@/components/generic/TailwindIndicator";
+import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "./(app)/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
+
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "./(app)/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -26,9 +31,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background font-sans antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <TailwindIndicator />
+          <ElectronIndicator />
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

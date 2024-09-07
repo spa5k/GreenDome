@@ -5,7 +5,7 @@ import MultiSelectFormField from "@/components/ui/multi-select";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import type { Edition } from "../api/editions";
+import { Edition } from "../api/edition";
 
 interface EditionMultiSelectFormProps {
   edition: Edition[];
