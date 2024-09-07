@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-pnpm check
-pnpm format
-pnpm build
-cd tauri && cargo check
-git update-index --again
-
