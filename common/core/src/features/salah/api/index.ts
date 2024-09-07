@@ -116,3 +116,22 @@ export const lastSentReminder = (prayer: Salahs) => {
 	// Otherwise return true.
 	return true;
 };
+
+export async function fetchPrayerTimesFromLink() {
+	console.log('Salah Times from Link');
+	const { latitude, longitude } = locationStore.getState();
+	const date = new Date();
+	const url = `https://api.aladhan.com/v1/timings/${
+		date.toISOString().slice(0, 10)
+	}?latitude=${latitude}&longitude=${longitude}`;
+
+	try {
+		const data = await $fetch(url);
+		console.log(data.data.timings);
+	} catch (error) {
+		console.error(error);
+		throw new Error('Failed to fetch prayer times');
+	}
+}
+
+fetchPrayerTimesFromLink();
