@@ -1,0 +1,455 @@
+{
+  "count": 30,
+  "references": [
+    {
+      "juz": 1,
+      "name": "Alif Lam Meem",
+      "name_complex": "Alīf-Lām-Mīm",
+      "arabic_name": "آلم",
+      "translation": "Alif Lam Meem",
+      "start": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 2,
+        "verse": 141
+      }
+    },
+    {
+      "juz": 2,
+      "name": "Sayaqool",
+      "name_complex": "Sayaqūlu",
+      "translation": "Will (they) say",
+      "arabic_name": "سَيَقُولُ",
+      "start": {
+        "chapter": 2,
+        "verse": 142
+      },
+      "end": {
+        "chapter": 2,
+        "verse": 252
+      }
+    },
+    {
+      "juz": 3,
+      "name": "Tilkal Rusul",
+      "name_complex": "Tilka 'r-rusul",
+      "arabic_name": "تِلْكَ الرُّسُلُ",
+      "translation": "These are the Messengers",
+      "start": {
+        "chapter": 2,
+        "verse": 253
+      },
+      "end": {
+        "chapter": 3,
+        "verse": 92
+      }
+    },
+    {
+      "juz": 4,
+      "name": "Lan Tana Loo",
+      "arabic_name": "لَن تَنَالُوا",
+      "name_complex": "Lan Tana Lu",
+      "translation": "Never will you attain",
+      "start": {
+        "chapter": 3,
+        "verse": 93
+      },
+      "end": {
+        "chapter": 4,
+        "verse": 23
+      }
+    },
+    {
+      "juz": 5,
+      "name": "Wal Mohsanat",
+      "name_complex": "Wa’l-muḥṣanātu",
+      "arabic_name": "وَالْمُحْصَنَاتُ",
+      "translation": "And prohibited are the ones who are married",
+      "start": {
+        "chapter": 4,
+        "verse": 24
+      },
+      "end": {
+        "chapter": 4,
+        "verse": 147
+      }
+    },
+    {
+      "juz": 6,
+      "name": "La Yuhibbullah",
+      "name_complex": "Lā yuḥibbu-’llāhu",
+      "arabic_name": "لَا يُحِبُّ اللَّهُ",
+      "translation": "Allah does not like",
+      "start": {
+        "chapter": 4,
+        "verse": 148
+      },
+      "end": {
+        "chapter": 5,
+        "verse": 81
+      }
+    },
+    {
+      "juz": 7,
+      "name": "Wa Iza Samiu",
+      "name_complex": "Wa ’Idha Samiʿū",
+      "arabic_name": "وَإِذَا سَمِعُوا۟",
+      "translation": "And when they hear",
+      "start": {
+        "chapter": 5,
+        "verse": 82
+      },
+      "end": {
+        "chapter": 6,
+        "verse": 110
+      }
+    },
+    {
+      "juz": 8,
+      "name": "Wa Lau Annana",
+      "name_complex": "Wa-law annanā",
+      "arabic_name": "وَلَوْ أَنَّنَا",
+      "translation": "And (even) if (that) we had",
+      "start": {
+        "chapter": 6,
+        "verse": 111
+      },
+      "end": {
+        "chapter": 7,
+        "verse": 87
+      }
+    },
+    {
+      "juz": 9,
+      "name": "Qalal Malao",
+      "name_complex": "Qāla ’l-mala’u",
+      "arabic_name": "قَالَ ٱلْمَلَأُ",
+      "translation": "Said the chiefs (eminent ones)",
+      "start": {
+        "chapter": 7,
+        "verse": 88
+      },
+      "end": {
+        "chapter": 8,
+        "verse": 40
+      }
+    },
+    {
+      "juz": 10,
+      "name": "Wa A'lamu",
+      "name_complex": "Wa-’aʿlamū",
+      "arabic_name": "وَٱعْلَمُوٓا۟",
+      "translation": "And (you) know",
+      "start": {
+        "chapter": 8,
+        "verse": 41
+      },
+      "end": {
+        "chapter": 9,
+        "verse": 92
+      }
+    },
+    {
+      "juz": 11,
+      "name": "Yatazeroon",
+      "name_complex": "Yaʿtazerūn",
+      "arabic_name": "يَتَظَـٰهَرُونَ",
+      "translation": "Only the way (for blame)",
+      "start": {
+        "chapter": 9,
+        "verse": 93
+      },
+      "end": {
+        "chapter": 11,
+        "verse": 5
+      }
+    },
+    {
+      "juz": 12,
+      "name": "Wa Mamin Da'abat",
+      "name_complex": "Wa mā min dābbatin",
+      "arabic_name": "وَمَا مِن دَآبَّةٍۢ",
+      "translation": "And there is no creature",
+      "start": {
+        "chapter": 11,
+        "verse": 6
+      },
+      "end": {
+        "chapter": 12,
+        "verse": 52
+      }
+    },
+    {
+      "juz": 13,
+      "name": "Wa Ma Ubrioo",
+      "name_complex": "Wa mā ubarri’u",
+      "arabic_name": "وَمَآ أُبَرِّئُ",
+      "translation": "And I do not acquit",
+      "start": {
+        "chapter": 12,
+        "verse": 53
+      },
+      "end": {
+        "chapter": 14,
+        "verse": 52
+      }
+    },
+    {
+      "juz": 14,
+      "name": "Rubama",
+      "name_complex": "Alīf-Lām-Rā’/Rubamā",
+      "arabic_name": "رُّبَمَا",
+      "translation": "Alif Lam  Ra.",
+      "start": {
+        "chapter": 15,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 16,
+        "verse": 128
+      }
+    },
+    {
+      "juz": 15,
+      "name": "Subhanallazi",
+      "name_complex": "Subḥāna ’lladhī",
+      "arabic_name": "سُبْحَـٰنَ ٱلَّذِىٓ",
+      "translation": "Exalted is the One (Allah) is who ",
+      "start": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 18,
+        "verse": 74
+      }
+    },
+    {
+      "juz": 16,
+      "name": "Qal Alam",
+      "name_complex": "Qāla ’alam",
+      "arabic_name": "قَالَ أَلَمْ",
+      "translation": "He (Al-Khidr) said: Did not",
+      "start": {
+        "chapter": 18,
+        "verse": 75
+      },
+      "end": {
+        "chapter": 20,
+        "verse": 135
+      }
+    },
+    {
+      "juz": 17,
+      "name": "Aqtarabo",
+      "name_complex": "Iqtaraba li’n-nāsi",
+      "arabic_name": "ٱقْتَرَبَ",
+      "translation": "Has (the time of) approached for Mankind (people)",
+      "start": {
+        "chapter": 21,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 22,
+        "verse": 78
+      }
+    },
+    {
+      "juz": 18,
+      "name": "Qadd Aflaha",
+      "name_complex": "Qad ’aflaḥa",
+      "translation": "Indeed (Certainly) successful",
+      "arabic_name": "قَدْ أَفْلَحَ",
+      "start": {
+        "chapter": 23,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 25,
+        "verse": 20
+      }
+    },
+    {
+      "juz": 19,
+      "name": "Wa Qalallazina",
+      "name_complex": "Wa-qāla ’lladhīna",
+      "arabic_name": "وَقَالَ ٱلَّذِينَ",
+      "translation": "And said those who",
+      "start": {
+        "chapter": 25,
+        "verse": 21
+      },
+      "end": {
+        "chapter": 27,
+        "verse": 55
+      }
+    },
+    {
+      "juz": 20,
+      "name": "A'man Khalaq",
+      "name_complex": "’A’man Khalaqa",
+      "arabic_name": "أَمَّنْ خَلَقَ",
+      "translation": "Is He (Allah) Who created",
+      "start": {
+        "chapter": 27,
+        "verse": 56
+      },
+      "end": {
+        "chapter": 29,
+        "verse": 45
+      }
+    },
+    {
+      "juz": 21,
+      "name": "Utlu Ma Oohi",
+      "name_complex": "Otlu ma oohiya",
+      "arabic_name": "أُتْلُ مَاأُوْحِیَ",
+      "translation": "Recite, [O Muhammad], what has been revealed to you",
+      "start": {
+        "chapter": 29,
+        "verse": 46
+      },
+      "end": {
+        "chapter": 33,
+        "verse": 30
+      }
+    },
+    {
+      "juz": 22,
+      "name": "Wa Manyaqnut",
+      "name_complex": "Wa-man yaqnut",
+      "arabic_name": "وَمَنْ يَّقْنُتْ",
+      "translation": "And whoever is obedient (devoutly obeys)",
+      "start": {
+        "chapter": 33,
+        "verse": 31
+      },
+      "end": {
+        "chapter": 36,
+        "verse": 27
+      }
+    },
+    {
+      "juz": 23,
+      "name": "Wa Mali",
+      "name_complex": "Wa-Mali",
+      "arabic_name": "وَمَآ لي",
+      "translation": "And what is [the matter] with me",
+      "start": {
+        "chapter": 36,
+        "verse": 28
+      },
+      "end": {
+        "chapter": 39,
+        "verse": 31
+      }
+    },
+    {
+      "juz": 24,
+      "name": "Faman Azlam",
+      "name_complex": "Fa-man ’aẓlamu",
+      "arabic_name": "فَمَنْ أَظْلَمُ",
+      "translation": "So who is more unjust",
+      "start": {
+        "chapter": 39,
+        "verse": 32
+      },
+      "end": {
+        "chapter": 41,
+        "verse": 46
+      }
+    },
+    {
+      "juz": 25,
+      "name": "Elahe Yuruddo",
+      "name_complex": "’Ilaihi yuraddu",
+      "arabic_name": "إِلَيْهِ يُرَدُّ",
+      "translation": "To Him (Allah) alone is attributed",
+      "start": {
+        "chapter": 41,
+        "verse": 47
+      },
+      "end": {
+        "chapter": 45,
+        "verse": 37
+      }
+    },
+    {
+      "juz": 26,
+      "name": "Ha'a Meem",
+      "name_complex": "Ḥā’ Mīm",
+      "arabic_name": "حم",
+      "translation": "Ha, Meem",
+      "start": {
+        "chapter": 46,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 51,
+        "verse": 30
+      }
+    },
+    {
+      "juz": 27,
+      "name": "Qala Fama Khatbukum",
+      "name_complex": "Qāla fa-mā khaṭbukum",
+      "arabic_name": "قَالَ فَمَا خَطْبُكُم",
+      "translation": "He (Ibrahim A.S.) said: \"Then what is your business (mission) here",
+      "start": {
+        "chapter": 51,
+        "verse": 31
+      },
+      "end": {
+        "chapter": 57,
+        "verse": 29
+      }
+    },
+    {
+      "juz": 28,
+      "name": "Qadd Sami Allah",
+      "name_complex": "Qad samiʿa ’llāhu",
+      "arabic_name": "قَدْ سَمِعَ ٱللهُ",
+      "translation": "Indeed has Allah heard",
+      "start": {
+        "chapter": 58,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 66,
+        "verse": 12
+      }
+    },
+    {
+      "juz": 29,
+      "name": "Tabarakallazi",
+      "name_complex": "Tabāraka ’lladhī",
+      "arabic_name": "تَبَارَكَ ٱلَّذِى",
+      "translation": "Blessed is He (Allah)",
+      "start": {
+        "chapter": 67,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 77,
+        "verse": 50
+      }
+    },
+    {
+      "juz": 30,
+      "name": "Amma Yatasa'aloon",
+      "name_complex": "‘Amma",
+      "arabic_name": "عَمَّ",
+      "translation": "About what",
+      "start": {
+        "chapter": 78,
+        "verse": 1
+      },
+      "end": {
+        "chapter": 114,
+        "verse": 6
+      }
+    }
+  ]
+}

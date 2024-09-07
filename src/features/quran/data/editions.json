@@ -1,0 +1,4902 @@
+[
+  {
+    "id": 1,
+    "name": "zho-mazhonggang",
+    "author": "Ma Zhong Gang",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 2,
+    "name": "ara-quranbazzi",
+    "author": "Quran Bazzi",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 3,
+    "name": "sqi-hassannahi-la",
+    "author": "Hassan Nahi",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/albanian_nahi/v1.1.0-csv.1 , https://quranenc.com/en/browse/albanian_nahi , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 4,
+    "name": "kan-abdussalamputhi-lad",
+    "author": "Abdussalam Puthige",
+    "language": "Kannada",
+    "direction": "ltr",
+    "source": "http://quraninkannada.com , aputhige@gmail.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 5,
+    "name": "rus-gordysemyonovic-la",
+    "author": "Gordy Semyonovich Sablukov",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 6,
+    "name": "tur-abdulbakigolpin",
+    "author": "Abdulbaki Golpinarli",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 7,
+    "name": "tur-elmalilihamdiya",
+    "author": "Elmalili Hamdi Yazir",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 8,
+    "name": "ben-zohurulhoque-lad",
+    "author": "Zohurul Hoque",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 9,
+    "name": "fra-rashidmaash-la",
+    "author": "Rashid Maash",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/french_rashid",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 10,
+    "name": "fas-bahaoddinkhorra",
+    "author": "Baha Oddin Khorramshahi",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 11,
+    "name": "tur-suleymanates-la",
+    "author": "Suleyman Ates",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 12,
+    "name": "tur-alibulac",
+    "author": "Ali Bulac",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 13,
+    "name": "kaz-khalifahaltaich-lad",
+    "author": "Khalifah Altai Charity Foundation",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 14,
+    "name": "swa-abdullahmuhamma",
+    "author": "Abdullah Muhammad Abu Bakr",
+    "language": "Swahili",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 15,
+    "name": "mya-basein",
+    "author": "Ba Sein",
+    "language": "Burmese",
+    "direction": "ltr",
+    "source": "http://quran.mmsy.info , Muslim students Myanmar Youth Student and Youth Online Organization",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 16,
+    "name": "sin-wwwislamhouseco",
+    "author": "Www.islamhouse.com",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "www.islamhouse.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 17,
+    "name": "tha-kingfahadquranc-lad",
+    "author": "King Fahad Quran Complex",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 18,
+    "name": "bos-wwwislamhouseco",
+    "author": "Www.islamhouse.com",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/bosnian_rwwad/v2.0.0-csv.1, https://quranenc.com/en/browse/bosnian_rwwad , https://quranenc.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 19,
+    "name": "eng-aishabewley",
+    "author": "Aisha Bewley",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 20,
+    "name": "tur-latinalphabet-la",
+    "author": "Latin Alphabet",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 21,
+    "name": "uzb-muhammadsodikmu",
+    "author": "Muhammad Sodik Muhammad Yusuf",
+    "language": "Uzbek",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 22,
+    "name": "zho-mazhonggang-la",
+    "author": "Ma Zhong Gang",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 23,
+    "name": "ara-quranuthmanihaf1",
+    "author": "Quran Uthmani Hafs No Diacritics",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 24,
+    "name": "rus-gordysemyonovic",
+    "author": "Gordy Semyonovich Sablukov",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 25,
+    "name": "hau-abubakarmahmoud-la",
+    "author": "Abubakar Mahmoud Gumi",
+    "language": "Hausa",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 26,
+    "name": "rus-ministryofawqaf-la",
+    "author": "Ministry Of Awqaf, Egypt",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 27,
+    "name": "ukr-yakubovych-la",
+    "author": "Yakubovych",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 28,
+    "name": "pus-zakariaabulsala",
+    "author": "Zakaria Abulsalam",
+    "language": "Pushto",
+    "direction": "rtl",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 29,
+    "name": "sqi-sherifahmeti-la",
+    "author": "Sherif Ahmeti",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 30,
+    "name": "tat-yakubibnnugman",
+    "author": "Yakub Ibn Nugman",
+    "language": "Tatar",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 31,
+    "name": "tgk-khojamirov",
+    "author": "Khoja Mirov",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 32,
+    "name": "tur-celalyldrm-la",
+    "author": "Celal Y Ld R M",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 33,
+    "name": "fra-muhammadhamidul",
+    "author": "Muhammad Hamidullah",
+    "language": "French",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 34,
+    "name": "mlt-martinrzammitmu",
+    "author": "Martin R. Zammit, Muhammad El Sadi",
+    "language": "Maltese",
+    "direction": "ltr",
+    "source": "World Islamic Call Society(WICS) , https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 35,
+    "name": "ind-thesabiqcompany",
+    "author": "The Sabiq Company",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/indonesian_sabiq/v1.1.0-csv.1 , https://quranenc.com/en/browse/indonesian_sabiq , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 36,
+    "name": "tur-sabanpiris-la",
+    "author": "Saban Piris",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 37,
+    "name": "ara-quran-la2",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 38,
+    "name": "eng-njdawood",
+    "author": "N J Dawood",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 39,
+    "name": "mlt-martinrzammitmu-la",
+    "author": "Martin R. Zammit, Muhammad El Sadi",
+    "language": "Maltese",
+    "direction": "ltr",
+    "source": "World Islamic Call Society(WICS) , https://www.islamic-invitation.com/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 40,
+    "name": "eng-albilalmuhammad",
+    "author": "Al Bilal Muhammad Et Al",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 41,
+    "name": "guj-rabilaalomari-la",
+    "author": "Rabila Al Omari",
+    "language": "Gujarati",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 42,
+    "name": "tur-tefhimulkuran-la",
+    "author": "Tefhim Ul Kuran",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 43,
+    "name": "bos-mustafamlivo-la",
+    "author": "Mustafa Mlivo",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 44,
+    "name": "kmr-unknown",
+    "author": "Unknown",
+    "language": "Kurmanji",
+    "direction": "ltr",
+    "source": "http://www.maktabah.org , http://donatequran.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 45,
+    "name": "eng-drmunirmunshey",
+    "author": "Dr Munir Munshey",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 46,
+    "name": "eng-maududi",
+    "author": "Maududi",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 47,
+    "name": "mar-muhammadshafiia-la",
+    "author": "Muhammad Shafi I Ansari",
+    "language": "Marathi",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 48,
+    "name": "rus-ignatyyulianovi",
+    "author": "Ignaty Yulianovich Krachkovsky",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 49,
+    "name": "aar-sheikhmahmoudab",
+    "author": "Sheikh Mahmoud Abdel Qader Hamz And Group Of Scholars",
+    "language": "Afar",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 50,
+    "name": "ben-muhiuddinkhan-la",
+    "author": "Muhiuddin Khan",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 51,
+    "name": "fil-wwwislamhouseco",
+    "author": "Www.islamhouse.com",
+    "language": "Filipino",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tagalog_rwwad/v1.1.1-csv.1 https://quranenc.com/en/browse/tagalog_rwwad https://quranenc.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 52,
+    "name": "urd-ahmedali",
+    "author": "Ahmed Ali",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 53,
+    "name": "zul-iqembulezifundi",
+    "author": "Iqembu Lezifundiswa, Mussa Muhammad Telela , Uthman Mfanafuthi Msomi, Moulana Abdur Rahman Chilipa, Haji Ibrahim Mondli Japhet Mthembu, Moulana Imran Ngcobo, Moulana Eshaaq Osman",
+    "language": "Zulu",
+    "direction": "ltr",
+    "source": "Islamic Dawah Movement of Southern Africa(IDM), https://www.alqurantranslation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 54,
+    "name": "hau-abubakarmahmoud",
+    "author": "Abubakar Mahmoud Gumi",
+    "language": "Hausa",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 55,
+    "name": "hrv-unknown-la",
+    "author": "Unknown",
+    "language": "Croatian",
+    "direction": "ltr",
+    "source": "http://donatequran.com/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 56,
+    "name": "kaz-khalifahaltai",
+    "author": "Khalifah Altai",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 57,
+    "name": "tur-elmallsadelesti1",
+    "author": "Elmal L Sadelestirilmis",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 58,
+    "name": "eng-talalaitaninewt",
+    "author": "Talal A Itani New Translation",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 59,
+    "name": "tur-elmallsadelesti1-la",
+    "author": "Elmal L Sadelestirilmis",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 60,
+    "name": "fra-rashidmaash",
+    "author": "Rashid Maash",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/french_rashid",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 61,
+    "name": "jpn-ryoichimita",
+    "author": "Ryoichi Mita",
+    "language": "Japanese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/japanese_meta/v1.0.0-csv.1 , https://quranenc.com/en/browse/japanese_meta , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 62,
+    "name": "ara-quransimple",
+    "author": "Quran Simple",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://api.alquran.cloud/v1/quran/quran-simple",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 63,
+    "name": "ben-muhiuddinkhan",
+    "author": "Muhiuddin Khan",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 64,
+    "name": "kor-hamidchoi-la",
+    "author": "Hamid Choi",
+    "language": "Korean",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 65,
+    "name": "tur-gultekinonan",
+    "author": "Gultekin Onan",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 66,
+    "name": "tur-shabanbritch",
+    "author": "Shaban Britch",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/turkish_shaban/v1.1.0-csv.1 , https://quranenc.com/en/browse/turkish_shaban , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 67,
+    "name": "zho-majian1-la",
+    "author": "Ma Jian",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 68,
+    "name": "ara-quran-lad4",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 69,
+    "name": "cat-yousseflyoussi-la",
+    "author": "Youssef Lyoussi",
+    "language": "Catalan",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 70,
+    "name": "ron-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Romanian",
+    "direction": "ltr",
+    "source": "Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 71,
+    "name": "tha-groupfromthesoc",
+    "author": "Group From The Society Of Graduates Of Thai Universities And Institutes",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 72,
+    "name": "tur-ibnikesir-la",
+    "author": "Ibni Kesir",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 73,
+    "name": "urd-mahmoodulhassan",
+    "author": "Mahmood Ul Hassan",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "https://dailyayat.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 74,
+    "name": "ara-quran-la",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 75,
+    "name": "mar-muhammadshafiia-lad",
+    "author": "Muhammad Shafi I Ansari",
+    "language": "Marathi",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 76,
+    "name": "nld-salomokeyzer",
+    "author": "Salomo Keyzer",
+    "language": "Dutch",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 77,
+    "name": "prs-mawlawimuhammad",
+    "author": "Mawlawi Muhammad Anwar Badkhashani",
+    "language": "Dari",
+    "direction": "rtl",
+    "source": "https://quranenc.com/en/browse/dari_badkhashani",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 78,
+    "name": "sna-abdullahjmadini",
+    "author": "Abdullah J. M. Adini And Students",
+    "language": "Shona",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 79,
+    "name": "aze-vasimmammadaliy",
+    "author": "Vasim Mammadaliyev And Ziya Bunyadov",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 80,
+    "name": "hin-maulanaazizulha-la",
+    "author": "Maulana Azizul Haque Al Umari",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/hindi_omari/v1.1.0-csv.1 , https://quranenc.com/en/browse/hindi_omari , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 81,
+    "name": "tur-diyanetvakfi-la",
+    "author": "Diyanet Vakfi",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 82,
+    "name": "bam-deenmuhammad",
+    "author": "Deen Muhammad",
+    "language": "Bambara",
+    "direction": "rtl",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 83,
+    "name": "sqi-fetimehdiu-la",
+    "author": "Feti Mehdiu",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 84,
+    "name": "ben-abubakrzakaria",
+    "author": "Abu Bakr Zakaria",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 85,
+    "name": "mkd-sheikhhassangil",
+    "author": "Sheikh Hassan Gilo",
+    "language": "Macedonian",
+    "direction": "ltr",
+    "source": "http://www.qurandownload.com , https://www.islamic-invitation.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 86,
+    "name": "amh-muhammedsadiqan-la",
+    "author": "Muhammed Sadiq And Muhammed Sani Habib",
+    "language": "Amharic",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 87,
+    "name": "ara-qurankhaledhosn",
+    "author": "Quran Khaled Hosney",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://github.com/khaledhosny/quran-data",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 88,
+    "name": "tur-ynozturk",
+    "author": "Y. N. Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 89,
+    "name": "deu-aburidamuhammad-la",
+    "author": "Abu Rida Muhammad Ibn Ahmad Ibn Rassoul",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 90,
+    "name": "som-mahmudmuhammada",
+    "author": "Mahmud Muhammad Abduh",
+    "language": "Somali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 91,
+    "name": "vie-rowwadtranslati-la",
+    "author": "Rowwad Translation Center",
+    "language": "Vietnamese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/vietnamese_rwwad",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 92,
+    "name": "zho-anonymousgroupo-lad",
+    "author": "Anonymous Group Of Translators",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "Goodword Books , http://www.goodwordbooks.com/ , Center for Peace and Spirituality , https://www.cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 93,
+    "name": "eng-muftitaqiusmani",
+    "author": "Mufti Taqi Usmani",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 94,
+    "name": "tam-janturstfoundat",
+    "author": "Jan Turst Foundation",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 95,
+    "name": "eng-literal",
+    "author": "Literal",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 96,
+    "name": "eng-safikaskas",
+    "author": "Safi Kaskas",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 97,
+    "name": "run-sheikhamissirad",
+    "author": "Sheikh Amissi Radjabu Ntamba",
+    "language": "Rundi",
+    "direction": "ltr",
+    "source": "aradjantas@gmail.com , www.islamic-invitation.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 98,
+    "name": "ukr-mykhayloyakubov-la",
+    "author": "Mykhaylo Yakubovych",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 99,
+    "name": "ben-zohurulhoque-la",
+    "author": "Zohurul Hoque",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 100,
+    "name": "eng-abdulmajiddarya",
+    "author": "Abdul Majid Daryabadi",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 101,
+    "name": "eng-ummmuhammad",
+    "author": "Umm Muhammad",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 1
+  },
+  {
+    "id": 102,
+    "name": "tur-alibulac-la",
+    "author": "Ali Bulac",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 103,
+    "name": "uig-muhammadsaleh",
+    "author": "Muhammad Saleh",
+    "language": "Uighur",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 104,
+    "name": "zho-majian-la",
+    "author": "Ma Jian",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 105,
+    "name": "zho-majian",
+    "author": "Ma Jian",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 106,
+    "name": "bos-korkut-la",
+    "author": "Korkut",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 107,
+    "name": "eng-mustafakhattabg",
+    "author": "Mustafa Khattab God Edition",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 108,
+    "name": "sin-wwwislamhouseco-lad",
+    "author": "Www.islamhouse.com",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "www.islamhouse.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 109,
+    "name": "tur-yasarnuriozturk",
+    "author": "Yasar Nuri Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 110,
+    "name": "bos-mustafamlivo",
+    "author": "Mustafa Mlivo",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 111,
+    "name": "hrv-unknown",
+    "author": "Unknown",
+    "language": "Croatian",
+    "direction": "ltr",
+    "source": "http://donatequran.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 112,
+    "name": "urd-abulaalamaududi-la",
+    "author": "Abul Ala Maududi",
+    "language": "Urdu",
+    "direction": "ltr",
+    "source": "https://quranromanurdu.com/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 113,
+    "name": "eng-ahmedali",
+    "author": "Ahmed Ali",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 114,
+    "name": "eng-mohammedmarmadu",
+    "author": "Mohammed Marmaduke William Pickthall",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 115,
+    "name": "tur-celalyldrm",
+    "author": "Celal Y Ld R M",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 116,
+    "name": "bos-transliterim",
+    "author": "Transliterim",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 117,
+    "name": "tel-abdulraheemmoha-la",
+    "author": "Abdul Raheem Mohammad Moulana",
+    "language": "Telugu",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 118,
+    "name": "eng-alibakhtiarinej",
+    "author": "Ali Bakhtiari Nejad",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 119,
+    "name": "tur-ynozturk-la",
+    "author": "Y. N. Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 120,
+    "name": "ara-quranuthmanihaf",
+    "author": "Quran Uthmani Hafs",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 121,
+    "name": "ber-ramdaneatmansou",
+    "author": "Ramdane At Mansour",
+    "language": "Berber",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 122,
+    "name": "ces-prekladihrbek-la",
+    "author": "Preklad I. Hrbek",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 123,
+    "name": "fas-islamhousecompe",
+    "author": "Islamhouse.com Persian Team",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "https://quranenc.com/check/persian_ih/v1.1.0-csv.1 , https://quranenc.com/en/browse/persian_ih , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 124,
+    "name": "tel-muhammadazizurr",
+    "author": "Muhammad Aziz Ur Rehman",
+    "language": "Telugu",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 125,
+    "name": "amh-muhammedsadiqan",
+    "author": "Muhammed Sadiq And Muhammed Sani Habib",
+    "language": "Amharic",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 126,
+    "name": "ben-zohurulhoque",
+    "author": "Zohurul Hoque",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 127,
+    "name": "ara-quranwarsh",
+    "author": "Quran Warsh",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 128,
+    "name": "fil-abdullatifeduar",
+    "author": "Abdullatif Eduardo M. Arceo",
+    "language": "Filipino",
+    "direction": "ltr",
+    "source": "Goodword Books , http://www.goodwordbooks.com/ , Center for Peace and Spirituality , https://www.cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 129,
+    "name": "ara-quranphoneticst",
+    "author": "Quran Phonetics Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 130,
+    "name": "tgk-abdolmohammaday-lad",
+    "author": "Abdolmohammad Ayati",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 131,
+    "name": "fas-abolfazlbahramp",
+    "author": "Abolfazl Bahrampour",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 132,
+    "name": "ara-kingfahadquranc",
+    "author": "King Fahad Quran Complex",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 133,
+    "name": "ara-quranqaloon",
+    "author": "Quran Qaloon",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 134,
+    "name": "nor-einarberg",
+    "author": "Einar Berg",
+    "language": "Norwegian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 135,
+    "name": "tel-abdulraheemmoha",
+    "author": "Abdul Raheem Mohammad Moulana",
+    "language": "Telugu",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 136,
+    "name": "vie-rowwadtranslati",
+    "author": "Rowwad Translation Center",
+    "language": "Vietnamese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/vietnamese_rwwad",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 137,
+    "name": "zho-muhammadmakin",
+    "author": "Muhammad Makin",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/chinese_makin/v1.0.0-csv.1 , https://quranenc.com/en/browse/chinese_makin , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 138,
+    "name": "aze-vasimmammadaliy-la",
+    "author": "Vasim Mammadaliyev And Ziya Bunyadov",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 139,
+    "name": "mal-cheriyamundamab",
+    "author": "Cheriyamundam Abdul Hameed And Kunhi Mohammed Parappoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 140,
+    "name": "tur-wwwislamhouseco-la",
+    "author": "Www.islamhouse.com",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "www.islamhouse.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 141,
+    "name": "heb-unknown",
+    "author": "Unknown",
+    "language": "Hebrew",
+    "direction": "rtl",
+    "source": "http://goodwordbooks.com/ , http://cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 142,
+    "name": "ita-hamzarobertopic-la",
+    "author": "Hamza Roberto Piccardo",
+    "language": "Italian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 143,
+    "name": "mal-cheriyamundamab-la",
+    "author": "Cheriyamundam Abdul Hameed And Kunhi Mohammed Parappoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 144,
+    "name": "sot-sheikheliaskeke",
+    "author": "Sheikh Elias Keketso Lelia",
+    "language": "Sotho",
+    "direction": "ltr",
+    "source": "Islamic Dawah Movement of Southern Africa (IDM)",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 145,
+    "name": "ara-quranindopak",
+    "author": "Quran Indopak",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://fonts.qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 146,
+    "name": "aze-alikhanmusayev",
+    "author": "Alikhan Musayev",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 147,
+    "name": "bos-wwwislamhouseco-la",
+    "author": "Www.islamhouse.com",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/bosnian_rwwad/v2.0.0-csv.1, https://quranenc.com/en/browse/bosnian_rwwad , https://quranenc.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 148,
+    "name": "mal-muhammadkarakun-lad",
+    "author": "Muhammad Karakunnu And Vanidas Elayavoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 149,
+    "name": "ace-tgkhmahjiddinju",
+    "author": "Tgk. H. Mahjiddin Jusuf",
+    "language": "Achinese",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 150,
+    "name": "ara-sirajtafseer",
+    "author": "Siraj Tafseer",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://quranenc.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 151,
+    "name": "ind-muhammadquraish",
+    "author": "Muhammad Quraish Shihab Et Al.",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 152,
+    "name": "orm-ghaliapapurapag",
+    "author": "Ghali Apapur Apaghuna",
+    "language": "Oromo",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/oromo_ababor/v1.0.0-csv.1 , https://quranenc.com/en/browse/oromo_ababor , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 153,
+    "name": "por-helminasr",
+    "author": "Helmi Nasr",
+    "language": "Portuguese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/portuguese_nasr/v1.3.0-csv.1 , https://quranenc.com/en/browse/portuguese_nasr , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 154,
+    "name": "ara-quranuthmanienc",
+    "author": "Quran Uthmani Enc",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://quranenc.com",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 155,
+    "name": "eng-talalitani",
+    "author": "Talal Itani",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 156,
+    "name": "rus-magomednuriosma",
+    "author": "Magomed Nuri Osmanovich Osmanov",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 157,
+    "name": "tgk-abdolmohammaday-la",
+    "author": "Abdolmohammad Ayati",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 158,
+    "name": "tur-elmalilihamdiya-la",
+    "author": "Elmalili Hamdi Yazir",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 159,
+    "name": "amh-muhammedsadiqan-lad",
+    "author": "Muhammed Sadiq And Muhammed Sani Habib",
+    "language": "Amharic",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 160,
+    "name": "fas-mohammadmahdifo",
+    "author": "Mohammad Mahdi Fooladvand",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 161,
+    "name": "tur-alifikriyavuz-la",
+    "author": "Ali Fikri Yavuz",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 162,
+    "name": "bam-fodisulimankant",
+    "author": "Fodi Suliman Kanti",
+    "language": "Bambara",
+    "direction": "rtl",
+    "source": "https://quranenc.com/en/browse/ankobambara_foudi",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 163,
+    "name": "sqi-hassannahi",
+    "author": "Hassan Nahi",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/albanian_nahi/v1.1.0-csv.1 , https://quranenc.com/en/browse/albanian_nahi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 164,
+    "name": "spa-muhammadisagarc-la",
+    "author": "Muhammad Isa Garcia",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 165,
+    "name": "zho-anonymousgroupo-la",
+    "author": "Anonymous Group Of Translators",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "Goodword Books , http://www.goodwordbooks.com/ , Center for Peace and Spirituality , https://www.cpsglobal.org/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 166,
+    "name": "eng-mohammadshafi",
+    "author": "Mohammad Shafi",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 167,
+    "name": "ind-kingfahdcomplex",
+    "author": "King Fahd Complex",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/indonesian_complex/v1.0.0-csv.1 , https://quranenc.com/en/browse/indonesian_complex , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 168,
+    "name": "sqi-unknown-la",
+    "author": "Unknown",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 169,
+    "name": "tur-diyanetvakfi",
+    "author": "Diyanet Vakfi",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 170,
+    "name": "zho-anonymousgroupo",
+    "author": "Anonymous Group Of Translators",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "Goodword Books , http://www.goodwordbooks.com/ , Center for Peace and Spirituality , https://www.cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 171,
+    "name": "bam-karamobabamamad",
+    "author": "Karamo Baba Mamadi Jani",
+    "language": "Bambara",
+    "direction": "rtl",
+    "source": "https://quranenc.com/en/browse/ankobambara_dayyan",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 172,
+    "name": "kir-shamsaldinhakim-la",
+    "author": "Shams Al Din Hakimov",
+    "language": "Kirghiz",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 173,
+    "name": "spa-juliocortes",
+    "author": "Julio Cortes",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 174,
+    "name": "tgk-wwwislamhouseco-lad",
+    "author": "Www.islamhouse.com",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tajik_arifi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tajik_arifi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 175,
+    "name": "asm-shaykhrafeequli-lad",
+    "author": "Shaykh Rafeequl Islam Habibur Rahman",
+    "language": "Assamese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/assamese_rafeeq/v1.0.0-csv.1 , https://quranenc.com/en/browse/assamese_rafeeq , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 176,
+    "name": "ben-muhiuddinkhan-lad",
+    "author": "Muhiuddin Khan",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 177,
+    "name": "zho-mazhonggang-lad",
+    "author": "Ma Zhong Gang",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 178,
+    "name": "fas-mostafakhorramd",
+    "author": "Mostafa Khorramdel",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 179,
+    "name": "tur-suatyildirim",
+    "author": "Suat Yildirim",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 180,
+    "name": "eng-drlalehbakhtiar",
+    "author": "Dr Laleh Bakhtiar",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 181,
+    "name": "hin-muhammadfarooqk-la",
+    "author": "Muhammad Farooq Khan And Muhammad Ahmed",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 182,
+    "name": "jpn-ryoichimita-lad",
+    "author": "Ryoichi Mita",
+    "language": "Japanese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/japanese_meta/v1.0.0-csv.1 , https://quranenc.com/en/browse/japanese_meta , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 183,
+    "name": "por-helminasr-la",
+    "author": "Helmi Nasr",
+    "language": "Portuguese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/portuguese_nasr/v1.3.0-csv.1 , https://quranenc.com/en/browse/portuguese_nasr , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 184,
+    "name": "rus-elmirkuliev",
+    "author": "Elmir Kuliev",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 185,
+    "name": "swa-alimuhsinalbarw",
+    "author": "Ali Muhsin Al Barwani",
+    "language": "Swahili",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 186,
+    "name": "ara-quransoosinonun",
+    "author": "Quran Soosi Non Unicode",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 187,
+    "name": "deu-adeltheodorkhou",
+    "author": "Adel Theodor Khoury",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 188,
+    "name": "tur-shabanbritch-la",
+    "author": "Shaban Britch",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/turkish_shaban/v1.1.0-csv.1 , https://quranenc.com/en/browse/turkish_shaban , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 189,
+    "name": "tgk-khojamirov-la",
+    "author": "Khoja Mirov",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 190,
+    "name": "tur-muhammedesed",
+    "author": "Muhammed Esed",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 191,
+    "name": "tur-yasarnuriozturk1-la",
+    "author": "Yasar Nuri Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 192,
+    "name": "jav-unknown",
+    "author": "Unknown",
+    "language": "Javanese",
+    "direction": "ltr",
+    "source": "https://github.com/hakimrie/alQuran-Translations , https://voiceofquran.info/download-quran-translation-pdf/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 193,
+    "name": "mya-alinuyin",
+    "author": "Alin U Yin",
+    "language": "Burmese",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 194,
+    "name": "ron-georgegrigore",
+    "author": "George Grigore",
+    "language": "Romanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 195,
+    "name": "spa-islamicfoundati",
+    "author": "Islamic Foundation",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/spanish_montada_eu/v1.0.0-csv.1 , https://quranenc.com/en/browse/spanish_montada_eu , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 196,
+    "name": "tur-hasanbasricanta-la",
+    "author": "Hasan Basri Cantay",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 197,
+    "name": "tur-suleymanates",
+    "author": "Suleyman Ates",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 198,
+    "name": "urd-fatehmuhammadja",
+    "author": "Fateh Muhammad Jalandhry",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 199,
+    "name": "ces-hadiabdollahian-la",
+    "author": "Hadi Abdollahian",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "Contact:+989354664487",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 200,
+    "name": "khm-cambodianmuslim-la",
+    "author": "Cambodian Muslim Community Development",
+    "language": "Khmer",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/khmer_cambodia/v1.0.0-csv.1 , https://quranenc.com/en/browse/khmer_cambodia , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 201,
+    "name": "kor-unknown",
+    "author": "Unknown",
+    "language": "Korean",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 202,
+    "name": "kur-muhammadsalehba",
+    "author": "Muhammad Saleh Bamoki",
+    "language": "Kurdish",
+    "direction": "rtl",
+    "source": "https://quranenc.com/check/kurdish_bamoki/v1.1.0-csv.1 , https://quranenc.com/en/browse/kurdish_bamoki , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 203,
+    "name": "lin-zakariyamuhamme",
+    "author": "Zakariya Muhammed Balingongo",
+    "language": "Lingala",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/lingala_zakaria",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 204,
+    "name": "ron-unknown",
+    "author": "Unknown",
+    "language": "Romanian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 205,
+    "name": "swe-knutbernstrom-la",
+    "author": "Knut Bernstrom",
+    "language": "Swedish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 206,
+    "name": "ukr-yakubovych",
+    "author": "Yakubovych",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 207,
+    "name": "asm-shaykhrafeequli",
+    "author": "Shaykh Rafeequl Islam Habibur Rahman",
+    "language": "Assamese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/assamese_rafeeq/v1.0.0-csv.1 , https://quranenc.com/en/browse/assamese_rafeeq , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 208,
+    "name": "eng-rowwadtranslati",
+    "author": "Rowwad Translation Center",
+    "language": "English",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/english_rwwad",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 209,
+    "name": "urd-syedzeeshanhaid",
+    "author": "Syed Zeeshan Haider Jawadi",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 210,
+    "name": "div-officeofthepres",
+    "author": "Office Of The President Of Maldives",
+    "language": "Divehi",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 211,
+    "name": "eng-mustafakhattaba",
+    "author": "Mustafa Khattab Allah Edition",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 1
+  },
+  {
+    "id": 212,
+    "name": "tur-wwwislamhouseco",
+    "author": "Www.islamhouse.com",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "www.islamhouse.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 213,
+    "name": "urd-muhammadhussain",
+    "author": "Muhammad Hussain Najafi",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 214,
+    "name": "mal-abdulhameedmada-lad",
+    "author": "Abdul Hameed Madani And Kunhi Mohammed",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 215,
+    "name": "spa-islamicfoundati-la",
+    "author": "Islamic Foundation",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/spanish_montada_eu/v1.0.0-csv.1 , https://quranenc.com/en/browse/spanish_montada_eu , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 216,
+    "name": "rus-vporokhova-la",
+    "author": "V. Porokhova",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 217,
+    "name": "eng-hamidsaziz",
+    "author": "Hamid S Aziz",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 218,
+    "name": "pus-abdulwalikhan",
+    "author": "Abdulwali Khan",
+    "language": "Pushto",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 219,
+    "name": "fas-mohammadsadeqit",
+    "author": "Mohammad Sadeqi Tehrani",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 220,
+    "name": "tam-abdulhameedbaqa-lad",
+    "author": "Abdulhameed Baqavi",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tamil_baqavi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tamil_baqavi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 221,
+    "name": "tur-edipyuksel-la",
+    "author": "Edip Yuksel",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 222,
+    "name": "ara-quranacademy",
+    "author": "Quran Academy",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://github.com/quranacademy/quran-text",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 223,
+    "name": "eng-wahiduddinkhan",
+    "author": "Wahiduddin Khan",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 224,
+    "name": "mkd-sheikhhassangil-la",
+    "author": "Sheikh Hassan Gilo",
+    "language": "Macedonian",
+    "direction": "ltr",
+    "source": "http://www.qurandownload.com , https://www.islamic-invitation.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 225,
+    "name": "sin-naseemismailand-lad",
+    "author": "Naseem Ismail And Masoor Maulana, Kaleel",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 226,
+    "name": "eng-muhammadtaqiudd",
+    "author": "Muhammad Taqi Ud Din Al Hilali And Muhammad Muhsin Khan",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 227,
+    "name": "fas-nasermakaremshi",
+    "author": "Naser Makarem Shirazi",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 228,
+    "name": "rus-vporokhova",
+    "author": "V. Porokhova",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 229,
+    "name": "tur-yasarnuriozturk1",
+    "author": "Yasar Nuri Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 230,
+    "name": "aze-khanmusayev-la",
+    "author": "Khan Musayev",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 231,
+    "name": "dag-muhammadbabaght",
+    "author": "Muhammad Baba Ghtobo",
+    "language": "Dagbani",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 232,
+    "name": "hau-abubakarmahmood-la",
+    "author": "Abubakar Mahmood Jummi",
+    "language": "Hausa",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/hausa_gummi/v1.2.0-csv.1 , https://quranenc.com/en/browse/hausa_gummi , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 233,
+    "name": "spa-islamicfoundati1",
+    "author": "Islamic Foundation",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/spanish_montada_latin/v1.0.0-csv.1 , https://quranenc.com/en/browse/spanish_montada_latin , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 234,
+    "name": "tur-diyanetisleri1",
+    "author": "Diyanet Isleri",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 235,
+    "name": "uzb-alauddinmansour",
+    "author": "Alauddin Mansour",
+    "language": "Uzbek",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/uzbek_mansour/v1.0.0-csv.1 , https://quranenc.com/en/browse/uzbek_mansour , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 236,
+    "name": "ara-jalaladdinalmah",
+    "author": "Jalal Ad Din Al Mahalli And Jalal Ad Din As Suyuti",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 237,
+    "name": "ara-sirajtafseernod",
+    "author": "Siraj Tafseer No Diacritics",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://quranenc.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 238,
+    "name": "ind-indonesianislam",
+    "author": "Indonesian Islamic Affairs Ministry",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/indonesian_affairs/v1.0.0-csv.1 , https://quranenc.com/en/browse/indonesian_affairs , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 239,
+    "name": "kin-rmcrwanda",
+    "author": "R. M. C. Rwanda",
+    "language": "Kinyarwanda",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 240,
+    "name": "kor-unknown-la",
+    "author": "Unknown",
+    "language": "Korean",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 241,
+    "name": "mya-hashimtinmyint",
+    "author": "Hashim Tin Myint",
+    "language": "Burmese",
+    "direction": "ltr",
+    "source": "http://quran.mmsy.info/app/ , Muslim students Myanmar Youth Student and Youth Online Organization",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 242,
+    "name": "por-samirelhayek",
+    "author": "Samir El Hayek",
+    "language": "Portuguese",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 243,
+    "name": "ara-quranqumbul",
+    "author": "Quran Qumbul",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 244,
+    "name": "hin-muhammadfarooqk",
+    "author": "Muhammad Farooq Khan And Muhammad Ahmed",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 245,
+    "name": "spa-muhammadisagarc",
+    "author": "Muhammad Isa Garcia",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 246,
+    "name": "tur-yasarnuriozturk-la",
+    "author": "Yasar Nuri Ozturk",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 247,
+    "name": "xho-imaamismaaeelng",
+    "author": "Imaam Ismaaeel Ngqoyiyana",
+    "language": "Xhosa",
+    "direction": "ltr",
+    "source": "The Islamic Dawah Movement of Southern Africe(IDM) , https://www.alqurantranslation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 248,
+    "name": "ara-quran-la4",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 249,
+    "name": "eng-abdelhaleem",
+    "author": "Abdel Haleem",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 250,
+    "name": "eng-ajarberry",
+    "author": "A. J. Arberry",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 251,
+    "name": "eng-muhammadasad",
+    "author": "Muhammad Asad",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 252,
+    "name": "hau-abubakarmahmood",
+    "author": "Abubakar Mahmood Jummi",
+    "language": "Hausa",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/hausa_gummi/v1.2.0-csv.1 , https://quranenc.com/en/browse/hausa_gummi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 253,
+    "name": "mal-abdulhameedmada-la",
+    "author": "Abdul Hameed Madani And Kunhi Mohammed",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 254,
+    "name": "tam-janturstfoundat-lad",
+    "author": "Jan Turst Foundation",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 255,
+    "name": "afr-imammabaker",
+    "author": "Imam M. A. Baker",
+    "language": "Afrikaans",
+    "direction": "ltr",
+    "source": "The Islamic Dawah Movement of Southern Africa",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 256,
+    "name": "deu-frankbubenheima",
+    "author": "Frank Bubenheim And Nadeem Elyas",
+    "language": "German",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/german_bubenheim/v1.1.0-csv.1 , https://quranenc.com/en/browse/german_bubenheim , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 257,
+    "name": "eng-abdulhye",
+    "author": "Abdul Hye",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 258,
+    "name": "knx-unknown",
+    "author": "Unknown",
+    "language": "Kendayan",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 259,
+    "name": "mal-muhammadkarakun-la",
+    "author": "Muhammad Karakunnu And Vanidas Elayavoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 260,
+    "name": "nep-ahlalhadithcent",
+    "author": "Ahl Al Hadith Central Society Of Nepal",
+    "language": "Nepali",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 261,
+    "name": "rus-ministryofawqaf",
+    "author": "Ministry Of Awqaf, Egypt",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 262,
+    "name": "ara-quran-la3",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 263,
+    "name": "ara-qurandoori",
+    "author": "Quran Doori",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 264,
+    "name": "eng-farookmalik",
+    "author": "Farook Malik",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 265,
+    "name": "fas-drhussientagi",
+    "author": "Dr. Hussien Tagi",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "https://quranenc.com/check/persian_tagi/v1.0.0-csv.1 , https://quranenc.com/en/browse/persian_tagi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 266,
+    "name": "kir-shamsaldinhakim",
+    "author": "Shams Al Din Hakimov",
+    "language": "Kirghiz",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 267,
+    "name": "kmr-unknown-la",
+    "author": "Unknown",
+    "language": "Kurmanji",
+    "direction": "ltr",
+    "source": "http://www.maktabah.org , http://donatequran.com/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 268,
+    "name": "nya-alhajiyusufmuha",
+    "author": "Al Haji Yusuf Muhammad Kanyamula",
+    "language": "Chichewa",
+    "direction": "ltr",
+    "source": "http://goodwordbooks.com/, Goodword Books, Islamic Dawah Movement of Southern Africa",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 269,
+    "name": "yor-shaykhaburahima",
+    "author": "Shaykh Abu Rahimah Mikael Aykyuni",
+    "language": "Yoruba",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/yoruba_mikail/v1.0.0-csv.1 , https://quranenc.com/en/browse/yoruba_mikail , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 270,
+    "name": "ara-qurandoorinonun",
+    "author": "Quran Doori Non Unicode",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 271,
+    "name": "bos-muhamedmehanovi-la",
+    "author": "Muhamed Mehanovic",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/bosnian_mihanovich/v1.1.0-csv.1 , https://quranenc.com/en/browse/bosnian_mihanovich , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 272,
+    "name": "tha-groupfromthesoc-lad",
+    "author": "Group From The Society Of Graduates Of Thai Universities And Institutes",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 273,
+    "name": "urd-abulaalamaududi",
+    "author": "Abul A Ala Maududi",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 274,
+    "name": "luy-mohammadramadha",
+    "author": "Mohammad Ramadhan Sebwa, Ramadhan Hajj Ndeka, Ismail Were, Musa Murasi Salim Kukuya, Yusuf Shiundu Malala, Yahya Wafula Ojwang, Haroon Albert Msah",
+    "language": "Luyia",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 275,
+    "name": "rus-abuadel",
+    "author": "Abu Adel",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 276,
+    "name": "tha-kingfahadquranc-la",
+    "author": "King Fahad Quran Complex",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 277,
+    "name": "eng-almuntakhabfita",
+    "author": "Almuntakhab Fi Tafsir Alquran Alkarim",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 278,
+    "name": "fin-unknown",
+    "author": "Unknown",
+    "language": "Finnish",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 279,
+    "name": "ara-quransoosi",
+    "author": "Quran Soosi",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 280,
+    "name": "pol-jozefabielawski-la",
+    "author": "Jozefa Bielawskiego",
+    "language": "Polish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 281,
+    "name": "fra-muhammadhameedu-la",
+    "author": "Muhammad Hameedullah",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/french_hameedullah/v1.0.0-csv.1 , https://quranenc.com/en/browse/french_hameedullah , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 282,
+    "name": "sin-naseemismailand-la",
+    "author": "Naseem Ismail And Masoor Maulana, Kaleel",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 283,
+    "name": "eng-miraneesuddin",
+    "author": "Mir Aneesuddin",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 284,
+    "name": "tur-elmallsadelesti",
+    "author": "Elmal L Sadelestirilmis",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 285,
+    "name": "eng-muhammadsarwar",
+    "author": "Muhammad Sarwar",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 286,
+    "name": "ita-hamzarobertopic",
+    "author": "Hamza Roberto Piccardo",
+    "language": "Italian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 287,
+    "name": "tam-janturstfoundat-la",
+    "author": "Jan Turst Foundation",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 288,
+    "name": "tur-ademugur",
+    "author": "Adem Ugur",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 289,
+    "name": "zho-muhammadmakin-la",
+    "author": "Muhammad Makin",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/chinese_makin/v1.0.0-csv.1 , https://quranenc.com/en/browse/chinese_makin , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 290,
+    "name": "ara-quran-la5",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 291,
+    "name": "eng-abulalamaududi",
+    "author": "Abul Ala Maududi",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 292,
+    "name": "eng-drkamalomar",
+    "author": "Dr Kamal Omar",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 293,
+    "name": "pan-drmuhamadhabibb-lad",
+    "author": "Dr. Muhamad Habib, Bhai Harpreet Singh, Maulana Wahiduddin Khan",
+    "language": "Panjabi",
+    "direction": "ltr",
+    "source": "Goodword Books, http://goodwordbooks.com/ , http://cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 294,
+    "name": "tur-ademugur-la",
+    "author": "Adem Ugur",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 295,
+    "name": "bos-besimkorkut",
+    "author": "Besim Korkut",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 296,
+    "name": "deu-frankbubenheima-la",
+    "author": "Frank Bubenheim And Nadeem Elyas",
+    "language": "German",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/german_bubenheim/v1.1.0-csv.1 , https://quranenc.com/en/browse/german_bubenheim , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 297,
+    "name": "hun-drahmedabdelrah-la",
+    "author": "Dr. Ahmed Abdel Rahman Okfat Tashaab",
+    "language": "Hungarian",
+    "direction": "ltr",
+    "source": "https://archive.org/ , King Fahd Quran Complex",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 298,
+    "name": "jav-unknown-la",
+    "author": "Unknown",
+    "language": "Javanese",
+    "direction": "ltr",
+    "source": "https://github.com/hakimrie/alQuran-Translations , https://voiceofquran.info/download-quran-translation-pdf/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 299,
+    "name": "kan-abdussalamputhi",
+    "author": "Abdussalam Puthige",
+    "language": "Kannada",
+    "direction": "ltr",
+    "source": "http://quraninkannada.com , aputhige@gmail.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 300,
+    "name": "kin-rwandamuslimsas",
+    "author": "Rwanda Muslims Association Team",
+    "language": "Kinyarwanda",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/kinyarwanda_assoc",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 301,
+    "name": "eng-edwardhenrypalm",
+    "author": "Edward Henry Palmer",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 302,
+    "name": "fra-islamicfoundati",
+    "author": "Islamic Foundation",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/french_montada/v1.0.0-csv.1 , https://quranenc.com/en/browse/french_montada , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 303,
+    "name": "fas-hussainansarian",
+    "author": "Hussain Ansarian",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 304,
+    "name": "fra-muhammadhameedu",
+    "author": "Muhammad Hameedullah",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/french_hameedullah/v1.0.0-csv.1 , https://quranenc.com/en/browse/french_hameedullah , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 305,
+    "name": "jpn-ryoichimita-la",
+    "author": "Ryoichi Mita",
+    "language": "Japanese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/japanese_meta/v1.0.0-csv.1 , https://quranenc.com/en/browse/japanese_meta , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 306,
+    "name": "tur-ibnikesir",
+    "author": "Ibni Kesir",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 307,
+    "name": "ces-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 308,
+    "name": "eng-johnmedowsrodwe",
+    "author": "John Medows Rodwell",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 309,
+    "name": "sqi-hasanefendinahi",
+    "author": "Hasan Efendi Nahi",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 310,
+    "name": "srp-rowwadtranslati",
+    "author": "Rowwad Translation Center Islamhouse",
+    "language": "Serbian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/serbian_rwwad",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 311,
+    "name": "kan-abdussalamputhi-la",
+    "author": "Abdussalam Puthige",
+    "language": "Kannada",
+    "direction": "ltr",
+    "source": "http://quraninkannada.com , aputhige@gmail.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 312,
+    "name": "por-samirelhayek-la",
+    "author": "Samir El Hayek",
+    "language": "Portuguese",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 313,
+    "name": "nep-ahlalhadithcent-lad",
+    "author": "Ahl Al Hadith Central Society Of Nepal",
+    "language": "Nepali",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 314,
+    "name": "tur-alifikriyavuz",
+    "author": "Ali Fikri Yavuz",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 315,
+    "name": "bos-korkut",
+    "author": "Korkut",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 316,
+    "name": "eng-themonotheistgr1",
+    "author": "The Monotheist Group Edition",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 317,
+    "name": "eng-tbirving",
+    "author": "Tbirving",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 318,
+    "name": "pol-jozefabielawski",
+    "author": "Jozefa Bielawskiego",
+    "language": "Polish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 319,
+    "name": "rus-abuadel-la",
+    "author": "Abu Adel",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 320,
+    "name": "tur-elmallsadelesti-la",
+    "author": "Elmal L Sadelestirilmis",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 321,
+    "name": "tur-latinalphabet1-la",
+    "author": "Latin Alphabet",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 322,
+    "name": "ces-arnykl",
+    "author": "A. R. Nykl",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 323,
+    "name": "eng-aliquliqarai",
+    "author": "Ali Quli Qarai",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 324,
+    "name": "urd-muhammadtahirul",
+    "author": "Muhammad Tahir Ul Qadri",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "https://irfan-ul-quran.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 325,
+    "name": "zho-majian1",
+    "author": "Ma Jian",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 326,
+    "name": "tha-kingfahadquranc",
+    "author": "King Fahad Quran Complex",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 327,
+    "name": "tur-muslimshahin-la",
+    "author": "Muslim Shahin",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/turkish_shahin/v1.0.0-csv.1 , https://quranenc.com/en/browse/turkish_shahin , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 328,
+    "name": "eng-shabbirahmed",
+    "author": "Shabbir Ahmed",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 329,
+    "name": "pan-drmuhamadhabibb-la",
+    "author": "Dr. Muhamad Habib, Bhai Harpreet Singh, Maulana Wahiduddin Khan",
+    "language": "Panjabi",
+    "direction": "ltr",
+    "source": "Goodword Books, http://goodwordbooks.com/ , http://cpsglobal.org/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 330,
+    "name": "rus-elmirkuliev-la",
+    "author": "Elmir Kuliev",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 331,
+    "name": "spa-abdulqadermouhe-la",
+    "author": "Abdul Qader Mouheddine, Sirhan Ali Sanchez.",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 332,
+    "name": "spa-islamicfoundati1-la",
+    "author": "Islamic Foundation",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/spanish_montada_latin/v1.0.0-csv.1 , https://quranenc.com/en/browse/spanish_montada_latin , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 333,
+    "name": "vie-hassanabdulkari",
+    "author": "Hassan Abdulkarim",
+    "language": "Vietnamese",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 334,
+    "name": "ber-ramdaneatmansou-la",
+    "author": "Ramdane At Mansour",
+    "language": "Berber",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 335,
+    "name": "mal-muhammadkarakun",
+    "author": "Muhammad Karakunnu And Vanidas Elayavoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 336,
+    "name": "deu-amirzaidan-la",
+    "author": "Amir Zaidan",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 337,
+    "name": "bos-besimkorkut-la",
+    "author": "Besim Korkut",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 338,
+    "name": "nep-ahlalhadithcent-la",
+    "author": "Ahl Al Hadith Central Society Of Nepal",
+    "language": "Nepali",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 339,
+    "name": "nya-khaledibrahimbe",
+    "author": "Khaled Ibrahim Betala",
+    "language": "Chichewa",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/chichewa_betala",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 340,
+    "name": "tam-abdulhameedbaqa-la",
+    "author": "Abdulhameed Baqavi",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tamil_baqavi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tamil_baqavi , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 341,
+    "name": "tgk-khojamirov-lad",
+    "author": "Khoja Mirov",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 342,
+    "name": "tur-iskenderalimihr-la",
+    "author": "Iskender Ali Mihr",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 343,
+    "name": "eng-themonotheistgr",
+    "author": "The Monotheist Group Edition",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 344,
+    "name": "fra-shahnazsaidiben-la",
+    "author": "Shahnaz Saidi Benbetka",
+    "language": "French",
+    "direction": "ltr",
+    "source": "Goodwordbooks , http://www.goodwordbooks.com/ , https://www.cpsglobal.org/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 345,
+    "name": "spa-muhammadasadabd-la",
+    "author": "Muhammad Asad Abdurrasak Perez",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 346,
+    "name": "tur-edipyuksel",
+    "author": "Edip Yuksel",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 347,
+    "name": "zho-muhammadmakin-lad",
+    "author": "Muhammad Makin",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/chinese_makin/v1.0.0-csv.1 , https://quranenc.com/en/browse/chinese_makin , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 348,
+    "name": "ces-arnykl-la",
+    "author": "A. R. Nykl",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 349,
+    "name": "lug-fareeqmusa",
+    "author": "Fareeq Musa",
+    "language": "Ganda",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 350,
+    "name": "rus-ignatyyulianovi-la",
+    "author": "Ignaty Yulianovich Krachkovsky",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 351,
+    "name": "spa-raulgonzalezbor-la",
+    "author": "Raul Gonzalez Bornez",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 352,
+    "name": "vie-hassanabdulkari-la",
+    "author": "Hassan Abdulkarim",
+    "language": "Vietnamese",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 353,
+    "name": "bul-tzvetantheophan",
+    "author": "Tzvetan Theophanov",
+    "language": "Bulgarian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 354,
+    "name": "mar-muhammadshafiia",
+    "author": "Muhammad Shafi I Ansari",
+    "language": "Marathi",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 355,
+    "name": "kor-hamidchoi",
+    "author": "Hamid Choi",
+    "language": "Korean",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 356,
+    "name": "kur-burhanmuhammada",
+    "author": "Burhan Muhammad Amin",
+    "language": "Kurdish",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 357,
+    "name": "tur-gultekinonan-la",
+    "author": "Gultekin Onan",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 358,
+    "name": "tur-muhammetabay-la",
+    "author": "Muhammet Abay",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 359,
+    "name": "aze-alikhanmusayev-la",
+    "author": "Alikhan Musayev",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 360,
+    "name": "kaz-khalifahaltai-lad",
+    "author": "Khalifah Altai",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 361,
+    "name": "sqi-unknown",
+    "author": "Unknown",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 362,
+    "name": "zho-majian1-lad",
+    "author": "Ma Jian",
+    "language": "Chinese(traditional)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 363,
+    "name": "dan-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Danish",
+    "direction": "ltr",
+    "source": "https://www.alqurantranslation.com/ , Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 364,
+    "name": "lat-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Latin",
+    "direction": "ltr",
+    "source": "https://www.alqurantranslation.com/ , Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 365,
+    "name": "bul-tzvetantheophan-lad",
+    "author": "Tzvetan Theophanov",
+    "language": "Bulgarian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 366,
+    "name": "eng-syedvickarahame",
+    "author": "Syed Vickar Ahamed",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 367,
+    "name": "fin-unknown-la",
+    "author": "Unknown",
+    "language": "Finnish",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 368,
+    "name": "eng-muhammadmahmoud",
+    "author": "Muhammad Mahmoud Ghali",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 369,
+    "name": "tur-muhammedesed-la",
+    "author": "Muhammed Esed",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 370,
+    "name": "urd-muhammadtaqiusm",
+    "author": "Muhammad Taqi Usmani",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 371,
+    "name": "mkd-macedonianschol",
+    "author": "Macedonian Scholars",
+    "language": "Macedonian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/macedonian_group",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 372,
+    "name": "tur-diyanetisleri",
+    "author": "Diyanet Isleri",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 373,
+    "name": "ron-georgegrigore-la",
+    "author": "George Grigore",
+    "language": "Romanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 374,
+    "name": "sqi-hasanefendinahi-la",
+    "author": "Hasan Efendi Nahi",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 375,
+    "name": "tur-iskenderalimihr",
+    "author": "Iskender Ali Mihr",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 376,
+    "name": "urd-muhammadkaramsh",
+    "author": "Muhammad Karam Shah Al Azhari",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "https://dailyayat.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 377,
+    "name": "nld-unknown",
+    "author": "Van De Taal",
+    "language": "Dutch",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 378,
+    "name": "nor-einarberg-la",
+    "author": "Einar Berg",
+    "language": "Norwegian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 379,
+    "name": "mal-abdulhameedmada",
+    "author": "Abdul Hameed Madani And Kunhi Mohammed",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 380,
+    "name": "mkd-sheikhhassangil-lad",
+    "author": "Sheikh Hassan Gilo",
+    "language": "Macedonian",
+    "direction": "ltr",
+    "source": "http://www.qurandownload.com , https://www.islamic-invitation.com",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 381,
+    "name": "nld-sofianssiregar",
+    "author": "Sofian S. Siregar",
+    "language": "Dutch",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 382,
+    "name": "tur-muhammetabay",
+    "author": "Muhammet Abay",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 383,
+    "name": "urd-muhammadjunagar-la",
+    "author": "Muhammad Junagarhi",
+    "language": "Urdu",
+    "direction": "ltr",
+    "source": "http://www.quranraj.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 384,
+    "name": "heb-darusalamhousei",
+    "author": "Darusalam House In Jerusalem",
+    "language": "Hebrew",
+    "direction": "rtl",
+    "source": "https://quranenc.com/en/browse/hebrew_darussalam",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 385,
+    "name": "ilp-abdulazizgroaal",
+    "author": "Abdul Aziz Gro Aalem Saromintang",
+    "language": "Iranun",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/ , King Fahd Quran Complex",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 386,
+    "name": "eng-yusufaliorig",
+    "author": "Yusuf Ali Orig",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 387,
+    "name": "cat-yousseflyoussi",
+    "author": "Youssef Lyoussi",
+    "language": "Catalan",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 388,
+    "name": "eng-miraneesorigina",
+    "author": "Mir Anees Original",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 389,
+    "name": "aze-khanmusayev",
+    "author": "Khan Musayev",
+    "language": "Azerbaijani",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 390,
+    "name": "snd-tajmehmoodamrot",
+    "author": "Taj Mehmood Amroti",
+    "language": "Sindhi",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 391,
+    "name": "eng-mohammadhabibsh",
+    "author": "Mohammad Habib Shakir",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 392,
+    "name": "tur-fizilalilkuran",
+    "author": "Fizilal Il Kuran",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 393,
+    "name": "epo-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Esperanto",
+    "direction": "ltr",
+    "source": "https://www.alqurantranslation.com/ , Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 394,
+    "name": "fas-abdolmohammaday",
+    "author": "Abdolmohammad Ayati",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 395,
+    "name": "fra-shahnazsaidiben",
+    "author": "Shahnaz Saidi Benbetka",
+    "language": "French",
+    "direction": "ltr",
+    "source": "Goodwordbooks , http://www.goodwordbooks.com/ , https://www.cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 396,
+    "name": "ces-prekladihrbek",
+    "author": "Preklad I. Hrbek",
+    "language": "Czech",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 397,
+    "name": "eng-muhammadtaqiusm",
+    "author": "Muhammad Taqi Usmani",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 398,
+    "name": "som-abdullahhasanja",
+    "author": "Abdullah Hasan Jacob",
+    "language": "Somali",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/somali_yacob",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 399,
+    "name": "tam-abdulhameedbaqa",
+    "author": "Abdulhameed Baqavi",
+    "language": "Tamil",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tamil_baqavi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tamil_baqavi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 400,
+    "name": "tha-groupfromthesoc-la",
+    "author": "Group From The Society Of Graduates Of Thai Universities And Institutes",
+    "language": "Thai",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 401,
+    "name": "tur-abdulbakigolpin-la",
+    "author": "Abdulbaki Golpinarli",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 402,
+    "name": "tur-tefhimulkuran",
+    "author": "Tefhim Ul Kuran",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 403,
+    "name": "fas-unknown",
+    "author": "Unknown",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 404,
+    "name": "guj-rabilaalomari-lad",
+    "author": "Rabila Al Omari",
+    "language": "Gujarati",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 405,
+    "name": "tgk-wwwislamhouseco-la",
+    "author": "Www.islamhouse.com",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tajik_arifi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tajik_arifi , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 406,
+    "name": "ara-quranshouba",
+    "author": "Quran Shouba",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 407,
+    "name": "fas-mahdielahighoms",
+    "author": "Mahdi Elahi Ghomshei",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 408,
+    "name": "hin-suhelfarooqkhan",
+    "author": "Suhel Farooq Khan And Saifur Rahman Nadwi",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 409,
+    "name": "kaz-khalifahaltai-la",
+    "author": "Khalifah Altai",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 410,
+    "name": "spa-juliocortes-la",
+    "author": "Julio Cortes",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 411,
+    "name": "sqi-sherifahmeti",
+    "author": "Sherif Ahmeti",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 412,
+    "name": "tur-latinalphabet",
+    "author": "Latin Alphabet",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 413,
+    "name": "tur-muslimshahin",
+    "author": "Muslim Shahin",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/turkish_shahin/v1.0.0-csv.1 , https://quranenc.com/en/browse/turkish_shahin , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 414,
+    "name": "fas-mohsengharaati",
+    "author": "Mohsen Gharaati",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 415,
+    "name": "hin-suhelfarooqkhan-la",
+    "author": "Suhel Farooq Khan And Saifur Rahman Nadwi",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 416,
+    "name": "tur-suatyildirim-la",
+    "author": "Suat Yildirim",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 417,
+    "name": "yuw-muhammadbinabdu",
+    "author": "Muhammad Bin Abdul Hamid Silika",
+    "language": "Yau",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/yaw_silika",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 418,
+    "name": "kaz-khalifahaltaich",
+    "author": "Khalifah Altai Charity Foundation",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 419,
+    "name": "pan-drmuhamadhabibb",
+    "author": "Dr. Muhamad Habib, Bhai Harpreet Singh, Maulana Wahiduddin Khan",
+    "language": "Panjabi",
+    "direction": "ltr",
+    "source": "Goodword Books, http://goodwordbooks.com/ , http://cpsglobal.org/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 420,
+    "name": "tel-abdulraheemmoha-lad",
+    "author": "Abdul Raheem Mohammad Moulana",
+    "language": "Telugu",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 421,
+    "name": "uig-shaykhmuhammads",
+    "author": "Shaykh Muhammad Saleh",
+    "language": "Uighur",
+    "direction": "rtl",
+    "source": "https://quranenc.com/check/uyghur_saleh/v1.0.0-csv.1 , https://quranenc.com/en/browse/uyghur_saleh , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 422,
+    "name": "ukr-mykhayloyakubov",
+    "author": "Mykhaylo Yakubovych",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 423,
+    "name": "ben-abubakrzakaria-lad",
+    "author": "Abu Bakr Zakaria",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 424,
+    "name": "bos-muhamedmehanovi",
+    "author": "Muhamed Mehanovic",
+    "language": "Bosnian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/bosnian_mihanovich/v1.1.0-csv.1 , https://quranenc.com/en/browse/bosnian_mihanovich , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 425,
+    "name": "urd-muhammadjunagar",
+    "author": "Muhammad Junagarhi",
+    "language": "Urdu",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 426,
+    "name": "eng-aliunal",
+    "author": "Ali Unal",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 427,
+    "name": "spa-abdulqadermouhe",
+    "author": "Abdul Qader Mouheddine, Sirhan Ali Sanchez.",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://www.islamic-invitation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 428,
+    "name": "eng-aliquliqarai1",
+    "author": "Ali Quli Qarai",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 429,
+    "name": "spa-muhammadasadabd",
+    "author": "Muhammad Asad Abdurrasak Perez",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 430,
+    "name": "tgk-wwwislamhouseco",
+    "author": "Www.islamhouse.com",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/tajik_arifi/v1.0.0-csv.1 , https://quranenc.com/en/browse/tajik_arifi , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 431,
+    "name": "fra-muhammadhamidul-la",
+    "author": "Muhammad Hamidullah",
+    "language": "French",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 432,
+    "name": "guj-rabilaalomari",
+    "author": "Rabila Al Omari",
+    "language": "Gujarati",
+    "direction": "ltr",
+    "source": "Al Birr Foundation http://albirr.in/quran-pdf",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 433,
+    "name": "tur-hasanbasricanta",
+    "author": "Hasan Basri Cantay",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 434,
+    "name": "mal-cheriyamundamab-lad",
+    "author": "Cheriyamundam Abdul Hameed And Kunhi Mohammed Parappoor",
+    "language": "Malayalam",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 435,
+    "name": "tgk-abdolmohammaday",
+    "author": "Abdolmohammad Ayati",
+    "language": "Tajik",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 436,
+    "name": "ind-unknown",
+    "author": "Unknown",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 437,
+    "name": "ara-qurannastaleeqn",
+    "author": "Quran Nastaleeq Non Unicode",
+    "language": "Arabic",
+    "direction": "rtl",
+    "source": "https://fonts.qurancomplex.gov.sa/",
+    "type": "QURAN",
+    "enabled": 0
+  },
+  {
+    "id": 438,
+    "name": "ind-jalaladdinalmah",
+    "author": "Jalal Ad Din Al Mahalli And Jalal Ad Din As Suyuti",
+    "language": "Indonesian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 439,
+    "name": "hun-drahmedabdelrah",
+    "author": "Dr. Ahmed Abdel Rahman Okfat Tashaab",
+    "language": "Hungarian",
+    "direction": "ltr",
+    "source": "https://archive.org/ , King Fahd Quran Complex",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 440,
+    "name": "kaz-khalifahaltaich-la",
+    "author": "Khalifah Altai Charity Foundation",
+    "language": "Kazakh",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 441,
+    "name": "kir-shamsaldinhakim-lad",
+    "author": "Shams Al Din Hakimov",
+    "language": "Kirghiz",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 442,
+    "name": "ron-unknown-la",
+    "author": "Unknown",
+    "language": "Romanian",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 443,
+    "name": "sin-wwwislamhouseco-la",
+    "author": "Www.islamhouse.com",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "www.islamhouse.com",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 444,
+    "name": "tur-fizilalilkuran-la",
+    "author": "Fizilal Il Kuran",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 445,
+    "name": "deu-aburidamuhammad",
+    "author": "Abu Rida Muhammad Ibn Ahmad Ibn Rassoul",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 446,
+    "name": "hin-maulanaazizulha",
+    "author": "Maulana Azizul Haque Al Umari",
+    "language": "Hindi",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/hindi_omari/v1.1.0-csv.1 , https://quranenc.com/en/browse/hindi_omari , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 447,
+    "name": "tur-latinalphabet1",
+    "author": "Latin Alphabet",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 448,
+    "name": "zho-majian-lad",
+    "author": "Ma Jian",
+    "language": "Chinese(simplified)",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 449,
+    "name": "deu-amirzaidan",
+    "author": "Amir Zaidan",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 450,
+    "name": "sin-naseemismailand",
+    "author": "Naseem Ismail And Masoor Maulana, Kaleel",
+    "language": "Sinhala",
+    "direction": "ltr",
+    "source": "https://alquran.cloud/api",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 451,
+    "name": "tur-diyanetisleri-la",
+    "author": "Diyanet Isleri",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 452,
+    "name": "tur-diyanetisleri1-la",
+    "author": "Diyanet Isleri",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 453,
+    "name": "ukr-drmikhailoyaqub",
+    "author": "Dr. Mikhailo Yaqubovic",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/ukrainian_yakubovych",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 454,
+    "name": "urd-muhammadjunagar1",
+    "author": "Muhammad Junagarhi, Muhammad Kazim",
+    "language": "Urdu",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 455,
+    "name": "eng-abdullahyusufal",
+    "author": "Abdullah Yusuf Ali",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 456,
+    "name": "ful-rowadtranslatio",
+    "author": "Rowad Translation Center And Islamhouse",
+    "language": "Fulah",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/fulani_rwwad",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 457,
+    "name": "dan-vandetaal",
+    "author": "Van De Taal",
+    "language": "Danish",
+    "direction": "ltr",
+    "source": "https://www.alqurantranslation.com/",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 458,
+    "name": "mrw-guroalimsaroman",
+    "author": "Guro Alim Saromantang",
+    "language": "Maranao",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 459,
+    "name": "yor-shaykhaburahima-la",
+    "author": "Shaykh Abu Rahimah Mikael Aykyuni",
+    "language": "Yoruba",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/yoruba_mikail/v1.0.0-csv.1 , https://quranenc.com/en/browse/yoruba_mikail , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 460,
+    "name": "ara-quran-la1",
+    "author": "Quran Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "https://quran411.com",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 461,
+    "name": "ara-quranphoneticst-la",
+    "author": "Quran Phonetics Transliteration",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "",
+    "type": "QURAN_TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 462,
+    "name": "rus-magomednuriosma-la",
+    "author": "Magomed Nuri Osmanovich Osmanov",
+    "language": "Russian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 463,
+    "name": "swe-knutbernstrom",
+    "author": "Knut Bernstrom",
+    "language": "Swedish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 464,
+    "name": "deu-asfbubenheimand",
+    "author": "A. S. F. Bubenheim And N. Elyas",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 465,
+    "name": "eng-safiurrahmanalm",
+    "author": "Safi Ur Rahman Al Mubarakpuri",
+    "language": "English",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 466,
+    "name": "uzb-alaaudeenmansou",
+    "author": "Alaaudeen Mansour",
+    "language": "Uzbek",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 467,
+    "name": "ben-abubakrzakaria-la",
+    "author": "Abu Bakr Zakaria",
+    "language": "Bengali",
+    "direction": "ltr",
+    "source": "https://qurancomplex.gov.sa/",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 468,
+    "name": "som-shaykhmahmoodmu",
+    "author": "Shaykh Mahmood Muhammad Abdu",
+    "language": "Somali",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 469,
+    "name": "tur-sabanpiris",
+    "author": "Saban Piris",
+    "language": "Turkish",
+    "direction": "ltr",
+    "source": "http://www.qurandatabase.org",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 470,
+    "name": "eng-georgesale",
+    "author": "George Sale",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 471,
+    "name": "twi-sheikhharounism",
+    "author": "Sheikh Haroun Ismaeel",
+    "language": "Twi",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/asante_harun",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 472,
+    "name": "deu-adeltheodorkhou-la",
+    "author": "Adel Theodor Khoury",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 473,
+    "name": "sqi-fetimehdiu",
+    "author": "Feti Mehdiu",
+    "language": "Albanian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 474,
+    "name": "deu-asfbubenheimand-la",
+    "author": "A. S. F. Bubenheim And N. Elyas",
+    "language": "German",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 475,
+    "name": "msa-abdullahmuhamma",
+    "author": "Abdullah Muhammad Basmeih",
+    "language": "Malay",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 476,
+    "name": "nld-fredleemhuis",
+    "author": "Fred Leemhuis",
+    "language": "Dutch",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 477,
+    "name": "ukr-hadiabdollahian-la",
+    "author": "Hadi Abdollahian",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "Contact:+989354664487",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 478,
+    "name": "eng-thestudyquran",
+    "author": "The Study Quran",
+    "language": "English",
+    "direction": "ltr",
+    "source": "",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 479,
+    "name": "spa-raulgonzalezbor",
+    "author": "Raul Gonzalez Bornez",
+    "language": "Spanish",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 480,
+    "name": "ukr-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Ukrainian",
+    "direction": "ltr",
+    "source": "Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 481,
+    "name": "bul-tzvetantheophan-la",
+    "author": "Tzvetan Theophanov",
+    "language": "Bulgarian",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 482,
+    "name": "mya-ghazimohammadha",
+    "author": "Ghazi Mohammad Hashim",
+    "language": "Burmese",
+    "direction": "ltr",
+    "source": "http://quran.mmsy.info/app/ , Muslim students Myanmar Youth Student and Youth Online Organization",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 483,
+    "name": "slk-hadiabdollahian",
+    "author": "Hadi Abdollahian",
+    "language": "Slovak",
+    "direction": "ltr",
+    "source": "https://www.alqurantranslation.com/ , Contact:+989354664487",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 484,
+    "name": "yuw-muhammadbinabdu-la",
+    "author": "Muhammad Bin Abdul Hamid Silika",
+    "language": "Yau",
+    "direction": "ltr",
+    "source": "https://quranenc.com/en/browse/yaw_silika",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 485,
+    "name": "fas-sayyedjalaloddi",
+    "author": "Sayyed Jalaloddin Mojtabavi",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 486,
+    "name": "khm-cambodianmuslim",
+    "author": "Cambodian Muslim Community Development",
+    "language": "Khmer",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/khmer_cambodia/v1.0.0-csv.1 , https://quranenc.com/en/browse/khmer_cambodia , https://quranenc.com ,",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 487,
+    "name": "fra-islamicfoundati-la",
+    "author": "Islamic Foundation",
+    "language": "French",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/french_montada/v1.0.0-csv.1 , https://quranenc.com/en/browse/french_montada , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 488,
+    "name": "fas-mohammadkazemmo",
+    "author": "Mohammad Kazem Moezzi",
+    "language": "Persian",
+    "direction": "rtl",
+    "source": "http://tanzil.net",
+    "type": "TRANSLATION",
+    "enabled": 0
+  },
+  {
+    "id": 489,
+    "name": "ara-kingfahadquranc-la",
+    "author": "King Fahad Quran Complex",
+    "language": "Arabic",
+    "direction": "ltr",
+    "source": "http://tanzil.net",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  },
+  {
+    "id": 490,
+    "name": "asm-shaykhrafeequli-la",
+    "author": "Shaykh Rafeequl Islam Habibur Rahman",
+    "language": "Assamese",
+    "direction": "ltr",
+    "source": "https://quranenc.com/check/assamese_rafeeq/v1.0.0-csv.1 , https://quranenc.com/en/browse/assamese_rafeeq , https://quranenc.com ,",
+    "type": "TRANSLITERATION",
+    "enabled": 0
+  }
+]
