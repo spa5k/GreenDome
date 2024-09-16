@@ -21,6 +21,9 @@ on:
         type: string
         default: "alpha"
 
+permissions:
+  contents: write
+
 jobs:
   update_version:
     runs-on: ubuntu-latest
