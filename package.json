@@ -154,6 +154,8 @@
     },
     "linux": {
       "target": [
+        "AppImage",
+        "rpm",
         "deb"
       ],
       "category": "Development"

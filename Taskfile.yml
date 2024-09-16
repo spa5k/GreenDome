@@ -82,17 +82,17 @@ tasks:
   release:linux:
     desc: Build and release for Linux
     cmds:
-      - pnpm electron-builder --linux -p always -c.snap.publish=github
+      - pnpm electron-builder --linux AppImage rpm deb -c.snap.publish=github -p never
 
   release:mac:
     desc: Build and release for macOS
     cmds:
-      - pnpm electron-builder --mac -p always
+      - pnpm electron-builder --mac -p never
 
   release:win:
     desc: Build and release for Windows
     cmds:
-      - pnpm electron-builder --win -p always
+      - pnpm electron-builder --win -p never
 
   release:all:
     desc: Build and release for all platforms
@@ -104,42 +104,42 @@ tasks:
   dist:linux:
     desc: Build distribution for Linux
     cmds:
-      - pnpm electron-builder --linux -p always
+      - pnpm electron-builder --linux -p never
 
   dist:linux:deb-arm64:
     desc: Build ARM64 DEB distribution for Linux
     cmds:
-      - pnpm electron-builder --linux deb:arm64 -p always
+      - pnpm electron-builder --linux deb:arm64 -p never
 
   dist:linux:rpm-arm64:
     desc: Build ARM64 RPM distribution for Linux
     cmds:
-      - pnpm electron-builder --linux rpm:arm64 -p always
+      - pnpm electron-builder --linux rpm:arm64 -p never
 
   dist:mac:
     desc: Build distribution for macOS (x64)
     cmds:
-      - pnpm electron-builder --mac dmg:x64 -p always
+      - pnpm electron-builder --mac dmg:x64 -p never
 
   dist:mac:arm64:
     desc: Build distribution for macOS (ARM64)
     cmds:
-      - pnpm electron-builder --mac dmg:arm64 -p always
+      - pnpm electron-builder --mac dmg:arm64 -p never
 
   dist:win:
     desc: Build distribution for Windows
     cmds:
-      - pnpm electron-builder --win -p always
+      - pnpm electron-builder --win -p never
 
   dist:win:x64:
     desc: Build x64 distribution for Windows
     cmds:
-      - pnpm electron-builder --win nsis-web:x64 -p always
+      - pnpm electron-builder --win nsis-web:x64 -p never
 
   dist:all:
     desc: Build distributions for all platforms
     cmds:
-      - pnpm electron-builder --win --mac --linux -p always
+      - pnpm electron-builder --win --mac --linux -p never
 
   changelog:
     desc: Generate changelog

@@ -103,7 +103,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          sudo apt-get update
           sudo snap install snapcraft --classic
+          sudo apt-get install -y rpm
+          sudo gem install fpm
           task release:linux
 
       - name: Build Electron installers for Windows
@@ -124,8 +127,15 @@ jobs:
           name: installers-${{ matrix.os }}
           path: |
             dist/*.deb
+            dist/*.rpm
+            dist/*.AppImage
+            dist/*.snap
             dist/*.exe
             dist/*.dmg
+            dist/*.zip
+            dist/*.yml
+            dist/*.yaml
+            dist/*.json
           if-no-files-found: error
 
   release:
@@ -145,30 +155,26 @@ jobs:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate release notes
-        run: |
-          echo "# Release v${{ needs.update_version.outputs.new_version }}" > RELEASE_NOTES.md
-          echo "Automated release for version ${{ needs.update_version.outputs.new_version }}" >> RELEASE_NOTES.md
-          echo "## Included installers" >> RELEASE_NOTES.md
-          find release-assets -type f | sed 's/^/* /' >> RELEASE_NOTES.md
-
       - name: Generate changelog
         run: task changelog
 
-      - name: Prepare release assets
+      - name: Prepare release assets and notes
         run: |
           mkdir -p release-assets
+          echo "# Release v${{ needs.update_version.outputs.new_version }}" > RELEASE_NOTES.md
+          echo "Automated release for version ${{ needs.update_version.outputs.new_version }}" >> RELEASE_NOTES.md
+          echo "## Included installers" >> RELEASE_NOTES.md
           for os_dir in installers/*; do
             os_name=$(basename "$os_dir")
             for file in "$os_dir"/*; do
               if [ -f "$file" ]; then
-                ext="${file##*.}"
                 filename=$(basename "$file")
-                new_filename="${filename%.*}-${os_name}.${ext}"
-                cp "$file" "release-assets/$new_filename"
+                cp "$file" "release-assets/$filename"
+                echo "* $filename" >> RELEASE_NOTES.md
               fi
             done
           done
+          cat CHANGELOG.md >> RELEASE_NOTES.md
 
       - name: Release
         uses: softprops/action-gh-release@v2
