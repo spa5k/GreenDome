@@ -25,7 +25,29 @@ permissions:
   contents: write
 
 jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.update_version.outputs.new_version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Update version
+        id: update_version
+        run: |
+          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
+            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
+          else
+            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          fi
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
   build:
+    needs: update_version
     strategy:
       fail-fast: true
       matrix:
@@ -53,6 +75,7 @@ jobs:
         with:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
@@ -61,27 +84,31 @@ jobs:
             ${{ github.workspace }}/.next/cache
             ~/.cache/electron
             ~/.cache/electron-builder
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
+            node_modules
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-nextjs-
+
       - name: Install dependencies
         run: task install
 
       - name: Build Next.js and Electron projects
         run: task build
 
-      - name: Update version
-        id: update_version
+      - name: Add the updated version to package.json (Unix)
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
         run: |
-          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
-            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
-          else
-            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
-          fi
-          NEW_VERSION=$(node -p "require('./package.json').version")
-          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/^v//')
+          sed -i 's/"version": ".*"/"version": "'$VERSION'"/' package.json
+
+      - name: Add the updated version to package.json (Windows)
+        if: startsWith(matrix.os, 'windows')
+        env:
+          VERSION: ${{ needs.update_version.outputs.new_version }}
+        run: |
+          $VERSION = $env:VERSION -replace '^v',''
+          (Get-Content package.json) -replace '"version": ".*"', "`"version`": `"$VERSION`"" | Set-Content package.json
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
@@ -124,7 +151,7 @@ jobs:
           if-no-files-found: error
 
   release:
-    needs: build
+    needs: [update_version, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
