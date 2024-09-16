@@ -87,7 +87,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
       - name: Install dependencies
-        run: pnpm install
+        run: task install
 
       - name: Build Next.js and Electron projects
         run: task build
@@ -98,16 +98,22 @@ jobs:
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           sudo snap install snapcraft --classic
           task release:linux
 
       - name: Build Electron installers for Windows
         if: startsWith(matrix.os, 'windows')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: task release:win
 
       - name: Build Electron installers for macOS
         if: startsWith(matrix.os, 'macos')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: task release:mac
 
       - name: Upload artifacts

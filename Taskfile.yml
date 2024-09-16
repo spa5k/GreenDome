@@ -86,6 +86,7 @@ tasks:
 
   release:mac:
     desc: Build and release for macOS
+    cmds:
       - pnpm electron-builder --mac -p always
 
   release:win:
