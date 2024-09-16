@@ -79,6 +79,8 @@ jobs:
           path: |
             ~/.npm
             ${{ github.workspace }}/.next/cache
+            ~/.cache/electron
+            ~/.cache/electron-builder
           # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
@@ -98,7 +100,7 @@ jobs:
             task release:linux
           elif [ "$RUNNER_OS" == "Windows" ]; then
             task release:win
-          elif [ "$RUNNER_OS" == "macOS" ]; then
+          elif [ "$RUNNER_OS" == "macos" ]; then
             task release:mac
           fi
         shell: bash
@@ -123,6 +125,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: installers
+
+      - name: Install Task
+        uses: arduino/setup-task@v2
+        with:
+          version: 3.x
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate release notes
         run: |
