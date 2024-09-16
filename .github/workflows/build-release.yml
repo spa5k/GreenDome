@@ -94,9 +94,10 @@ jobs:
       - name: Build Next.js and Electron projects
         run: task build
 
-      - name: Debug OS
-        run: echo "Current OS is ${{ matrix.os }}"
-        shell: bash
+      - name: Add the updated version to package.json
+        run: |
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
@@ -162,13 +163,13 @@ jobs:
 
       - name: Get version
         run: |
-          VERSION_TAG=v$(node -pe "require('./package.json').version")
-          echo "VERSION_TAG=$VERSION_TAG" >> $GITHUB_ENV
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Check if version already exists in tags
         run: |
-          echo "VERSION_HASH=$(git rev-parse -q --verify 'refs/tags/${{ env.VERSION_TAG }}')" >> $GITHUB_ENV
-          echo "CHANGELOG_ANCHOR=$(echo $VERSION_TAG | sed -e 's/\.//g')" >> $GITHUB_ENV
+          echo "VERSION_HASH=$(git rev-parse -q --verify 'refs/tags/${{ env.VERSION }}')" >> $GITHUB_ENV
+          echo "CHANGELOG_ANCHOR=$(echo $VERSION | sed -e 's/\.//g')" >> $GITHUB_ENV
 
       - name: Fetch draft release
         if: ${{ env.VERSION_HASH == '' }}
@@ -190,14 +191,14 @@ jobs:
           draft: false
           prerelease: false
           replacename: true
-          name: ${{ env.VERSION_TAG }}
+          name: ${{ env.VERSION }}
           replacebody: true
           body: |
             See [changelog](https://github.com/spa5k/siraat/blob/main/changelog.md#${{ env.CHANGELOG_ANCHOR }}) for the list of updates and the full diff.
 
             Thanks to all contributors! 🏅
 
-            (Note for Windows: `siraat-Web-Setup-${{ env.VERSION_TAG }}.exe` is an installer, and `siraat-${{ env.VERSION_TAG }}.exe` is a portable version)
+            (Note for Windows: `siraat-Web-Setup-${{ env.VERSION }}.exe` is an installer, and `siraat-${{ env.VERSION }}.exe` is a portable version)
 
       - name: Update changelog
         if: ${{ env.VERSION_HASH == '' }}
@@ -207,7 +208,7 @@ jobs:
         if: ${{ env.VERSION_HASH == '' }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update changelog for ${{ env.VERSION_TAG }}
+          commit_message: Update changelog for ${{ env.VERSION }}
           file_pattern: "changelog.md"
           commit_user_name: "GitHub Action"
           commit_user_email: "actions@github.com"
