@@ -176,15 +176,6 @@ jobs:
           done
           cat CHANGELOG.md >> RELEASE_NOTES.md
 
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: release-assets/*
-          body_path: RELEASE_NOTES.md
-          draft: false
-          prerelease: ${{ startsWith(github.event.inputs.release_type, 'pre') }}
-          tag_name: v${{ needs.update_version.outputs.new_version }}
-
       - name: Commit changelog and version bump
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
