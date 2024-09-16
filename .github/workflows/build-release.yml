@@ -46,14 +46,6 @@ jobs:
           NEW_VERSION=$(node -p "require('./package.json').version")
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add package.json
-          git commit -m "Bump version to ${{ steps.update_version.outputs.new_version }}"
-          git push
-
   build:
     needs: update_version
     strategy:
@@ -174,3 +166,11 @@ jobs:
           file_pattern: "CHANGELOG.md"
           commit_user_name: GitHub Action
           commit_user_email: actions@github.com
+
+      - name: Commit and push all changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Release v${{ needs.update_version.outputs.new_version }}"
+          git push

@@ -167,3 +167,8 @@ tasks:
     desc: Generate changelog
     cmds:
       - npx --yes auto-changelog
+
+  clean:
+    desc: Clean build and dist directories
+    cmds:
+      - rm -rf build dist
