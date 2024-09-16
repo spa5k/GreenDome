@@ -95,9 +95,16 @@ jobs:
         run: task build
 
       - name: Add the updated version to package.json
+        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
         run: |
           VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
           pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
+
+      - name: Add the updated version to package.json
+        if: startsWith(matrix.os, 'windows')
+        run: |
+          $VERSION = "${{ needs.update_version.outputs.new_version }}" -replace '^v',''
+          pnpm dlx json -I -f package.json -e "this.version = `"$VERSION`""
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
