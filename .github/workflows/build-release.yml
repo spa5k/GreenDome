@@ -4,15 +4,22 @@ on:
   workflow_dispatch:
     inputs:
       release_type:
-        description: "Release type (major, minor, patch, alpha, beta)"
+        description: "Release type (major, minor, patch, premajor, preminor, prepatch, prerelease)"
         required: true
         type: choice
         options:
           - major
           - minor
           - patch
-          - alpha
-          - beta
+          - premajor
+          - preminor
+          - prepatch
+          - prerelease
+      prerelease_id:
+        description: "Prerelease identifier (e.g., alpha, beta, rc)"
+        required: false
+        type: string
+        default: "alpha"
 
 jobs:
   update_version:
@@ -28,7 +35,11 @@ jobs:
       - name: Update version
         id: update_version
         run: |
-          npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
+            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
+          else
+            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          fi
           NEW_VERSION=$(node -p "require('./package.json').version")
           echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
@@ -128,7 +139,7 @@ jobs:
             installers/**/*.dmg
           body_path: RELEASE_NOTES.md
           draft: false
-          prerelease: false
+          prerelease: ${{ startsWith(github.event.inputs.release_type, 'pre') }}
           tag_name: v${{ needs.update_version.outputs.new_version }}
 
   update-changelog:
