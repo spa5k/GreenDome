@@ -96,11 +96,11 @@ jobs:
       - name: Build Next.js and Electron projects
         run: task build
 
-      - name: Add the updated version to package.json (Unix)
+      - name: Add the updated version to package.json
         if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
         run: |
-          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/^v//')
-          sed -i 's/"version": ".*"/"version": "'$VERSION'"/' package.json
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
 
       - name: Add the updated version to package.json (Windows)
         if: startsWith(matrix.os, 'windows')
