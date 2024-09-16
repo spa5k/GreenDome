@@ -25,29 +25,7 @@ permissions:
   contents: write
 
 jobs:
-  update_version:
-    runs-on: ubuntu-latest
-    outputs:
-      new_version: ${{ steps.update_version.outputs.new_version }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Update version
-        id: update_version
-        run: |
-          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
-            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
-          else
-            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
-          fi
-          NEW_VERSION=$(node -p "require('./package.json').version")
-          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-
   build:
-    needs: update_version
     strategy:
       fail-fast: true
       matrix:
@@ -94,17 +72,16 @@ jobs:
       - name: Build Next.js and Electron projects
         run: task build
 
-      - name: Add the updated version to package.json
-        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
+      - name: Update version
+        id: update_version
         run: |
-          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
-          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
-
-      - name: Add the updated version to package.json
-        if: startsWith(matrix.os, 'windows')
-        run: |
-          $VERSION = "${{ needs.update_version.outputs.new_version }}" -replace '^v',''
-          pnpm dlx json -I -f package.json -e "this.version = `"$VERSION`""
+          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
+            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
+          else
+            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          fi
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
