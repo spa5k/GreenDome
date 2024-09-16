@@ -4,7 +4,7 @@ tasks:
   install:
     desc: "Install dependencies"
     cmds:
-      - "pnpm install"
+      - "pnpm install --frozen-lockfile"
 
   next_dev:
     desc: "Development server for Next.js"
@@ -103,42 +103,42 @@ tasks:
   dist:linux:
     desc: Build distribution for Linux
     cmds:
-      - pnpm electron-builder --linux -p never
+      - pnpm electron-builder --linux -p always
 
   dist:linux:deb-arm64:
     desc: Build ARM64 DEB distribution for Linux
     cmds:
-      - pnpm electron-builder --linux deb:arm64 -p never
+      - pnpm electron-builder --linux deb:arm64 -p always
 
   dist:linux:rpm-arm64:
     desc: Build ARM64 RPM distribution for Linux
     cmds:
-      - pnpm electron-builder --linux rpm:arm64 -p never
+      - pnpm electron-builder --linux rpm:arm64 -p always
 
   dist:mac:
     desc: Build distribution for macOS (x64)
     cmds:
-      - pnpm electron-builder --mac dmg:x64 -p never
+      - pnpm electron-builder --mac dmg:x64 -p always
 
   dist:mac:arm64:
     desc: Build distribution for macOS (ARM64)
     cmds:
-      - pnpm electron-builder --mac dmg:arm64 -p never
+      - pnpm electron-builder --mac dmg:arm64 -p always
 
   dist:win:
     desc: Build distribution for Windows
     cmds:
-      - pnpm electron-builder --win -p never
+      - pnpm electron-builder --win -p always
 
   dist:win:x64:
     desc: Build x64 distribution for Windows
     cmds:
-      - pnpm electron-builder --win nsis-web:x64 -p never
+      - pnpm electron-builder --win nsis-web:x64 -p always
 
   dist:all:
     desc: Build distributions for all platforms
     cmds:
-      - pnpm electron-builder --win --mac --linux -p never
+      - pnpm electron-builder --win --mac --linux -p always
 
   changelog:
     desc: Generate changelog

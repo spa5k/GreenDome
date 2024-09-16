@@ -92,18 +92,23 @@ jobs:
       - name: Build Next.js and Electron projects
         run: task build
 
-      - name: Build Electron installers
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ "$RUNNER_OS" == "Linux" ]; then
-            task release:linux
-          elif [ "$RUNNER_OS" == "Windows" ]; then
-            task release:win
-          elif [ "$RUNNER_OS" == "macos" ]; then
-            task release:mac
-          fi
+      - name: Debug OS
+        run: echo "Current OS is ${{ matrix.os }}"
         shell: bash
+
+      - name: Build Electron installers for Linux
+        if: startsWith(matrix.os, 'ubuntu')
+        run: |
+          sudo snap install snapcraft --classic
+          task release:linux
+
+      - name: Build Electron installers for Windows
+        if: startsWith(matrix.os, 'windows')
+        run: task release:win
+
+      - name: Build Electron installers for macOS
+        if: startsWith(matrix.os, 'macos')
+        run: task release:mac
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
