@@ -196,4 +196,8 @@ jobs:
           commit_user_email: "actions@github.com"
           commit_author: "GitHub Action <actions@github.com>"
           skip_dirty_check: true
-          skip_fetch: true
+
+      - name: Clean up artifacts
+        if: always()
+        run: |
+          rm -rf RELEASE_NOTES.md installers release-assets
