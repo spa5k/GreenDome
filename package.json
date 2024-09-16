@@ -189,7 +189,6 @@
       "category": "Utility",
       "target": [
         "AppImage",
-        "snap",
         "freebsd",
         "deb",
         "rpm"
@@ -216,15 +215,6 @@
       "fpm": [
         "--rpm-rpmbuild-define",
         "_build_id_links none"
-      ]
-    },
-    "snap": {
-      "slots": [
-        {
-          "mpris": {
-            "interface": "mpris"
-          }
-        }
       ]
     }
   },

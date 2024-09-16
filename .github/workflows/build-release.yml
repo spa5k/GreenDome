@@ -116,7 +116,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           sudo apt-get update
-          sudo snap install snapcraft --classic
           sudo apt-get install -y rpm
           sudo gem install fpm
           task release:linux
