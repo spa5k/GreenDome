@@ -82,22 +82,15 @@ tasks:
   release:linux:
     desc: Build and release for Linux
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --linux -p always -c.snap.publish=github
 
   release:mac:
     desc: Build and release for macOS
-    cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --mac -p always
 
   release:win:
     desc: Build and release for Windows
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --win -p always
 
   release:all:
@@ -110,57 +103,41 @@ tasks:
   dist:linux:
     desc: Build distribution for Linux
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --linux -p never
 
   dist:linux:deb-arm64:
     desc: Build ARM64 DEB distribution for Linux
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --linux deb:arm64 -p never
 
   dist:linux:rpm-arm64:
     desc: Build ARM64 RPM distribution for Linux
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --linux rpm:arm64 -p never
 
   dist:mac:
     desc: Build distribution for macOS (x64)
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --mac dmg:x64 -p never
 
   dist:mac:arm64:
     desc: Build distribution for macOS (ARM64)
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --mac dmg:arm64 -p never
 
   dist:win:
     desc: Build distribution for Windows
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --win -p never
 
   dist:win:x64:
     desc: Build x64 distribution for Windows
     cmds:
-      - task: clean
-      - task: build
       - pnpm electron-builder --win nsis-web:x64 -p never
 
   dist:all:
     desc: Build distributions for all platforms
     cmds:
-      - pnpm clean
-      - pnpm build
       - pnpm electron-builder --win --mac --linux -p never
 
   changelog:
