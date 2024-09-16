@@ -93,9 +93,6 @@ jobs:
       - name: Install dependencies
         run: task install
 
-      - name: Build Next.js and Electron projects
-        run: task build
-
       - name: Add the updated version to package.json
         if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
         run: |
@@ -109,6 +106,9 @@ jobs:
         run: |
           $VERSION = $env:VERSION -replace '^v',''
           (Get-Content package.json) -replace '"version": ".*"', "`"version`": `"$VERSION`"" | Set-Content package.json
+
+      - name: Build Next.js and Electron projects
+        run: task build
 
       - name: Build Electron installers for Linux
         if: startsWith(matrix.os, 'ubuntu')
