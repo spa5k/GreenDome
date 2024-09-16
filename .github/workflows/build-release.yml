@@ -124,9 +124,9 @@ jobs:
           name: installers-${{ matrix.os }}
           path: |
             dist/*.deb
-            dist/*.rpm
             dist/*.exe
             dist/*.dmg
+          if-no-files-found: error
 
   release:
     needs: [update_version, build]
@@ -150,45 +150,34 @@ jobs:
           echo "# Release v${{ needs.update_version.outputs.new_version }}" > RELEASE_NOTES.md
           echo "Automated release for version ${{ needs.update_version.outputs.new_version }}" >> RELEASE_NOTES.md
           echo "## Included installers" >> RELEASE_NOTES.md
-          find installers -type f | sed 's/^/* /' >> RELEASE_NOTES.md
+          find release-assets -type f | sed 's/^/* /' >> RELEASE_NOTES.md
 
       - name: Generate changelog
         run: task changelog
 
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          for os_dir in installers/*; do
+            os_name=$(basename "$os_dir")
+            for file in "$os_dir"/*; do
+              if [ -f "$file" ]; then
+                ext="${file##*.}"
+                filename=$(basename "$file")
+                new_filename="${filename%.*}-${os_name}.${ext}"
+                cp "$file" "release-assets/$new_filename"
+              fi
+            done
+          done
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            installers/**/*.deb
-            installers/**/*.rpm
-            installers/**/*.exe
-            installers/**/*.dmg
+          files: release-assets/*
           body_path: RELEASE_NOTES.md
           draft: false
           prerelease: ${{ startsWith(github.event.inputs.release_type, 'pre') }}
           tag_name: v${{ needs.update_version.outputs.new_version }}
-
-  update-changelog:
-    needs: release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-
-      - name: Install Task
-        uses: arduino/setup-task@v2
-        with:
-          version: 3.x
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Update changelog
-        run: task changelog
 
       - name: Commit changelog
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -197,5 +186,3 @@ jobs:
           file_pattern: "CHANGELOG.md"
           commit_user_name: GitHub Action
           commit_user_email: actions@github.com
-
-      - uses: stefanzweifel/git-auto-commit-action@v5
