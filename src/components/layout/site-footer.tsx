@@ -73,15 +73,11 @@ export function SiteFooter() {
         <div className="md:flex md:justify-between px-8 p-4 py-16 sm:pb-16 gap-4">
           <div className="mb-12 flex-col flex gap-4">
             <Link href="/" className="flex items-center gap-2">
-              <img
-                src="https://magicui.design/icon.png"
-                className="h-8 w-8 text-primary"
-              />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Noor Siraat
+                Siraat
               </span>
             </Link>
-            <p className="max-w-xs">UI Library for Design Engineers</p>
+            <p className="max-w-xs">Explore the Quran with our interactive platform.</p>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:gap-10 sm:grid-cols-3">
             {footerNavs.map((nav) => (
@@ -122,7 +118,7 @@ export function SiteFooter() {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             Copyright © {new Date().getFullYear()}{" "}
             <Link href="/" className="cursor-pointer">
-              Noor Siraat
+              Siraat
             </Link>
             . All Rights Reserved.
           </span>

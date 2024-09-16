@@ -1,11 +1,11 @@
 "use client";
 
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { AlignJustify, XIcon } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "../generic/ModeToggle";
 
 const menuItem = [
   {
@@ -103,17 +103,12 @@ export function SiteHeader() {
             Noor Siraat
           </Link>
 
-          <div className="ml-auto flex h-full items-center">
+          <div className="ml-auto flex h-full items-center gap-4">
+            <ModeToggle />
             <Link className="mr-6 text-sm" href="/hadith">
               Hadith
             </Link>
-            <Link
-              className={cn(
-                buttonVariants({ variant: "secondary" }),
-                "mr-6 text-sm",
-              )}
-              href="/quran"
-            >
+            <Link href="/quran">
               Quran
             </Link>
           </div>

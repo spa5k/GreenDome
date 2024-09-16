@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
 import { ElectronIndicator } from "@/components/generic/ElectronIndicator";
 import { TailwindIndicator } from "@/components/generic/TailwindIndicator";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
 
 const geistSans = localFont({
   src: "./(app)/fonts/GeistVF.woff",
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"

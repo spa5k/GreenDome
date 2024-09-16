@@ -1,11 +1,10 @@
-import { NextPrayerWidget } from "@/features/salah/components/NextPrayerWidget";
-import { cn } from "@/lib/utils";
 import { BellIcon, Book, CalendarIcon, Compass, FileTextIcon, FormInputIcon, GlobeIcon, Settings } from "lucide-react";
 import { lazy, Suspense } from "react";
-import AnimatedGridPattern from "../extra/animated-grid-pattern";
 import { BentoCard, BentoGrid } from "../extra/bento-grid";
 import Globe from "../extra/globe";
 import { GridPatternLinearGradient } from "../extra/grid-pattern";
+import { Calendar } from "../ui/calendar";
+import PrayerTimelineTable from "./prayer-table";
 
 // Lazy load components
 // const RecitationCard = lazy(() => import("@/src/features/recitation/components/RecitationCard"));
@@ -20,11 +19,11 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <div className="transform-gpu transition-all duration-300 ease-out hover:blur-none">
-        <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="absolute origin-top rounded-md transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105">
           <RecitationCard />
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     ),
     className: "lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-3",
   },
@@ -36,6 +35,7 @@ const features = [
     cta: "Search now",
     background: (
       <Suspense fallback={<div>Loading...</div>}>
+        Search here
       </Suspense>
     ),
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
@@ -58,18 +58,8 @@ const features = [
     background: (
       <div className="relative flex h-full w-full items-start justify-start overflow-hidden rounded-lg bg-background p-5 [mask-image:linear-gradient(to_top,transparent_10%,#000_30%)]">
         <div className="z-10 whitespace-pre-wrap text-start text-2xl font-medium tracking-tighter text-primary-foreground">
-          <NextPrayerWidget />
+          <PrayerTimelineTable />
         </div>
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.5}
-          duration={3}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
-          )}
-        />
       </div>
     ),
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
@@ -80,7 +70,13 @@ const features = [
     description: "Set reminders for important Islamic events and activities.",
     href: "/",
     cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
+    background: (
+      <Calendar
+        mode="single"
+        selected={new Date(2022, 4, 11, 0, 0, 0)}
+        className="absolute origin-top rounded-md border transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_40%,#000_100%)] group-hover:scale-105"
+      />
+    ),
     className: "lg:col-start-2 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   },
   {
