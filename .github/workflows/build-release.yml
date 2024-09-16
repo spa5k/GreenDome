@@ -124,7 +124,7 @@ jobs:
           if-no-files-found: error
 
   release:
-    needs: [update_version, build]
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
