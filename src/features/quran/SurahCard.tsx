@@ -8,7 +8,7 @@ import { Chapter } from "./types";
 const QuranCard = ({ chapter, juzStart, juzEnd }: { chapter: Chapter; juzStart: number; juzEnd: number }) => {
   const juzRange = juzStart !== juzEnd && juzEnd ? `Juz ${juzStart}-${juzEnd}` : `Juz ${juzStart}`;
   return (
-    <Link href={`/surah/${chapter.chapter}`}>
+    <Link href={`/quran/${chapter.chapter}`}>
       <Card className="h-48 flex flex-col justify-between">
         <CardHeader className="flex flex-row">
           <div className="gap-2 flex flex-col">
