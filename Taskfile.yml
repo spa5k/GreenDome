@@ -1,6 +1,11 @@
 version: "3"
 
 tasks:
+  install:
+    desc: "Install dependencies"
+    cmds:
+      - "pnpm install"
+
   next_dev:
     desc: "Development server for Next.js"
     cmds:
@@ -36,10 +41,20 @@ tasks:
     cmds:
       - "pnpm electron-builder --dir"
 
-  electron_dist_deb:
+  electron_dist_linux:
     desc: "Build Electron for Debian distribution"
     cmds:
-      - "pnpm electron-builder --linux deb"
+      - "pnpm electron-builder --linux deb rpm"
+
+  electron_dist_mac:
+    desc: "Build Electron for macOS distribution"
+    cmds:
+      - "pnpm electron-builder --mac dmg"
+
+  electron_dist_win:
+    desc: "Build Electron for Windows distribution"
+    cmds:
+      - "pnpm electron-builder --win"
 
   electron_build:
     desc: "Build Electron using tsup"

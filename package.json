@@ -120,8 +120,8 @@
   },
   "build": {
     "asar": true,
-    "executableName": "Quran",
-    "appId": "com.saybackend.quran",
+    "executableName": "Siraat",
+    "appId": "com.saybackend.siraat",
     "asarUnpack": [
       "node_modules/next",
       "node_modules/@img",
