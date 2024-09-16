@@ -41,21 +41,6 @@ tasks:
     cmds:
       - "pnpm electron-builder --dir"
 
-  electron_dist_linux:
-    desc: "Build Electron for Debian distribution"
-    cmds:
-      - "pnpm electron-builder --linux deb rpm"
-
-  electron_dist_mac:
-    desc: "Build Electron for macOS distribution"
-    cmds:
-      - "pnpm electron-builder --mac dmg"
-
-  electron_dist_win:
-    desc: "Build Electron for Windows distribution"
-    cmds:
-      - "pnpm electron-builder --win"
-
   electron_build:
     desc: "Build Electron using tsup"
     cmds:
@@ -88,9 +73,97 @@ tasks:
   docker_build:
     desc: "Build Docker image"
     cmds:
-      - "docker build -t noorsiraat ."
+      - "docker build -t siraat ."
 
   docker_run:
     desc: "Run Docker container"
     cmds:
-      - "docker run -d -p 3000:3000 noorsiraat"
+      - "docker run -d -p 3000:3000 siraat"
+  release:linux:
+    desc: Build and release for Linux
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --linux -p always -c.snap.publish=github
+
+  release:mac:
+    desc: Build and release for macOS
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --mac -p always
+
+  release:win:
+    desc: Build and release for Windows
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --win -p always
+
+  release:all:
+    desc: Build and release for all platforms
+    cmds:
+      - task: release:linux
+      - task: release:mac
+      - task: release:win
+
+  dist:linux:
+    desc: Build distribution for Linux
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --linux -p never
+
+  dist:linux:deb-arm64:
+    desc: Build ARM64 DEB distribution for Linux
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --linux deb:arm64 -p never
+
+  dist:linux:rpm-arm64:
+    desc: Build ARM64 RPM distribution for Linux
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --linux rpm:arm64 -p never
+
+  dist:mac:
+    desc: Build distribution for macOS (x64)
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --mac dmg:x64 -p never
+
+  dist:mac:arm64:
+    desc: Build distribution for macOS (ARM64)
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --mac dmg:arm64 -p never
+
+  dist:win:
+    desc: Build distribution for Windows
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --win -p never
+
+  dist:win:x64:
+    desc: Build x64 distribution for Windows
+    cmds:
+      - task: clean
+      - task: build
+      - pnpm electron-builder --win nsis-web:x64 -p never
+
+  dist:all:
+    desc: Build distributions for all platforms
+    cmds:
+      - pnpm clean
+      - pnpm build
+      - pnpm electron-builder --win --mac --linux -p never
+
+  changelog:
+    desc: Generate changelog
+    cmds:
+      - npx --yes auto-changelog

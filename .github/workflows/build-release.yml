@@ -2,9 +2,46 @@ name: Build and Release Electron App
 
 on:
   workflow_dispatch:
+    inputs:
+      release_type:
+        description: "Release type (major, minor, patch, alpha, beta)"
+        required: true
+        type: choice
+        options:
+          - major
+          - minor
+          - patch
+          - alpha
+          - beta
 
 jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{ steps.update_version.outputs.new_version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Update version
+        id: update_version
+        run: |
+          npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package.json
+          git commit -m "Bump version to ${{ steps.update_version.outputs.new_version }}"
+          git push
+
   build:
+    needs: update_version
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -13,6 +50,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -21,36 +60,37 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: "pnpm"
+
       - name: Install Task
         uses: arduino/setup-task@v2
         with:
           version: 3.x
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install dependencies
-        run: |
-          task install
+        run: pnpm install
 
       - name: Build Next.js and Electron projects
-        run: |
-          task build
+        run: task build
 
       - name: Build Electron installers
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [ "$RUNNER_OS" == "Linux" ]; then
-            task electron_dist_linux
+            task release:linux
           elif [ "$RUNNER_OS" == "Windows" ]; then
-            task electron_dist_win
+            task release:win
           elif [ "$RUNNER_OS" == "macOS" ]; then
-            task electron_dist_mac
+            task release:mac
           fi
         shell: bash
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: installers
+          name: installers-${{ matrix.os }}
           path: |
             dist/*.deb
             dist/*.rpm
@@ -58,7 +98,7 @@ jobs:
             dist/*.dmg
 
   release:
-    needs: build
+    needs: [update_version, build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -70,10 +110,13 @@ jobs:
 
       - name: Generate release notes
         run: |
-          echo "# Release ${{ github.ref_name }}" > RELEASE_NOTES.md
-          echo "Automated release for version ${{ github.ref_name }}" >> RELEASE_NOTES.md
+          echo "# Release v${{ needs.update_version.outputs.new_version }}" > RELEASE_NOTES.md
+          echo "Automated release for version ${{ needs.update_version.outputs.new_version }}" >> RELEASE_NOTES.md
           echo "## Included installers" >> RELEASE_NOTES.md
           find installers -type f | sed 's/^/* /' >> RELEASE_NOTES.md
+
+      - name: Generate changelog
+        run: task changelog
 
       - name: Release
         uses: softprops/action-gh-release@v2
@@ -86,3 +129,34 @@ jobs:
           body_path: RELEASE_NOTES.md
           draft: false
           prerelease: false
+          tag_name: v${{ needs.update_version.outputs.new_version }}
+
+  update-changelog:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Task
+        uses: arduino/setup-task@v2
+        with:
+          version: 3.x
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update changelog
+        run: task changelog
+
+      - name: Commit changelog
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Update changelog for v${{ needs.update_version.outputs.new_version }}
+          file_pattern: "CHANGELOG.md"
+          commit_user_name: GitHub Action
+          commit_user_email: actions@github.com
