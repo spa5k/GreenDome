@@ -130,6 +130,8 @@
     ],
     "files": [
       "build",
+      "!node_modules/**/*.map",
+      "!node_modules/**/*.ts",
       {
         "from": ".next/standalone",
         "to": "app",
@@ -148,17 +150,88 @@
       }
     ],
     "win": {
+      "icon": "assets/generated/icons/win/icon.ico",
       "target": [
-        "nsis"
+        {
+          "target": "nsis-web",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32",
+            "arm64"
+          ]
+        }
+      ]
+    },
+    "nsisWeb": {
+      "runAfterFinish": false
+    },
+    "mac": {
+      "identity": null,
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
       ]
     },
     "linux": {
+      "category": "Utility",
       "target": [
         "AppImage",
-        "rpm",
-        "deb"
+        "snap",
+        "freebsd",
+        "deb",
+        "rpm"
+      ]
+    },
+    "deb": {
+      "depends": [
+        "libgtk-3-0",
+        "libnotify4",
+        "libnss3",
+        "libxss1",
+        "libxtst6",
+        "xdg-utils",
+        "libatspi2.0-0",
+        "libuuid1",
+        "libasound2",
+        "libgbm1"
+      ]
+    },
+    "rpm": {
+      "depends": [
+        "/usr/lib64/libuuid.so.1"
       ],
-      "category": "Development"
+      "fpm": [
+        "--rpm-rpmbuild-define",
+        "_build_id_links none"
+      ]
+    },
+    "snap": {
+      "slots": [
+        {
+          "mpris": {
+            "interface": "mpris"
+          }
+        }
+      ]
     }
+  },
+  "auto-changelog": {
+    "hideCredit": true,
+    "package": true,
+    "unreleased": true,
+    "output": "changelog.md"
   }
 }

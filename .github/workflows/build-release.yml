@@ -143,6 +143,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -158,37 +160,55 @@ jobs:
       - name: Generate changelog
         run: task changelog
 
-      - name: Prepare release assets and notes
+      - name: Get version
         run: |
-          mkdir -p release-assets
-          echo "# Release v${{ needs.update_version.outputs.new_version }}" > RELEASE_NOTES.md
-          echo "Automated release for version ${{ needs.update_version.outputs.new_version }}" >> RELEASE_NOTES.md
-          echo "## Included installers" >> RELEASE_NOTES.md
-          for os_dir in installers/*; do
-            os_name=$(basename "$os_dir")
-            for file in "$os_dir"/*; do
-              if [ -f "$file" ]; then
-                filename=$(basename "$file")
-                cp "$file" "release-assets/$filename"
-                echo "* $filename" >> RELEASE_NOTES.md
-              fi
-            done
-          done
-          cat CHANGELOG.md >> RELEASE_NOTES.md
+          VERSION_TAG=v$(node -pe "require('./package.json').version")
+          echo "VERSION_TAG=$VERSION_TAG" >> $GITHUB_ENV
 
-      - name: Commit changelog and version bump
+      - name: Check if version already exists in tags
+        run: |
+          echo "VERSION_HASH=$(git rev-parse -q --verify 'refs/tags/${{ env.VERSION_TAG }}')" >> $GITHUB_ENV
+          echo "CHANGELOG_ANCHOR=$(echo $VERSION_TAG | sed -e 's/\.//g')" >> $GITHUB_ENV
+
+      - name: Fetch draft release
+        if: ${{ env.VERSION_HASH == '' }}
+        uses: cardinalby/git-get-release-action@v1
+        id: get_draft_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          latest: true
+          draft: true
+          searchLimit: 1
+
+      - name: Publish Release (if it does not exist)
+        if: ${{ env.VERSION_HASH == '' }}
+        uses: irongut/EditRelease@v1.2.0
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          id: ${{ steps.get_draft_release.outputs.id }}
+          draft: false
+          prerelease: false
+          replacename: true
+          name: ${{ env.VERSION_TAG }}
+          replacebody: true
+          body: |
+            See [changelog](https://github.com/spa5k/siraat/blob/main/changelog.md#${{ env.CHANGELOG_ANCHOR }}) for the list of updates and the full diff.
+
+            Thanks to all contributors! 🏅
+
+            (Note for Windows: `siraat-Web-Setup-${{ env.VERSION_TAG }}.exe` is an installer, and `siraat-${{ env.VERSION_TAG }}.exe` is a portable version)
+
+      - name: Update changelog
+        if: ${{ env.VERSION_HASH == '' }}
+        run: task changelog
+
+      - name: Commit changelog
+        if: ${{ env.VERSION_HASH == '' }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update changelog and bump version to v${{ needs.update_version.outputs.new_version }}"
-          file_pattern: |
-            CHANGELOG.md
-            package.json
+          commit_message: Update changelog for ${{ env.VERSION_TAG }}
+          file_pattern: "changelog.md"
           commit_user_name: "GitHub Action"
           commit_user_email: "actions@github.com"
           commit_author: "GitHub Action <actions@github.com>"
-          skip_dirty_check: true
-
-      - name: Clean up artifacts
-        if: always()
-        run: |
-          rm -rf RELEASE_NOTES.md installers release-assets
