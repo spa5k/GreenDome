@@ -32,12 +32,12 @@ export class LocalAyahService extends AyahService {
     surah: number,
     editionName: string,
   ): Promise<Ayah[]> {
-    console.log("fetchAyahs", surah, editionId);
-    const response = await fetch(
-      `http://localhost:50000/surah/${surah}/${editionId}`,
-    );
+    console.log("fetchAyahs", surah, editionId, editionName);
+    const url = `http://localhost:50000/surah/${surah}/${editionId}`;
+
+    const response = await fetch(url, { cache: "no-store" });
     const res = await response.json();
-    console.log("res", res);
+
     return res;
   }
 
@@ -52,7 +52,6 @@ export class LocalAyahService extends AyahService {
     const ayahTextFile = await fetch(textFileUrl);
 
     const ayahLines = (await ayahTextFile.text()).trim().split("\n");
-    // const ayahLines = ayahTextFile.trim().split("\n");
 
     const chapter = quranData.chapters.find((ch) => ch.chapter === surahNumber);
 
@@ -171,7 +170,14 @@ export const fetchAyahs = async (
   const service = isLocalhost
     ? new LocalAyahService()
     : new RemoteAyahService();
-  return await service.fetchAyahs(editionId, surah, editionName);
+
+  try {
+    return await service.fetchAyahs(editionId, surah, editionName);
+  } catch (error) {
+    console.error("Local fetch failed, trying remote:", error);
+    const remoteService = new RemoteAyahService();
+    return await remoteService.fetchAyahs(editionId, surah, editionName);
+  }
 };
 
 export const fetchAyahsQFC = async (

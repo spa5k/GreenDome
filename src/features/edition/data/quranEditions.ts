@@ -2,7 +2,7 @@ import { Edition } from "../api/edition";
 
 export const quranEditions: Edition[] = [
   {
-    id: 145,
+    id: 123,
     slug: "ara-quranindopak",
     author: "Indopak",
     direction: "rtl",
@@ -13,6 +13,16 @@ export const quranEditions: Edition[] = [
   },
   {
     id: 120,
+    slug: "ara-quranuthmanihaf",
+    author: "Quran Uthmani Hafs",
+    direction: "rtl",
+    type: "QURAN",
+    name: "Uthmanic",
+    enabled: true,
+    language: "arabic",
+  },
+  {
+    id: 458,
     slug: "ara-quranuthmanihaf",
     author: "Quran Uthmani Hafs",
     direction: "rtl",

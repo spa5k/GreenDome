@@ -95,7 +95,6 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
     const surahNumber = parseInt(c.req.param("surahNumber"));
     const editionId = parseInt(c.req.param("editionId"));
     const ayahs = await getAyahsBySurahNumberAndEditionID(db, surahNumber, editionId);
-    console.log(ayahs);
     return c.json(ayahs);
   });
 }

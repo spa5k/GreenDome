@@ -17,8 +17,8 @@ export async function getAyahsBySurahNumberAndEditionID(
     const ayahs = await db
       .selectFrom("ayah")
       .selectAll()
-      .where("ayah.surahNumber", "=", surahNumber)
-      .where("ayah.editionId", "=", editionId)
+      .where("surahNumber", "=", surahNumber)
+      .where("editionId", "=", editionId)
       .execute();
 
     return ayahs;
@@ -45,9 +45,9 @@ export async function getAyahBySurahNumberAyahNumberAndEditionID(
   return db
     .selectFrom("ayah")
     .selectAll()
-    .where("ayah.surahNumber", "=", surahNumber)
-    .where("ayah.ayahNumber", "=", ayahNumber)
-    .where("ayah.editionId", "=", editionId)
+    .where("surahNumber", "=", surahNumber)
+    .where("ayahNumber", "=", ayahNumber)
+    .where("editionId", "=", editionId)
     .execute();
 }
 
@@ -64,7 +64,7 @@ export async function getAyahsByEditionID(
   return db
     .selectFrom("ayah")
     .selectAll()
-    .where("ayah.editionId", "=", editionId)
+    .where("editionId", "=", editionId)
     .execute();
 }
 /**
@@ -80,7 +80,7 @@ export async function getAyahsBySurahNumber(
   const statement = db
     .selectFrom("ayah")
     .selectAll()
-    .where("ayah.surahNumber", "=", surahNumber);
+    .where("surahNumber", "=", surahNumber);
 
   const sqlStatement = statement.compile();
   console.log(sqlStatement.sql);

@@ -43,8 +43,8 @@ export default async function Page({
     return editions.split(",").map((edition) => parseInt(edition.trim())).filter(edition => !isNaN(edition));
   }
 
-  const quranEditionsSelected = parseEditions(searchParams?.q ?? "145");
-  const translationEditionsSelected = parseEditions(searchParams?.t ?? "211");
+  const quranEditionsSelected = parseEditions(searchParams?.q ?? "458");
+  const translationEditionsSelected = parseEditions(searchParams?.t ?? "281");
 
   const quranEditionsSelectedData: Edition[] = quranEditionsSelected.map(
     (edition) => quranEditions.find((quranEdition) => quranEdition.id === edition),
@@ -53,9 +53,6 @@ export default async function Page({
   const translationEditionsSelectedData: Edition[] = translationEditionsSelected.map(
     (edition) => translationEditions.find((translationEdition) => translationEdition.id === edition),
   ).filter((edition): edition is Edition => edition !== undefined);
-
-  console.log("quranEditionsSelectedData", quranEditionsSelectedData);
-  console.log("translationEditionsSelectedData", translationEditionsSelectedData);
 
   const fetchEditions = async (
     editions: Edition[],
@@ -91,7 +88,7 @@ export default async function Page({
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
     fetchEditions(quranEditionsSelectedData, fetchAyahs, surahNumber),
     fetchEditions(translationEditionsSelectedData, fetchAyahs, surahNumber),
-    fetchAyahs(146, surahNumber, "indopak"),
+    fetchAyahs(123, surahNumber, "ara-quranindopak"),
   ]);
 
   logger.info("Fetched editions", {
@@ -103,8 +100,9 @@ export default async function Page({
   const referenceAyahs = quranEditionsFetched[0]?.ayahs || [];
 
   const isAyahQFC = (ayah: AyahQFC | Ayah): ayah is AyahQFC => {
-    return (ayah as AyahQFC).page !== undefined;
+    return (ayah as AyahQFC)?.page !== undefined;
   };
+  console.log("referenceAyahs", quranEditionsFetched[0]?.id, referenceAyahs.length);
 
   return (
     <main className={`mt-20 flex gap-4 flex-col ${fonts} items-center`}>

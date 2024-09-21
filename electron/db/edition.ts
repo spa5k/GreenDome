@@ -18,7 +18,7 @@ export async function getQuran(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.type", "=", "QURAN")
+    .where("type", "=", "QURAN")
     .execute();
 }
 
@@ -29,7 +29,7 @@ export async function getTransliterations(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.type", "=", "TRANSLITERATION")
+    .where("type", "=", "TRANSLITERATION")
     .execute();
 }
 
@@ -40,7 +40,7 @@ export async function getQuranTransliterations(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.type", "=", "QURAN_TRANSLITERATION")
+    .where("type", "=", "QURAN_TRANSLITERATION")
     .execute();
 }
 
@@ -52,7 +52,7 @@ export async function getEditionsByType(db: Kysely<Database>, type: string) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.type", "=", type)
+    .where("type", "=", type)
     .execute();
 }
 
@@ -64,7 +64,7 @@ export async function getEditionByID(db: Kysely<Database>, id: number) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.id", "=", id)
+    .where("id", "=", id)
     .executeTakeFirst();
 }
 
@@ -76,7 +76,7 @@ export async function getEditionByName(db: Kysely<Database>, name: string) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.name", "=", name)
+    .where("name", "=", name)
     .executeTakeFirst();
 }
 
@@ -97,7 +97,7 @@ export async function getEnabledEditions(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.enabled", "=", 1)
+    .where("enabled", "=", 1)
     .execute();
 }
 
@@ -108,7 +108,7 @@ export async function getDisabledEditions(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.enabled", "=", 0)
+    .where("enabled", "=", 0)
     .execute();
 }
 
@@ -120,7 +120,7 @@ export async function getEditionsByLanguage(db: Kysely<Database>, language: stri
   return db
     .selectFrom("edition")
     .selectAll()
-    .where("edition.language", "=", language)
+    .where("language", "=", language)
     .execute();
 }
 
@@ -130,7 +130,7 @@ export async function getEditionsByLanguage(db: Kysely<Database>, language: stri
 export async function getLanguages(db: Kysely<Database>) {
   return db
     .selectFrom("edition")
-    .select("edition.language")
-    .groupBy("edition.language")
+    .select("language")
+    .groupBy("language")
     .execute();
 }
