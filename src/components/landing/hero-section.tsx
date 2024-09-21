@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { useRef } from "react";
-import { FeaturesGrid } from "./features-grid";
 import { SearchBar } from "./search";
 
 export default function HeroSection() {
@@ -27,9 +26,6 @@ export default function HeroSection() {
       </Button>
       <div className="mt-12 w-full flex justify-center">
         <SearchBar />
-      </div>
-      <div className="mt-12">
-        <FeaturesGrid />
       </div>
     </section>
   );

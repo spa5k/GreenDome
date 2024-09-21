@@ -150,3 +150,8 @@ tasks:
     desc: Clean build and dist directories
     cmds:
       - rm -rf build dist
+
+  generate_icons:
+    desc: Generate icons
+    cmds:
+      - bunx electron-icon-builder --input=./public/icon.png --output=./public/icons;
