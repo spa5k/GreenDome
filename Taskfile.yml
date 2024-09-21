@@ -6,6 +6,11 @@ tasks:
     cmds:
       - "pnpm install --frozen-lockfile"
 
+  server:
+    desc: "Start server"
+    cmds:
+      - "bunx tsx ./electron/src/server.ts"
+
   next_dev:
     desc: "Development server for Next.js"
     cmds:
@@ -48,8 +53,9 @@ tasks:
 
   build:
     desc: "Build both Next.js and Electron projects"
-    cmds:
-      - task next_build electron_build --parallel
+    deps:
+      - next_build
+      - electron_build
 
   dist:
     desc: "Distribute both Next.js and Electron projects"
@@ -58,8 +64,17 @@ tasks:
 
   dev:
     desc: "Development mode for both Electron and Next.js"
-    cmds:
-      - task next_dev electron_dev electron_build_watch --parallel
+    deps:
+      - next_dev
+      - electron_dev
+      - electron_build_watch
+
+  watch:
+    desc: "Watch mode for both Electron and Next.js"
+    deps:
+      - server
+      - next_dev
+
   electron_build_watch:
     desc: "Watch mode for Electron with tsup"
     cmds:

@@ -5,26 +5,31 @@ import fs from "fs";
 import path from "path";
 import * as schema from "./schema";
 
-const sqlite = () => {
-  const userData = app.getPath("userData");
-  const dbDir = path.join(userData, "databases");
-  const dbPath = path.join(dbDir, "quran.db");
+const dbPath = path.join(app.getPath("userData"), "quran.db");
 
-  // Create the directory if it doesn't exist
-  if (!fs.existsSync(dbDir)) {
-    fs.mkdirSync(dbDir, { recursive: true });
+export const connectToDatabase = () => {
+  try {
+    // Create SQLite3 database instance
+    const sqlite = new Database(dbPath);
+
+    // Connect to Drizzle
+    const db = drizzle(sqlite, { schema });
+
+    console.log("Connected to SQLite database successfully.");
+    return db;
+  } catch (error) {
+    console.error("Error connecting to SQLite database:", error);
+    throw new Error("Failed to connect to database");
   }
-
-  const sqlite = new Database(dbPath);
-  return sqlite;
 };
 
-// Lazy initialization of the database
-let dbInstance: ReturnType<typeof drizzle> | null = null;
-
-export const getDb = () => {
-  if (!dbInstance) {
-    dbInstance = drizzle(sqlite(), { schema });
+export const checkIfDbExists = async () => {
+  try {
+    await fs.promises.access(dbPath); // Added await and changed to promises
+    console.log("DB exists:", dbPath);
+    return true;
+  } catch (error) {
+    console.log("DB does not exist:", dbPath);
+    return false;
   }
-  return dbInstance;
 };

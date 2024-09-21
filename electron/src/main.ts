@@ -2,11 +2,11 @@ import { electronApp, is, optimizer } from "@electron-toolkit/utils";
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import log from "electron-log";
 import settings from "electron-settings";
-import fs from "fs";
 import { getPort } from "get-port-please";
 import { startServer } from "next/dist/server/lib/start-server.js";
 import * as path from "path";
 import { join } from "path";
+import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
 import { downloadFile } from "./utils/downloader.js";
 import { nextConfig } from "./utils/nextconfig.js";
@@ -103,20 +103,15 @@ async function startNextJSServer() {
   }
 }
 
-async function setupInitialStuff() {
-  const userData = app.getPath("userData");
-  const dbDir = `${userData}/databases`;
-  fs.mkdirSync(dbDir, { recursive: true });
-  log.info("Database directory created:", dbDir);
-  await checkForUpdates();
-}
-
 async function checkForUpdates() {
   try {
     const latestReleaseVersion = await getLatestReleaseVersion("spa5k", "quran_data");
     const lastReleaseVersion = await settings.get("lastReleaseVersion");
 
-    if (latestReleaseVersion === lastReleaseVersion) {
+    const dbExists = await checkIfDbExists();
+    log.info("DB exists:", dbExists);
+
+    if (latestReleaseVersion === lastReleaseVersion && dbExists) {
       log.info("No new release found. Last release is up to date.", lastReleaseVersion);
       return false;
     } else {
@@ -137,7 +132,7 @@ async function checkForUpdates() {
 async function initializeApp() {
   try {
     loadingWindow!.webContents.send("update-progress", "Checking for updates...");
-    await setupInitialStuff();
+    await checkForUpdates();
 
     // set progress bar to 0
     loadingWindow!.webContents.send("download-progress", 0);

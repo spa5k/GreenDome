@@ -32,10 +32,13 @@ export class LocalAyahService extends AyahService {
     surah: number,
     editionName: string,
   ): Promise<Ayah[]> {
+    console.log("fetchAyahs", surah, editionId);
     const response = await fetch(
       `http://localhost:50000/surah/${surah}/${editionId}`,
     );
-    return await response.json();
+    const res = await response.json();
+    console.log("res", res);
+    return res;
   }
 
   public async fetchAyahsQFC(
@@ -162,7 +165,9 @@ export const fetchAyahs = async (
   surah: number,
   editionName: string,
 ): Promise<Ayah[]> => {
-  const isLocalhost = await isLocalhostReachable();
+  // const isLocalhost = await isLocalhostReachable();
+  const isLocalhost = true;
+  console.log("isLocalhost", isLocalhost);
   const service = isLocalhost
     ? new LocalAyahService()
     : new RemoteAyahService();

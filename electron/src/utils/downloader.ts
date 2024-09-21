@@ -16,7 +16,7 @@ export async function downloadFile(
   url: string,
   options: DownloadOptions = {},
 ): Promise<void> {
-  const directory = options.directory || getAppDataPath();
+  const directory = app.getPath("userData");
   const urlObject = new URL(url);
   const filename = options.filename || path.basename(urlObject.pathname);
   const filePath = path.join(directory, filename);
@@ -26,15 +26,6 @@ export async function downloadFile(
 
   log.info(`Downloading file: ${url}`);
   log.info(`Downloading to: ${filePath}`);
-
-  // Ensure the directory exists
-  try {
-    await fs.mkdir(directory, { recursive: true });
-    log.info(`Ensured directory exists: ${directory}`);
-  } catch (error) {
-    log.error(`Failed to create directory: ${directory}`, error);
-    throw error;
-  }
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
@@ -97,19 +88,6 @@ function downloadWithTimeout(
       });
     });
   });
-}
-
-function getAppDataPath(): string {
-  switch (process.platform) {
-    case "darwin":
-      return path.join(app.getPath("userData"), "Databases");
-    case "win32":
-      return path.join(app.getPath("userData"), "Databases");
-    case "linux":
-      return path.join(app.getPath("userData"), "databases");
-    default:
-      return app.getPath("userData");
-  }
 }
 
 async function setFilePermissions(filePath: string): Promise<void> {

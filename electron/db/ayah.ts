@@ -1,5 +1,5 @@
 import { eq, sql } from "drizzle-orm";
-import { db } from ".";
+import { connectToDatabase } from ".";
 import { ayah } from "./schema";
 
 /**
@@ -8,19 +8,29 @@ import { ayah } from "./schema";
  * @param editionId - The Edition ID.
  * @returns A Promise that resolves to the Ayahs matching the given Surah number and Edition ID.
  */
-export function getAyahsBySurahNumberAndEditionID(
+export async function getAyahsBySurahNumberAndEditionID(
   surahNumber: number,
   editionId: number,
 ) {
-  return db
-    .select()
-    .from(ayah)
-    .where(
-      sql`
-    ${eq(ayah.surahNumber, surahNumber)} and ${eq(ayah.editionId, editionId)}
-  `,
-    )
-    .all();
+  const db = connectToDatabase();
+  if (!db) {
+    throw new Error("Database not connected");
+  }
+
+  try {
+    const ayahs = db.select()
+      .from(ayah)
+      .where(
+        sql`${eq(ayah.surahNumber, surahNumber)} AND ${eq(ayah.editionId, editionId)}`,
+      )
+      .all();
+
+    console.log("Ayahs:", ayahs);
+    return ayahs;
+  } catch (error) {
+    console.error("Error fetching ayahs:", error);
+    throw new Error("Failed to fetch ayahs");
+  }
 }
 
 /**
@@ -30,11 +40,13 @@ export function getAyahsBySurahNumberAndEditionID(
  * @param editionId - The Edition ID.
  * @returns A Promise that resolves to the Ayah matching the given Surah number, Ayah number, and Edition ID.
  */
-export function getAyahBySurahNumberAyahNumberAndEditionID(
+export async function getAyahBySurahNumberAyahNumberAndEditionID(
   surahNumber: number,
   ayahNumber: number,
   editionId: number,
 ) {
+  const db = connectToDatabase();
+
   return db
     .select()
     .from(ayah)
@@ -56,7 +68,9 @@ export function getAyahBySurahNumberAyahNumberAndEditionID(
  * @param editionId - The ID of the edition.
  * @returns A Promise that resolves to the Ayahs matching the specified edition ID.
  */
-export function getAyahsByEditionID(editionId: number) {
+export async function getAyahsByEditionID(editionId: number) {
+  const db = connectToDatabase();
+
   return db
     .select()
     .from(ayah)
@@ -71,6 +85,8 @@ export function getAyahsByEditionID(editionId: number) {
  * @returns A promise that resolves to the ayahs matching the surah number.
  */
 export async function getAyahsBySurahNumber(surahNumber: number) {
+  const db = connectToDatabase();
+
   const statement = db
     .select()
     .from(ayah)

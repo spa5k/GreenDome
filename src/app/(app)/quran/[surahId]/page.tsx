@@ -54,6 +54,9 @@ export default async function Page({
     (edition) => translationEditions.find((translationEdition) => translationEdition.id === edition),
   ).filter((edition): edition is Edition => edition !== undefined);
 
+  console.log("quranEditionsSelectedData", quranEditionsSelectedData);
+  console.log("translationEditionsSelectedData", translationEditionsSelectedData);
+
   const fetchEditions = async (
     editions: Edition[],
     fetchFunction: typeof fetchAyahs | typeof fetchAyahsQFC,
