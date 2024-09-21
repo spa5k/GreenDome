@@ -27,12 +27,11 @@ function createLoadingWindow(): BrowserWindow {
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,
     },
   });
 
   // loading is in userData
-  const url = join(__dirname, "..", "..", "public", "loading.html");
+  const url = join(__dirname, "..", "public", "loading.html");
   loadingWindow.loadFile(url).catch((err) => {
     log.error("Failed to load loading window:", err);
   });

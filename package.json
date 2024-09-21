@@ -9,7 +9,7 @@
     "name": "spa5k",
     "email": "admin@saybackend.com"
   },
-  "main": "build/src/main.js",
+  "main": "build/main.js",
   "scripts": {
     "next:dev": "next dev",
     "next:build": "next build",
