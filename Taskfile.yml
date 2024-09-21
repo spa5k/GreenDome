@@ -73,12 +73,12 @@ tasks:
   docker_build:
     desc: "Build Docker image"
     cmds:
-      - "docker build -t siraat ."
+      - "docker build -t green-dome ."
 
   docker_run:
     desc: "Run Docker container"
     cmds:
-      - "docker run -d -p 3000:3000 siraat"
+      - "docker run -d -p 3000:3000 green-dome"
   release:linux:
     desc: Build and release for Linux
     cmds:

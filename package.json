@@ -1,15 +1,15 @@
 {
   "name": "greendome-app",
-  "version": "v0.0.0",
+  "version": "v0.0.1",
   "description": "GreenDome is a platform for Islamic learning",
   "keywords": [],
-  "homepage": "https://github.com/spa5k/siraat",
+  "homepage": "https://github.com/spa5k/GreenDome",
   "license": "AGPL-3.0-only",
   "author": {
     "name": "spa5k",
     "email": "admin@saybackend.com"
   },
-  "main": "build/main.js",
+  "main": "build/src/main.js",
   "scripts": {
     "next:dev": "next dev",
     "next:build": "next build",
@@ -82,8 +82,11 @@
     "next": "14.2.13",
     "next-themes": "^0.3.0",
     "node-cache": "^5.1.2",
+    "nuqs": "^1.19.1",
+    "pino": "^9.4.0",
+    "pino-pretty": "^11.2.2",
     "react": "^18.3.1",
-    "react-day-picker": "8.10.1",
+    "react-day-picker": "^9.1.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
     "react-spring": "^9.7.4",

@@ -204,11 +204,11 @@ jobs:
           name: ${{ env.VERSION }}
           replacebody: true
           body: |
-            See [changelog](https://github.com/spa5k/siraat/blob/main/changelog.md#${{ env.CHANGELOG_ANCHOR }}) for the list of updates and the full diff.
+            See [changelog](https://github.com/spa5k/GreenDome/blob/main/changelog.md#${{ env.CHANGELOG_ANCHOR }}) for the list of updates and the full diff.
 
             Thanks to all contributors! 🏅
 
-            (Note for Windows: `siraat-Web-Setup-${{ env.VERSION }}.exe` is an installer, and `siraat-${{ env.VERSION }}.exe` is a portable version)
+            (Note for Windows: `GreenDome-Setup-${{ env.VERSION }}.exe` is an installer, and `GreenDome-${{ env.VERSION }}.exe` is a portable version)
 
       - name: Update changelog
         if: ${{ env.VERSION_HASH == '' }}

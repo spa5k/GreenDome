@@ -7,7 +7,7 @@ export const SearchBar = () => {
     <div className="w-full sm:w-2/3 mt-8 space-y-2 items-center px-4 sm:px-0">
       <form className="relative group">
         <Input
-          className="w-full py-3 sm:py-4 pl-10 sm:pl-12 pr-20 sm:pr-4 text-base sm:text-lg shadow-lg transition-all duration-300 ease-in-out h-10 sm:h-12"
+          className="w-full py-3 sm:py-4 pl-10 sm:pl-12 pr-20 sm:pr-4 text-base sm:text-lg shadow-lg transition-all duration-300 ease-in-out h-10 sm:h-12 bg-primary-foreground"
           placeholder="Search Quran, Hadith, or Tafsir..."
           type="text"
         />

@@ -126,3 +126,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+:root {
+  --ayah-font-size: 28px; /* Default value */
+  --translation-font-size: 20px;
+}
+
+.ayah_text {
+  font-size: var(--ayah-font-size, 28px);
+}
+
+.translation_text {
+  font-size: var(--translation-font-size, 20px);
+}
+
+@font-face {
+  font-family: "Mushaf Ligatures";
+  src:
+    local("QCF_BSML"),
+    url(https://raw.githubusercontent.com/mustafa0x/qpc-fonts/f93bf5f3/mushaf-v2-woff2/QCF_BSML.woff2)
+    format("woff2"),
+    url(https://raw.githubusercontent.com/mustafa0x/qpc-fonts/f93bf5f3/mushaf-woff/QCF_BSML.woff)
+    format("woff");
+}

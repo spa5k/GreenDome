@@ -2,6 +2,7 @@ import { electronApp, is, optimizer } from "@electron-toolkit/utils";
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import log from "electron-log";
 import settings from "electron-settings";
+import fs from "fs";
 import { getPort } from "get-port-please";
 import { startServer } from "next/dist/server/lib/start-server.js";
 import * as path from "path";
@@ -10,7 +11,6 @@ import { startHonoServer } from "./server/index.js";
 import downloadFile from "./utils/downloader.js";
 import { nextConfig } from "./utils/nextconfig.js";
 import { getLatestRelease, getLatestReleaseVersion } from "./utils/releases.js";
-
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
 
 let mainWindow: BrowserWindow | null = null;
@@ -31,8 +31,8 @@ function createLoadingWindow(): BrowserWindow {
     },
   });
 
-  const url = join(__dirname, "..", "public", "loading.html");
-
+  // loading is in userData
+  const url = join(__dirname, "..", "..", "public", "loading.html");
   loadingWindow.loadFile(url).catch((err) => {
     log.error("Failed to load loading window:", err);
   });
@@ -103,6 +103,16 @@ async function startNextJSServer() {
   }
 }
 
+async function setupInitialStuff() {
+  // create db folder
+  const userData = app.getPath("userData");
+  const dbDir = `${userData}/databases`;
+  fs.mkdirSync(dbDir, { recursive: true });
+  log.info("Database directory created:", dbDir);
+
+  await checkForUpdates();
+}
+
 async function checkForUpdates() {
   try {
     const latestReleaseVersion = await getLatestReleaseVersion("spa5k", "quran_data");
@@ -129,7 +139,7 @@ async function checkForUpdates() {
 async function initializeApp() {
   try {
     loadingWindow!.webContents.send("update-progress", "Checking for updates...");
-    await checkForUpdates();
+    await setupInitialStuff();
 
     loadingWindow!.webContents.send("update-progress", "Starting Hono server...");
     const honoPort = await startHonoServer();

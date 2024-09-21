@@ -20,7 +20,16 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        sans: ["var(--font-inter)", ...fontFamily.sans],
+        cursive: ["var(--font-cormorant_garamond)"],
+        primary: ["var(--font-lexend)"],
+        arabic: ["var(--font-readex_pro)"],
+        indopak: ["var(--font-indopak)"],
+        hindi: ["var(--font-hindi)"],
+        uthmanic: ["var(--font-uthmanic)"],
+        urdu: ["var(--font-urdu)"],
+        arabic_noto: ["var(--font-arabic)"],
+        "mushaf-ligatures": ["\"Mushaf Ligatures\"", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
