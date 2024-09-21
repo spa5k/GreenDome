@@ -1,5 +1,5 @@
 import { electronApp, is, optimizer } from "@electron-toolkit/utils";
-import { app, BrowserWindow, ipcMain, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import log from "electron-log";
 import settings from "electron-settings";
 import { getPort } from "get-port-please";
@@ -15,6 +15,8 @@ process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
 
 let mainWindow: BrowserWindow | null = null;
 let loadingWindow: BrowserWindow | null = null;
+let nextJSServer: any = null;
+let honoServer: any = null;
 
 function createLoadingWindow(): BrowserWindow {
   const loadingWindow = new BrowserWindow({
@@ -27,20 +29,21 @@ function createLoadingWindow(): BrowserWindow {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    // backgroundMaterial: "acrylic",
   });
 
   const url = join(__dirname, "..", "public", "loading.html");
 
-  loadingWindow.loadFile(url);
+  loadingWindow.loadFile(url).catch((err) => {
+    log.error("Failed to load loading window:", err);
+  });
 
   if (process.platform === "win32") {
     loadingWindow.setBackgroundMaterial("mica");
   } else if (process.platform === "darwin") {
-    loadingWindow.setBackgroundColor("#00000000"); // Transparent background for macOS
+    loadingWindow.setBackgroundColor("#00000000");
     loadingWindow.setBackgroundMaterial("auto");
   } else {
-    loadingWindow.setBackgroundColor("#00000000"); // Transparent background for other platforms
+    loadingWindow.setBackgroundColor("#00000000");
   }
 
   return loadingWindow;
@@ -60,7 +63,7 @@ function createWindow(): BrowserWindow {
   });
 
   mainWindow.on("ready-to-show", () => {
-    if (loadingWindow) {
+    if (loadingWindow && !loadingWindow.isDestroyed()) {
       loadingWindow.close();
       loadingWindow = null;
     }
@@ -72,18 +75,6 @@ function createWindow(): BrowserWindow {
     return { action: "deny" };
   });
 
-  if (is.dev) {
-    mainWindow.loadURL("http://localhost:3000");
-  } else {
-    startNextJSServer()
-      .then((port) => {
-        mainWindow.loadURL(`http://localhost:${port}`);
-      })
-      .catch((error) => {
-        log.error("Failed to start Next.js server:", error);
-      });
-  }
-
   return mainWindow;
 }
 
@@ -94,7 +85,7 @@ async function startNextJSServer() {
 
     console.log("webDir:", webDir);
 
-    await startServer({
+    nextJSServer = await startServer({
       dir: webDir,
       isDev: false,
       hostname: "localhost",
@@ -112,9 +103,61 @@ async function startNextJSServer() {
   }
 }
 
+async function checkForUpdates() {
+  try {
+    const latestReleaseVersion = await getLatestReleaseVersion("spa5k", "quran_data");
+    const lastReleaseVersion = await settings.get("lastReleaseVersion");
+
+    if (latestReleaseVersion === lastReleaseVersion) {
+      log.info("No new release found. Last release is up to date.", lastReleaseVersion);
+      return false;
+    } else {
+      const latestReleaseUrl = await getLatestRelease("spa5k", "quran_data");
+      log.info("New release found. Downloading...");
+
+      await downloadFile(loadingWindow!, latestReleaseUrl, { filename: "quran.db" });
+      await settings.set("lastReleaseVersion", latestReleaseVersion);
+      log.info("Download complete.", latestReleaseVersion);
+      return true;
+    }
+  } catch (error) {
+    log.error("Error checking for updates:", error);
+    return false;
+  }
+}
+
+async function initializeApp() {
+  try {
+    loadingWindow!.webContents.send("update-progress", "Checking for updates...");
+    await checkForUpdates();
+
+    loadingWindow!.webContents.send("update-progress", "Starting Hono server...");
+    const honoPort = await startHonoServer();
+    console.log("Hono server started on port:", `http://localhost:${honoPort}`);
+    ipcMain.handle("getHonoPort", () => honoPort);
+
+    loadingWindow!.webContents.send("update-progress", "Starting Next.js server...");
+
+    loadingWindow!.webContents.send("update-progress", "Initialization complete");
+
+    mainWindow = createWindow();
+
+    if (is.dev) {
+      mainWindow.loadURL("http://localhost:3000");
+    } else {
+      const nextJSPort = await startNextJSServer();
+      mainWindow!.loadURL(`http://localhost:${nextJSPort}`);
+    }
+  } catch (error) {
+    log.error("Error during app initialization:", error);
+    dialog.showErrorBox("Error", "Failed to initialize the application. Please try again.");
+    app.quit();
+  }
+}
+
 app.whenReady().then(async () => {
   try {
-    electronApp.setAppUserModelId("com.electron");
+    electronApp.setAppUserModelId("com.saybackend.greendome");
 
     app.on("browser-window-created", (_, window) => {
       optimizer.watchWindowShortcuts(window);
@@ -122,52 +165,34 @@ app.whenReady().then(async () => {
 
     ipcMain.on("ping", () => log.info("pong"));
 
-    const honoPort = await startHonoServer();
-    console.log("Hono server started on port:", `http://localhost:${honoPort}`);
-    ipcMain.handle("getHonoPort", () => honoPort);
-
-    const latestReleaseVersion = await getLatestReleaseVersion(
-      "spa5k",
-      "quran_data",
-    );
-
-    const lastReleaseVersion = await settings.get("lastReleaseVersion");
-
     loadingWindow = createLoadingWindow();
 
-    if (latestReleaseVersion === lastReleaseVersion) {
-      log.info(
-        "No new release found in the repository. Last release is up to date.",
-        lastReleaseVersion,
-      );
-    } else {
-      const latestReleaseUrl = await getLatestRelease("spa5k", "quran_data");
-      log.info("New release found. Downloading...");
+    // Wait for the loading window to be ready before starting initialization
+    loadingWindow.webContents.on("did-finish-load", () => {
+      initializeApp();
+    });
 
-      downloadFile(mainWindow!, latestReleaseUrl, { filename: "quran.db" })
-        .then(() => {
-          console.log("Download completed successfully");
-          settings.set("lastReleaseVersion", latestReleaseVersion);
-        })
-        .catch((error) => {
-          console.error("Download failed:", error);
-        });
-      log.info("Download complete.", latestReleaseVersion);
-    }
-    // wait for 3 to show main window
-    setTimeout(() => {
-      mainWindow = createWindow();
-    }, 3000);
     app.on("activate", () => {
       if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
   } catch (error) {
-    log.error("Error during app initialization:", error);
+    log.error("Error during app startup:", error);
+    dialog.showErrorBox("Error", "Failed to start the application. Please try again.");
+    app.quit();
   }
 });
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
+  }
+});
+
+app.on("before-quit", async () => {
+  if (nextJSServer) {
+    await nextJSServer.close();
+  }
+  if (honoServer) {
+    await honoServer.close();
   }
 });

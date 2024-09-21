@@ -7,7 +7,7 @@ import utc from "dayjs/plugin/utc";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getPrayerTimes, useLocationStore } from "../store/salahStore";
 import { LocationFetcher } from "./LocationFetcher";
 
@@ -29,29 +29,8 @@ export const MiniSalahWidget = () => {
   const [currentPrayerTime, setCurrentPrayerTime] = useState("");
   const [nextPrayerTime, setNextPrayerTime] = useState("");
   const [progress, setProgress] = useState(0);
-  const adhanAudioRef = useRef<HTMLAudioElement>(null);
 
   const path = usePathname();
-
-  const showNotification = (prayerName: string) => {
-    if (Notification.permission === "granted") {
-      new Notification("Prayer Time", {
-        body: `It's time for ${prayerName} prayer.`,
-        icon: "/aqsa.jpg",
-      });
-    }
-  };
-
-  const isAdhanPlayed = (prayerName: string) => {
-    const playedPrayers = JSON.parse(localStorage.getItem("playedPrayers") || "[]");
-    return playedPrayers.includes(prayerName);
-  };
-
-  const markAdhanAsPlayed = (prayerName: string) => {
-    const playedPrayers = JSON.parse(localStorage.getItem("playedPrayers") || "[]");
-    playedPrayers.push(prayerName);
-    localStorage.setItem("playedPrayers", JSON.stringify(playedPrayers));
-  };
 
   const calculateCurrentPrayer = useCallback(() => {
     if (!(prayerTimes && meta && sunnahTimes)) {
@@ -99,18 +78,7 @@ export const MiniSalahWidget = () => {
     const progressPercentage = (elapsedDuration / totalDuration!) * 100;
 
     setProgress(progressPercentage);
-
-    if (
-      !(playAdhan && adhanAudioRef.current && !isAdhanPlayed(currentPrayerName!)
-        && now.isSame(currentPrayerDetails?.time, "minute")
-        && (currentPrayerName !== "none" && currentPrayerName !== "sunrise"))
-    ) {
-      return;
-    }
-    adhanAudioRef.current.play();
-    showNotification(currentPrayerName!);
-    markAdhanAsPlayed(currentPrayerName!);
-  }, [prayerTimes, meta, sunnahTimes, playAdhan]);
+  }, [prayerTimes, meta, sunnahTimes]);
 
   useEffect(() => {
     if (rehydrated && !currentLatitude && !currentLongitude) {
@@ -122,37 +90,6 @@ export const MiniSalahWidget = () => {
 
     return () => clearInterval(interval);
   }, [calculateCurrentPrayer, rehydrated, currentLatitude, currentLongitude]);
-
-  useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          console.log("Notification permission granted.");
-        }
-      });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!(adhanAudioRef.current && navigator.mediaSession)) {
-      return;
-    }
-    navigator.mediaSession.setActionHandler("play", () => {
-      adhanAudioRef.current?.play();
-    });
-
-    navigator.mediaSession.setActionHandler("pause", () => {
-      adhanAudioRef.current?.pause();
-    });
-
-    adhanAudioRef.current.addEventListener("play", () => {
-      navigator.mediaSession.playbackState = "playing";
-    });
-
-    adhanAudioRef.current.addEventListener("pause", () => {
-      navigator.mediaSession.playbackState = "paused";
-    });
-  }, [adhanAudioRef]);
 
   if (!prayerTimes && (!currentLongitude || !currentLatitude)) {
     return (
@@ -177,7 +114,7 @@ export const MiniSalahWidget = () => {
   return (
     <Link href={"/salah"} prefetch={false}>
       <LocationFetcher />
-      <div className="flex items-center justify-center w-full text-secondary-foreground">
+      <div className="flex items-center justify-center w-full text-primary-foreground">
         <div className="relative w-full bg-gray-200 dark:bg-gray-900 rounded-md overflow-hidden">
           <motion.div
             className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-green-400"
@@ -198,7 +135,7 @@ export const MiniSalahWidget = () => {
               </p>
               <p className="hidden sm:flex">{currentPrayerTime}</p>
             </div>
-            <div className="flex text-center items-center gap-4 dark:text-primary">
+            <div className="flex text-center items-center gap-4 text-primary">
               <p className="text-sm font-bold sm:text-xl ">
                 {nextPrayer.charAt(0).toUpperCase() + nextPrayer.slice(1)}
               </p>
@@ -207,7 +144,6 @@ export const MiniSalahWidget = () => {
           </div>
         </div>
       </div>
-      <audio ref={adhanAudioRef} src="/adhan1.mp3" />
     </Link>
   );
 };

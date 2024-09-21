@@ -19,7 +19,7 @@ export const SalahTimesDisplay = ({ meta, prayerTimes }: {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]">
         <CardHeader className="mb-2 gap-2 justify-between items-center text-center">
           <p className="text-3xl font-bold">Fajr</p> <SunriseEmoji className="size-16" />
         </CardHeader>
@@ -27,31 +27,31 @@ export const SalahTimesDisplay = ({ meta, prayerTimes }: {
           {formatTime(prayerTimes?.fajr)}
         </CardContent>
       </Card>
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]  text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] ">
         <CardHeader className="text-lg font-bold  mb-2  gap-2 justify-between items-center">
           <p className="text-3xl font-bold">Sunrise</p> <FajrEmoji className="size-16" />
         </CardHeader>
         <CardContent className="text-2xl font-bold text-center">{formatTime(prayerTimes?.sunrise)}</CardContent>
       </Card>
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]  text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] ">
         <CardHeader className="text-lg font-bold  mb-2  gap-2 justify-between items-center">
           <p className="text-3xl font-bold">Dhuhr</p> <DhuhrEmoji className="size-16" />
         </CardHeader>
         <CardContent className="text-2xl font-bold text-center">{formatTime(prayerTimes?.dhuhr)}</CardContent>
       </Card>
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]  text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] ">
         <CardHeader className="text-lg font-bold  mb-2  gap-2 justify-between items-center">
           <p className="text-3xl font-bold">Asr</p> <AsrEmoji className="size-16" />
         </CardHeader>
         <CardContent className="text-2xl font-bold text-center">{formatTime(prayerTimes?.asr)}</CardContent>
       </Card>
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]  text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] ">
         <CardHeader className="text-lg font-bold  mb-2  gap-2 justify-between items-center">
           <p className="text-3xl font-bold">Maghrib</p> <MaghribEmoji className="size-16" />
         </CardHeader>
         <CardContent className="text-2xl font-bold text-center">{formatTime(prayerTimes?.maghrib)}</CardContent>
       </Card>
-      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px]  text-primary-foreground">
+      <Card className="bg-secondary p-4 rounded-lg relative h-[250px] w-[200px] ">
         <CardHeader className="text-lg font-bold  mb-2  gap-2 justify-between items-center">
           <p className="text-3xl font-bold">Isha</p> <IshaEmoji className="size-16" />
         </CardHeader>

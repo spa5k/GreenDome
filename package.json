@@ -1,7 +1,7 @@
 {
-  "name": "siraat",
+  "name": "greendome-app",
   "version": "v0.0.0",
-  "description": "Siraat is a platform for Islamic learning",
+  "description": "GreenDome is a platform for Islamic learning",
   "keywords": [],
   "homepage": "https://github.com/spa5k/siraat",
   "license": "AGPL-3.0-only",
@@ -67,19 +67,19 @@
     "cmdk": "^1.0.0",
     "cobe": "^0.6.3",
     "cross-env": "^7.0.3",
-    "date-fns": "^4.0.0",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "drizzle-orm": "^0.33.0",
     "electron-dl-manager": "^3.2.0",
     "electron-log": "^5.2.0",
     "electron-settings": "^4.0.4",
-    "framer-motion": "^11.5.4",
+    "framer-motion": "^11.5.6",
     "get-port-please": "^3.1.2",
-    "hono": "^4.6.1",
+    "hono": "^4.6.2",
     "howler": "^2.2.4",
-    "lucide-react": "^0.441.0",
+    "lucide-react": "^0.445.0",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "14.2.4",
+    "next": "14.2.13",
     "next-themes": "^0.3.0",
     "node-cache": "^5.1.2",
     "react": "^18.3.1",
@@ -91,45 +91,48 @@
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vaul": "^0.9.3",
+    "vaul": "^0.9.4",
     "virtua": "^0.34.2",
     "zod": "^3.23.8",
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.11",
+    "@next/eslint-plugin-next": "^14.2.13",
     "@types/better-sqlite3": "^7.6.11",
     "@types/eslint": "^8.56.12",
     "@types/howler": "^2.2.11",
     "@types/node": "^22.5.5",
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "dprint": "^0.47.2",
     "drizzle-kit": "^0.24.2",
-    "electron": "^32.1.0",
+    "electron": "^32.1.2",
     "electron-builder": "^25.0.5",
     "eslint": "^8.5.7",
     "eslint-config-next": "14.2.3",
-    "nodemon": "^3.1.4",
+    "nodemon": "^3.1.7",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.47",
     "prebuild-install": "^7.1.2",
-    "tailwindcss": "^3.4.11",
-    "tsup": "^8.2.4",
+    "tailwindcss": "^3.4.12",
+    "tsup": "^8.3.0",
     "typescript": "^5.6.2"
   },
   "build": {
     "asar": true,
-    "executableName": "Siraat",
-    "appId": "com.saybackend.siraat",
+    "executableName": "GreenDome",
+    "productName": "GreenDome App",
+    "appId": "com.saybackend.greendome",
     "asarUnpack": [
       "node_modules/next",
       "node_modules/@img",
       "node_modules/sharp",
-      "**\\*.{node,dll}"
+      "**\\*.{node,dll}",
+      "public"
     ],
     "files": [
       "build",
+      "public",
       "!node_modules/**/*.map",
       "!node_modules/**/*.ts",
       {
@@ -150,7 +153,7 @@
       }
     ],
     "win": {
-      "icon": "assets/generated/icons/win/icon.ico",
+      "icon": "public/icons/icons/win/icon.ico",
       "target": [
         {
           "target": "nsis-web",
@@ -183,9 +186,11 @@
             "arm64"
           ]
         }
-      ]
+      ],
+      "icon": "public/icons/icons/mac/icon.icns"
     },
     "linux": {
+      "icon": "public/icons/icons/png",
       "category": "Utility",
       "target": [
         "AppImage",
