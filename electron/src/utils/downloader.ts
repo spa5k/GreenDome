@@ -11,7 +11,7 @@ interface DownloadOptions {
   timeout?: number;
 }
 
-async function downloadFile(
+export async function downloadFile(
   mainWindow: BrowserWindow,
   url: string,
   options: DownloadOptions = {},
@@ -42,11 +42,13 @@ async function downloadFile(
       await fs.rename(tempFilePath, filePath);
       await setFilePermissions(filePath);
       log.info(`File downloaded successfully: ${filePath}`);
+      mainWindow.webContents.send("download-complete");
       return;
     } catch (error) {
       log.error(`Download attempt ${attempt} failed:`, error);
       if (attempt === retries) {
         await fs.unlink(tempFilePath).catch(() => {}); // Clean up temp file
+        mainWindow.webContents.send("download-error", `Failed to download file after ${retries} attempts`);
         throw new Error(`Failed to download file after ${retries} attempts`);
       }
     }
@@ -72,12 +74,14 @@ function downloadWithTimeout(
       item.on("updated", (event, state) => {
         if (state === "interrupted") {
           log.warn("Download interrupted");
+          mainWindow.webContents.send("download-status", "interrupted");
         } else if (state === "progressing") {
           if (item.isPaused()) {
             log.info("Download paused");
+            mainWindow.webContents.send("download-status", "paused");
           } else {
             const progress = item.getReceivedBytes() / item.getTotalBytes();
-            mainWindow.webContents.send("download-progress", progress);
+            mainWindow.webContents.send("download-progress", progress * 100);
           }
         }
       });
@@ -87,6 +91,7 @@ function downloadWithTimeout(
         if (state === "completed") {
           resolve();
         } else {
+          mainWindow.webContents.send("download-error", `Download failed: ${state}`);
           reject(new Error(`Download failed: ${state}`));
         }
       });
@@ -116,5 +121,3 @@ async function setFilePermissions(filePath: string): Promise<void> {
     }
   }
 }
-
-export default downloadFile;

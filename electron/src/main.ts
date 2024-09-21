@@ -8,7 +8,7 @@ import { startServer } from "next/dist/server/lib/start-server.js";
 import * as path from "path";
 import { join } from "path";
 import { startHonoServer } from "./server/index.js";
-import downloadFile from "./utils/downloader.js";
+import { downloadFile } from "./utils/downloader.js";
 import { nextConfig } from "./utils/nextconfig.js";
 import { getLatestRelease, getLatestReleaseVersion } from "./utils/releases.js";
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
@@ -104,12 +104,10 @@ async function startNextJSServer() {
 }
 
 async function setupInitialStuff() {
-  // create db folder
   const userData = app.getPath("userData");
   const dbDir = `${userData}/databases`;
   fs.mkdirSync(dbDir, { recursive: true });
   log.info("Database directory created:", dbDir);
-
   await checkForUpdates();
 }
 
@@ -124,9 +122,9 @@ async function checkForUpdates() {
     } else {
       const latestReleaseUrl = await getLatestRelease("spa5k", "quran_data");
       log.info("New release found. Downloading...");
-
       await downloadFile(loadingWindow!, latestReleaseUrl, { filename: "quran.db" });
       await settings.set("lastReleaseVersion", latestReleaseVersion);
+
       log.info("Download complete.", latestReleaseVersion);
       return true;
     }
@@ -141,16 +139,23 @@ async function initializeApp() {
     loadingWindow!.webContents.send("update-progress", "Checking for updates...");
     await setupInitialStuff();
 
-    loadingWindow!.webContents.send("update-progress", "Starting Hono server...");
+    // set progress bar to 0
+    loadingWindow!.webContents.send("download-progress", 0);
+
+    loadingWindow!.webContents.send("current-status", "Starting server...");
     const honoPort = await startHonoServer();
-    console.log("Hono server started on port:", `http://localhost:${honoPort}`);
+    // set progress bar to 50
+    loadingWindow!.webContents.send("download-progress", 50);
+    console.log("Backend server started on port:", `http://localhost:${honoPort}`);
     ipcMain.handle("getHonoPort", () => honoPort);
 
-    loadingWindow!.webContents.send("update-progress", "Starting Next.js server...");
-
-    loadingWindow!.webContents.send("update-progress", "Initialization complete");
+    loadingWindow!.webContents.send("current-status", "Loading UI...");
+    // set progress bar to 75
+    loadingWindow!.webContents.send("download-progress", 75);
 
     mainWindow = createWindow();
+    // set progress bar to 100
+    loadingWindow!.webContents.send("download-progress", 90);
 
     if (is.dev) {
       mainWindow.loadURL("http://localhost:3000");
