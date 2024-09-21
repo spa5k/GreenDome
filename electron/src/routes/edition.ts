@@ -1,6 +1,7 @@
 import { createRoute, type OpenAPIHono } from "@hono/zod-openapi";
 import type { Env } from "electron";
 import * as z from "zod";
+import { db } from "../../db";
 import {
   getDisabledEditions,
   getEditions,
@@ -60,7 +61,7 @@ export function EditionRoutes(app: OpenAPIHono<Env, {}, "/">) {
 
   app.openapi(editionTypeRoute, async (c) => {
     const type = c.req.param("type");
-    const editions = getEditionsByType(type);
+    const editions = await getEditionsByType(db, type);
     return c.json(editions);
   });
 
@@ -82,7 +83,7 @@ export function EditionRoutes(app: OpenAPIHono<Env, {}, "/">) {
   });
 
   app.openapi(allEditionsRoute, async (c) => {
-    const editions = getEditions();
+    const editions = await getEditions(db);
 
     return c.json(editions);
   });
@@ -117,7 +118,7 @@ export function EditionRoutes(app: OpenAPIHono<Env, {}, "/">) {
 
   app.openapi(editionsByLanguageRoute, async (c) => {
     const language = c.req.param("language");
-    const editions = getEditionsByLanguage(language);
+    const editions = await getEditionsByLanguage(db, language);
     return c.json(editions);
   });
 
@@ -150,7 +151,7 @@ export function EditionRoutes(app: OpenAPIHono<Env, {}, "/">) {
   });
 
   app.openapi(languagesRoute, async (c) => {
-    const languages = getLanguages();
+    const languages = await getLanguages(db);
     const res: string[] = [];
     for (const lang of languages) {
       if (!res.includes(lang.language)) {
@@ -190,7 +191,7 @@ export function EditionRoutes(app: OpenAPIHono<Env, {}, "/">) {
 
   app.openapi(enabledEditionsRoute, async (c) => {
     const status = c.req.param("status");
-    const editions = status === "enabled" ? getEnabledEditions() : getDisabledEditions();
+    const editions = status === "enabled" ? await getEnabledEditions(db) : await getDisabledEditions(db);
     return c.json(editions);
   });
 }

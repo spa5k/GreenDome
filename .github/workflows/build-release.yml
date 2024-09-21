@@ -130,7 +130,9 @@ jobs:
         if: startsWith(matrix.os, 'macos')
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: task release:mac
+        run: |
+          task install_sqlite3
+          task release:mac
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

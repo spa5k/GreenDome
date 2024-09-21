@@ -82,6 +82,8 @@ tasks:
 
   electron_dev:
     desc: "Development mode for Electron"
+    # deps:
+    #   - electron_build
     cmds:
       - "pnpm cross-env NODE_ENV='development' nodemon"
 
@@ -170,3 +172,9 @@ tasks:
     desc: Generate icons
     cmds:
       - bunx electron-icon-builder --input=./public/icon.png --output=./public/icons;
+
+  install_sqlite3:
+    desc: "Install sqlite3"
+    cmds:
+      - pnpm uninstall sqlite3
+      - pnpm install sqlite3 --build-from-source --target_arch=arm64 --fallback-to-build

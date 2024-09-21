@@ -1,31 +1,26 @@
-import { eq, sql } from "drizzle-orm";
-import { connectToDatabase } from ".";
-import { ayah } from "./schema";
+import type { Kysely } from "kysely";
+import type { Database } from "./schema";
 
 /**
  * Retrieves the Ayahs (verses) by the given Surah number and Edition ID.
+ * @param db - The database instance.
  * @param surahNumber - The Surah number.
  * @param editionId - The Edition ID.
  * @returns A Promise that resolves to the Ayahs matching the given Surah number and Edition ID.
  */
 export async function getAyahsBySurahNumberAndEditionID(
+  db: Kysely<Database>,
   surahNumber: number,
   editionId: number,
 ) {
-  const db = connectToDatabase();
-  if (!db) {
-    throw new Error("Database not connected");
-  }
-
   try {
-    const ayahs = db.select()
-      .from(ayah)
-      .where(
-        sql`${eq(ayah.surahNumber, surahNumber)} AND ${eq(ayah.editionId, editionId)}`,
-      )
-      .all();
+    const ayahs = await db
+      .selectFrom("ayah")
+      .selectAll()
+      .where("ayah.surahNumber", "=", surahNumber)
+      .where("ayah.editionId", "=", editionId)
+      .execute();
 
-    console.log("Ayahs:", ayahs);
     return ayahs;
   } catch (error) {
     console.error("Error fetching ayahs:", error);
@@ -35,65 +30,60 @@ export async function getAyahsBySurahNumberAndEditionID(
 
 /**
  * Retrieves the Ayah by the given Surah number, Ayah number, and Edition ID.
+ * @param db - The database instance.
  * @param surahNumber - The Surah number.
  * @param ayahNumber - The Ayah number.
  * @param editionId - The Edition ID.
  * @returns A Promise that resolves to the Ayah matching the given Surah number, Ayah number, and Edition ID.
  */
 export async function getAyahBySurahNumberAyahNumberAndEditionID(
+  db: Kysely<Database>,
   surahNumber: number,
   ayahNumber: number,
   editionId: number,
 ) {
-  const db = connectToDatabase();
-
   return db
-    .select()
-    .from(ayah)
-    .where(
-      sql`
-    ${eq(ayah.surahNumber, surahNumber)} and ${
-        eq(
-          ayah.ayahNumber,
-          ayahNumber,
-        )
-      } and ${eq(ayah.editionId, editionId)}
-  `,
-    )
-    .all();
+    .selectFrom("ayah")
+    .selectAll()
+    .where("ayah.surahNumber", "=", surahNumber)
+    .where("ayah.ayahNumber", "=", ayahNumber)
+    .where("ayah.editionId", "=", editionId)
+    .execute();
 }
 
 /**
  * Retrieves the Ayahs by the specified edition ID.
+ * @param db - The database instance.
  * @param editionId - The ID of the edition.
  * @returns A Promise that resolves to the Ayahs matching the specified edition ID.
  */
-export async function getAyahsByEditionID(editionId: number) {
-  const db = connectToDatabase();
-
+export async function getAyahsByEditionID(
+  db: Kysely<Database>,
+  editionId: number,
+) {
   return db
-    .select()
-    .from(ayah)
-    .where(sql`${eq(ayah.editionId, editionId)}`)
-    .all();
+    .selectFrom("ayah")
+    .selectAll()
+    .where("ayah.editionId", "=", editionId)
+    .execute();
 }
-
 /**
  * Retrieves the ayahs by the specified surah number.
  *
  * @param surahNumber - The number of the surah.
  * @returns A promise that resolves to the ayahs matching the surah number.
  */
-export async function getAyahsBySurahNumber(surahNumber: number) {
-  const db = connectToDatabase();
-
+export async function getAyahsBySurahNumber(
+  db: Kysely<Database>,
+  surahNumber: number,
+) {
   const statement = db
-    .select()
-    .from(ayah)
-    .where(sql`${eq(ayah.surahNumber, surahNumber)}`);
+    .selectFrom("ayah")
+    .selectAll()
+    .where("ayah.surahNumber", "=", surahNumber);
 
-  const sqlStatement = statement.toSQL();
-  console.log(sqlStatement);
+  const sqlStatement = statement.compile();
+  console.log(sqlStatement.sql);
 
-  return statement.all();
+  return statement.execute();
 }

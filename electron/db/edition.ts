@@ -1,75 +1,136 @@
-import { eq } from "drizzle-orm";
-import { db } from ".";
-import { edition } from "./schema";
+import type { Kysely } from "kysely";
+import { type Database } from "./schema";
 
-// fetch all editions where type is translation
-export function getTranslations() {
-  return db.select().from(edition).where(eq(edition.type, "TRANSLATION")).all();
-}
-
-// fetch all editions where type is QURAN
-export function getQuran() {
-  return db.select().from(edition).where(eq(edition.type, "QURAN")).all();
-}
-
-// fetch all editions where type is TRANSLITERATION
-export function getTransliterations() {
+/**
+ * Fetch all editions where type is TRANSLATION.
+ */
+export async function getTranslations(db: Kysely<Database>) {
   return db
-    .select()
-    .from(edition)
-    .where(eq(edition.type, "TRANSLITERATION"))
-    .all();
+    .selectFrom("edition")
+    .selectAll()
+    .where("type", "=", "TRANSLATION")
+    .execute();
 }
-
-// fetch all editions where type is QURAN_TRANSLITERATION
-export function getQuranTransliterations() {
+/**
+ * Fetch all editions where type is QURAN.
+ */
+export async function getQuran(db: Kysely<Database>) {
   return db
-    .select()
-    .from(edition)
-    .where(eq(edition.type, "QURAN_TRANSLITERATION"))
-    .all();
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.type", "=", "QURAN")
+    .execute();
 }
 
-// fetch all editions where type is type
-export function getEditionsByType(type: string) {
-  return db.select().from(edition).where(eq(edition.type, type)).all();
-}
-
-// fetch edition by id
-export function getEditionByID(id: number) {
-  return db.select().from(edition).where(eq(edition.id, id)).get();
-}
-
-// fetch edition by name
-export function getEditionByName(name: string) {
-  return db.select().from(edition).where(eq(edition.name, name)).get();
-}
-
-// fetch all editions
-export function getEditions() {
-  return db.select().from(edition).all();
-}
-
-// fetch all enabled editions
-export function getEnabledEditions() {
-  return db.select().from(edition).where(eq(edition.enabled, 1)).all();
-}
-
-// fetch all disabled editions
-export function getDisabledEditions() {
-  return db.select().from(edition).where(eq(edition.enabled, 0)).all();
-}
-
-// fetch editions by language
-export function getEditionsByLanguage(language: string) {
-  return db.select().from(edition).where(eq(edition.language, language)).all();
-}
-
-// fetch languages
-export function getLanguages() {
+/**
+ * Fetch all editions where type is TRANSLITERATION.
+ */
+export async function getTransliterations(db: Kysely<Database>) {
   return db
-    .select({ language: edition.language })
-    .from(edition)
-    .groupBy(edition.language)
-    .all();
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.type", "=", "TRANSLITERATION")
+    .execute();
+}
+
+/**
+ * Fetch all editions where type is QURAN_TRANSLITERATION.
+ */
+export async function getQuranTransliterations(db: Kysely<Database>) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.type", "=", "QURAN_TRANSLITERATION")
+    .execute();
+}
+
+/**
+ * Fetch editions by type.
+ * @param type - The type of the edition.
+ */
+export async function getEditionsByType(db: Kysely<Database>, type: string) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.type", "=", type)
+    .execute();
+}
+
+/**
+ * Fetch edition by ID.
+ * @param id - The ID of the edition.
+ */
+export async function getEditionByID(db: Kysely<Database>, id: number) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.id", "=", id)
+    .executeTakeFirst();
+}
+
+/**
+ * Fetch edition by name.
+ * @param name - The name of the edition.
+ */
+export async function getEditionByName(db: Kysely<Database>, name: string) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.name", "=", name)
+    .executeTakeFirst();
+}
+
+/**
+ * Fetch all editions.
+ */
+export async function getEditions(db: Kysely<Database>) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .execute();
+}
+
+/**
+ * Fetch all enabled editions.
+ */
+export async function getEnabledEditions(db: Kysely<Database>) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.enabled", "=", 1)
+    .execute();
+}
+
+/**
+ * Fetch all disabled editions.
+ */
+export async function getDisabledEditions(db: Kysely<Database>) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.enabled", "=", 0)
+    .execute();
+}
+
+/**
+ * Fetch editions by language.
+ * @param language - The language of the edition.
+ */
+export async function getEditionsByLanguage(db: Kysely<Database>, language: string) {
+  return db
+    .selectFrom("edition")
+    .selectAll()
+    .where("edition.language", "=", language)
+    .execute();
+}
+
+/**
+ * Fetch distinct languages.
+ */
+export async function getLanguages(db: Kysely<Database>) {
+  return db
+    .selectFrom("edition")
+    .select("edition.language")
+    .groupBy("edition.language")
+    .execute();
 }

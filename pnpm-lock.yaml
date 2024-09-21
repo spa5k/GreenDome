@@ -132,7 +132,7 @@ importers:
         version: 1.11.13
       drizzle-orm:
         specifier: ^0.33.0
-        version: 0.33.0(@types/better-sqlite3@7.6.11)(@types/react@18.3.8)(better-sqlite3@11.3.0)(react@18.3.1)
+        version: 0.33.0(@prisma/client@5.19.1(prisma@5.19.1))(@types/better-sqlite3@7.6.11)(@types/react@18.3.8)(better-sqlite3@11.3.0)(kysely@0.27.4)(prisma@5.19.1)(react@18.3.1)
       electron-dl-manager:
         specifier: ^3.2.0
         version: 3.2.0(electron@32.1.2)
@@ -154,6 +154,9 @@ importers:
       howler:
         specifier: ^2.2.4
         version: 2.2.4
+      kysely:
+        specifier: ^0.27.4
+        version: 0.27.4
       lucide-react:
         specifier: ^0.445.0
         version: 0.445.0(react@18.3.1)
@@ -2284,6 +2287,42 @@ packages:
       integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==,
     }
     engines: { node: ">=14" }
+
+  "@prisma/client@5.19.1":
+    resolution: {
+      integrity: sha512-x30GFguInsgt+4z5I4WbkZP2CGpotJMUXy+Gl/aaUjHn2o1DnLYNTA+q9XdYmAQZM8fIIkvUiA2NpgosM3fneg==,
+    }
+    engines: { node: ">=16.13" }
+    peerDependencies:
+      prisma: "*"
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+
+  "@prisma/debug@5.19.1":
+    resolution: {
+      integrity: sha512-lAG6A6QnG2AskAukIEucYJZxxcSqKsMK74ZFVfCTOM/7UiyJQi48v6TQ47d6qKG3LbMslqOvnTX25dj/qvclGg==,
+    }
+
+  "@prisma/engines-version@5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3":
+    resolution: {
+      integrity: sha512-xR6rt+z5LnNqTP5BBc+8+ySgf4WNMimOKXRn6xfNRDSpHvbOEmd7+qAOmzCrddEc4Cp8nFC0txU14dstjH7FXA==,
+    }
+
+  "@prisma/engines@5.19.1":
+    resolution: {
+      integrity: sha512-kR/PoxZDrfUmbbXqqb8SlBBgCjvGaJYMCOe189PEYzq9rKqitQ2fvT/VJ8PDSe8tTNxhc2KzsCfCAL+Iwm/7Cg==,
+    }
+
+  "@prisma/fetch-engine@5.19.1":
+    resolution: {
+      integrity: sha512-pCq74rtlOVJfn4pLmdJj+eI4P7w2dugOnnTXpRilP/6n5b2aZiA4ulJlE0ddCbTPkfHmOL9BfaRgA8o+1rfdHw==,
+    }
+
+  "@prisma/get-platform@5.19.1":
+    resolution: {
+      integrity: sha512-sCeoJ+7yt0UjnR+AXZL7vXlg5eNxaFOwC23h0KvW1YIXUoa7+W2ZcAUhoEQBmJTW4GrFqCuZ8YSP0mkDa4k3Zg==,
+    }
 
   "@radix-ui/number@1.1.0":
     resolution: {
@@ -6761,6 +6800,12 @@ packages:
       integrity: sha512-Gmm5lyikGYJyogKQA7Fy6dKkfNh350V6DwfZkid0RVrGYP2cfCsxuMxgF5etKeCv7NjXYpJxKqi1dYkIkX/dcA==,
     }
 
+  kysely@0.27.4:
+    resolution: {
+      integrity: sha512-dyNKv2KRvYOQPLCAOCjjQuCk4YFd33BvGdf/o5bC7FiW+BB6snA81Zt+2wT9QDFzKqxKa5rrOmvlK/anehCcgA==,
+    }
+    engines: { node: ">=14.0.0" }
+
   language-subtag-registry@0.3.23:
     resolution: {
       integrity: sha512-0K65Lea881pHotoGEa5gDlMxt3pctLi2RplBb7Ezh4rRdLEOtgi7n4EwK9lamnUCkKBqaeKRVebTq6BAxSkpXQ==,
@@ -7946,6 +7991,13 @@ packages:
       integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==,
     }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
+
+  prisma@5.19.1:
+    resolution: {
+      integrity: sha512-c5K9MiDaa+VAAyh1OiYk76PXOme9s3E992D7kvvIOhCrNsBQfy2mP2QAQtX0WNj140IgG++12kwZpYB9iIydNQ==,
+    }
+    engines: { node: ">=16.13" }
+    hasBin: true
 
   process-nextick-args@2.0.1:
     resolution: {
@@ -11254,6 +11306,37 @@ snapshots:
   "@pkgjs/parseargs@0.11.0":
     optional: true
 
+  "@prisma/client@5.19.1(prisma@5.19.1)":
+    optionalDependencies:
+      prisma: 5.19.1
+    optional: true
+
+  "@prisma/debug@5.19.1":
+    optional: true
+
+  "@prisma/engines-version@5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3":
+    optional: true
+
+  "@prisma/engines@5.19.1":
+    dependencies:
+      "@prisma/debug": 5.19.1
+      "@prisma/engines-version": 5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3
+      "@prisma/fetch-engine": 5.19.1
+      "@prisma/get-platform": 5.19.1
+    optional: true
+
+  "@prisma/fetch-engine@5.19.1":
+    dependencies:
+      "@prisma/debug": 5.19.1
+      "@prisma/engines-version": 5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3
+      "@prisma/get-platform": 5.19.1
+    optional: true
+
+  "@prisma/get-platform@5.19.1":
+    dependencies:
+      "@prisma/debug": 5.19.1
+    optional: true
+
   "@radix-ui/number@1.1.0": {}
 
   "@radix-ui/primitive@1.0.1":
@@ -13666,11 +13749,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.33.0(@types/better-sqlite3@7.6.11)(@types/react@18.3.8)(better-sqlite3@11.3.0)(react@18.3.1):
+  drizzle-orm@0.33.0(@prisma/client@5.19.1(prisma@5.19.1))(@types/better-sqlite3@7.6.11)(@types/react@18.3.8)(better-sqlite3@11.3.0)(kysely@0.27.4)(prisma@5.19.1)(react@18.3.1):
     optionalDependencies:
+      "@prisma/client": 5.19.1(prisma@5.19.1)
       "@types/better-sqlite3": 7.6.11
       "@types/react": 18.3.8
       better-sqlite3: 11.3.0
+      kysely: 0.27.4
+      prisma: 5.19.1
       react: 18.3.1
 
   eastasianwidth@0.2.0: {}
@@ -15039,6 +15125,8 @@ snapshots:
 
   konva@9.3.14: {}
 
+  kysely@0.27.4: {}
+
   language-subtag-registry@0.3.23: {}
 
   language-tags@1.0.9:
@@ -15954,6 +16042,13 @@ snapshots:
       "@jest/schemas": 29.6.3
       ansi-styles: 5.2.0
       react-is: 18.3.1
+
+  prisma@5.19.1:
+    dependencies:
+      "@prisma/engines": 5.19.1
+    optionalDependencies:
+      fsevents: 2.3.3
+    optional: true
 
   process-nextick-args@2.0.1: {}
 

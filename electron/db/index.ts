@@ -1,27 +1,24 @@
-import Database from "better-sqlite3";
-import { drizzle } from "drizzle-orm/better-sqlite3";
+import SQLite from "better-sqlite3";
 import { app } from "electron";
 import fs from "fs";
+import { CamelCasePlugin, Kysely, SqliteDialect } from "kysely";
 import path from "path";
-import * as schema from "./schema";
+import type { Database } from "./schema";
 
 const dbPath = path.join(app.getPath("userData"), "quran.db");
 
-export const connectToDatabase = () => {
-  try {
-    // Create SQLite3 database instance
-    const sqlite = new Database(dbPath);
+const dialect = new SqliteDialect({
+  database: new SQLite(dbPath),
+});
 
-    // Connect to Drizzle
-    const db = drizzle(sqlite, { schema });
-
-    console.log("Connected to SQLite database successfully.");
-    return db;
-  } catch (error) {
-    console.error("Error connecting to SQLite database:", error);
-    throw new Error("Failed to connect to database");
-  }
-};
+// Database interface is passed to Kysely's constructor, and from now on, Kysely
+// knows your database structure.
+// Dialect is passed to Kysely's constructor, and from now on, Kysely knows how
+// to communicate with your database.
+export const db = new Kysely<Database>({
+  dialect,
+  plugins: [new CamelCasePlugin()],
+});
 
 export const checkIfDbExists = async () => {
   try {
