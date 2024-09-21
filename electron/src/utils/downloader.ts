@@ -3,6 +3,7 @@ import log from "electron-log";
 import fs from "fs/promises";
 import path from "path";
 import { URL } from "url";
+import { updateProgress, updateStatus } from "./events";
 
 interface DownloadOptions {
   directory?: string;
@@ -12,7 +13,7 @@ interface DownloadOptions {
 }
 
 export async function downloadFile(
-  mainWindow: BrowserWindow,
+  loadingWindow: BrowserWindow,
   url: string,
   options: DownloadOptions = {},
 ): Promise<void> {
@@ -29,17 +30,17 @@ export async function downloadFile(
 
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      await downloadWithTimeout(mainWindow, url, tempFilePath, timeout);
+      await downloadWithTimeout(loadingWindow, url, tempFilePath, timeout);
       await fs.rename(tempFilePath, filePath);
       await setFilePermissions(filePath);
       log.info(`File downloaded successfully: ${filePath}`);
-      mainWindow.webContents.send("download-complete");
+      loadingWindow.webContents.send("download-complete");
       return;
     } catch (error) {
       log.error(`Download attempt ${attempt} failed:`, error);
       if (attempt === retries) {
         await fs.unlink(tempFilePath).catch(() => {}); // Clean up temp file
-        mainWindow.webContents.send("download-error", `Failed to download file after ${retries} attempts`);
+        loadingWindow.webContents.send("download-error", `Failed to download file after ${retries} attempts`);
         throw new Error(`Failed to download file after ${retries} attempts`);
       }
     }
@@ -47,7 +48,7 @@ export async function downloadFile(
 }
 
 function downloadWithTimeout(
-  mainWindow: BrowserWindow,
+  loadingWindow: BrowserWindow,
   url: string,
   tempFilePath: string,
   timeout: number,
@@ -65,14 +66,14 @@ function downloadWithTimeout(
       item.on("updated", (event, state) => {
         if (state === "interrupted") {
           log.warn("Download interrupted");
-          mainWindow.webContents.send("download-status", "interrupted");
+          updateStatus("Download interrupted", loadingWindow);
         } else if (state === "progressing") {
           if (item.isPaused()) {
             log.info("Download paused");
-            mainWindow.webContents.send("download-status", "paused");
+            updateStatus("Download paused", loadingWindow);
           } else {
             const progress = item.getReceivedBytes() / item.getTotalBytes();
-            mainWindow.webContents.send("download-progress", progress * 100);
+            updateProgress(progress * 100, loadingWindow);
           }
         }
       });
@@ -82,7 +83,7 @@ function downloadWithTimeout(
         if (state === "completed") {
           resolve();
         } else {
-          mainWindow.webContents.send("download-error", `Download failed: ${state}`);
+          loadingWindow.webContents.send("download-error", `Download failed: ${state}`);
           reject(new Error(`Download failed: ${state}`));
         }
       });

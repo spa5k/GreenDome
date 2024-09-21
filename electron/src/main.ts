@@ -9,6 +9,7 @@ import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
 import { downloadFile } from "./utils/downloader.js";
+import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
 import { getLatestRelease, getLatestReleaseVersion } from "./utils/releases.js";
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
@@ -27,6 +28,7 @@ function createLoadingWindow(): BrowserWindow {
     alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
@@ -130,26 +132,26 @@ async function checkForUpdates() {
 
 async function initializeApp() {
   try {
-    loadingWindow!.webContents.send("update-progress", "Checking for updates...");
+    updateStatus("Checking for updates...", loadingWindow!);
     await checkForUpdates();
 
     // set progress bar to 0
-    loadingWindow!.webContents.send("download-progress", 0);
+    updateProgress(0, loadingWindow!);
 
-    loadingWindow!.webContents.send("current-status", "Starting server...");
+    updateStatus("Starting server...", loadingWindow!);
     const honoPort = await startHonoServer();
     // set progress bar to 50
-    loadingWindow!.webContents.send("download-progress", 50);
+    updateProgress(50, loadingWindow!);
     console.log("Backend server started on port:", `http://localhost:${honoPort}`);
     ipcMain.handle("getHonoPort", () => honoPort);
 
-    loadingWindow!.webContents.send("current-status", "Loading UI...");
+    updateStatus("Loading UI...", loadingWindow!);
     // set progress bar to 75
-    loadingWindow!.webContents.send("download-progress", 75);
+    updateProgress(75, loadingWindow!);
 
     mainWindow = createWindow();
     // set progress bar to 100
-    loadingWindow!.webContents.send("download-progress", 90);
+    updateProgress(90, loadingWindow!);
 
     if (is.dev) {
       mainWindow.loadURL("http://localhost:3000");

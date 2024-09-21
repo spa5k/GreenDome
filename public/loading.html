@@ -29,11 +29,13 @@
       margin: 2em;
       padding: 15px;
     }
+
     .message__text {
       font-weight: bolder;
       font-size: 1.5em;
       color: rgb(25, 21, 83);
     }
+
     .message__author {
       opacity: 0.5;
       margin-top: 0.5em;
@@ -82,22 +84,23 @@
       display: inline-block;
       padding: 4px 8px;
       border-radius: 12px;
-      background-color: #bad4cb;
+      background-color: #42e0a99d;
       color: white;
       font-size: 14px;
       font-weight: bolder;
       margin-top: 10px;
+      box-shadow: 0 0 1rem rgba(27, 170, 110, 0.699);
     }
 
     .blob {
       width: 2rem;
       height: 2rem;
-      background: rgba(230, 230, 230, 0.85);
+      background: transparent;
       border-radius: 50%;
       position: absolute;
       left: calc(50% - 1rem);
       top: calc(25% - 1rem);
-      box-shadow: 0 0 1rem rgba(27, 170, 110, 0.514);
+      box-shadow: 0 0 1rem rgba(27, 170, 110, 0.699);
     }
 
     .blob-2 {
@@ -131,134 +134,176 @@
     }
 
     @-webkit-keyframes animate-to-2 {
-      25%, 75% {
+      25%,
+      75% {
         transform: translateX(-1.5rem) scale(0.75);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
 
     @keyframes animate-to-2 {
-      25%, 75% {
+      25%,
+      75% {
         transform: translateX(-1.5rem) scale(0.75);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @-webkit-keyframes animate-to-3 {
-      25%, 75% {
+      25%,
+      75% {
         transform: translateX(1.5rem) scale(0.75);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @keyframes animate-to-3 {
-      25%, 75% {
+      25%,
+      75% {
         transform: translateX(1.5rem) scale(0.75);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @-webkit-keyframes animate-to-1 {
       25% {
         transform: translateX(-1.5rem) scale(0.75);
       }
-      50%, 75% {
+
+      50%,
+      75% {
         transform: translateX(-4.5rem) scale(0.6);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @keyframes animate-to-1 {
       25% {
         transform: translateX(-1.5rem) scale(0.75);
       }
-      50%, 75% {
+
+      50%,
+      75% {
         transform: translateX(-4.5rem) scale(0.6);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @-webkit-keyframes animate-to-4 {
       25% {
         transform: translateX(1.5rem) scale(0.75);
       }
-      50%, 75% {
+
+      50%,
+      75% {
         transform: translateX(4.5rem) scale(0.6);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @keyframes animate-to-4 {
       25% {
         transform: translateX(1.5rem) scale(0.75);
       }
-      50%, 75% {
+
+      50%,
+      75% {
         transform: translateX(4.5rem) scale(0.6);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @-webkit-keyframes animate-to-0 {
       25% {
         transform: translateX(-1.5rem) scale(0.75);
       }
+
       50% {
         transform: translateX(-4.5rem) scale(0.6);
       }
+
       75% {
         transform: translateX(-7.5rem) scale(0.5);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @keyframes animate-to-0 {
       25% {
         transform: translateX(-1.5rem) scale(0.75);
       }
+
       50% {
         transform: translateX(-4.5rem) scale(0.6);
       }
+
       75% {
         transform: translateX(-7.5rem) scale(0.5);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @-webkit-keyframes animate-to-5 {
       25% {
         transform: translateX(1.5rem) scale(0.75);
       }
+
       50% {
         transform: translateX(4.5rem) scale(0.6);
       }
+
       75% {
         transform: translateX(7.5rem) scale(0.5);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
     }
+
     @keyframes animate-to-5 {
       25% {
         transform: translateX(1.5rem) scale(0.75);
       }
+
       50% {
         transform: translateX(4.5rem) scale(0.6);
       }
+
       75% {
         transform: translateX(7.5rem) scale(0.5);
       }
+
       95% {
         transform: translateX(0rem) scale(1);
       }
@@ -295,9 +340,6 @@
         <div class="blob blob-3"></div>
         <div class="blob blob-4"></div>
         <div class="blob blob-5"></div>
-      </div>
-      <div class="message">
-        <div class="message__text">© GreenDome</div>
       </div>
       <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
