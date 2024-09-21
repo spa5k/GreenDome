@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v0.0.4-alpha.1](https://github.com/spa5k/Siraat/compare/v0.0.4-alpha.1...v0.0.4-alpha.1)
+#### [v0.0.0](https://github.com/spa5k/Siraat/compare/v0.0.4-alpha.2...v0.0.0)
+
+- feat: added basic widgets for homepage [`#265`](https://github.com/spa5k/Siraat/pull/265)
+- Update changelog for 0.0.4-alpha.2 [`66a7a56`](https://github.com/spa5k/Siraat/commit/66a7a56e2b6431e152749c9a5b8866062f5ba4d7)
+
+#### [v0.0.4-alpha.2](https://github.com/spa5k/Siraat/compare/v0.0.4-alpha.1...v0.0.4-alpha.2)
+
+> 16 September 2024
 
 - fix [`afad856`](https://github.com/spa5k/Siraat/commit/afad856593708860da35af007ffaa482fde10897)
 - fix [`48fd2ca`](https://github.com/spa5k/Siraat/commit/48fd2ca6745a1d4cc0616c6f9ae8e708df8a0502)
@@ -30,9 +37,9 @@ All notable changes to this project will be documented in this file. Dates are d
 
 - Setup homepage according to new structure [`#264`](https://github.com/spa5k/Siraat/pull/264)
 - [CodeFactor] Apply fixes to commit 4077ac9 [`#262`](https://github.com/spa5k/Siraat/pull/262)
-- feat: :sparkles: Salah api with aladhan method [`#248`](https://github.com/spa5k/Siraat/pull/248)
+- feat: :sparkles: Salah api with aladhan method  [`#248`](https://github.com/spa5k/Siraat/pull/248)
 - Create draft PR for #251 [`#253`](https://github.com/spa5k/Siraat/pull/253)
-- feat(tauri): adding tauri lint action [`#261`](https://github.com/spa5k/Siraat/pull/261)
+- feat(tauri):  adding tauri lint action [`#261`](https://github.com/spa5k/Siraat/pull/261)
 - feat: :sparkles: Added title bar in tauri [`#259`](https://github.com/spa5k/Siraat/pull/259)
 - fix: :bug: Fix routing problem in Tauri [`#257`](https://github.com/spa5k/Siraat/pull/257)
 - feat: :sparkles: Add some readme for installation [`#250`](https://github.com/spa5k/Siraat/pull/250)
@@ -61,7 +68,7 @@ All notable changes to this project will be documented in this file. Dates are d
 - fix(deps): update rust crate dotenvy to 0.15.7 [`#183`](https://github.com/spa5k/Siraat/pull/183)
 - feat: :sparkles: Quran text, translation and transliteration selector [`#174`](https://github.com/spa5k/Siraat/pull/174)
 - chore(deps): update pnpm to v7.30.3 [`#184`](https://github.com/spa5k/Siraat/pull/184)
-- feat: :sparkles: add hijri date function [`#187`](https://github.com/spa5k/Siraat/pull/187)
+- feat: :sparkles: add hijri date function  [`#187`](https://github.com/spa5k/Siraat/pull/187)
 - fix(deps): update dependency react-error-boundary to v4 [`#182`](https://github.com/spa5k/Siraat/pull/182)
 - updated code with hijri and salah times (on rightbar) [`#181`](https://github.com/spa5k/Siraat/pull/181)
 - chore(deps): update dependency kysely-codegen to ^0.10.0 [`#180`](https://github.com/spa5k/Siraat/pull/180)
