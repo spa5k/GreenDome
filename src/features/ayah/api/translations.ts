@@ -12,7 +12,7 @@ export class LocalTranslationService extends TranslationService {
     surah: number,
     editionName: string,
   ): Promise<Ayah[]> {
-    const url = `http://localhost:50000/surah/${surah}/${editionName}`;
+    const url = `http://localhost:50000/translations/${surah}/${editionName}`;
 
     const response = await fetch(url, { cache: "no-store" });
     const res = await response.json();
@@ -21,7 +21,7 @@ export class LocalTranslationService extends TranslationService {
   }
 }
 
-export class RemoteAyahService extends TranslationService {
+export class RemoteTranslationService extends TranslationService {
   public async fetchAyahs(
     surah: number,
     editionName: string,
@@ -60,20 +60,20 @@ export class RemoteAyahService extends TranslationService {
   }
 }
 
-export const fetchAyahs = async (
+export const fetchTranslations = async (
   surah: number,
   editionName: string,
 ): Promise<Ayah[]> => {
   const isLocalhost = await isLocalhostReachable();
   const service = isLocalhost
     ? new LocalTranslationService()
-    : new RemoteAyahService();
+    : new RemoteTranslationService();
 
   try {
     return await service.fetchAyahs(surah, editionName);
   } catch (error) {
     console.error("Local fetch failed, trying remote:", error);
-    const remoteService = new RemoteAyahService();
+    const remoteService = new RemoteTranslationService();
     return await remoteService.fetchAyahs(surah, editionName);
   }
 };

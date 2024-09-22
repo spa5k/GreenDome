@@ -148,8 +148,5 @@ export async function getAyahsBySurahNumber(
     .selectAll()
     .where("surahNumber", "=", surahNumber);
 
-  const sqlStatement = statement.compile();
-  console.log(sqlStatement.sql);
-
   return statement.execute();
 }

@@ -21,6 +21,7 @@ import {
 import { Suspense } from "react";
 import { searchParamsCache } from "../params";
 
+import { fetchTranslations } from "@/features/ayah/api/translations";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default async function Page({
 
   const fetchEditions = async (
     editions: Edition[],
-    fetchFunction: typeof fetchAyahs | typeof fetchAyahsQFC,
+    fetchFunction: typeof fetchAyahs | typeof fetchAyahsQFC | typeof fetchTranslations,
     surahNumber: number,
   ) => {
     const results = await Promise.allSettled(editions.map(async (edition) => {
@@ -82,7 +83,7 @@ export default async function Page({
 
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
     fetchEditions([quranEditionsSelectedData], fetchAyahs, surahNumber),
-    fetchEditions(translationEditionsSelectedData, fetchAyahs, surahNumber),
+    fetchEditions(translationEditionsSelectedData, fetchTranslations, surahNumber),
     fetchAyahs(surahNumber, "ara-quranindopak"),
   ]);
 
