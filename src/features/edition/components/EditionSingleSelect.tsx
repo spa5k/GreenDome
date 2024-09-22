@@ -23,7 +23,7 @@ export const EditionSingleSelect = (
 
   const parsedEditions = edition.map((edition) => ({
     label: edition.name,
-    value: edition.id.toString(),
+    value: edition.slug,
   }));
 
   const updateQueryParam = (selectedEdition: string) => {

@@ -37,21 +37,19 @@ export default async function Page({
   };
   params?: { number?: string };
 }): Promise<JSX.Element> {
-  logger.info("Rendering Page component", { searchParams, params });
-
-  function parseEditions(editions: string): number[] {
-    return editions.split(",").map((edition) => parseInt(edition.trim())).filter(edition => !isNaN(edition));
+  function parseEditions(editions: string): string[] {
+    return editions.split(",").map((edition) => edition.trim()).filter(edition => edition !== "");
   }
 
-  const quranEditionsSelected = parseEditions(searchParams?.q ?? "458");
-  const translationEditionsSelected = parseEditions(searchParams?.t ?? "281");
+  const quranEditionsSelected = parseEditions(searchParams?.q ?? "ara-quranindopak");
+  const translationEditionsSelected = parseEditions(searchParams?.t ?? "eng-mustafakhattaba");
 
   const quranEditionsSelectedData: Edition[] = quranEditionsSelected.map(
-    (edition) => quranEditions.find((quranEdition) => quranEdition.id === edition),
+    (edition) => quranEditions.find((quranEdition) => quranEdition.slug === edition),
   ).filter((edition): edition is Edition => edition !== undefined);
 
   const translationEditionsSelectedData: Edition[] = translationEditionsSelected.map(
-    (edition) => translationEditions.find((translationEdition) => translationEdition.id === edition),
+    (edition) => translationEditions.find((translationEdition) => translationEdition.slug === edition),
   ).filter((edition): edition is Edition => edition !== undefined);
 
   const fetchEditions = async (
@@ -62,7 +60,7 @@ export default async function Page({
     const results = await Promise.allSettled(editions.map(async (edition) => {
       try {
         const ayahs = await fetchFunction(
-          edition.id,
+          // @ts-ignore
           surahNumber,
           edition.slug,
         );
@@ -88,21 +86,14 @@ export default async function Page({
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
     fetchEditions(quranEditionsSelectedData, fetchAyahs, surahNumber),
     fetchEditions(translationEditionsSelectedData, fetchAyahs, surahNumber),
-    fetchAyahs(123, surahNumber, "ara-quranindopak"),
+    fetchAyahs(surahNumber, "ara-quranindopak"),
   ]);
-
-  logger.info("Fetched editions", {
-    quranEditionsFetched: quranEditionsFetched.length,
-    translationEditionsFetched: translationEditionsFetched.length,
-    fallbackAyahsCount: fallbackAyahs.length,
-  });
 
   const referenceAyahs = quranEditionsFetched[0]?.ayahs || [];
 
   const isAyahQFC = (ayah: AyahQFC | Ayah): ayah is AyahQFC => {
     return (ayah as AyahQFC)?.page !== undefined;
   };
-  console.log("referenceAyahs", quranEditionsFetched[0]?.id, referenceAyahs.length);
 
   return (
     <main className={`mt-20 flex gap-4 flex-col ${fonts} items-center`}>

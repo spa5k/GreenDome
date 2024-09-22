@@ -2,7 +2,7 @@ import { createRoute, type OpenAPIHono } from "@hono/zod-openapi";
 import type { Env } from "electron";
 import z from "zod";
 import { db } from "../../db";
-import { getAyahsBySurahNumber, getAyahsBySurahNumberAndEditionID } from "../../db/ayah";
+import { getAyahsBySurahNumber, getAyahsBySurahNumberAndEditionName } from "../../db/ayah";
 
 export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
   const getAyahsBySurahNumberRoute = createRoute({
@@ -48,11 +48,11 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
   });
 
   // get ayahs by surah number and edition id
-  const getAyahsBySurahNumberAndEditionIDRoute = createRoute({
+  const getAyahsBySurahNumberAndEditionNameRoute = createRoute({
     method: "get",
     tags: ["Ayah"],
 
-    path: "/surah/{surahNumber}/{editionId}",
+    path: "/surah/{surahNumber}/{editionName}",
     request: {
       params: z.object({
         surahNumber: z.string().openapi({
@@ -62,9 +62,9 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
           },
           example: "1",
         }),
-        editionId: z.string().openapi({
+        editionName: z.string().openapi({
           param: {
-            name: "editionId",
+            name: "editionName",
             in: "path",
           },
           example: "1",
@@ -91,10 +91,10 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
     },
   });
 
-  app.openapi(getAyahsBySurahNumberAndEditionIDRoute, async (c) => {
+  app.openapi(getAyahsBySurahNumberAndEditionNameRoute, async (c) => {
     const surahNumber = parseInt(c.req.param("surahNumber"));
-    const editionId = parseInt(c.req.param("editionId"));
-    const ayahs = await getAyahsBySurahNumberAndEditionID(db, surahNumber, editionId);
+    const editionName = c.req.param("editionName");
+    const ayahs = await getAyahsBySurahNumberAndEditionName(db, surahNumber, editionName);
     return c.json(ayahs);
   });
 }

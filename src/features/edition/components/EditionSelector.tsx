@@ -25,7 +25,7 @@ export function EditionsMultiSelect({ editions }: {
   const [inputValue, setInputValue] = React.useState("");
 
   const handleUnselect = React.useCallback((edition: Edition) => {
-    setSelectedEditions((prev) => prev.filter((s) => s.id !== edition.id));
+    setSelectedEditions((prev) => prev.filter((s) => s.slug !== edition.slug));
   }, []);
 
   const handleKeyDown = React.useCallback(
@@ -49,11 +49,6 @@ export function EditionsMultiSelect({ editions }: {
     [],
   );
 
-  const selectables = editions.filter(
-    // @ts-ignore
-    (edition) => !selectedEditions.includes(edition),
-  );
-
   const quranEditions = editions.filter(
     (edition) => edition.type === "QURAN",
   );
@@ -67,8 +62,8 @@ export function EditionsMultiSelect({ editions }: {
         <div className="flex flex-wrap gap-1">
           {selectedEditions.map((edition) => {
             return (
-              <Badge key={edition.id} variant="secondary">
-                {edition.author}
+              <Badge key={edition.slug} variant="secondary">
+                {edition.name}
                 <button
                   className="ml-1 rounded-full outline-none ring-offset-background focus:ring-2 focus:ring-ring focus:ring-offset-2"
                   onKeyDown={(e) => {

@@ -34,7 +34,7 @@ export const EditionMultiSelectForm = (
 
   const parsedEditions = edition.map((edition) => ({
     label: edition.name,
-    value: edition.id.toString(),
+    value: edition.slug,
   }));
 
   const updateQueryParam = (selectedEditions: string[]) => {
