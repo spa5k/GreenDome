@@ -2,8 +2,7 @@
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import MultiSelectFormField from "@/components/ui/multi-select";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { parseAsArrayOf, parseAsString, useQueryState } from "nuqs";
 import { useForm } from "react-hook-form";
 import { Edition } from "../api/edition";
 
@@ -20,8 +19,7 @@ export const EditionMultiSelectForm = (
   { edition, queryParam, placeholder, description, defaultSelected = [], maxSelectable = 3 }:
     EditionMultiSelectFormProps,
 ) => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
+  const [selectedEditions, setSelectedEditions] = useQueryState("t", parseAsArrayOf(parseAsString, ","));
 
   // check if the data is there in defaultSelected and name is not null
 
@@ -37,34 +35,13 @@ export const EditionMultiSelectForm = (
     value: edition.slug,
   }));
 
-  const updateQueryParam = (selectedEditions: string[]) => {
-    const currentParams = new URLSearchParams(window.location.search);
-    if (selectedEditions.length > 0) {
-      const enabledEditions = selectedEditions.join(",");
-      currentParams.set(queryParam, enabledEditions);
-    } else {
-      currentParams.delete(queryParam); // Remove the query parameter if the selection is empty
-    }
-    const newQueryString = currentParams.toString().replace(/%2C/g, ","); // Replace encoded commas with actual commas
-    router.push(`?${newQueryString}`);
-  };
-
-  useEffect(() => {
-    const qParam = searchParams.get(queryParam);
-    const initialSelections = qParam ? qParam.split(",") : defaultSelected;
-    form.setValue("quran", initialSelections);
-  }, [searchParams, form, queryParam, defaultSelected]);
-
-  useEffect(() => {
-    const subscription = form.watch((value) => {
-      updateQueryParam(value.quran as string[]);
-    });
-    return () => subscription.unsubscribe();
-  }, [form, queryParam]);
-
   const onSubmit = (data: { quran: string[] }) => {
     console.log(data);
   };
+
+  function updateQueryParam(value: string[]) {
+    setSelectedEditions(value);
+  }
 
   return (
     <Form {...form}>

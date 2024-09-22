@@ -18,8 +18,16 @@ import {
   readex_pro,
   uthmanic,
 } from "@/lib/fonts";
-import { logger } from "@/lib/logger"; // Assume we have a custom logger
 import { Suspense } from "react";
+import { searchParamsCache } from "../params";
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/quran/[surahId]",
+  },
+};
 
 const fonts =
   `${cormorant_garamond.variable} ${lexend.variable} ${readex_pro.variable} ${indopak.variable} font-primary ${noto_sans_devanagari.variable} ${noto_nastaliq_urdu.variable} ${uthmanic.variable} ${noto_sans_arabic.variable}`;
@@ -28,27 +36,16 @@ export default async function Page({
   searchParams,
   params,
 }: {
-  searchParams?: {
-    q?: string;
-    t?: string;
-    tl?: string;
-    start?: string;
-    end?: string;
-  };
+  searchParams: Record<string, string | string[] | undefined>;
   params?: { number?: string };
 }): Promise<JSX.Element> {
-  function parseEditions(editions: string): string[] {
-    return editions.split(",").map((edition) => edition.trim()).filter(edition => edition !== "");
-  }
+  const { q: quranEditionParams, t: translationEditionParams } = searchParamsCache.parse(searchParams);
 
-  const quranEditionsSelected = parseEditions(searchParams?.q ?? "ara-quranindopak");
-  const translationEditionsSelected = parseEditions(searchParams?.t ?? "eng-mustafakhattaba");
+  const quranEditionsSelectedData: Edition = quranEditions.find((quranEdition) =>
+    quranEdition.slug === quranEditionParams
+  )!;
 
-  const quranEditionsSelectedData: Edition[] = quranEditionsSelected.map(
-    (edition) => quranEditions.find((quranEdition) => quranEdition.slug === edition),
-  ).filter((edition): edition is Edition => edition !== undefined);
-
-  const translationEditionsSelectedData: Edition[] = translationEditionsSelected.map(
+  const translationEditionsSelectedData: Edition[] = translationEditionParams!.map(
     (edition) => translationEditions.find((translationEdition) => translationEdition.slug === edition),
   ).filter((edition): edition is Edition => edition !== undefined);
 
@@ -66,7 +63,7 @@ export default async function Page({
         );
         return { ...edition, ayahs };
       } catch (error) {
-        logger.error(`Failed to fetch ayahs for edition ${edition.id}:`, error);
+        console.error(`Failed to fetch ayahs for edition ${edition.id}:`, error);
         return { ...edition, ayahs: [] };
       }
     }));
@@ -75,7 +72,7 @@ export default async function Page({
       if (result.status === "fulfilled") {
         return result.value;
       } else {
-        logger.error(`Failed to fetch edition:`, result.reason);
+        console.error(`Failed to fetch edition:`, result.reason);
         return null;
       }
     }).filter((edition): edition is Edition & { ayahs: Ayah[] | AyahQFC[] } => edition !== null);
@@ -84,7 +81,7 @@ export default async function Page({
   const surahNumber = parseInt(params?.number ?? "1");
 
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
-    fetchEditions(quranEditionsSelectedData, fetchAyahs, surahNumber),
+    fetchEditions([quranEditionsSelectedData], fetchAyahs, surahNumber),
     fetchEditions(translationEditionsSelectedData, fetchAyahs, surahNumber),
     fetchAyahs(surahNumber, "ara-quranindopak"),
   ]);
@@ -104,14 +101,14 @@ export default async function Page({
             queryParam="q"
             placeholder="Select Quran Font"
             description="Select the Quran Font you want to view"
-            defaultSelected={quranEditionsSelected[0]?.toString()}
+            defaultSelected={quranEditionParams}
           />
           <EditionMultiSelectForm
             edition={translationEditions}
             queryParam="t"
             placeholder="Select Translation Edition"
             description="Select the translation edition you want to view"
-            defaultSelected={translationEditionsSelected.map((edition) => edition.toString())}
+            defaultSelected={translationEditionParams?.map((edition) => edition.toString())}
           />
         </div>
       </Suspense>
