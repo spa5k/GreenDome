@@ -48,7 +48,11 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
     const surahNumber = parseInt(c.req.param("surahNumber"));
 
     const ayahs = await getAyahsBySurahNumber(db, surahNumber);
-    return c.json(ayahs);
+    if (ayahs && ayahs.length > 0) {
+      return c.json(ayahs);
+    } else {
+      throw new Error("No translations found");
+    }
   });
 
   // get ayahs by surah number and edition id
@@ -90,7 +94,7 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
             ),
           },
         },
-        description: "List of Ayahs by Surah number and Edition ID",
+        description: "List of Ayahs by Surah number and Edition Name",
       },
     },
   });
@@ -99,7 +103,11 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
     const surahNumber = parseInt(c.req.param("surahNumber"));
     const editionName = c.req.param("editionName");
     const ayahs = await getAyahsBySurahNumberAndEditionName(db, surahNumber, editionName);
-    return c.json(ayahs);
+    if (ayahs && ayahs.length > 0) {
+      return c.json(ayahs);
+    } else {
+      throw new Error("No translations found");
+    }
   });
 
   // get translattion by surah number and edition name
@@ -140,7 +148,7 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
             ),
           },
         },
-        description: "List of Ayahs by Surah number and Edition ID",
+        description: "List of Ayahs by Surah number and Edition Name",
       },
     },
   });
@@ -149,6 +157,10 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
     const surahNumber = parseInt(c.req.param("surahNumber"));
     const editionName = c.req.param("editionName");
     const ayahs = await getTranslationsBySurahNumberAndEditionName(db, surahNumber, editionName);
-    return c.json(ayahs);
+    if (ayahs && ayahs.length > 0) {
+      return c.json(ayahs);
+    } else {
+      throw new Error("No translations found");
+    }
   });
 }

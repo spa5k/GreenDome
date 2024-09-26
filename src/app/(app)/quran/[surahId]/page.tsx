@@ -24,14 +24,17 @@ import { searchParamsCache } from "../params";
 import { fetchTranslations } from "@/features/ayah/api/translations";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: "/quran/[surahId]",
-  },
-};
+export async function generateMetadata({ params }: { params: { number: string } }): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/quran/${params.number}`,
+    },
+  };
+}
 
 const fonts =
   `${cormorant_garamond.variable} ${lexend.variable} ${readex_pro.variable} ${indopak.variable} font-primary ${noto_sans_devanagari.variable} ${noto_nastaliq_urdu.variable} ${uthmanic.variable} ${noto_sans_arabic.variable}`;
+type FetchFunction = typeof fetchAyahs | typeof fetchAyahsQFC | typeof fetchTranslations;
 
 export default async function Page({
   searchParams,
@@ -42,21 +45,19 @@ export default async function Page({
 }): Promise<JSX.Element> {
   const { q: quranEditionParams, t: translationEditionParams } = searchParamsCache.parse(searchParams);
 
-  const quranEditionsSelectedData: Edition = quranEditions.find((quranEdition) =>
-    quranEdition.slug === quranEditionParams
-  )!;
+  const quranEditionsSelectedData = quranEditions.find((quranEdition) => quranEdition.slug === quranEditionParams);
+  if (!quranEditionsSelectedData) {
+    return <p>Not found</p>;
+  }
 
   const translationEditionParamsArray = translationEditionParams ?? [];
   const translationEditionsSelectedData: Edition[] = translationEditionParamsArray
-    .map((edition) =>
-      translationEditions.find((translationEdition) => translationEdition.slug === edition),
-    )
+    .map((edition) => translationEditions.find((translationEdition) => translationEdition.slug === edition))
     .filter((edition): edition is Edition => edition !== undefined);
-  ).filter((edition): edition is Edition => edition !== undefined);
 
   const fetchEditions = async (
     editions: Edition[],
-    fetchFunction: typeof fetchAyahs | typeof fetchAyahsQFC | typeof fetchTranslations,
+    fetchFunction: FetchFunction,
     surahNumber: number,
   ) => {
     const results = await Promise.allSettled(editions.map(async (edition) => {

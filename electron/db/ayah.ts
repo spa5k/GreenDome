@@ -66,7 +66,7 @@ export async function getAyahsBySurahNumberAndEditionName(
  * @param db - The database instance.
  * @param surahNumber - The Surah number.
  * @param editionName - The Edition name.
- * @returns A Promise that resolves to the Ayahs matching the given Surah number and Edition name.
+ * @returns A Promise that resolves to the Translations matching the given Surah number and Edition name.
  */
 export async function getTranslationsBySurahNumberAndEditionName(
   db: Kysely<Database>,
@@ -89,8 +89,8 @@ export async function getTranslationsBySurahNumberAndEditionName(
 
     return ayahs;
   } catch (error) {
-    console.error("Error fetching ayahs:", error);
-    throw new Error("Failed to fetch ayahs");
+    console.error("Error fetching translations:", error);
+    throw new Error("Failed to fetch translations");
   }
 }
 
