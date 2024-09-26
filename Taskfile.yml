@@ -181,5 +181,5 @@ tasks:
   install_sqlite3:
     desc: "Install sqlite3"
     cmds:
-      - pnpm uninstall sqlite3
-      - pnpm install sqlite3 --build-from-source --target_arch=arm64 --fallback-to-build
+      - pnpm uninstall better-sqlite3
+      - pnpm install better-sqlite3 --build-from-source --target_arch=arm64 --fallback-to-build
