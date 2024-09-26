@@ -19,9 +19,10 @@ export const EditionMultiSelectForm = (
   { edition, queryParam, placeholder, description, defaultSelected = [], maxSelectable = 3 }:
     EditionMultiSelectFormProps,
 ) => {
-  const [selectedEditions, setSelectedEditions] = useQueryState("t", parseAsArrayOf(parseAsString, ","));
-
-  // check if the data is there in defaultSelected and name is not null
+  const [selectedEditions, setSelectedEditions] = useQueryState(
+    "t",
+    parseAsArrayOf(parseAsString, ",").withOptions({ history: "push", shallow: false }),
+  );
 
   // Initialize form with default values from query parameters or props
   const form = useForm<{ quran: string[] }>({

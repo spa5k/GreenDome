@@ -18,6 +18,7 @@ export const EditionSingleSelect = (
 ) => {
   const [selectedEdition, setSelectedEdition] = useQueryState("q", {
     defaultValue: defaultSelected,
+    shallow: false,
   });
 
   const parsedEditions = edition.map((edition) => ({

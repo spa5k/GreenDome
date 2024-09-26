@@ -61,16 +61,20 @@ export default async function Page({
     surahNumber: number,
   ) => {
     const results = await Promise.allSettled(editions.map(async (edition) => {
-      try {
+      if (edition.type === "QURAN_QFC") {
+        const version = edition.id === 1 ? "v1" : "v2";
+        const ayahs = await fetchAyahsQFC(
+          version,
+          surahNumber,
+        );
+        return { ...edition, ayahs };
+      } else {
         const ayahs = await fetchFunction(
           // @ts-ignore
           surahNumber,
           edition.slug,
         );
         return { ...edition, ayahs };
-      } catch (error) {
-        console.error(`Failed to fetch ayahs for edition ${edition.id}:`, error);
-        return { ...edition, ayahs: [] };
       }
     }));
 
