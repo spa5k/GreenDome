@@ -46,8 +46,12 @@ export default async function Page({
     quranEdition.slug === quranEditionParams
   )!;
 
-  const translationEditionsSelectedData: Edition[] = translationEditionParams!.map(
-    (edition) => translationEditions.find((translationEdition) => translationEdition.slug === edition),
+  const translationEditionParamsArray = translationEditionParams ?? [];
+  const translationEditionsSelectedData: Edition[] = translationEditionParamsArray
+    .map((edition) =>
+      translationEditions.find((translationEdition) => translationEdition.slug === edition),
+    )
+    .filter((edition): edition is Edition => edition !== undefined);
   ).filter((edition): edition is Edition => edition !== undefined);
 
   const fetchEditions = async (
