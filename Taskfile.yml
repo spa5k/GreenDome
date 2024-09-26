@@ -6,6 +6,11 @@ tasks:
     cmds:
       - "pnpm install --frozen-lockfile"
 
+  install_production:
+    desc: "Install production dependencies"
+    cmds:
+      - "pnpm install --frozen-lockfile --production"
+
   server:
     desc: "Start server"
     cmds:
@@ -44,7 +49,7 @@ tasks:
   electron_dist:
     desc: "Build Electron for distribution in directory mode"
     cmds:
-      - "pnpm electron-builder --dir"
+      - "pnpx electron-builder --dir"
 
   electron_build:
     desc: "Build Electron using tsup"
