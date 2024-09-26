@@ -131,7 +131,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          task install_sqlite3
           task release:mac
 
       - name: Upload artifacts
