@@ -128,10 +128,6 @@
     "productName": "GreenDome App",
     "appId": "com.saybackend.greendome",
     "asarUnpack": [
-      "node_modules/next",
-      "node_modules/@img",
-      "node_modules/sharp",
-      "**\\*.{node,dll}",
       "public"
     ],
     "files": [
@@ -160,7 +156,7 @@
       "icon": "public/icons/icons/win/icon.ico",
       "target": [
         {
-          "target": "nsis-web",
+          "target": ["nsis-web", "nsis"],
           "arch": [
             "x64",
             "ia32",
@@ -182,15 +178,16 @@
     },
     "mac": {
       "identity": null,
-      "target": [
-        {
-          "target": "dmg",
-          "arch": [
-            "x64",
-            "arm64"
-          ]
-        }
-      ],
+      "target": {
+        "target": "default",
+        "arch": [
+          "arm64",
+          "x64"
+        ]
+      },
+      "type": "distribution",
+      "notarize": false,
+      "gatekeeperAssess": false,
       "icon": "public/icons/icons/mac/icon.icns"
     },
     "linux": {

@@ -18,57 +18,58 @@ import {
   readex_pro,
   uthmanic,
 } from "@/lib/fonts";
-import { logger } from "@/lib/logger"; // Assume we have a custom logger
 import { Suspense } from "react";
+import { searchParamsCache } from "../params";
+
+import { fetchTranslations } from "@/features/ayah/api/translations";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { number: string } }): Promise<Metadata> {
+  return {
+    alternates: {
+      canonical: `/quran/${params.number}`,
+    },
+  };
+}
 
 const fonts =
   `${cormorant_garamond.variable} ${lexend.variable} ${readex_pro.variable} ${indopak.variable} font-primary ${noto_sans_devanagari.variable} ${noto_nastaliq_urdu.variable} ${uthmanic.variable} ${noto_sans_arabic.variable}`;
+type FetchFunction = typeof fetchAyahs | typeof fetchAyahsQFC | typeof fetchTranslations;
 
 export default async function Page({
   searchParams,
   params,
 }: {
-  searchParams?: {
-    q?: string;
-    t?: string;
-    tl?: string;
-    start?: string;
-    end?: string;
-  };
+  searchParams: Record<string, string | string[] | undefined>;
   params?: { number?: string };
 }): Promise<JSX.Element> {
-  logger.info("Rendering Page component", { searchParams, params });
+  const { q: quranEditionParams, t: translationEditionParams } = searchParamsCache.parse(searchParams);
 
-  function parseEditions(editions: string): number[] {
-    return editions.split(",").map((edition) => parseInt(edition.trim())).filter(edition => !isNaN(edition));
+  const quranEditionsSelectedData = quranEditions.find((quranEdition) => quranEdition.slug === quranEditionParams);
+  if (!quranEditionsSelectedData) {
+    return <p>Not found</p>;
   }
 
-  const quranEditionsSelected = parseEditions(searchParams?.q ?? "458");
-  const translationEditionsSelected = parseEditions(searchParams?.t ?? "281");
-
-  const quranEditionsSelectedData: Edition[] = quranEditionsSelected.map(
-    (edition) => quranEditions.find((quranEdition) => quranEdition.id === edition),
-  ).filter((edition): edition is Edition => edition !== undefined);
-
-  const translationEditionsSelectedData: Edition[] = translationEditionsSelected.map(
-    (edition) => translationEditions.find((translationEdition) => translationEdition.id === edition),
-  ).filter((edition): edition is Edition => edition !== undefined);
+  const translationEditionParamsArray = translationEditionParams ?? [];
+  const translationEditionsSelectedData: Edition[] = translationEditionParamsArray
+    .map((edition) => translationEditions.find((translationEdition) => translationEdition.slug === edition))
+    .filter((edition): edition is Edition => edition !== undefined);
 
   const fetchEditions = async (
     editions: Edition[],
-    fetchFunction: typeof fetchAyahs | typeof fetchAyahsQFC,
+    fetchFunction: FetchFunction,
     surahNumber: number,
   ) => {
     const results = await Promise.allSettled(editions.map(async (edition) => {
       try {
         const ayahs = await fetchFunction(
-          edition.id,
+          // @ts-ignore
           surahNumber,
           edition.slug,
         );
         return { ...edition, ayahs };
       } catch (error) {
-        logger.error(`Failed to fetch ayahs for edition ${edition.id}:`, error);
+        console.error(`Failed to fetch ayahs for edition ${edition.id}:`, error);
         return { ...edition, ayahs: [] };
       }
     }));
@@ -77,7 +78,7 @@ export default async function Page({
       if (result.status === "fulfilled") {
         return result.value;
       } else {
-        logger.error(`Failed to fetch edition:`, result.reason);
+        console.error(`Failed to fetch edition:`, result.reason);
         return null;
       }
     }).filter((edition): edition is Edition & { ayahs: Ayah[] | AyahQFC[] } => edition !== null);
@@ -86,23 +87,16 @@ export default async function Page({
   const surahNumber = parseInt(params?.number ?? "1");
 
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
-    fetchEditions(quranEditionsSelectedData, fetchAyahs, surahNumber),
-    fetchEditions(translationEditionsSelectedData, fetchAyahs, surahNumber),
-    fetchAyahs(123, surahNumber, "ara-quranindopak"),
+    fetchEditions([quranEditionsSelectedData], fetchAyahs, surahNumber),
+    fetchEditions(translationEditionsSelectedData, fetchTranslations, surahNumber),
+    fetchAyahs(surahNumber, "ara-quranindopak"),
   ]);
-
-  logger.info("Fetched editions", {
-    quranEditionsFetched: quranEditionsFetched.length,
-    translationEditionsFetched: translationEditionsFetched.length,
-    fallbackAyahsCount: fallbackAyahs.length,
-  });
 
   const referenceAyahs = quranEditionsFetched[0]?.ayahs || [];
 
   const isAyahQFC = (ayah: AyahQFC | Ayah): ayah is AyahQFC => {
     return (ayah as AyahQFC)?.page !== undefined;
   };
-  console.log("referenceAyahs", quranEditionsFetched[0]?.id, referenceAyahs.length);
 
   return (
     <main className={`mt-20 flex gap-4 flex-col ${fonts} items-center`}>
@@ -113,14 +107,14 @@ export default async function Page({
             queryParam="q"
             placeholder="Select Quran Font"
             description="Select the Quran Font you want to view"
-            defaultSelected={quranEditionsSelected[0]?.toString()}
+            defaultSelected={quranEditionParams}
           />
           <EditionMultiSelectForm
             edition={translationEditions}
             queryParam="t"
             placeholder="Select Translation Edition"
             description="Select the translation edition you want to view"
-            defaultSelected={translationEditionsSelected.map((edition) => edition.toString())}
+            defaultSelected={translationEditionParams?.map((edition) => edition.toString())}
           />
         </div>
       </Suspense>

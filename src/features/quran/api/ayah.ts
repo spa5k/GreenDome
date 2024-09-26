@@ -15,7 +15,6 @@ export async function isLocalhostReachable(): Promise<boolean> {
 
 abstract class AyahService {
   public abstract fetchAyahs(
-    editionId: number,
     surah: number,
     editionName: string,
   ): Promise<Ayah[]>;
@@ -28,12 +27,10 @@ abstract class AyahService {
 
 export class LocalAyahService extends AyahService {
   public async fetchAyahs(
-    editionId: number,
     surah: number,
     editionName: string,
   ): Promise<Ayah[]> {
-    console.log("fetchAyahs", surah, editionId, editionName);
-    const url = `http://localhost:50000/surah/${surah}/${editionId}`;
+    const url = `http://localhost:50000/surah/${surah}/${editionName}`;
 
     const response = await fetch(url, { cache: "no-store" });
     const res = await response.json();
@@ -81,7 +78,6 @@ export class LocalAyahService extends AyahService {
 
 export class RemoteAyahService extends AyahService {
   public async fetchAyahs(
-    editionId: number,
     surah: number,
     editionName: string,
   ): Promise<Ayah[]> {
@@ -99,7 +95,7 @@ export class RemoteAyahService extends AyahService {
           cache: "force-cache",
         });
         const data = await response.json();
-        return this.formatAyahs(data.chapter, editionId);
+        return this.formatAyahs(data.chapter, editionName);
       } catch (error) {
         console.error("Failed to fetch from URL:", url, "; Error:", error);
       }
@@ -108,13 +104,13 @@ export class RemoteAyahService extends AyahService {
     throw new Error("All URLs failed to fetch data.");
   }
 
-  formatAyahs(chapter: any[], editionId: number): Ayah[] {
+  formatAyahs(chapter: any[], editionName: string): Ayah[] {
     return chapter.map((ayah: AyahQuranApiAyah) => ({
       id: ayah.chapter,
       surah: ayah.chapter,
       ayah: ayah.verse,
-      editionId,
       text: ayah.text,
+      editionName,
     }));
   }
 
@@ -160,23 +156,20 @@ export class RemoteAyahService extends AyahService {
 }
 
 export const fetchAyahs = async (
-  editionId: number,
   surah: number,
   editionName: string,
 ): Promise<Ayah[]> => {
-  // const isLocalhost = await isLocalhostReachable();
-  const isLocalhost = true;
-  console.log("isLocalhost", isLocalhost);
+  const isLocalhost = await isLocalhostReachable();
   const service = isLocalhost
     ? new LocalAyahService()
     : new RemoteAyahService();
 
   try {
-    return await service.fetchAyahs(editionId, surah, editionName);
+    return await service.fetchAyahs(surah, editionName);
   } catch (error) {
     console.error("Local fetch failed, trying remote:", error);
     const remoteService = new RemoteAyahService();
-    return await remoteService.fetchAyahs(editionId, surah, editionName);
+    return await remoteService.fetchAyahs(surah, editionName);
   }
 };
 
@@ -195,7 +188,6 @@ export type Ayah = {
   id: number;
   surah: number;
   ayah: number;
-  editionId: number;
   text: string;
 };
 
