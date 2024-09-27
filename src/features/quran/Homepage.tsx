@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import QuranDataLocal from "./data/quran.json";
+import { datafiltersCache } from "./hooks/datafilter-server";
 import { JuzCard } from "./JuzCard";
 import { QuranFilters } from "./QuranFilters";
 import QuranCard from "./SurahCard";
@@ -57,10 +58,10 @@ function sortData(
 export async function QuranHomepage({
   searchParams,
 }: {
-  searchParams?: { sort?: string; filter?: string; order?: string };
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   const data = QuranDataLocal;
-  const { filter, sort, order } = searchParams || {};
+  const { filter, sort, order } = datafiltersCache.parse(searchParams);
 
   let dataToDisplay = filterData(data, filter);
   dataToDisplay = sortData(dataToDisplay, filter || "surah", sort, order);
@@ -81,7 +82,7 @@ export async function QuranHomepage({
               type="search"
             />
           </div>
-          <QuranFilters filter={filter} order={order} sort={sort} />
+          <QuranFilters />
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {dataType === "juz"
               ? (dataToDisplay as JuzsReference[]).map((juz) => <JuzCard juz={juz} key={juz.arabic_name} />)

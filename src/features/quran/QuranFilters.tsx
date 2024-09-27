@@ -12,35 +12,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { FilterIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useFilter, useOrder, useSort } from "./hooks/useDatafiltersHooks";
 
-export const QuranFilters = (
-  { filter, order, sort }: { filter: string | undefined; order: string | undefined; sort: string | undefined },
-) => {
-  const router = useRouter();
-  const updateQueryParams = (key: string, value: string) => {
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-
-    if (value) {
-      params.set(key, value);
-    } else {
-      params.delete(key);
-    }
-
-    router.push(`${url.pathname}?${params.toString()}`);
-  };
-
+export const QuranFilters = () => {
+  const [filter, setFilter] = useFilter();
+  const [order, setOrder] = useOrder();
+  const [sort, setSort] = useSort();
   const handleFilterClick = (filterType: string) => {
-    updateQueryParams("filter", filterType);
+    setFilter(filterType);
   };
 
   const handleSortChange = (sortType: any) => {
-    updateQueryParams("sort", sortType);
+    setSort(sortType);
   };
 
   const handleSortOrderChange = (order: string) => {
-    updateQueryParams("order", order);
+    setOrder(order);
   };
 
   return (
