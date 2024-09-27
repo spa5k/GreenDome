@@ -1,12 +1,13 @@
 import { clsx } from "clsx";
+import { useQueryState } from "nuqs";
 import { twMerge } from "tailwind-merge";
 
 // Define font classes based on edition IDs using Tailwind CSS
-const fontClasses: { [key: number]: string } = {
-  120: "font-uthmanic", // Tailwind class for Uthmanic font
-  145: "font-indopak", // Tailwind class for IndoPak font
-  146: "font-arabic_noto", // Tailwind class for default font
-  62: "font-indopak", // Tailwind class for primary font
+const fontClasses: { [key: string]: string } = {
+  "ara-quranuthmanihaf": "font-uthmanic", // Tailwind class for Uthmanic font
+  "ara-quranindopak": "font-indopak", // Tailwind class for IndoPak font
+  "ara-quransimple": "font-arabic_noto", // Tailwind class for default font
+  // 62: "font-indopak", // Tailwind class for primary font
 };
 
 export const AyahText = (
@@ -19,7 +20,12 @@ export const AyahText = (
     [x: string]: any;
   },
 ) => {
-  const fontClass = fontClasses[editionId] || "font-primary";
+  const [selectedEdition] = useQueryState("q", {
+    shallow: false,
+    defaultValue: "ara-quranindopak",
+  });
+
+  const fontClass = fontClasses[selectedEdition] || "font-primary";
 
   const combinedClassName = twMerge(clsx(fontClass, className, "ayah_text", "text-pretty", "leading-loose"));
 

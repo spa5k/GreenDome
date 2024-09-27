@@ -215,12 +215,20 @@ jobs:
         if: ${{ env.VERSION_HASH == '' }}
         run: task changelog
 
+      - name: Add version to package.json
+        if: ${{ env.VERSION_HASH == '' }}
+        run: |
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
+
       - name: Commit changelog
         if: ${{ env.VERSION_HASH == '' }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update changelog for ${{ env.VERSION }}
-          file_pattern: "changelog.md"
+          file_pattern: |
+            changelog.md
+            package.json
           commit_user_name: "GitHub Action"
           commit_user_email: "actions@github.com"
           commit_author: "GitHub Action <actions@github.com>"
