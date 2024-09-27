@@ -1,17 +1,12 @@
 import { ElectronIndicator } from "@/components/generic/ElectronIndicator";
 import { TailwindIndicator } from "@/components/generic/TailwindIndicator";
 import { Toaster } from "@/components/ui/sonner";
+import { inter } from "@/lib/fonts";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Suspense } from "react";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./(app)/fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 
 const geistMono = localFont({
   src: "./(app)/fonts/GeistMonoVF.woff",
@@ -32,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background font-sans antialiased`}
+        className={`${inter.className}  ${geistMono.variable} bg-background font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
