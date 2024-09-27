@@ -2,7 +2,7 @@
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import MultiSelectFormField from "@/components/ui/multi-select";
-import { parseAsArrayOf, parseAsString, useQueryState } from "nuqs";
+import { useTranslations } from "@/features/recitation/hooks/useAyah";
 import { useForm } from "react-hook-form";
 import { Edition } from "../api/edition";
 
@@ -19,10 +19,7 @@ export const EditionMultiSelectForm = (
   { edition, queryParam, placeholder, description, defaultSelected = [], maxSelectable = 3 }:
     EditionMultiSelectFormProps,
 ) => {
-  const [selectedEditions, setSelectedEditions] = useQueryState(
-    "t",
-    parseAsArrayOf(parseAsString, ",").withOptions({ history: "push", shallow: false }),
-  );
+  const [selectedEditions, setSelectedEditions] = useTranslations();
 
   // Initialize form with default values from query parameters or props
   const form = useForm<{ quran: string[] }>({

@@ -41,7 +41,7 @@ export default async function Page({
   params,
 }: {
   searchParams: Record<string, string | string[] | undefined>;
-  params?: { number?: string };
+  params?: { surahId?: string };
 }): Promise<JSX.Element> {
   const { q: quranEditionParams, t: translationEditionParams } = searchParamsCache.parse(searchParams);
 
@@ -88,7 +88,7 @@ export default async function Page({
     }).filter((edition): edition is Edition & { ayahs: Ayah[] | AyahQFC[] } => edition !== null);
   };
 
-  const surahNumber = parseInt(params?.number ?? "1");
+  const surahNumber = parseInt(params?.surahId ?? "1");
 
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
     fetchEditions([quranEditionsSelectedData], fetchAyahs, surahNumber),

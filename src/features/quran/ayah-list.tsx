@@ -6,11 +6,11 @@ import { Separator } from "@/components/ui/separator";
 import { Toaster } from "@/components/ui/toaster";
 import { useToast } from "@/hooks/use-toast";
 import { Check, Copy, Pause, Play } from "lucide-react";
+import { useParams } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { WindowVirtualizer } from "virtua";
 import { type Ayah, type AyahQFC } from "../quran/api/ayah";
-import { reciters } from "../recitation/data/reciters";
-import { useRecitationStore } from "../recitation/store/recitationStore";
+import { useAyahKey, usePlaying } from "../recitation/hooks/useAyah";
 import { AyahText } from "./ayah-text";
 import MushafText from "./mushaf-text";
 import { TranslationText } from "./translation-text";
@@ -34,7 +34,9 @@ const AyahList = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-  const { currentAyah, isPlaying, setIsPlaying, setAyah, currentReciter, currentSurah } = useRecitationStore();
+  const [playing, setPlaying] = usePlaying();
+  const [{ ayah }, setAyahKey] = useAyahKey();
+  const surah = useParams() as { surahId: string };
 
   const isQFC = (ayah: Ayah | AyahQFC): ayah is AyahQFC => "page" in ayah;
 
@@ -78,75 +80,75 @@ const AyahList = ({
   };
 
   const togglePlayPause = (index: number) => {
-    if (isPlaying && currentAyah === index + 1) {
+    setAyahKey({ ayah: (index + 1).toString(), surah: surah.surahId });
+    if (playing && ayah === (index + 1).toString()) {
       if (audioRef.current) {
         audioRef.current.pause();
       }
-      setIsPlaying(false);
+      setPlaying(false);
     } else {
       if (audioRef.current) {
         audioRef.current.play();
       }
-      setIsPlaying(true);
+      setPlaying(true);
     }
-    setAyah(index + 1);
   };
-
-  const reciter = reciters.find((reciter) => reciter.slug === currentReciter);
 
   return (
     <div className="flex flex-col gap-5 mb-96" ref={containerRef} onCopy={handleCopyEvent}>
       <Toaster />
       <WindowVirtualizer>
-        {ayahs.map((ayah, index) => (
-          <div key={index} className="flex flex-col gap-6 justify-center mt-4">
-            <div className="flex gap-5">
-              <Badge className="w-10 flex justify-center text-xl">{ayah.ayah}</Badge>
-              <Button
-                onClick={() => handleCopy(fallbackAyahs[index].text, index)}
-                size="icon"
-                aria-label={`Copy Ayah ${index + 1}`}
-              >
-                {copiedIndex === index ? <Check /> : <Copy />}
-              </Button>
-              <Button
-                onClick={() => togglePlayPause(index)}
-                size="icon"
-                aria-label={`Play/Pause Ayah ${index + 1}`}
-              >
-                {isPlaying && currentAyah === index + 1 ? <Pause /> : <Play />}
-              </Button>
-            </div>
-            <div key={quranEditionsFetched[0].id}>
-              {isQFC(ayah)
-                ? (
-                  <MushafText
-                    page={ayah.page.toString()}
-                    text={ayah.text}
-                    type={version}
-                    fallbackText={fallbackAyahs[index].text}
-                  />
-                )
-                : (
-                  <AyahText
-                    text={ayah.text}
-                    editionId={quranEditionsFetched[0].id}
-                    className="text-6xl"
-                    number={ayah.ayah}
-                    fallbackText={fallbackAyahs[index].text}
-                  />
-                )}
-            </div>
-            {translationEditionsFetched.map((edition) => (
-              <div key={edition.id}>
-                {edition.ayahs[index]?.text && (
-                  <TranslationText text={edition.ayahs[index]!.text} editionId={edition.id} />
-                )}
+        {ayahs.map((a, index) => {
+          return (
+            <div key={index} className="flex flex-col gap-6 justify-center mt-4">
+              <div className="flex gap-5">
+                <Badge className="w-10 flex justify-center text-xl">{a.ayah}</Badge>
+                <Button
+                  onClick={() => handleCopy(fallbackAyahs[index].text, index)}
+                  size="icon"
+                  aria-label={`Copy Ayah ${index + 1}`}
+                >
+                  {copiedIndex === index ? <Check /> : <Copy />}
+                </Button>
+                <Button
+                  onClick={() => togglePlayPause(index)}
+                  size="icon"
+                  aria-label={`Play/Pause Ayah ${index + 1}`}
+                >
+                  {playing && a.ayah.toString() === ayah ? <Pause /> : <Play />}
+                </Button>
               </div>
-            ))}
-            <Separator />
-          </div>
-        ))}
+              <div key={quranEditionsFetched[0].id}>
+                {isQFC(a)
+                  ? (
+                    <MushafText
+                      page={a.page.toString()}
+                      text={a.text}
+                      type={version}
+                      fallbackText={fallbackAyahs[index].text}
+                    />
+                  )
+                  : (
+                    <AyahText
+                      text={a.text}
+                      editionId={quranEditionsFetched[0].id}
+                      className="text-6xl"
+                      number={a.ayah}
+                      fallbackText={fallbackAyahs[index].text}
+                    />
+                  )}
+              </div>
+              {translationEditionsFetched.map((edition) => (
+                <div key={edition.id}>
+                  {edition.ayahs[index]?.text && (
+                    <TranslationText text={edition.ayahs[index]!.text} editionId={edition.id} />
+                  )}
+                </div>
+              ))}
+              <Separator />
+            </div>
+          );
+        })}
       </WindowVirtualizer>
       {/* <AyahPlayer audioRef={audioRef} /> */}
     </div>

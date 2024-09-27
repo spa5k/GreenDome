@@ -3,6 +3,7 @@ import { Slider } from "@/components/ui/slider";
 import { useAudio } from "@/providers/AudioProvider";
 import { Volume1Icon, Volume2Icon, VolumeXIcon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useMuted } from "../hooks/useAyah";
 
 interface VolumeControlProps {
   audioUrl: string | undefined;
@@ -11,7 +12,8 @@ interface VolumeControlProps {
 export const VolumeControl = ({ audioUrl }: VolumeControlProps) => {
   const { volume, changeVolume } = useAudio();
   const [sliderValue, setSliderValue] = useState(volume * 100);
-  const [isMuted, setIsMuted] = useState(volume === 0);
+  // const [isMuted, setIsMuted] = useState(volume === 0);
+  const [isMuted, setIsMuted] = useMuted();
   const [previousVolume, setPreviousVolume] = useState(volume);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { useAudio } from "@/providers/AudioProvider";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useRecitationStore } from "../store/recitationStore";
+import { useAyah } from "../hooks/useAyah";
 import type { Timings } from "../types/timingTypes";
 import { timeFormatter } from "../utils/timeFormatter";
 
@@ -20,10 +20,8 @@ export const SliderSection = ({
 }: SliderSectionProps) => {
   const [step, setStep] = useState(0);
 
-  const {
-    currentAyah,
-    setCurrentAyah,
-  } = useRecitationStore();
+  const [ayah, setAyah] = useAyah();
+
   const {
     isPlaying,
     play,
@@ -38,15 +36,15 @@ export const SliderSection = ({
     if (!timings) {
       return;
     }
-    if (audioUrl && currentAyah && isPlaying) {
+    if (audioUrl && ayah && isPlaying) {
       play(audioUrl);
     }
 
-    const currentAyahTimings = timings.audio_files[0].verse_timings[currentAyah! - 1].timestamp_from;
+    const currentAyahTimings = timings.audio_files[0].verse_timings[Number(ayah) - 1].timestamp_from;
 
     const seekPercentage = currentAyahTimings / timings.audio_files[0].duration;
     seek(seekPercentage);
-  }, [currentAyah]);
+  }, [ayah]);
 
   useEffect(() => {
     setSliderValue(progress * 100);
@@ -59,7 +57,7 @@ export const SliderSection = ({
         && timing.timestamp_to >= currentTime * 1000,
     );
     setStep(currentStep! + 1);
-    setCurrentAyah((currentStep! + 1).toString());
+    setAyah((currentStep! + 1).toString());
   }, [currentTime, progress, timings]);
 
   const handleSliderChange = (value: number[]) => {
@@ -126,7 +124,7 @@ export const SliderSection = ({
                   )}
                   style={{ left: `${position}%` }}
                   onClick={() => {
-                    setCurrentAyah((index + 1).toString());
+                    setAyah((index + 1).toString());
                   }}
                 >
                   <span

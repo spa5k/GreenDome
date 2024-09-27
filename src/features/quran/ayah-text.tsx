@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
-import { useQueryState } from "nuqs";
 import { twMerge } from "tailwind-merge";
+import { useEdition } from "../recitation/hooks/useAyah";
 
 // Define font classes based on edition IDs using Tailwind CSS
 const fontClasses: { [key: string]: string } = {
@@ -20,10 +20,7 @@ export const AyahText = (
     [x: string]: any;
   },
 ) => {
-  const [selectedEdition] = useQueryState("q", {
-    shallow: false,
-    defaultValue: "ara-quranindopak",
-  });
+  const [selectedEdition] = useEdition();
 
   const fontClass = fontClasses[selectedEdition] || "font-primary";
 
