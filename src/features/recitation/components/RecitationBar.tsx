@@ -8,8 +8,7 @@ import { useParams } from "next/navigation";
 import { useMemo } from "react";
 import { fetchTimings } from "../api/timings";
 import { reciters } from "../data/reciters";
-import { useAyah, useReciter } from "../hooks/useAyah";
-import { useRecitationStore } from "../store/recitationStore";
+import { useAyah, useReciter } from "../hooks/useRecitationHooks";
 import { timeFormatter } from "../utils/timeFormatter";
 import { AvatarSection } from "./RecitationAvatar";
 import { RecitationControls } from "./RecitationControls";
@@ -17,10 +16,6 @@ import { SliderSection } from "./SliderSection";
 import { VolumeControl } from "./VolumeSlider";
 
 export function RecitationBar() {
-  const {
-    // currentSurah,
-    // setSurah,
-  } = useRecitationStore();
   const {
     error: audioError,
     currentTime,
@@ -45,7 +40,12 @@ export function RecitationBar() {
     refetch,
   } = useQuery({
     queryKey: ["timings", reciter, surah, reciter?.slug],
-    queryFn: () => fetchTimings(reciter!.slug, parseInt(surah!), reciter!.style),
+    queryFn: () => {
+      if (!reciter || !surah) {
+        throw new Error("Reciter or Surah is undefined");
+      }
+      return fetchTimings(reciter.slug, parseInt(surah, 10), reciter.style);
+    },
     enabled: !!reciter && !!surah,
   });
 
@@ -90,8 +90,8 @@ export function RecitationBar() {
       <div className="flex flex-col gap-4 px-6 pb-6">
         <ErrorBoundary>
           <div className="flex flex-row items-center justify-between mr-5">
-            <p>{isNaN(currentTime!) ? "00:00" : timeFormatter(currentTime!)}</p>
-            <p>{isNaN(duration!) ? "00:00" : timeFormatter(duration!)}</p>
+            <p>{Number.isNaN(currentTime!) ? "00:00" : timeFormatter(currentTime!)}</p>
+            <p>{Number.isNaN(duration!) ? "00:00" : timeFormatter(duration!)}</p>
           </div>
           <p className="text-sm text-muted-foreground">Ayah {ayah} of {surah}</p>
         </ErrorBoundary>

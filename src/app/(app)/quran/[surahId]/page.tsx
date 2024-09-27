@@ -90,6 +90,10 @@ export default async function Page({
 
   const surahNumber = parseInt(params?.surahId ?? "1");
 
+  if (Number.isNaN(surahNumber) || surahNumber < 1 || surahNumber > 114) {
+    throw new Error(`Invalid surahId: ${params?.surahId}`);
+  }
+
   const [quranEditionsFetched, translationEditionsFetched, fallbackAyahs] = await Promise.all([
     fetchEditions([quranEditionsSelectedData], fetchAyahs, surahNumber),
     fetchEditions(translationEditionsSelectedData, fetchTranslations, surahNumber),

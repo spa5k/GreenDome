@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { useEdition } from "../recitation/hooks/useAyah";
+import { useEdition } from "../edition/hooks/useEditionHooks";
 
 // Define font classes based on edition IDs using Tailwind CSS
 const fontClasses: { [key: string]: string } = {

@@ -10,7 +10,7 @@ import { useParams } from "next/navigation";
 import React, { useRef, useState } from "react";
 import { WindowVirtualizer } from "virtua";
 import { type Ayah, type AyahQFC } from "../quran/api/ayah";
-import { useAyahKey, usePlaying } from "../recitation/hooks/useAyah";
+import { useAyahKey, usePlaying } from "../recitation/hooks/useRecitationHooks";
 import { AyahText } from "./ayah-text";
 import MushafText from "./mushaf-text";
 import { TranslationText } from "./translation-text";

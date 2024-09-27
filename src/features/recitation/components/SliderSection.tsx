@@ -5,7 +5,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { useAudio } from "@/providers/AudioProvider";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import { useAyah } from "../hooks/useAyah";
+import { useAyah } from "../hooks/useRecitationHooks";
 import type { Timings } from "../types/timingTypes";
 import { timeFormatter } from "../utils/timeFormatter";
 

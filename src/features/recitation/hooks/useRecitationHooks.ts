@@ -1,6 +1,6 @@
 "use client";
 
-import { parseAsArrayOf, parseAsBoolean, parseAsFloat, parseAsString, useQueryState, useQueryStates } from "nuqs";
+import { parseAsBoolean, parseAsFloat, parseAsString, useQueryState, useQueryStates } from "nuqs";
 
 export function useAyah() {
   return useQueryState("ayah", parseAsString.withDefault("1"));
@@ -36,18 +36,4 @@ export function useVolume() {
 
 export function useMuted() {
   return useQueryState("muted", parseAsBoolean.withDefault(false).withOptions({ clearOnDefault: true }));
-}
-
-export function useEdition() {
-  return useQueryState(
-    "edition",
-    parseAsString.withDefault("ara-quranindopak").withOptions({ clearOnDefault: true, shallow: false }),
-  );
-}
-
-export function useTranslations() {
-  return useQueryState(
-    "translations",
-    parseAsArrayOf(parseAsString, ",").withOptions({ history: "push", shallow: false }),
-  );
 }

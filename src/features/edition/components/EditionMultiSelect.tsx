@@ -2,9 +2,9 @@
 
 import { Form, FormControl, FormDescription, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import MultiSelectFormField from "@/components/ui/multi-select";
-import { useTranslations } from "@/features/recitation/hooks/useAyah";
 import { useForm } from "react-hook-form";
 import { Edition } from "../api/edition";
+import { useTranslations } from "../hooks/useEditionHooks";
 
 interface EditionMultiSelectFormProps {
   edition: Edition[];

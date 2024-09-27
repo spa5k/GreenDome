@@ -2,8 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useEdition } from "@/features/recitation/hooks/useAyah";
 import { Edition } from "../api/edition";
+import { useEdition } from "../hooks/useEditionHooks";
 
 interface EditionSingleSelectFormProps {
   edition: Edition[];

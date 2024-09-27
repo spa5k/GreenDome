@@ -11,7 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { reciters } from "@/features/recitation/data/reciters";
-import { useReciter } from "../hooks/useAyah";
+import { useReciter } from "../hooks/useRecitationHooks";
 
 export function SelectReciter() {
   const [reciter, setReciter] = useReciter();
