@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -40,7 +41,9 @@ export default function RootLayout({
         >
           <TailwindIndicator />
           <ElectronIndicator />
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>
+            {children}
+          </Suspense>
           <Toaster />
         </ThemeProvider>
       </body>

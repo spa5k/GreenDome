@@ -1,14 +1,15 @@
 "use client";
 
+import { usePlaying, useVolume } from "@/features/recitation/hooks/useRecitationHooks";
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
 export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = usePlaying();
   const [currentTrack, setCurrentTrack] = useState<string | null>(null);
-  const [volume, setVolume] = useState<number>(1);
+  const [volume, setVolume] = useVolume();
   const [progress, setProgress] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
 

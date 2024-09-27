@@ -2,8 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useQueryState } from "nuqs";
 import { Edition } from "../api/edition";
+import { useEdition } from "../hooks/useEditionHooks";
 
 interface EditionSingleSelectFormProps {
   edition: Edition[];
@@ -16,10 +16,7 @@ interface EditionSingleSelectFormProps {
 export const EditionSingleSelect = (
   { edition, placeholder, defaultSelected }: EditionSingleSelectFormProps,
 ) => {
-  const [selectedEdition, setSelectedEdition] = useQueryState("q", {
-    defaultValue: defaultSelected,
-    shallow: false,
-  });
+  const [selectedEdition, setSelectedEdition] = useEdition();
 
   const parsedEditions = edition.map((edition) => ({
     label: edition.name,

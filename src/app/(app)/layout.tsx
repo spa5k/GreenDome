@@ -12,6 +12,7 @@ import ReactQueryProviderWrapper from "@/providers/ReactQueryProvider";
 import { PanelLeft, Search } from "lucide-react";
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -70,7 +71,9 @@ export default function RootLayout({
               </header>
               {/* <AuroraBackground> */}
               <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 z-10">
-                {children}
+                <Suspense fallback={<div>Loading...</div>}>
+                  {children}
+                </Suspense>
               </main>
               {/* </AuroraBackground> */}
             </div>
