@@ -1,6 +1,7 @@
 "use client";
 
-import { usePlaying, useVolume } from "@/features/recitation/hooks/useRecitationHooks";
+import { reciters } from "@/features/recitation/data/reciters";
+import { useAyah, usePlaying, useReciter, useSurah, useVolume } from "@/features/recitation/hooks/useRecitationHooks";
 import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
@@ -12,12 +13,19 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   const [volume, setVolume] = useVolume();
   const [progress, setProgress] = useState<number>(0);
   const [error, setError] = useState<string | null>(null);
+  const [ayah] = useAyah();
+  const [surah] = useSurah();
+  const [reciter] = useReciter();
 
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
     }
     audioRef.current = new Audio();
+
+    if (!("mediaSession" in navigator)) {
+      return;
+    }
 
     const handleTimeUpdate = () => {
       if (audioRef.current) {
@@ -33,13 +41,54 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     audioRef.current.addEventListener("timeupdate", handleTimeUpdate);
     audioRef.current.addEventListener("error", handleError);
 
+    // Set up Media Session API
+    navigator.mediaSession.setActionHandler("play", () => {
+      if (currentTrack) {
+        play(currentTrack);
+      }
+    });
+    navigator.mediaSession.setActionHandler("pause", pause);
+    navigator.mediaSession.setActionHandler("stop", stop);
+    navigator.mediaSession.setActionHandler("seekto", (details) => {
+      if (details.seekTime && audioRef.current) {
+        audioRef.current.currentTime = details.seekTime;
+      }
+    });
+
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
         audioRef.current.removeEventListener("error", handleError);
       }
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.setActionHandler("play", null);
+        navigator.mediaSession.setActionHandler("pause", null);
+        navigator.mediaSession.setActionHandler("stop", null);
+        navigator.mediaSession.setActionHandler("seekto", null);
+      }
     };
   }, []);
+
+  const reciterName = reciters.find((r) => r.slug === reciter)?.name;
+  const updatePlaybackState = (state: MediaSessionPlaybackState) => {
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.playbackState = state;
+    }
+  };
+
+  useEffect(() => {
+    if ("mediaSession" in navigator) {
+      const image = `/surah/${surah}.webp`;
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: `Surah ${surah} - Ayah ${ayah}`,
+        artist: reciterName,
+        album: `Surah ${surah}`,
+        artwork: [
+          { src: image, sizes: "512x512", type: "image/webp" },
+        ],
+      });
+    }
+  }, [ayah, surah, reciter, reciterName]);
 
   const play = (track: string) => {
     if (audioRef.current) {
@@ -50,6 +99,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       audioRef.current.play().then(() => {
         setIsPlaying(true);
         setError(null); // Reset error state when a new track is played
+        updatePlaybackState("playing");
       }).catch((err) => {
         setError(`Error playing audio: ${err.message}`);
         setIsPlaying(false);
@@ -61,6 +111,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     if (audioRef.current) {
       audioRef.current.pause();
       setIsPlaying(false);
+      updatePlaybackState("paused");
     }
   };
 
@@ -71,6 +122,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     audioRef.current.pause();
     audioRef.current.currentTime = 0;
     setIsPlaying(false);
+    updatePlaybackState("none");
   };
 
   const changeVolume = (newVolume: number) => {
