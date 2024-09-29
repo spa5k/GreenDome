@@ -20,6 +20,11 @@
     // Some stricter flags (disabled by default)
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+    "types": [
+      "node",
+      "electron"
+    ]
+  },
+  "include": ["src/**/*.ts", "db/**/*.ts", "src/electron.d.ts"]
 }

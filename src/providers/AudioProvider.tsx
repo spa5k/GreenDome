@@ -55,6 +55,29 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       }
     });
 
+    // Add Electron event listener
+    // if (window.electronAPI) {
+    //   // read events from electron event update-audio-state
+    //   window.electronAPI.updateAudioState((command: string) => {
+    //     console.log("Received command from Electron:", command);
+    //     switch (command) {
+    //       case "play":
+    //         if (currentTrack) {
+    //           play(currentTrack);
+    //         }
+    //         break;
+    //       case "pause":
+    //         pause();
+    //         break;
+    //       case "stop":
+    //         stop();
+    //         break;
+    //       default:
+    //         break;
+    //     }
+    //   });
+    // }
+
     return () => {
       if (audioRef.current) {
         audioRef.current.removeEventListener("timeupdate", handleTimeUpdate);
@@ -66,6 +89,10 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
         navigator.mediaSession.setActionHandler("stop", null);
         navigator.mediaSession.setActionHandler("seekto", null);
       }
+      // Remove Electron event listener
+      // if (window.electronAPI) {
+      //   window.electronAPI.onAudioControl(null);
+      // }
     };
   }, []);
 
@@ -90,6 +117,28 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     }
   }, [ayah, surah, reciter, reciterName]);
 
+  const updateElectron = (state: "play" | "pause" | "stop") => {
+    if (window.electronAPI && window.electronAPI.audioStateToElectron) {
+      console.log("Updating audio state to Electron:", state);
+      window.electronAPI.audioStateToElectron(state);
+    }
+
+    if (window.electronAPI && window.electronAPI.audioStateFromElectron) {
+      console.log("Listening to audio state from Electron");
+      window.electronAPI.audioStateFromElectron((state) => {
+        console.log("Received audio state from Electron:", state);
+
+        if (state === "play" && currentTrack) {
+          play(currentTrack);
+        } else if (state === "pause") {
+          pause();
+        } else if (state === "stop") {
+          stop();
+        }
+      });
+    }
+  };
+
   const play = (track: string) => {
     if (audioRef.current) {
       if (currentTrack !== track) {
@@ -98,8 +147,9 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       }
       audioRef.current.play().then(() => {
         setIsPlaying(true);
-        setError(null); // Reset error state when a new track is played
+        setError(null);
         updatePlaybackState("playing");
+        updateElectron("play");
       }).catch((err) => {
         setError(`Error playing audio: ${err.message}`);
         setIsPlaying(false);
@@ -112,6 +162,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       audioRef.current.pause();
       setIsPlaying(false);
       updatePlaybackState("paused");
+      updateElectron("pause");
     }
   };
 
@@ -123,6 +174,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     audioRef.current.currentTime = 0;
     setIsPlaying(false);
     updatePlaybackState("none");
+    updateElectron("stop");
   };
 
   const changeVolume = (newVolume: number) => {
@@ -188,4 +240,14 @@ export interface AudioContextType {
 
 export interface AudioProviderProps {
   children: React.ReactNode;
+}
+
+// Add this type declaration at the end of the file
+declare global {
+  interface Window {
+    electronAPI?: {
+      audioStateFromElectron: (callback: (state: "play" | "pause" | "stop") => void) => void;
+      audioStateToElectron: (state: "play" | "pause" | "stop") => void;
+    };
+  }
 }

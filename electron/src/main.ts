@@ -1,4 +1,4 @@
-import { electronApp, is, optimizer } from "@electron-toolkit/utils";
+import { electronApp, ipcHelper, is, optimizer } from "@electron-toolkit/utils";
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import log from "electron-log";
 import settings from "electron-settings";
@@ -8,7 +8,7 @@ import * as path from "path";
 import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
-import { updateThumbarButtons } from "./thumbButtons.js";
+import { stopPlayback, togglePlayPause, updateThumbarButtons } from "./thumbButtons.js";
 import { downloadFile } from "./utils/downloader.js";
 import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
@@ -19,6 +19,8 @@ let mainWindow: BrowserWindow | null = null;
 let loadingWindow: BrowserWindow | null = null;
 let nextJSServer: any = null;
 let honoServer: any = null;
+
+global.isPlaying = false;
 
 function createLoadingWindow(): BrowserWindow {
   const loadingWindow = new BrowserWindow({
@@ -55,14 +57,15 @@ function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
-    show: false,
-    autoHideMenuBar: true,
+    show: true,
+    autoHideMenuBar: false,
     webPreferences: {
       preload: join(__dirname, "preload.js"),
       sandbox: false,
       nodeIntegration: true,
     },
   });
+  updateThumbarButtons(mainWindow);
 
   mainWindow.on("ready-to-show", () => {
     if (loadingWindow && !loadingWindow.isDestroyed()) {
@@ -161,7 +164,15 @@ async function initializeApp() {
       mainWindow!.loadURL(`http://localhost:${nextJSPort}`);
     }
 
-    updateThumbarButtons(mainWindow!, false);
+    updateThumbarButtons(mainWindow!);
+
+    ipcHelper.on("audio-control", (event, command) => {
+      if (command === "play") {
+        togglePlayPause(mainWindow!);
+      } else if (command === "pause") {
+        stopPlayback(mainWindow!);
+      }
+    });
   } catch (error) {
     log.error("Error during app initialization:", error);
     dialog.showErrorBox("Error", "Failed to initialize the application. Please try again.");
@@ -208,5 +219,11 @@ app.on("before-quit", async () => {
   }
   if (honoServer) {
     await honoServer.close();
+  }
+});
+
+ipcMain.on("update-audio-state", () => {
+  if (mainWindow) {
+    updateThumbarButtons(mainWindow);
   }
 });

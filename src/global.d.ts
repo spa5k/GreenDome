@@ -4,7 +4,7 @@ declare global {
   var cacheConfigs: NodeCache;
   var cacheUser: NodeCache;
   var cachePort: NodeCache;
-  // your cache names
+  var isPlaying: boolean;
 }
 
 export {};

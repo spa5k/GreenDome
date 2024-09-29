@@ -7,45 +7,42 @@ const playIcon = nativeImage.createFromDataURL(play);
 const pauseIcon = nativeImage.createFromDataURL(pause);
 const stopIcon = nativeImage.createFromDataURL(stop);
 
-console.log("playIcon", playIcon.isEmpty());
-console.log("pauseIcon", pauseIcon.isEmpty());
+// Remove the local isPlaying variable
 
-export function updateThumbarButtons(mainWindow: BrowserWindow, isPlaying: boolean) {
+export function updateThumbarButtons(mainWindow: BrowserWindow) {
   mainWindow.setThumbarButtons([
     {
-      tooltip: isPlaying ? "Pause" : "Play",
-      icon: isPlaying ? pauseIcon : playIcon,
+      tooltip: global.isPlaying ? "Pause" : "Play",
+      icon: global.isPlaying ? pauseIcon : playIcon,
       click: () => {
-        console.log("togglePlayPause", isPlaying);
-        togglePlayPause(mainWindow, isPlaying);
+        togglePlayPause(mainWindow);
       },
     },
     {
       tooltip: "Stop",
       icon: stopIcon,
       click: () => {
-        console.log("stopPlayback", isPlaying);
-        stopPlayback(mainWindow, isPlaying);
+        stopPlayback(mainWindow);
       },
     },
   ]);
 }
 
-function togglePlayPause(mainWindow: BrowserWindow, isPlaying: boolean) {
-  isPlaying = !isPlaying;
-  if (isPlaying) {
-    // Start playing audio
+export function togglePlayPause(mainWindow: BrowserWindow) {
+  global.isPlaying = !global.isPlaying;
+  if (global.isPlaying) {
     console.log("Playing audio...");
   } else {
-    // Pause audio
     console.log("Pausing audio...");
   }
-  updateThumbarButtons(mainWindow, isPlaying); // Update the Thumbar buttons to reflect play/pause state
+
+  // send the event to the renderer process
+  mainWindow.webContents.send("audio-state-from-electron", global.isPlaying ? "play" : "pause");
 }
 
-function stopPlayback(mainWindow: BrowserWindow, isPlaying: boolean) {
-  // Stop the audio playback
+export function stopPlayback(mainWindow: BrowserWindow) {
   console.log("Stopping audio...");
-  isPlaying = false;
-  updateThumbarButtons(mainWindow, isPlaying); // Update to reflect the stopped state
+  global.isPlaying = false;
+  // send the event to the renderer process
+  mainWindow.webContents.send("audio-state-from-electron", "stop");
 }
