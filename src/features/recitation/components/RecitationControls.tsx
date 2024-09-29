@@ -27,13 +27,23 @@ export const RecitationControls = ({ audioUrl }: ControlsProps) => {
     seek(newTime / duration);
   };
 
+  const onPlay = () => {
+    window.electron.ipcRenderer.send("audio-state", "play");
+    play(audioUrl!);
+  };
+
+  const onPause = () => {
+    window.electron.ipcRenderer.send("audio-state", "pause");
+    pause();
+  };
+
   return (
     <div className="flex flex-row items-center gap-4">
       <Button onClick={handleRewind} disabled={!audioUrl}>
         <RewindIcon />
       </Button>
       <Button
-        onClick={isPlaying ? () => pause() : () => play(audioUrl!)}
+        onClick={isPlaying ? onPause : onPlay}
         disabled={!audioUrl}
       >
         {isPlaying ? <PauseIcon /> : <PlayIcon />}

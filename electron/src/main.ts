@@ -1,4 +1,4 @@
-import { electronApp, ipcHelper, is, optimizer } from "@electron-toolkit/utils";
+import { electronApp, is, optimizer } from "@electron-toolkit/utils";
 import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import log from "electron-log";
 import settings from "electron-settings";
@@ -8,7 +8,7 @@ import * as path from "path";
 import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
-import { stopPlayback, togglePlayPause, updateThumbarButtons } from "./thumbButtons.js";
+import { updateThumbarButtons } from "./thumbButtons.js";
 import { downloadFile } from "./utils/downloader.js";
 import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
@@ -57,7 +57,7 @@ function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 900,
     height: 670,
-    show: true,
+    show: false,
     autoHideMenuBar: false,
     webPreferences: {
       preload: join(__dirname, "preload.js"),
@@ -65,7 +65,6 @@ function createWindow(): BrowserWindow {
       nodeIntegration: true,
     },
   });
-  updateThumbarButtons(mainWindow);
 
   mainWindow.on("ready-to-show", () => {
     if (loadingWindow && !loadingWindow.isDestroyed()) {
@@ -78,6 +77,16 @@ function createWindow(): BrowserWindow {
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url);
     return { action: "deny" };
+  });
+
+  ipcMain.on("set-play", () => {
+    global.isPlaying = true;
+    updateThumbarButtons(mainWindow, global.isPlaying);
+  });
+
+  ipcMain.on("set-pause", () => {
+    global.isPlaying = false;
+    updateThumbarButtons(mainWindow, global.isPlaying);
   });
 
   return mainWindow;
@@ -93,7 +102,7 @@ async function startNextJSServer() {
     nextJSServer = await startServer({
       dir: webDir,
       isDev: false,
-      hostname: "localhost",
+      hostname: "greendome",
       port: nextJSPort,
       customServer: true,
       allowRetry: false,
@@ -146,7 +155,7 @@ async function initializeApp() {
     const honoPort = await startHonoServer();
     // set progress bar to 50
     updateProgress(50, loadingWindow!);
-    console.log("Backend server started on port:", `http://localhost:${honoPort}`);
+    console.log("Backend server started on port:", `http://greendome:${honoPort}`);
     ipcMain.handle("getHonoPort", () => honoPort);
 
     updateStatus("Loading UI...", loadingWindow!);
@@ -163,16 +172,6 @@ async function initializeApp() {
       const nextJSPort = await startNextJSServer();
       mainWindow!.loadURL(`http://localhost:${nextJSPort}`);
     }
-
-    updateThumbarButtons(mainWindow!);
-
-    ipcHelper.on("audio-control", (event, command) => {
-      if (command === "play") {
-        togglePlayPause(mainWindow!);
-      } else if (command === "pause") {
-        stopPlayback(mainWindow!);
-      }
-    });
   } catch (error) {
     log.error("Error during app initialization:", error);
     dialog.showErrorBox("Error", "Failed to initialize the application. Please try again.");
@@ -219,11 +218,5 @@ app.on("before-quit", async () => {
   }
   if (honoServer) {
     await honoServer.close();
-  }
-});
-
-ipcMain.on("update-audio-state", () => {
-  if (mainWindow) {
-    updateThumbarButtons(mainWindow);
   }
 });

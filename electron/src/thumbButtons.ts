@@ -1,48 +1,28 @@
 import { BrowserWindow, nativeImage } from "electron";
-import { pause } from "./icons/pause";
-import { play } from "./icons/play";
-import { stop } from "./icons/stop";
+import path from "path";
 
-const playIcon = nativeImage.createFromDataURL(play);
-const pauseIcon = nativeImage.createFromDataURL(pause);
-const stopIcon = nativeImage.createFromDataURL(stop);
+const playIcon = nativeImage.createFromPath(path.join(__dirname, "../public/icons/interface/play.png"));
 
-// Remove the local isPlaying variable
+const pauseIcon = nativeImage.createFromPath(path.join(__dirname, "../public/icons/interface/pause.png"));
 
-export function updateThumbarButtons(mainWindow: BrowserWindow) {
+global.isPlaying = false;
+
+export function emptyThumbarButtons(mainWindow: BrowserWindow) {
+  mainWindow.setThumbarButtons([]);
+}
+
+export function updateThumbarButtons(mainWindow: BrowserWindow, isPlaying: boolean) {
   mainWindow.setThumbarButtons([
     {
-      tooltip: global.isPlaying ? "Pause" : "Play",
-      icon: global.isPlaying ? pauseIcon : playIcon,
+      tooltip: isPlaying ? "Pause" : "Play",
+      icon: isPlaying ? pauseIcon : playIcon,
       click: () => {
-        togglePlayPause(mainWindow);
-      },
-    },
-    {
-      tooltip: "Stop",
-      icon: stopIcon,
-      click: () => {
-        stopPlayback(mainWindow);
+        if (isPlaying) {
+          mainWindow.webContents.send("pause");
+        } else {
+          mainWindow.webContents.send("play");
+        }
       },
     },
   ]);
-}
-
-export function togglePlayPause(mainWindow: BrowserWindow) {
-  global.isPlaying = !global.isPlaying;
-  if (global.isPlaying) {
-    console.log("Playing audio...");
-  } else {
-    console.log("Pausing audio...");
-  }
-
-  // send the event to the renderer process
-  mainWindow.webContents.send("audio-state-from-electron", global.isPlaying ? "play" : "pause");
-}
-
-export function stopPlayback(mainWindow: BrowserWindow) {
-  console.log("Stopping audio...");
-  global.isPlaying = false;
-  // send the event to the renderer process
-  mainWindow.webContents.send("audio-state-from-electron", "stop");
 }
