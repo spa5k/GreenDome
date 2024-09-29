@@ -102,7 +102,16 @@ export function AyahRoutes(app: OpenAPIHono<Env, {}, "/">) {
   app.openapi(getAyahsBySurahNumberAndEditionNameRoute, async (c) => {
     const surahNumber = parseInt(c.req.param("surahNumber"));
     const editionName = c.req.param("editionName");
-    const ayahs = await getAyahsBySurahNumberAndEditionName(db, surahNumber, editionName);
+    const res = await getAyahsBySurahNumberAndEditionName(db, surahNumber, editionName);
+
+    const ayahs = [];
+
+    for (const ayah of res) {
+      ayahs.push({
+        ...ayah,
+        ayah: ayah.ayahNumber.toString(),
+      });
+    }
     if (ayahs && ayahs.length > 0) {
       return c.json(ayahs);
     } else {

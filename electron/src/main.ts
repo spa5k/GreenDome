@@ -8,6 +8,7 @@ import * as path from "path";
 import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
+import { updateThumbarButtons } from "./thumbButtons.js";
 import { downloadFile } from "./utils/downloader.js";
 import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
@@ -159,6 +160,8 @@ async function initializeApp() {
       const nextJSPort = await startNextJSServer();
       mainWindow!.loadURL(`http://localhost:${nextJSPort}`);
     }
+
+    updateThumbarButtons(mainWindow!, false);
   } catch (error) {
     log.error("Error during app initialization:", error);
     dialog.showErrorBox("Error", "Failed to initialize the application. Please try again.");
