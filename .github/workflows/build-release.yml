@@ -215,11 +215,14 @@ jobs:
         if: ${{ env.VERSION_HASH == '' }}
         run: task changelog
 
-      - name: Add version to package.json
-        if: ${{ env.VERSION_HASH == '' }}
+      - name: Update version
+        id: update_version
         run: |
-          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
-          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
+          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
+            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
+          else
+            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
+          fi
 
       - name: Commit changelog
         if: ${{ env.VERSION_HASH == '' }}
