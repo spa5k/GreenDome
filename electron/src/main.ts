@@ -8,11 +8,12 @@ import * as path from "path";
 import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
-import { updateThumbarButtons } from "./thumbButtons.js";
+import { appState } from "./state";
 import { downloadFile } from "./utils/downloader.js";
 import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
 import { getLatestRelease, getLatestReleaseVersion } from "./utils/releases.js";
+
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
 
 let mainWindow: BrowserWindow | null = null;
@@ -56,7 +57,7 @@ function createWindow(): BrowserWindow {
     width: 900,
     height: 670,
     show: false,
-    autoHideMenuBar: true,
+    autoHideMenuBar: false,
     webPreferences: {
       preload: join(__dirname, "preload.js"),
       sandbox: false,
@@ -77,6 +78,21 @@ function createWindow(): BrowserWindow {
     return { action: "deny" };
   });
 
+  ipcMain.on("set-play", () => {
+    appState.setPlaying(true);
+  });
+
+  ipcMain.on("set-pause", () => {
+    appState.setPlaying(false);
+  });
+
+  ipcMain.handle("get-playback-state", () => {
+    return appState.isPlaying;
+  });
+
+  // Set the mainWindow in appState
+  appState.setMainWindow(mainWindow);
+
   return mainWindow;
 }
 
@@ -90,7 +106,7 @@ async function startNextJSServer() {
     nextJSServer = await startServer({
       dir: webDir,
       isDev: false,
-      hostname: "localhost",
+      hostname: "greendome",
       port: nextJSPort,
       customServer: true,
       allowRetry: false,
@@ -143,7 +159,7 @@ async function initializeApp() {
     const honoPort = await startHonoServer();
     // set progress bar to 50
     updateProgress(50, loadingWindow!);
-    console.log("Backend server started on port:", `http://localhost:${honoPort}`);
+    console.log("Backend server started on port:", `http://greendome:${honoPort}`);
     ipcMain.handle("getHonoPort", () => honoPort);
 
     updateStatus("Loading UI...", loadingWindow!);
@@ -151,6 +167,9 @@ async function initializeApp() {
     updateProgress(75, loadingWindow!);
 
     mainWindow = createWindow();
+    // Set the mainWindow in appState here as well, just to be safe
+    appState.setMainWindow(mainWindow);
+
     // set progress bar to 100
     updateProgress(90, loadingWindow!);
 
@@ -160,8 +179,6 @@ async function initializeApp() {
       const nextJSPort = await startNextJSServer();
       mainWindow!.loadURL(`http://localhost:${nextJSPort}`);
     }
-
-    updateThumbarButtons(mainWindow!, false);
   } catch (error) {
     log.error("Error during app initialization:", error);
     dialog.showErrorBox("Error", "Failed to initialize the application. Please try again.");

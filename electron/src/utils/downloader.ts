@@ -31,7 +31,7 @@ export async function downloadFile(
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       await downloadWithTimeout(loadingWindow, url, tempFilePath, timeout);
-      await fs.rename(tempFilePath, filePath);
+      await retryRename(tempFilePath, filePath, retries);
       await setFilePermissions(filePath);
       log.info(`File downloaded successfully: ${filePath}`);
       loadingWindow.webContents.send("download-complete");
@@ -89,6 +89,23 @@ function downloadWithTimeout(
       });
     });
   });
+}
+
+async function retryRename(tempFilePath: string, filePath: string, retries: number): Promise<void> {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      await fs.rename(tempFilePath, filePath);
+      return;
+    } catch (error) {
+      if (attempt === retries) {
+        throw new Error(
+          `Failed to rename file after ${retries} attempts: ${error instanceof Error ? error.message : String(error)}`,
+        );
+      }
+      log.warn(`Rename attempt ${attempt} failed: ${error instanceof Error ? error.message : String(error)}`);
+      await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second before retrying
+    }
+  }
 }
 
 async function setFilePermissions(filePath: string): Promise<void> {
