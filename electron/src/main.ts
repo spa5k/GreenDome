@@ -8,19 +8,18 @@ import * as path from "path";
 import { join } from "path";
 import { checkIfDbExists } from "../db/index.js";
 import { startHonoServer } from "./server/index.js";
-import { updateThumbarButtons } from "./thumbButtons.js";
+import { appState } from "./state";
 import { downloadFile } from "./utils/downloader.js";
 import { updateProgress, updateStatus } from "./utils/events.js";
 import { nextConfig } from "./utils/nextconfig.js";
 import { getLatestRelease, getLatestReleaseVersion } from "./utils/releases.js";
+
 process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
 
 let mainWindow: BrowserWindow | null = null;
 let loadingWindow: BrowserWindow | null = null;
 let nextJSServer: any = null;
 let honoServer: any = null;
-
-global.isPlaying = false;
 
 function createLoadingWindow(): BrowserWindow {
   const loadingWindow = new BrowserWindow({
@@ -53,10 +52,6 @@ function createLoadingWindow(): BrowserWindow {
   return loadingWindow;
 }
 
-const appState = {
-  isPlaying: false,
-};
-
 function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -84,20 +79,19 @@ function createWindow(): BrowserWindow {
   });
 
   ipcMain.on("set-play", () => {
-    appState.isPlaying = true;
-    updateThumbarButtons(mainWindow, appState.isPlaying);
-    mainWindow.webContents.send("playback-state-changed", appState.isPlaying);
+    appState.setPlaying(true);
   });
 
   ipcMain.on("set-pause", () => {
-    appState.isPlaying = false;
-    updateThumbarButtons(mainWindow, appState.isPlaying);
-    mainWindow.webContents.send("playback-state-changed", appState.isPlaying);
+    appState.setPlaying(false);
   });
 
   ipcMain.handle("get-playback-state", () => {
     return appState.isPlaying;
   });
+
+  // Set the mainWindow in appState
+  appState.setMainWindow(mainWindow);
 
   return mainWindow;
 }
@@ -173,6 +167,9 @@ async function initializeApp() {
     updateProgress(75, loadingWindow!);
 
     mainWindow = createWindow();
+    // Set the mainWindow in appState here as well, just to be safe
+    appState.setMainWindow(mainWindow);
+
     // set progress bar to 100
     updateProgress(90, loadingWindow!);
 
