@@ -52,8 +52,13 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     }
   }, [updatePositionState]);
 
-  const handleError = useCallback((e: ErrorEvent) => {
-    setError(`Error playing audio: ${e.message}`);
+  const handleError = useCallback(() => {
+    if (audioRef.current?.error) {
+      const error = audioRef.current.error;
+      setError(`Error playing audio: ${error.message || "Unknown error"}`);
+    } else {
+      setError("Error playing audio");
+    }
     setIsPlaying(false);
     window.electron.setPause();
   }, [setIsPlaying]);
@@ -149,18 +154,27 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       navigator.mediaSession.setActionHandler("seekto", (details) => {
         if (details.seekTime && audioRef.current) {
           audioRef.current.currentTime = details.seekTime;
+          if (audioRef.current.currentTime < 0) {
+            audioRef.current.currentTime = 0;
+          }
           updatePositionState();
         }
       });
       navigator.mediaSession.setActionHandler("seekbackward", (details) => {
         if (audioRef.current) {
           audioRef.current.currentTime -= details.seekOffset || 10;
+          if (audioRef.current.currentTime < 0) {
+            audioRef.current.currentTime = 0;
+          }
           updatePositionState();
         }
       });
       navigator.mediaSession.setActionHandler("seekforward", (details) => {
         if (audioRef.current) {
           audioRef.current.currentTime += details.seekOffset || 10;
+          if (audioRef.current.currentTime > audioRef.current.duration) {
+            audioRef.current.currentTime = audioRef.current.duration;
+          }
           updatePositionState();
         }
       });
@@ -175,7 +189,7 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
 
   useEffect(() => {
     updateMediaSessionMetadata();
-  }, [ayah, surah, reciter, reciterName]);
+  }, [ayah, surah, reciter, reciterName, duration, currentTime]);
 
   const updateMediaSessionMetadata = () => {
     if ("mediaSession" in navigator) {

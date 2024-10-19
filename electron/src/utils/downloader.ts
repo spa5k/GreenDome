@@ -94,12 +94,13 @@ function downloadWithTimeout(
 async function retryRename(tempFilePath: string, filePath: string, retries: number): Promise<void> {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      await fs.copyFile(tempFilePath, filePath);
-      await fs.unlink(tempFilePath);
+      await fs.rename(tempFilePath, filePath);
       return;
     } catch (error) {
       if (attempt === retries) {
-        throw error;
+        throw new Error(
+          `Failed to rename file after ${retries} attempts: ${error instanceof Error ? error.message : String(error)}`,
+        );
       }
       log.warn(`Rename attempt ${attempt} failed: ${error instanceof Error ? error.message : String(error)}`);
       await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1 second before retrying

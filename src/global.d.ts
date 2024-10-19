@@ -7,13 +7,18 @@ declare global {
   var isPlaying: boolean;
   var electron: {
     ipcRenderer: {
-      send: (channel: string, data: any) => void;
+      send: (channel: string, data: unknown) => void;
     };
     setPlay: () => void;
     setPause: () => void;
+    getPlayingState: () => boolean;
     onPlay: (callback: () => void) => void;
     onPause: (callback: () => void) => void;
   };
 }
+
+type PlaybackAction =
+  | { type: "PLAY" }
+  | { type: "PAUSE" };
 
 export {};

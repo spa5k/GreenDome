@@ -5,8 +5,6 @@ const playIcon = nativeImage.createFromPath(path.join(__dirname, "../public/icon
 
 const pauseIcon = nativeImage.createFromPath(path.join(__dirname, "../public/icons/interface/pause.png"));
 
-global.isPlaying = false;
-
 export function emptyThumbarButtons(mainWindow: BrowserWindow) {
   mainWindow.setThumbarButtons([]);
 }

@@ -53,6 +53,10 @@ function createLoadingWindow(): BrowserWindow {
   return loadingWindow;
 }
 
+const appState = {
+  isPlaying: false,
+};
+
 function createWindow(): BrowserWindow {
   const mainWindow = new BrowserWindow({
     width: 900,
@@ -80,13 +84,19 @@ function createWindow(): BrowserWindow {
   });
 
   ipcMain.on("set-play", () => {
-    global.isPlaying = true;
-    updateThumbarButtons(mainWindow, global.isPlaying);
+    appState.isPlaying = true;
+    updateThumbarButtons(mainWindow, appState.isPlaying);
+    mainWindow.webContents.send("playback-state-changed", appState.isPlaying);
   });
 
   ipcMain.on("set-pause", () => {
-    global.isPlaying = false;
-    updateThumbarButtons(mainWindow, global.isPlaying);
+    appState.isPlaying = false;
+    updateThumbarButtons(mainWindow, appState.isPlaying);
+    mainWindow.webContents.send("playback-state-changed", appState.isPlaying);
+  });
+
+  ipcMain.handle("get-playback-state", () => {
+    return appState.isPlaying;
   });
 
   return mainWindow;

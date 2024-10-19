@@ -28,13 +28,26 @@ export const RecitationControls = ({ audioUrl }: ControlsProps) => {
   };
 
   const onPlay = () => {
-    window.electron.ipcRenderer.send("audio-state", "play");
-    play(audioUrl!);
+    if (!audioUrl) {
+      console.error("Cannot play: audioUrl is undefined");
+      return;
+    }
+
+    try {
+      window.electron.ipcRenderer.send("audio-state", "play");
+      play(audioUrl);
+    } catch (error) {
+      console.error("Error occurred while playing audio:", error);
+    }
   };
 
   const onPause = () => {
-    window.electron.ipcRenderer.send("audio-state", "pause");
-    pause();
+    try {
+      window.electron.ipcRenderer.send("audio-state", "pause");
+      pause();
+    } catch (error) {
+      console.error("Error occurred while pausing audio:", error);
+    }
   };
 
   return (
