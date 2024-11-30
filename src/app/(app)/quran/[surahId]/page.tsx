@@ -24,10 +24,11 @@ import { searchParamsCache } from "../params";
 import { fetchTranslations } from "@/features/ayah/api/translations";
 import type { Metadata } from "next";
 
-export async function generateMetadata({ params }: { params: { number: string } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ surahId: string }> }): Promise<Metadata> {
+  const params = await props.params;
   return {
     alternates: {
-      canonical: `/quran/${params.number}`,
+      canonical: `/quran/${params.surahId}`,
     },
   };
 }
@@ -36,13 +37,14 @@ const fonts =
   `${cormorant_garamond.variable} ${lexend.variable} ${readex_pro.variable} ${indopak.variable} font-primary ${noto_sans_devanagari.variable} ${noto_nastaliq_urdu.variable} ${uthmanic.variable} ${noto_sans_arabic.variable}`;
 type FetchFunction = typeof fetchAyahs | typeof fetchAyahsQFC | typeof fetchTranslations;
 
-export default async function Page({
-  searchParams,
-  params,
-}: {
-  searchParams: Record<string, string | string[] | undefined>;
-  params?: { surahId?: string };
-}): Promise<JSX.Element> {
+export default async function Page(
+  props: {
+    searchParams: Promise<Record<string, string | string[] | undefined>>;
+    params?: Promise<{ surahId?: string }>;
+  },
+): Promise<JSX.Element> {
+  const params = await props.params;
+  const searchParams = await props.searchParams;
   const { q: quranEditionParams, t: translationEditionParams } = searchParamsCache.parse(searchParams);
 
   const quranEditionsSelectedData = quranEditions.find((quranEdition) => quranEdition.slug === quranEditionParams);

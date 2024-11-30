@@ -1,17 +1,19 @@
 import { ElectronIndicator } from "@/components/generic/ElectronIndicator";
 import { TailwindIndicator } from "@/components/generic/TailwindIndicator";
-import { Toaster } from "@/components/ui/sonner";
-import { inter } from "@/lib/fonts";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { ThemeProvider } from "next-themes";
+import { Geist, Geist_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
+import { Toaster } from "sonner";
 import "./globals.css";
 
-const geistMono = localFont({
-  src: "./(app)/fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const geistSans = Geist({
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -25,20 +27,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
+      </head>
       <body
-        className={`${inter.className}  ${geistMono.variable} bg-background font-sans antialiased`}
+        className={`${geistSans.className} ${geistMono.className} antialiased`}
       >
         <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
+          // attribute="class"
+          // defaultTheme="dark"
+          // disableTransitionOnChange
         >
           <TailwindIndicator />
           <ElectronIndicator />
-          <Suspense fallback={<div>Loading...</div>}>
-            {children}
-          </Suspense>
+          <NuqsAdapter>
+            <Suspense fallback={<div>Loading...</div>}>
+              {children}
+            </Suspense>
+          </NuqsAdapter>
           <Toaster />
         </ThemeProvider>
       </body>

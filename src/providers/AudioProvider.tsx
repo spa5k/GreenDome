@@ -217,14 +217,14 @@ export const AudioProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   };
 
   useEffect(() => {
-    window.electron.onPlay(() => {
+    window?.electron?.onPlay(() => {
       if (currentTrack) {
         play(currentTrack);
         setIsPlaying(true);
         updatePlaybackState("playing");
       }
     });
-    window.electron.onPause(() => {
+    window?.electron?.onPause(() => {
       pause();
       setIsPlaying(false);
       updatePlaybackState("paused");
