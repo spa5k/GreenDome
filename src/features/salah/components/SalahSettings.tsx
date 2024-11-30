@@ -50,7 +50,7 @@ export const SalahSettingsDialog = () => {
   const [tempLongitude, setTempLongitude] = useState(longitude);
   const [isPlaying, setIsPlaying] = useState(false);
   const adhanAudioRef = useRef<HTMLAudioElement>(null);
-  const { data: locationData, refetch, isLoading, error: fetchError } = useFetchLocationData(finalLocation);
+  const { data: locationData, isLoading, error: fetchError } = useFetchLocationData(finalLocation);
   const { latitude: geoLatitude, longitude: geoLongitude, loading: geoLoading, error: geoError } = useGeolocation({
     enableHighAccuracy: true,
     maximumAge: 30_000,
@@ -272,7 +272,7 @@ export const SalahSettingsDialog = () => {
                 </CardHeader>
                 <CardContent className="overflow-auto ">
                   <pre className="text-gray-800 dark:text-gray-200">
-                  {JSON.stringify(meta, null, 2)}
+                    {JSON.stringify(meta, null, 2)}
                   </pre>
                 </CardContent>
               </Card>

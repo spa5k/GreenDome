@@ -13,7 +13,7 @@ export const findPort = async (startPort: number = 50000, endPort: number = 5100
         console.log("Added port to cache", port);
         return port;
       }
-    } catch (error) {
+    } catch (_) {
       // Ignore fetch errors (e.g., server not running on this port)
     }
   }

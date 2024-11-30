@@ -2,11 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
-import { useRef } from "react";
 import { SearchBar } from "./search-bar";
 
 export default function HeroSection() {
-  const ref = useRef(null);
   return (
     <section
       id="hero"

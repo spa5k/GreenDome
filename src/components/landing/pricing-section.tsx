@@ -191,7 +191,7 @@ export default function PricingSection() {
               <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
               {price.features && price.features.length > 0 && (
                 <ul className="flex flex-col gap-2 font-normal">
-                  {price.features.map((feature: any, idx: any) => (
+                  {price.features.map((feature: string, idx: number) => (
                     <li
                       key={idx}
                       className="flex items-center gap-3 text-xs font-medium text-black dark:text-white"

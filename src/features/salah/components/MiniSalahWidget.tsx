@@ -18,7 +18,6 @@ export const MiniSalahWidget = () => {
   const {
     prayerTimes,
     meta,
-    playAdhan,
     latitude: currentLatitude,
     rehydrated,
     sunnahTimes,
