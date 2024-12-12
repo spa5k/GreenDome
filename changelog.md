@@ -2,13 +2,19 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v0.0.1](https://github.com/spa5k/GreenDome/compare/v0.0.4-alpha.2...v0.0.1)
+#### [v0.0.2-alpha.1](https://github.com/spa5k/GreenDome/compare/v0.0.4-alpha.2...v0.0.2-alpha.1)
 
+- [CodeFactor] Apply fixes to commit 0d5bd4d [`#272`](https://github.com/spa5k/GreenDome/pull/272)
+- Feat/advance controls [`#271`](https://github.com/spa5k/GreenDome/pull/271)
+- feat: added media session api [`#270`](https://github.com/spa5k/GreenDome/pull/270)
+- refactored the search params for filtering in quran page [`#269`](https://github.com/spa5k/GreenDome/pull/269)
+- fix: fixed the recitation bar + reciters, made them use nuqs for easi… [`#268`](https://github.com/spa5k/GreenDome/pull/268)
+- fix: fixed edition changing + font [`#267`](https://github.com/spa5k/GreenDome/pull/267)
 - Fix/fetching of ayahs [`#266`](https://github.com/spa5k/GreenDome/pull/266)
 - feat: added basic widgets for homepage [`#265`](https://github.com/spa5k/GreenDome/pull/265)
+- feat: moving to nextjs15 [`d1b3f41`](https://github.com/spa5k/GreenDome/commit/d1b3f41263ca0691f89007e50738277bfcf62a79)
+- chore: remove obsolete files and update dependencies; refactor server configurations and improve layout components [`0d5bd4d`](https://github.com/spa5k/GreenDome/commit/0d5bd4d0cfc1429a20bdc20d8a42acd776c922e6)
 - updated loading fiel [`882ab87`](https://github.com/spa5k/GreenDome/commit/882ab87c86d84e3049124302a97a9a2b3d05dc79)
-- feat: fixed db related probs [`0cefe53`](https://github.com/spa5k/GreenDome/commit/0cefe53e6e1ff0207d00006ec5e442eeec8051ec)
-- feat: fixed few download related things [`bfe6971`](https://github.com/spa5k/GreenDome/commit/bfe69710e8acf238b787b80d3ab0386396ab85d3)
 
 #### [v0.0.4-alpha.2](https://github.com/spa5k/GreenDome/compare/v0.0.4-alpha.1...v0.0.4-alpha.2)
 
@@ -34,9 +40,18 @@ All notable changes to this project will be documented in this file. Dates are d
 - fixing few things [`1025863`](https://github.com/spa5k/GreenDome/commit/1025863f908716d100641c9c6d7d8d7333df1b16)
 - feat: fixing macos [`05a8d14`](https://github.com/spa5k/GreenDome/commit/05a8d144c3f196ec21b00893bac2a1828415ca96)
 
-#### [v0.0.2-alpha.1](https://github.com/spa5k/GreenDome/compare/v0.0.1...v0.0.2-alpha.1)
+#### [v0.0.2-alpha.1](https://github.com/spa5k/GreenDome/compare/v0.0.2-alpha.0...v0.0.2-alpha.1)
 
 > 16 September 2024
+
+#### [v0.0.2-alpha.0](https://github.com/spa5k/GreenDome/compare/v0.0.1...v0.0.2-alpha.0)
+
+> 26 September 2024
+
+- Fix/fetching of ayahs [`#266`](https://github.com/spa5k/GreenDome/pull/266)
+- updated loading fiel [`882ab87`](https://github.com/spa5k/GreenDome/commit/882ab87c86d84e3049124302a97a9a2b3d05dc79)
+- feat: fixed db related probs [`0cefe53`](https://github.com/spa5k/GreenDome/commit/0cefe53e6e1ff0207d00006ec5e442eeec8051ec)
+- feat: fixed few download related things [`bfe6971`](https://github.com/spa5k/GreenDome/commit/bfe69710e8acf238b787b80d3ab0386396ab85d3)
 
 #### v0.0.1
 
@@ -45,9 +60,9 @@ All notable changes to this project will be documented in this file. Dates are d
 - feat: added basic widgets for homepage [`#265`](https://github.com/spa5k/GreenDome/pull/265)
 - Setup homepage according to new structure [`#264`](https://github.com/spa5k/GreenDome/pull/264)
 - [CodeFactor] Apply fixes to commit 4077ac9 [`#262`](https://github.com/spa5k/GreenDome/pull/262)
-- feat: :sparkles: Salah api with aladhan method [`#248`](https://github.com/spa5k/GreenDome/pull/248)
+- feat: :sparkles: Salah api with aladhan method  [`#248`](https://github.com/spa5k/GreenDome/pull/248)
 - Create draft PR for #251 [`#253`](https://github.com/spa5k/GreenDome/pull/253)
-- feat(tauri): adding tauri lint action [`#261`](https://github.com/spa5k/GreenDome/pull/261)
+- feat(tauri):  adding tauri lint action [`#261`](https://github.com/spa5k/GreenDome/pull/261)
 - feat: :sparkles: Added title bar in tauri [`#259`](https://github.com/spa5k/GreenDome/pull/259)
 - fix: :bug: Fix routing problem in Tauri [`#257`](https://github.com/spa5k/GreenDome/pull/257)
 - feat: :sparkles: Add some readme for installation [`#250`](https://github.com/spa5k/GreenDome/pull/250)
@@ -76,7 +91,7 @@ All notable changes to this project will be documented in this file. Dates are d
 - fix(deps): update rust crate dotenvy to 0.15.7 [`#183`](https://github.com/spa5k/GreenDome/pull/183)
 - feat: :sparkles: Quran text, translation and transliteration selector [`#174`](https://github.com/spa5k/GreenDome/pull/174)
 - chore(deps): update pnpm to v7.30.3 [`#184`](https://github.com/spa5k/GreenDome/pull/184)
-- feat: :sparkles: add hijri date function [`#187`](https://github.com/spa5k/GreenDome/pull/187)
+- feat: :sparkles: add hijri date function  [`#187`](https://github.com/spa5k/GreenDome/pull/187)
 - fix(deps): update dependency react-error-boundary to v4 [`#182`](https://github.com/spa5k/GreenDome/pull/182)
 - updated code with hijri and salah times (on rightbar) [`#181`](https://github.com/spa5k/GreenDome/pull/181)
 - chore(deps): update dependency kysely-codegen to ^0.10.0 [`#180`](https://github.com/spa5k/GreenDome/pull/180)
