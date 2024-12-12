@@ -19,7 +19,7 @@ process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig);
 let mainWindow: BrowserWindow | null = null;
 let loadingWindow: BrowserWindow | null = null;
 let nextJSServer: any = null;
-let honoServer: any = null;
+const honoServer: any = null;
 
 function createLoadingWindow(): BrowserWindow {
   const loadingWindow = new BrowserWindow({
