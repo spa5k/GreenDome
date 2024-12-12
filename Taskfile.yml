@@ -4,12 +4,12 @@ tasks:
   install:
     desc: "Install dependencies"
     cmds:
-      - "bun install --frozen-lockfile"
+      - "pnpm install --frozen-lockfile"
 
   install_production:
     desc: "Install production dependencies"
     cmds:
-      - "bun install --frozen-lockfile --production"
+      - "pnpm install --frozen-lockfile --production"
 
   server:
     desc: "Start server"
@@ -19,32 +19,32 @@ tasks:
   next_dev:
     desc: "Development server for Next.js"
     cmds:
-      - "bun next dev --turbo"
+      - "pnpm next dev --turbo"
 
   next_build:
     desc: "Build Next.js project"
     cmds:
-      - "NODE_ENV=production bun next build"
+      - "NODE_ENV=production pnpm next build"
 
   next_start:
     desc: "Start Next.js project"
     cmds:
-      - "bun next start"
+      - "pnpm next start"
 
   next_lint:
     desc: "Lint Next.js project"
     cmds:
-      - "bun next lint"
+      - "pnpm next lint"
 
   format:
     desc: "Format code"
     cmds:
-      - "bun dprint fmt"
+      - "pnpm dprint fmt"
 
   postinstall:
     desc: "Install app dependencies for Electron"
     cmds:
-      - "bun electron-builder install-app-deps"
+      - "pnpm electron-builder install-app-deps"
 
   electron_dist:
     desc: "Build Electron for distribution in directory mode"
@@ -54,7 +54,7 @@ tasks:
   electron_build:
     desc: "Build Electron using tsup"
     cmds:
-      - "bun tsup"
+      - "pnpm tsup"
 
   build:
     desc: "Build both Next.js and Electron projects"
@@ -83,14 +83,14 @@ tasks:
   electron_build_watch:
     desc: "Watch mode for Electron with tsup"
     cmds:
-      - "bun tsup --watch"
+      - "pnpm tsup --watch"
 
   electron_dev:
     desc: "Development mode for Electron"
     # deps:
     #   - electron_build
     cmds:
-      - "bun cross-env NODE_ENV='development' nodemon"
+      - "pnpm cross-env NODE_ENV='development' nodemon"
 
   docker_build:
     desc: "Build Docker image"
@@ -104,17 +104,17 @@ tasks:
   release:linux:
     desc: Build and release for Linux
     cmds:
-      - bun electron-builder --linux -p always -c.snap.publish=github
+      - pnpm electron-builder --linux -p always -c.snap.publish=github
 
   release:mac:
     desc: Build and release for macOS
     cmds:
-      - bun electron-builder --mac -p always
+      - pnpm electron-builder --mac -p always
 
   release:win:
     desc: Build and release for Windows
     cmds:
-      - bun electron-builder --win -p always
+      - pnpm electron-builder --win -p always
 
   release:all:
     desc: Build and release for all platforms
@@ -126,42 +126,42 @@ tasks:
   dist:linux:
     desc: Build distribution for Linux
     cmds:
-      - bun electron-builder --linux -p always
+      - pnpm electron-builder --linux -p always
 
   dist:linux:deb-arm64:
     desc: Build ARM64 DEB distribution for Linux
     cmds:
-      - bun electron-builder --linux deb:arm64 -p always
+      - pnpm electron-builder --linux deb:arm64 -p always
 
   dist:linux:rpm-arm64:
     desc: Build ARM64 RPM distribution for Linux
     cmds:
-      - bun electron-builder --linux rpm:arm64 -p always
+      - pnpm electron-builder --linux rpm:arm64 -p always
 
   dist:mac:
     desc: Build distribution for macOS (x64)
     cmds:
-      - bun electron-builder --mac dmg:x64 -p always
+      - pnpm electron-builder --mac dmg:x64 -p always
 
   dist:mac:arm64:
     desc: Build distribution for macOS (ARM64)
     cmds:
-      - bun electron-builder --mac dmg:arm64 -p always
+      - pnpm electron-builder --mac dmg:arm64 -p always
 
   dist:win:
     desc: Build distribution for Windows
     cmds:
-      - bun electron-builder --win -p always
+      - pnpm electron-builder --win -p always
 
   dist:win:x64:
     desc: Build x64 distribution for Windows
     cmds:
-      - bun electron-builder --win nsis-web:x64 -p always
+      - pnpm electron-builder --win nsis-web:x64 -p always
 
   dist:all:
     desc: Build distributions for all platforms
     cmds:
-      - bun electron-builder --win --mac --linux -p always
+      - pnpm electron-builder --win --mac --linux -p always
 
   changelog:
     desc: Generate changelog
@@ -181,5 +181,5 @@ tasks:
   install_sqlite3:
     desc: "Install sqlite3"
     cmds:
-      - bun uninstall better-sqlite3
-      - bun install better-sqlite3 --build-from-source --target_arch=arm64 --fallback-to-build
+      - pnpm uninstall better-sqlite3
+      - pnpm install better-sqlite3 --build-from-source --target_arch=arm64 --fallback-to-build
