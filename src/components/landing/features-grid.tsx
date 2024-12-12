@@ -1,4 +1,3 @@
-import { CalendarWidget } from "../widgets/calendar-widget";
 import HadithWidget from "../widgets/hadith-widget";
 import { HistoryWidget } from "../widgets/history-widget";
 import PrayerWidget from "../widgets/prayer-widget";
@@ -33,7 +32,7 @@ export default function FeaturesGrid() {
           {/* Settings Widget */}
           <SettingsWidget />
           {/* Calendar Widget */}
-          <CalendarWidget />
+          {/* <CalendarWidget /> */}
         </div>
       </div>
     </div>

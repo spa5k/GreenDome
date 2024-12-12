@@ -106,7 +106,7 @@ async function startNextJSServer() {
     nextJSServer = await startServer({
       dir: webDir,
       isDev: false,
-      hostname: "greendome",
+      hostname: "localhost",
       port: nextJSPort,
       customServer: true,
       allowRetry: false,
@@ -159,7 +159,7 @@ async function initializeApp() {
     const honoPort = await startHonoServer();
     // set progress bar to 50
     updateProgress(50, loadingWindow!);
-    console.log("Backend server started on port:", `http://greendome:${honoPort}`);
+    console.log("Backend server started on port:", `http://localhost:${honoPort}`);
     ipcMain.handle("getHonoPort", () => honoPort);
 
     updateStatus("Loading UI...", loadingWindow!);
