@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### [v0.0.2-alpha.1](https://github.com/spa5k/GreenDome/compare/v0.0.4-alpha.2...v0.0.2-alpha.1)
+#### [v0.0.2-alpha.2](https://github.com/spa5k/GreenDome/compare/v0.0.4-alpha.2...v0.0.2-alpha.2)
 
 - [CodeFactor] Apply fixes to commit 0d5bd4d [`#272`](https://github.com/spa5k/GreenDome/pull/272)
 - Feat/advance controls [`#271`](https://github.com/spa5k/GreenDome/pull/271)
@@ -32,13 +32,25 @@ All notable changes to this project will be documented in this file. Dates are d
 - feat: version bump issue [`b8bc7e5`](https://github.com/spa5k/GreenDome/commit/b8bc7e5e349fb42e3ad7633456e734d67fe58227)
 - Update changelog for v0.0.4-alpha.0 [`0fa6daa`](https://github.com/spa5k/GreenDome/commit/0fa6daa4f6804f854198b2ab4f08b0355d49430c)
 
-#### [v0.0.4-alpha.0](https://github.com/spa5k/GreenDome/compare/v0.0.2-alpha.1...v0.0.4-alpha.0)
+#### [v0.0.4-alpha.0](https://github.com/spa5k/GreenDome/compare/v0.0.2-alpha.2...v0.0.4-alpha.0)
 
 > 16 September 2024
 
-- fix again [`e2e7b64`](https://github.com/spa5k/GreenDome/commit/e2e7b64f29effffc9f206980f79706b9e2715995)
-- fixing few things [`1025863`](https://github.com/spa5k/GreenDome/commit/1025863f908716d100641c9c6d7d8d7333df1b16)
-- feat: fixing macos [`05a8d14`](https://github.com/spa5k/GreenDome/commit/05a8d144c3f196ec21b00893bac2a1828415ca96)
+#### [v0.0.2-alpha.2](https://github.com/spa5k/GreenDome/compare/v0.0.2-alpha.1...v0.0.2-alpha.2)
+
+> 12 December 2024
+
+- [CodeFactor] Apply fixes to commit 0d5bd4d [`#272`](https://github.com/spa5k/GreenDome/pull/272)
+- Feat/advance controls [`#271`](https://github.com/spa5k/GreenDome/pull/271)
+- feat: added media session api [`#270`](https://github.com/spa5k/GreenDome/pull/270)
+- refactored the search params for filtering in quran page [`#269`](https://github.com/spa5k/GreenDome/pull/269)
+- fix: fixed the recitation bar + reciters, made them use nuqs for easi… [`#268`](https://github.com/spa5k/GreenDome/pull/268)
+- fix: fixed edition changing + font [`#267`](https://github.com/spa5k/GreenDome/pull/267)
+- Fix/fetching of ayahs [`#266`](https://github.com/spa5k/GreenDome/pull/266)
+- feat: added basic widgets for homepage [`#265`](https://github.com/spa5k/GreenDome/pull/265)
+- feat: moving to nextjs15 [`d1b3f41`](https://github.com/spa5k/GreenDome/commit/d1b3f41263ca0691f89007e50738277bfcf62a79)
+- chore: remove obsolete files and update dependencies; refactor server configurations and improve layout components [`0d5bd4d`](https://github.com/spa5k/GreenDome/commit/0d5bd4d0cfc1429a20bdc20d8a42acd776c922e6)
+- updated loading fiel [`882ab87`](https://github.com/spa5k/GreenDome/commit/882ab87c86d84e3049124302a97a9a2b3d05dc79)
 
 #### [v0.0.2-alpha.1](https://github.com/spa5k/GreenDome/compare/v0.0.2-alpha.0...v0.0.2-alpha.1)
 
