@@ -75,7 +75,7 @@ export async function QuranHomepage({
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 font-cursive">
             Explore the Quranic Surahs
           </h1>
-          <div className="w-full max-w-xl">
+          <div className="w-full max-w-xl m-4">
             <Input
               className="w-full px-4 py-3 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500 dark:bg-gray-800 dark:text-gray-100"
               placeholder="Search for a surah..."

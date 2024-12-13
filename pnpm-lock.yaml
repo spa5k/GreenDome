@@ -137,8 +137,8 @@ importers:
         specifier: ^4.0.4
         version: 4.0.4(electron@33.2.1)
       framer-motion:
-        specifier: ^11.14.1
-        version: 11.14.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^11.14.4
+        version: 11.14.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       get-port-please:
         specifier: ^3.1.2
         version: 3.1.2
@@ -228,8 +228,8 @@ importers:
         specifier: 15.1.0
         version: 15.1.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
       nodemon:
-        specifier: ^3.1.7
-        version: 3.1.7
+        specifier: ^3.1.9
+        version: 3.1.9
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -3449,9 +3449,9 @@ packages:
     }
     engines: { node: ">= 6" }
 
-  framer-motion@11.14.1:
+  framer-motion@11.14.4:
     resolution: {
-      integrity: sha512-6B7jC54zgnefmUSa2l4gkc/2CrqclHL9AUbDxxRfbFyWKLd+4guUYtEabzoYMU8G5ICZ6CdJdydOLy74Ekd7ag==,
+      integrity: sha512-NQuzr9JbeJDMQmy0FFLhLzk9h1kAjVC1tGE/HY4ubF02B95EBm2lpA21LE3Od/OpXqXgp0zl5Hdqu25hliBRsA==,
     }
     peerDependencies:
       "@emotion/is-prop-valid": "*"
@@ -4514,14 +4514,14 @@ packages:
     engines: { node: ">=10" }
     hasBin: true
 
-  motion-dom@11.14.1:
+  motion-dom@11.14.3:
     resolution: {
-      integrity: sha512-Y68tHWR0d2HxHDskNxpeY3pzUdz7L/m5A8TV7VSE6Sq4XUNJdZV8zXco1aeAQ44o48u0i8UKjt8TGIqkZSQ8ew==,
+      integrity: sha512-lW+D2wBy5vxLJi6aCP0xyxTxlTfiu+b+zcpVbGVFUxotwThqhdpPRSmX8xztAgtZMPMeU0WGVn/k1w4I+TbPqA==,
     }
 
-  motion-utils@11.14.1:
+  motion-utils@11.14.3:
     resolution: {
-      integrity: sha512-R6SsehArpkEBUHydkcwQ/8ij8k2PyKWAJ7Y8PN3ztnFwq5RBU3zIamYH6esTp09OgsbwB57mBEZ9DORaN1WTxQ==,
+      integrity: sha512-Xg+8xnqIJTpr0L/cidfTTBFkvRw26ZtGGuIhA94J9PQ2p4mEa06Xx7QVYZH0BP+EpMSaDlu+q0I0mmvwADPsaQ==,
     }
 
   ms@2.1.3:
@@ -4616,9 +4616,9 @@ packages:
     engines: { node: ^12.13 || ^14.13 || >=16 }
     hasBin: true
 
-  nodemon@3.1.7:
+  nodemon@3.1.9:
     resolution: {
-      integrity: sha512-hLj7fuMow6f0lbB0cD14Lz2xNjwsyruH251Pk4t/yIitCFJbmY1myuLlHm/q06aST4jg6EgAh74PIBBrRqpVAQ==,
+      integrity: sha512-hdr1oIb2p6ZSxu3PB2JWWYS7ZQ0qvaZsc3hK8DR8f02kRzc8rjYmxAIvdz+aYC+8F2IjNaB7HMcSDg8nQpJxyg==,
     }
     engines: { node: ">=10" }
     hasBin: true
@@ -8855,10 +8855,10 @@ snapshots:
       combined-stream: 1.0.8
       mime-types: 2.1.35
 
-  framer-motion@11.14.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  framer-motion@11.14.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
-      motion-dom: 11.14.1
-      motion-utils: 11.14.1
+      motion-dom: 11.14.3
+      motion-utils: 11.14.3
       tslib: 2.8.1
     optionalDependencies:
       react: 19.0.0
@@ -9555,9 +9555,9 @@ snapshots:
 
   mkdirp@1.0.4: {}
 
-  motion-dom@11.14.1: {}
+  motion-dom@11.14.3: {}
 
-  motion-utils@11.14.1: {}
+  motion-utils@11.14.3: {}
 
   ms@2.1.3: {}
 
@@ -9636,7 +9636,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  nodemon@3.1.7:
+  nodemon@3.1.9:
     dependencies:
       chokidar: 3.6.0
       debug: 4.4.0(supports-color@5.5.0)
