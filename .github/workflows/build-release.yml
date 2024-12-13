@@ -4,19 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       release_type:
-        description: "Release type (major, minor, patch, premajor, preminor, prepatch, prerelease)"
+        description: "Choose the release type"
         required: true
         type: choice
         options:
           - major
           - minor
           - patch
-          - premajor
-          - preminor
-          - prepatch
-          - prerelease
+        default: patch
+      is_prerelease:
+        description: "Is this a pre-release?"
+        required: false
+        type: boolean
+        default: false
       prerelease_id:
-        description: "Prerelease identifier (e.g., alpha, beta, rc)"
+        description: "Prerelease identifier (e.g., alpha, beta, rc). Used only if is_prerelease=true."
         required: false
         type: string
         default: "alpha"
@@ -33,13 +35,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "23"
 
       - name: Update version
         id: update_version
         run: |
-          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
-            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
+          if [ "${{ github.event.inputs.is_prerelease }}" = "true" ]; then
+            npm version pre${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
           else
             npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
           fi
@@ -58,7 +60,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          # Ensure we are on the latest commit from the trigger
+          fetch-depth: 0
+
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -93,25 +97,25 @@ jobs:
       - name: Install dependencies
         run: task install
 
-      - name: Add the updated version to package.json
-        if: startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos')
+      - name: Add the updated version to package.json (Unix-like)
+        if: ${{ startsWith(matrix.os, 'ubuntu') || startsWith(matrix.os, 'macos') }}
         run: |
-          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/^v//')
           pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
 
       - name: Add the updated version to package.json (Windows)
-        if: startsWith(matrix.os, 'windows')
+        if: ${{ startsWith(matrix.os, 'windows') }}
         env:
           VERSION: ${{ needs.update_version.outputs.new_version }}
         run: |
           $VERSION = $env:VERSION -replace '^v',''
-          (Get-Content package.json) -replace '"version": ".*"', "`"version`": `"$VERSION`"" | Set-Content package.json
+          (Get-Content package.json) -replace '"version": ".*"', '"version": "' + $VERSION + '"' | Set-Content package.json
 
       - name: Build Next.js and Electron projects
         run: task build
 
       - name: Build Electron installers for Linux
-        if: startsWith(matrix.os, 'ubuntu')
+        if: ${{ startsWith(matrix.os, 'ubuntu') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -121,17 +125,16 @@ jobs:
           task release:linux
 
       - name: Build Electron installers for Windows
-        if: startsWith(matrix.os, 'windows')
+        if: ${{ startsWith(matrix.os, 'windows') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: task release:win
 
       - name: Build Electron installers for macOS
-        if: startsWith(matrix.os, 'macos')
+        if: ${{ startsWith(matrix.os, 'macos') }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          task release:mac
+        run: task release:mac
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -174,7 +177,7 @@ jobs:
 
       - name: Get version
         run: |
-          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/v//')
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/^v//')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Check if version already exists in tags
@@ -215,20 +218,22 @@ jobs:
         if: ${{ env.VERSION_HASH == '' }}
         run: task changelog
 
-      - name: Update version
-        id: update_version
-        run: |
-          if [[ "${{ github.event.inputs.release_type }}" == pre* ]]; then
-            npm version ${{ github.event.inputs.release_type }} --preid=${{ github.event.inputs.prerelease_id }} --no-git-tag-version
-          else
-            npm version ${{ github.event.inputs.release_type }} --no-git-tag-version
-          fi
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
 
-      - name: Commit changelog
+      - name: Ensure package.json is updated with the final version
+        if: ${{ env.VERSION_HASH == '' }}
+        run: |
+          pnpm dlx json -I -f package.json -e "this.version = \"${{ env.VERSION }}\""
+
+      - name: Commit changelog and package.json
         if: ${{ env.VERSION_HASH == '' }}
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Update changelog for ${{ env.VERSION }}
+          commit_message: "Update changelog and package.json to version ${{ env.VERSION }}"
           file_pattern: |
             changelog.md
             package.json
