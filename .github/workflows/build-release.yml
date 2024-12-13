@@ -224,10 +224,10 @@ jobs:
           version: 9
           run_install: false
 
-      - name: Ensure package.json is updated with the final version
-        if: ${{ env.VERSION_HASH == '' }}
+      - name: Add the updated version to package.json (Unix-like)
         run: |
-          pnpm dlx json -I -f package.json -e "this.version = \"${{ env.VERSION }}\""
+          VERSION=$(echo ${{ needs.update_version.outputs.new_version }} | sed 's/^v//')
+          pnpm dlx json -I -f package.json -e "this.version = \"$VERSION\""
 
       - name: Commit changelog and package.json
         if: ${{ env.VERSION_HASH == '' }}
