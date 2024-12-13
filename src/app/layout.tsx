@@ -28,18 +28,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {
-        process.env.NODE_ENV === "development" && (
-          <head>
-            <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
-          </head>
-        )
-      }
+      {process.env.NODE_ENV === "development" && (
+        <head>
+          <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
+        </head>
+      )}
       <body
         className={`${geistSans.className} ${geistMono.className} antialiased`}
       >
-        <ThemeProvider
-        >
+        <ThemeProvider>
           <TailwindIndicator />
           <ElectronIndicator />
           <NuqsAdapter>

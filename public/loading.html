@@ -349,34 +349,35 @@
     <script>
     const { ipcRenderer } = require("electron");
 
-    const progressBar = document.getElementById("progress-bar");
-    const eventStatus = document.getElementById("event-status");
+      const progressBar = document.getElementById("progress-bar");
+      const eventStatus = document.getElementById("event-status");
 
-    function updateProgress(percent) {
-      progressBar.style.width = `${percent}%`;
-    }
+      function updateProgress(percent) {
+        progressBar.style.width = `${percent}%`;
+      }
 
-    ipcRenderer.on("download-progress", (event, progress) => {
-      updateProgress(progress);
-      status.textContent = "Downloading latest data";
-    });
+      ipcRenderer.on("download-progress", (event, progress) => {
+        updateProgress(progress);
+        status.textContent = "Downloading latest data";
+      });
 
-    ipcRenderer.on("download-status", (event, statusText) => {
-      status.textContent = statusText.charAt(0).toUpperCase() + statusText.slice(1);
-    });
+      ipcRenderer.on("download-status", (event, statusText) => {
+        status.textContent = statusText.charAt(0).toUpperCase()
+          + statusText.slice(1);
+      });
 
-    ipcRenderer.on("download-complete", () => {
-      updateProgress(100);
-      status.textContent = "Download complete!";
-    });
+      ipcRenderer.on("download-complete", () => {
+        updateProgress(100);
+        status.textContent = "Download complete!";
+      });
 
-    ipcRenderer.on("download-error", (event, errorMessage) => {
-      status.textContent = `Error: ${errorMessage}`;
-    });
+      ipcRenderer.on("download-error", (event, errorMessage) => {
+        status.textContent = `Error: ${errorMessage}`;
+      });
 
-    ipcRenderer.on("current-status", (event, statusText) => {
-      eventStatus.textContent = statusText;
-    });
+      ipcRenderer.on("current-status", (event, statusText) => {
+        eventStatus.textContent = statusText;
+      });
     </script>
   </body>
 </html>

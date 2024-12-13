@@ -105,9 +105,11 @@ export function SiteHeader() {
 
           <div className="ml-auto flex h-full items-center gap-4">
             <ModeToggle />
-            {/* <Link className="mr-6 text-sm" href="/hadith">
+            {
+              /* <Link className="mr-6 text-sm" href="/hadith">
               Hadith
-            </Link> */}
+            </Link> */
+            }
             <Link href="/quran">
               Quran
             </Link>
@@ -160,8 +162,9 @@ export function SiteHeader() {
                 className="border-grey-dark pl-6 py-0.5 border-b md:border-none"
               >
                 <Link
-                  className={`hover:text-grey flex h-[var(--navigation-height)] w-full items-center text-xl transition-[color,transform] duration-300 md:translate-y-0 md:text-sm md:transition-colors ${hamburgerMenuIsOpen ? "[&_a]:translate-y-0" : ""
-                    }`}
+                  className={`hover:text-grey flex h-[var(--navigation-height)] w-full items-center text-xl transition-[color,transform] duration-300 md:translate-y-0 md:text-sm md:transition-colors ${
+                    hamburgerMenuIsOpen ? "[&_a]:translate-y-0" : ""
+                  }`}
                   href={item.href}
                 >
                   {item.label}
