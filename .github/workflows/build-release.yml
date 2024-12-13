@@ -109,7 +109,7 @@ jobs:
           VERSION: ${{ needs.update_version.outputs.new_version }}
         run: |
           $VERSION = $env:VERSION -replace '^v',''
-          (Get-Content package.json) -replace '"version": ".*"', '"version": "' + $VERSION + '"' | Set-Content package.json
+          (Get-Content package.json) -replace '"version": ".*"', "`"version`": `"$VERSION`"" | Set-Content package.json
 
       - name: Build Next.js and Electron projects
         run: task build
